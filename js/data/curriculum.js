@@ -141,14 +141,14 @@ window.CURRICULUM = {
       color: "#0c4a6e",
       officialExamDomain: false,
       lessons: [
-        { id: "pk-01", title: "Adolescent development & learning theory", minutes: 45, level: "foundation" },
-        { id: "pk-02", title: "Student differences, IEPs & differentiation", minutes: 45, level: "core" },
-        { id: "pk-03", title: "Assessment design & data use", minutes: 40, level: "core" },
-        { id: "pk-04", title: "Instructional planning & methods", minutes: 45, level: "core" },
-        { id: "pk-05", title: "Motivation, communication & engagement", minutes: 35, level: "core" },
-        { id: "pk-06", title: "Classroom management & climate", minutes: 40, level: "exam" },
-        { id: "pk-07", title: "Families, collaboration & professional ethics", minutes: 40, level: "exam" },
-        { id: "pk-08", title: "Constructed-response writing patterns", minutes: 50, level: "exam" }
+        { id: "pk-01", title: "Adolescent development & learning theory", minutes: 45, level: "foundation", competencyIds: ["0001", "0002"] },
+        { id: "pk-02", title: "Student differences, IEPs & differentiation", minutes: 45, level: "core", competencyIds: ["0003", "0006"] },
+        { id: "pk-03", title: "Assessment design & data use", minutes: 40, level: "core", competencyIds: ["0004"] },
+        { id: "pk-04", title: "Instructional planning & methods", minutes: 45, level: "core", competencyIds: ["0005", "0006"] },
+        { id: "pk-05", title: "Motivation, communication & engagement", minutes: 35, level: "core", competencyIds: ["0001", "0006"] },
+        { id: "pk-06", title: "Classroom management & climate", minutes: 40, level: "exam", competencyIds: ["0007", "0008"] },
+        { id: "pk-07", title: "Families, collaboration & professional ethics", minutes: 40, level: "exam", competencyIds: ["0009", "0010"] },
+        { id: "pk-08", title: "Constructed-response writing patterns", minutes: 50, level: "exam", competencyIds: ["case study", "work product"] }
       ]
     }
   ],

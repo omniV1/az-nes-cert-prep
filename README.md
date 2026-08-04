@@ -45,7 +45,9 @@ to the vault.
 | Two half-length forms (75q) | Build stamina before full simulations |
 | Two official-length simulations (150q, 5h) | Final booking gates |
 | Domain drills + Hard Gauntlet | Targeted repair |
-| Formula sheet | Speed under time |
+| Embedded official 304/052 profiles and sample items | Required calibration inside every exam lesson |
+| Embedded official framework and formula sheet | Exact free Pearson/NES references used during study |
+| Embedded retired Arizona Field 10 workbook | Additional free supplemental practice |
 | Trap guide | Stop losing cheap points |
 | APK + CR prompts | License exam #2 |
 

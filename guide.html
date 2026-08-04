@@ -69,7 +69,14 @@
     const id = params.get("id");
     const lesson = window.LESSONS ? window.LESSONS[id] : null;
 
-    const flat = CURRICULUM.domains.flatMap(d => d.lessons.map(L => ({ ...L, domainId: d.id, domainTitle: d.title, competencies: d.competencies })));
+    const flat = CURRICULUM.domains.flatMap(d => d.lessons.map(L => ({
+      ...L,
+      domainId: d.id,
+      domainTitle: d.title,
+      competencies: d.competencies,
+      officialExamDomain: !!d.officialExamDomain,
+      requiresOfficialCalibration: !!d.officialExamDomain || d.id === "pedagogy"
+    })));
     const idx = flat.findIndex(L => L.id === id);
     const metaLesson = flat[idx];
     const prev = idx > 0 ? flat[idx - 1] : null;
@@ -215,6 +222,31 @@
       );
     }
 
+    function officialCalibrationHtml() {
+      if (!metaLesson.requiresOfficialCalibration) return "";
+      const isMath = metaLesson.officialExamDomain;
+      const resourceUrl = isMath
+        ? "https://www.aepa.nesinc.com/Content/Docs/NES_Profile_304.pdf"
+        : "https://www.aepa.nesinc.com/Content/Docs/NES_Profile_052.pdf";
+      const resourceTitle = isMath
+        ? "Official NES Mathematics (304) profile and sample items"
+        : "Official APK Secondary (052) profile, samples, and written assignments";
+      const competencyText = (metaLesson.competencyIds || []).join(", ") || metaLesson.competencies;
+      const checked = !!Progress.load().officialResources?.[`lesson:${id}`];
+      return `
+        <section class="official-calibration" id="official-calibration">
+          <div class="eyebrow">Required official calibration</div>
+          <h3>${resourceTitle}</h3>
+          <p>Use the embedded Pearson/NES material below. Find competency <strong>${competencyText}</strong>, solve its official sample item without revealing the answer, explain why each distractor is wrong, and then compare your reasoning with the official explanation.</p>
+          <iframe class="official-embed" src="${resourceUrl}" title="${resourceTitle}" loading="lazy"></iframe>
+          <p class="muted">If your browser blocks the embedded official page, <a href="${resourceUrl}" target="_blank" rel="noopener">open the same official material in a new tab</a>, then return here.</p>
+          <label class="official-confirm">
+            <input type="checkbox" id="official-calibration-check" ${checked ? "checked" : ""} />
+            <span>I completed the official sample-item calibration for this lesson and explained my reasoning before reading the answer.</span>
+          </label>
+        </section>`;
+    }
+
     function renderLesson() {
       const container = document.getElementById("content");
       const frontier = farthestUnlocked();
@@ -245,13 +277,27 @@
             checksHtml +
           "</div>"
         );
-      }).join("");
+      }).join("") + officialCalibrationHtml();
 
       document.querySelectorAll(".qc-submit").forEach(btn => {
         if (btn.dataset.stage !== "done") {
           btn.addEventListener("click", () => onCheckSubmit(btn));
         }
       });
+
+      const officialCheck = document.getElementById("official-calibration-check");
+      if (officialCheck) {
+        officialCheck.addEventListener("change", () => {
+          Progress.setOfficialResource(`lesson:${id}`, officialCheck.checked);
+          const mastery = ProgressEngine.lessonMasteryStatus(id);
+          if (mastery.mastered) {
+            const at = new Date().toISOString();
+            Progress.setLessonMastery(id, { masteredAt: at, source: "checks-and-official" });
+          }
+          const mark = document.getElementById("mark");
+          if (mark) mark.textContent = mastery.mastered ? "Mastered" : "Mark lesson mastered";
+        });
+      }
 
       // Restore score from saved progress
       score.correct = savedProgress.correct || 0;

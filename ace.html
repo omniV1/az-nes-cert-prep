@@ -102,9 +102,12 @@
     const domainRows = mathDomains.map(d => ({ id: d, ...domainStats(d), title: CURRICULUM.domains.find(x => x.id === d).title }));
     const allDomainsHot = domainRows.every(d => d.attempted >= 10 && d.pct >= 85);
     const officialDomains = CURRICULUM.domains.filter(d => d.officialExamDomain);
+    const officialLessons = officialDomains.flatMap(d => d.lessons);
     const lessonsMath = officialDomains.reduce((n, d) => n + d.lessons.length, 0);
     const lessonsDoneMath = officialDomains.reduce((n, d) => n + d.lessons.filter(L => ProgressEngine.lessonMasteryStatus(L.id, state).mastered).length, 0);
     const lessonsGate = lessonsDoneMath === lessonsMath;
+    const officialCalibrationsDone = officialLessons.filter(L => state.officialResources?.[`lesson:${L.id}`]).length;
+    const officialMaterialsGate = officialCalibrationsDone === officialLessons.length;
     const foundationLessons = CURRICULUM.domains.find(d => d.id === "foundation")?.lessons || [];
     const foundationGate = foundationLessons.every(L => ProgressEngine.lessonMasteryStatus(L.id, state).mastered);
     const hardPool = PROBLEMS.filter(p => p.domain !== "pedagogy" && p.difficulty === "hard");
@@ -114,7 +117,7 @@
     const formulaGate = !!state.reviewFlags?.formulasReviewedAt;
     const trapsGate = !!state.reviewFlags?.trapsReviewedAt;
 
-    const ready = gateA && gateB && allDomainsHot && lessonsGate && foundationGate &&
+    const ready = gateA && gateB && allDomainsHot && lessonsGate && officialMaterialsGate && foundationGate &&
       reviewsGate && hardGate && formulaGate && trapsGate;
 
     document.getElementById("verdict").innerHTML = ready
@@ -144,6 +147,7 @@
 
     const checks = [
       { ok: lessonsGate, text: `Master every official math lesson (${lessonsDoneMath}/${lessonsMath})` },
+      { ok: officialMaterialsGate, text: `Complete embedded official sample-item calibrations (${officialCalibrationsDone}/${officialLessons.length})` },
       { ok: foundationGate, text: "Master or place out of every Foundation Bootcamp prerequisite" },
       { ok: allDomainsHot, text: "Hit ≥85% accuracy with ≥10 attempts in every math domain" },
       { ok: gateA, text: "Official-length 150-question Simulation A ≥ 85%" },

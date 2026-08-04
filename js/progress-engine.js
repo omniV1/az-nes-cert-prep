@@ -4,7 +4,13 @@ window.ProgressEngine = (() => {
 
   function allLessons() {
     return (window.CURRICULUM?.domains || []).flatMap(domain =>
-      domain.lessons.map(lesson => ({ ...lesson, domainId: domain.id, domainTitle: domain.title }))
+      domain.lessons.map(lesson => ({
+        ...lesson,
+        domainId: domain.id,
+        domainTitle: domain.title,
+        officialExamDomain: !!domain.officialExamDomain,
+        requiresOfficialCalibration: !!domain.officialExamDomain || domain.id === "pedagogy"
+      }))
     );
   }
 
@@ -12,13 +18,13 @@ window.ProgressEngine = (() => {
     return allLessons().find(lesson => lesson.id === id);
   }
 
-  function lessonCheckTotals(lessonId) {
+  function lessonCheckTotals(lessonId, stateArg) {
     const lesson = window.LESSONS?.[lessonId];
     if (!lesson?.sections) return { total: 0, correct: 0 };
     const total = lesson.sections.reduce((sum, section) =>
       sum + (section.checks || (section.check ? [section.check] : [])).length, 0
     );
-    const saved = window.Progress.load().lessonProgress?.[lessonId];
+    const saved = (stateArg || window.Progress.load()).lessonProgress?.[lessonId];
     return { total, correct: saved?.correct || 0, attempted: saved?.total || 0 };
   }
 
@@ -34,18 +40,20 @@ window.ProgressEngine = (() => {
     const state = stateArg || window.Progress.load();
     const lesson = lessonById(lessonId);
     if (!lesson) return { mastered: false, reason: "Unknown lesson" };
+    const officialComplete = !lesson.requiresOfficialCalibration ||
+      !!state.officialResources?.[`lesson:${lessonId}`];
 
-    if (state.lessonsDone?.[lessonId] || state.lessonMastery?.[lessonId]?.masteredAt) {
+    if ((state.lessonsDone?.[lessonId] || state.lessonMastery?.[lessonId]?.masteredAt) && officialComplete) {
       return { mastered: true, source: "completed" };
     }
     if (placementWaivesLesson(lesson, state)) {
       return { mastered: true, source: "placement" };
     }
 
-    const checks = lessonCheckTotals(lessonId);
+    const checks = lessonCheckTotals(lessonId, state);
     const accuracy = checks.attempted ? checks.correct / checks.attempted : 0;
     const allAttempted = checks.total > 0 && checks.attempted >= checks.total;
-    const mastered = allAttempted && accuracy >= 0.8;
+    const mastered = allAttempted && accuracy >= 0.8 && officialComplete;
     return {
       mastered,
       source: mastered ? "checks" : null,
@@ -53,9 +61,12 @@ window.ProgressEngine = (() => {
       checksAttempted: checks.attempted,
       checksCorrect: checks.correct,
       accuracy,
+      officialComplete,
       reason: !allAttempted
         ? `Complete all ${checks.total} quick checks`
-        : `Reach at least 80% check accuracy (currently ${Math.round(accuracy * 100)}%)`
+        : accuracy < 0.8
+          ? `Reach at least 80% check accuracy (currently ${Math.round(accuracy * 100)}%)`
+          : "Complete the embedded official sample-item calibration"
     };
   }
 

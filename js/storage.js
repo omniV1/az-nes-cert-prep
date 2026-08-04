@@ -28,6 +28,7 @@ window.Progress = (() => {
         formulasReviewedAt: null,
         trapsReviewedAt: null
       },
+      officialResources: {},
       gates: {
         strictPrereqs: true,
         placementComplete: false,
@@ -69,6 +70,7 @@ window.Progress = (() => {
       formulasReviewedAt: localStorage.getItem("az-nes-formulas-reviewed") || null,
       trapsReviewedAt: localStorage.getItem("az-nes-traps-reviewed") || null
     }, s.reviewFlags || {});
+    s.officialResources = s.officialResources || {};
     s.gates = Object.assign({
       strictPrereqs: true,
       placementComplete: false,
@@ -257,6 +259,17 @@ window.Progress = (() => {
     return s.reviewFlags;
   }
 
+  function setOfficialResource(resourceId, completed) {
+    const s = load();
+    if (completed) {
+      s.officialResources[resourceId] = new Date().toISOString();
+    } else {
+      delete s.officialResources[resourceId];
+    }
+    save(s);
+    return s.officialResources;
+  }
+
   function bypassLesson(lessonId) {
     const s = load();
     s.gates.bypassLessons[lessonId] = new Date().toISOString();
@@ -326,7 +339,7 @@ window.Progress = (() => {
     load, save, markLesson, recordProblem, recordLessonCheck, saveLessonCheck,
     getLessonProgress, clearLessonProgress, setLessonMastery,
     recordSkillAttempt, scheduleReview, getDueReviews, savePlacement,
-    setGate, setReviewFlag, bypassLesson, recordExam, stats, reset, defaultState,
+    setGate, setReviewFlag, setOfficialResource, bypassLesson, recordExam, stats, reset, defaultState,
     migrateState, exportData, importData
   };
 })();
