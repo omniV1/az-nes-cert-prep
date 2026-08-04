@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AZ NES Math Cert Prep — Phoenix Secondary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">AZ NES <span>Math Prep</span></a>
+      <a class="active" href="index.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a href="practice.html">Practice</a>
+      <a href="exam.html">Exams</a>
+      <a href="ace.html">Ace</a>
+      <a href="notes.html">Notes</a>
+      <a href="formulas.html">Formulas</a>
+      <a href="traps.html">Traps</a>
+      <a href="plan.html">Mastery Plan</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Phoenix · Secondary 6–12 · Mathematics</div>
+        <h1>Ace the NES Mathematics exam.</h1>
+        <p>
+          Subject knowledge is the priority. This system now builds prerequisites before exam shortcuts, then targets a repeatable
+          <strong>≥85%</strong> on official-style timed mocks. The official NT304 format is approximately 150 questions in 5 hours.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="ace.html">Open Ace tracker</a>
+          <a class="btn btn-secondary" href="exam.html?exam=math-placement-short">Foundation placement</a>
+          <a class="btn btn-ghost" href="practice.html">Problem bank</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="stat-row" id="stats"></section>
+
+    <section class="grid grid-2" style="margin-top:1.25rem">
+      <article class="card">
+        <h2>Your Arizona exams</h2>
+        <p class="muted">Secondary Mathematics certification typically requires both:</p>
+        <ul>
+          <li><strong>NES Mathematics</strong> — subject knowledge for grades 6–12 (all math courses).</li>
+          <li><strong>NES Assessment of Professional Knowledge: Secondary (052)</strong> — pedagogy + 2 written tasks.</li>
+        </ul>
+        <p class="muted" style="margin-bottom:0">
+          Register via <a href="https://www.aepa.nesinc.com/" target="_blank" rel="noopener">aepa.nesinc.com</a>.
+          Passing scaled score is generally <strong>220</strong>. Confirm current requirements with ADE for your pathway.
+        </p>
+      </article>
+      <article class="card">
+        <h2>How this mirrors elite prep</h2>
+        <ul>
+          <li><strong>Khan-style path:</strong> sequenced lessons from foundations → exam depth.</li>
+          <li><strong>NeetCode-style bank:</strong> tagged problems, Easy/Medium/Hard, instant explain.</li>
+          <li><strong>HackerRank-style exams:</strong> timed, scored, domain breakdown after submit.</li>
+        </ul>
+        <p class="muted" style="margin-bottom:0">Progress saves in this browser (localStorage). No account needed.</p>
+      </article>
+    </section>
+
+    <section style="margin-top:1.5rem">
+      <h2 style="font-family:var(--font-display);letter-spacing:-0.02em">Content domains</h2>
+      <p class="muted">Aligned to the official NES Mathematics framework — middle school through high school.</p>
+      <div class="domain-list" id="domains"></div>
+    </section>
+
+    <section class="card" style="margin-top:1.5rem">
+      <h2>Today’s recommended move</h2>
+      <p id="recommend" class="muted"></p>
+      <div class="cta-row" id="recommend-ctas"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Unofficial study tool for personal prep. Not affiliated with Pearson, NES, AEPA, or the Arizona Department of Education.
+    Always verify exam codes and policies on official sites.
+  </footer>
+
+  <script src="js/data/curriculum.js"></script>
+  <script src="js/data/skills.js"></script>
+  <script src="js/data/problems.js"></script>
+  <script src="js/data/problems-extra.js"></script>
+  <script src="js/data/problems-foundations.js"></script>
+  <script src="js/data/problems-mastery.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/progress-engine.js"></script>
+  <script src="js/vault-sync.js"></script>
+  <script>
+    const st = Progress.stats();
+    const dueReviews = Progress.getDueReviews().length;
+    document.getElementById("stats").innerHTML = `
+      <div class="stat"><div class="label">Lessons done</div><div class="value">${st.lessons}/${st.totalLessons}</div></div>
+      <div class="stat"><div class="label">Problems solved</div><div class="value">${st.solved}/${st.totalProblems}</div></div>
+      <div class="stat"><div class="label">Reviews due</div><div class="value">${dueReviews}</div></div>
+      <div class="stat"><div class="label">Best math %</div><div class="value">${st.bestMath ? st.bestMath + "%" : "—"}</div></div>
+    `;
+
+    document.getElementById("domains").innerHTML = CURRICULUM.domains.map(d => `
+      <a class="domain-item" href="learn.html#${d.id}">
+        <div class="domain-num">${d.num}</div>
+        <div>
+          <strong>${d.title}</strong>
+          <div class="muted" style="font-size:0.9rem">${d.blurb}</div>
+          <div class="tag-row">
+            <span class="chip">${d.weight}</span>
+            <span class="chip">${d.competencies}</span>
+            <span class="chip">${d.lessons.length} lessons</span>
+          </div>
+        </div>
+        <div class="muted">→</div>
+      </a>
+    `).join("");
+
+    const nextMove = ProgressEngine.recommendedNext(st.state);
+
+    const rec = document.getElementById("recommend");
+    const ctas = document.getElementById("recommend-ctas");
+    if (nextMove.type === "review") {
+      rec.textContent = `Spaced review is due: ${nextMove.title}. Reviewing now protects long-term memory.`;
+      ctas.innerHTML = `<a class="btn btn-accent" href="review.html">Start due review</a>`;
+    } else if (nextMove.lessonId) {
+      const lesson = ProgressEngine.lessonById(nextMove.lessonId);
+      rec.textContent = `Next mastery step: “${nextMove.title}” (~${lesson?.minutes || 45} min). Prerequisites are satisfied.`;
+      ctas.innerHTML = `<a class="btn btn-accent" href="guide.html?id=${nextMove.lessonId}">Open next lesson</a>
+        ${lesson?.domainId === "foundation" ? "" : `<a class="btn btn-secondary" href="practice.html?domain=${lesson?.domainId}">Practice this domain</a>`}`;
+    } else {
+      rec.textContent = nextMove.type === "maintenance"
+        ? "All mastery gates are clear. Maintain recall with mixed practice and due reviews."
+        : `All math lessons are mastered. Next exam gate: ${nextMove.title}.`;
+      ctas.innerHTML = nextMove.examId
+        ? `<a class="btn btn-accent" href="exam.html?exam=${nextMove.examId}">${nextMove.title}</a>`
+        : `<a class="btn btn-accent" href="practice.html">Mixed maintenance practice</a>`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Obsidian Notes — AZ NES Math Prep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">AZ NES <span>Math Prep</span></a>
+      <a href="index.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a href="practice.html">Practice</a>
+      <a href="exam.html">Exams</a>
+      <a href="ace.html">Ace</a>
+      <a class="active" href="notes.html">Notes</a>
+      <a href="formulas.html">Formulas</a>
+      <a href="traps.html">Traps</a>
+      <a href="plan.html">Plan</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="eyebrow">Obsidian vault · G:\Therapy\educator exams</div>
+    <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Lesson notes + exam sheets</h1>
+    <p class="muted">
+      Every lesson has a markdown note in your Obsidian folder. Take notes there while you study here.
+      Keep the <strong>Exam Formula Sheet</strong> open in a split pane during mocks — same idea as the NES on-screen formulas.
+    </p>
+
+    <section class="grid grid-2" style="margin-top:1rem">
+      <article class="card">
+        <h2>Vault map</h2>
+        <ul>
+          <li><code>00 Home - NES Math Ace.md</code> — dashboard / MOC</li>
+          <li><code>01 Exam Formula Sheet.md</code> — algo sheet</li>
+          <li><code>02 Formula Recall Drill.md</code> — closed-book</li>
+          <li><code>04 Ace Checklist.md</code> — booking gates</li>
+          <li><code>Lessons/</code> — one note per lesson plan</li>
+          <li><code>Tests/</code> — mock log + session template</li>
+          <li><code>Practice App/</code> — this site, inside the vault</li>
+        </ul>
+        <p class="muted" style="margin-bottom:0">In Obsidian: open vault <strong>Therapy</strong>, go to folder <strong>educator exams</strong>, start at <strong>00 Home</strong>.</p>
+      </article>
+      <article class="card">
+        <h2>Workflow</h2>
+        <ol>
+          <li>Open the lesson note in Obsidian.</li>
+          <li>Open the matching guide below (or from Learn).</li>
+          <li>Write in <em>My notes</em> as if you’ll teach it tomorrow.</li>
+          <li>Drill problems → log scores in <code>Tests/Test Log.md</code>.</li>
+          <li>Before mocks: formula sheet split-pane; after week 6 prefer recall drill.</li>
+        </ol>
+        <div class="cta-row">
+          <a class="btn btn-accent" href="formulas.html">HTML formula sheet</a>
+          <a class="btn btn-secondary" href="exam.html">Take a timed test</a>
+          <a class="btn btn-ghost" href="ace.html">Ace tracker</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="card" style="margin-top:1.25rem">
+      <div class="eyebrow">Durable progress backup</div>
+      <h2>Save progress inside Obsidian</h2>
+      <p class="muted">Connect the vault once and the app will maintain <code>Progress/az-nes-progress.json</code> after lesson checks, practice attempts, and exams. When prompted, select <code>G:\Therapy\educator exams</code>.</p>
+      <p id="vault-status"><span class="chip">Checking connection…</span></p>
+      <div class="cta-row">
+        <button class="btn btn-accent" id="vault-connect">Connect Obsidian vault</button>
+        <button class="btn btn-secondary" id="vault-save">Save progress now</button>
+        <button class="btn btn-ghost" id="vault-disconnect">Disconnect</button>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:1.25rem">
+      <h2>Scratch pad → download for Obsidian</h2>
+      <p class="muted">Quick capture here, then drop the file into today’s lesson folder.</p>
+      <div class="field">
+        <label for="lessonPick">Attach to lesson</label>
+        <select id="lessonPick"></select>
+      </div>
+      <div class="field">
+        <label for="scratch">Notes</label>
+        <textarea id="scratch" rows="10" placeholder="Write freely…"></textarea>
+      </div>
+      <div class="cta-row">
+        <button class="btn btn-primary" id="dl">Download .md for Obsidian</button>
+        <button class="btn btn-ghost" id="copy">Copy to clipboard</button>
+      </div>
+    </section>
+
+    <section style="margin-top:1.25rem">
+      <h2 style="font-family:var(--font-display)">All lesson notes</h2>
+      <p class="muted">Path pattern: <code>G:\Therapy\educator exams\Lessons\…</code></p>
+      <div id="list" class="grid" style="gap:0.75rem"></div>
+    </section>
+  </main>
+
+  <script src="js/data/curriculum.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/vault-sync.js"></script>
+  <script>
+    const folderMap = {
+      foundation: "00 Foundation Bootcamp",
+      number: "01 Number Sense",
+      algebra: "02 Algebra",
+      geometry: "03 Geometry",
+      trigcalc: "04 Trig and Calculus",
+      stats: "05 Stats Probability Discrete",
+      pedagogy: "06 Pedagogy APK"
+    };
+
+    const pick = document.getElementById("lessonPick");
+    const all = [];
+    CURRICULUM.domains.forEach(d => {
+      d.lessons.forEach(L => {
+        const folder = folderMap[d.id];
+        const file = `${L.id} ${L.title.replace(/[:]/g, "").replace(/\//g, "-")}.md`;
+        // Match generated filenames more loosely by id prefix in vault
+        const path = `G:\\Therapy\\educator exams\\Lessons\\${folder}\\${L.id}*.md`;
+        all.push({ d, L, folder, path });
+        const opt = document.createElement("option");
+        opt.value = L.id;
+        opt.textContent = `${d.num} · ${L.title}`;
+        pick.appendChild(opt);
+      });
+    });
+
+    const vaultStatus = document.getElementById("vault-status");
+    const connectButton = document.getElementById("vault-connect");
+
+    function showVaultStatus(status, message) {
+      if (!status.supported) {
+        vaultStatus.innerHTML = '<span class="chip hard">Direct folder sync is unavailable in this browser</span>';
+        connectButton.disabled = true;
+        return;
+      }
+      if (status.connected) {
+        vaultStatus.innerHTML = `<span class="chip done">Connected: ${status.handleName}</span> ${message || "Autosave is active."}`;
+        connectButton.textContent = "Reconnect vault";
+      } else {
+        vaultStatus.innerHTML = `<span class="chip medium">${status.needsPermission ? "Permission required" : "Not connected"}</span> ${message || "Browser progress is still saved locally."}`;
+        connectButton.textContent = status.needsPermission ? "Restore vault permission" : "Connect Obsidian vault";
+      }
+    }
+
+    async function refreshVaultStatus(message) {
+      showVaultStatus(await VaultProgress.status(), message);
+    }
+
+    connectButton.onclick = async () => {
+      try {
+        const current = await VaultProgress.status();
+        const result = current.needsPermission
+          ? await VaultProgress.syncNow({ requestPermission: true })
+          : await VaultProgress.connect();
+        await refreshVaultStatus(`Saved current progress to Progress/az-nes-progress.json at ${new Date(result.savedAt || Date.now()).toLocaleTimeString()}.`);
+      } catch (error) {
+        if (error?.name !== "AbortError") alert("Could not connect the vault: " + error.message);
+        await refreshVaultStatus();
+      }
+    };
+
+    document.getElementById("vault-save").onclick = async () => {
+      try {
+        const result = await VaultProgress.syncNow({ requestPermission: true });
+        if (!result.connected) throw new Error("Connect the Obsidian vault first.");
+        await refreshVaultStatus(`Progress saved now (${new Date().toLocaleTimeString()}).`);
+      } catch (error) {
+        alert(error.message);
+      }
+    };
+
+    document.getElementById("vault-disconnect").onclick = async () => {
+      await VaultProgress.disconnect();
+      await refreshVaultStatus("The JSON backup remains in Obsidian; automatic updates are paused.");
+    };
+
+    window.addEventListener("az-nes-vault-synced", () => refreshVaultStatus("Autosaved just now."));
+    refreshVaultStatus();
+
+    document.getElementById("list").innerHTML = CURRICULUM.domains.map(d => `
+      <article class="card">
+        <h3 style="margin-top:0">${d.num}. ${d.title}</h3>
+        <ul>${d.lessons.map(L => `
+          <li>
+            <a href="guide.html?id=${L.id}">${L.id} — ${L.title}</a>
+            <div class="muted" style="font-size:0.82rem">Obsidian: Lessons\\${folderMap[d.id]}\\${L.id} …</div>
+          </li>`).join("")}</ul>
+      </article>`).join("");
+
+    function payload() {
+      const id = pick.value;
+      const hit = all.find(x => x.L.id === id);
+      const body = document.getElementById("scratch").value.trim();
+      return `---\ntags: [nes, capture]\nlesson_id: ${id}\n---\n\n# Capture — ${hit.L.title}\n\nSource lesson: ${id}\nDate: ${new Date().toISOString().slice(0,10)}\n\n${body}\n\n← Paste into the matching lesson note under My notes.\n`;
+    }
+
+    document.getElementById("dl").onclick = () => {
+      const id = pick.value;
+      const blob = new Blob([payload()], { type: "text/markdown" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `${id}-capture.md`;
+      a.click();
+    };
+    document.getElementById("copy").onclick = async () => {
+      await navigator.clipboard.writeText(payload());
+      alert("Copied — paste into the Obsidian lesson note.");
+    };
+  </script>
+</body>
+</html>

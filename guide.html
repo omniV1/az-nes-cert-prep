@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guide - AZ NES Math Prep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">AZ NES <span>Math Prep</span></a>
+      <a href="index.html">Dashboard</a>
+      <a class="active" href="learn.html">Learn</a>
+      <a href="practice.html">Practice</a>
+      <a href="exam.html">Exams</a>
+      <a href="ace.html">Ace</a>
+      <a href="notes.html">Notes</a>
+      <a href="formulas.html">Formulas</a>
+      <a href="traps.html">Traps</a>
+      <a href="plan.html">Mastery Plan</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <p class="muted"><a href="learn.html">&larr; Learning path</a></p>
+    <div id="meta"></div>
+
+    <div class="lesson-toolbar">
+      <span class="chip score-pill" id="score-pill">Checks: 0/0</span>
+      <span class="muted" id="progress-hint" style="font-size:0.85rem"></span>
+      <button class="btn btn-ghost" id="unlock-all">Unlock all (review)</button>
+      <button class="btn btn-ghost" id="reset-checks" title="Clear saved answers for this lesson only">Reset this lesson</button>
+    </div>
+
+    <article class="card lesson-content" id="content" style="margin-top:0.25rem"></article>
+
+    <div class="lesson-complete-banner hidden" id="complete-banner">
+      <strong>All quick checks done for this lesson.</strong>
+      <p class="muted" style="margin:0.35rem 0 0">Saved score: <span id="final-score"></span>. Drill matching problems, then mark the lesson complete. Progress is saved on this device.</p>
+    </div>
+
+    <div class="cta-row" style="margin-top:1rem" id="actions"></div>
+    <p class="muted" id="obsidian-hint"></p>
+    <section class="card" style="margin-top:1rem" id="related"></section>
+  </main>
+
+  <script src="js/data/curriculum.js"></script>
+  <script src="js/data/skills.js"></script>
+  <script src="js/data/lessons-foundations.js"></script>
+  <script src="js/data/lessons-number.js"></script>
+  <script src="js/data/lessons-algebra.js"></script>
+  <script src="js/data/lessons-geometry.js"></script>
+  <script src="js/data/lessons-trigcalc.js"></script>
+  <script src="js/data/lessons-stats.js"></script>
+  <script src="js/data/lessons-pedagogy.js"></script>
+  <script src="js/data/problems.js"></script>
+  <script src="js/data/problems-extra.js"></script>
+  <script src="js/data/problems-foundations.js"></script>
+  <script src="js/data/problems-mastery.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/progress-engine.js"></script>
+  <script src="js/vault-sync.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const id = params.get("id");
+    const lesson = window.LESSONS ? window.LESSONS[id] : null;
+
+    const flat = CURRICULUM.domains.flatMap(d => d.lessons.map(L => ({ ...L, domainId: d.id, domainTitle: d.title, competencies: d.competencies })));
+    const idx = flat.findIndex(L => L.id === id);
+    const metaLesson = flat[idx];
+    const prev = idx > 0 ? flat[idx - 1] : null;
+    const next = idx >= 0 && idx < flat.length - 1 ? flat[idx + 1] : null;
+
+    const score = { correct: 0, total: 0 };
+    let savedProgress = Progress.getLessonProgress(id);
+
+    function updateScorePill() {
+      document.getElementById("score-pill").textContent = "Checks: " + score.correct + "/" + score.total;
+      const hint = document.getElementById("progress-hint");
+      if (score.total > 0) {
+        hint.textContent = "Progress saved on this device";
+      } else {
+        hint.textContent = "";
+      }
+    }
+
+    function normalizeChecks(sec) {
+      return sec.checks || (sec.check ? [sec.check] : []);
+    }
+
+    function checkKey(secIdx, checkIdx) {
+      return secIdx + "-" + checkIdx;
+    }
+
+    function checkSignature(check) {
+      const text = [check.prompt, ...(check.choices || [])].join("|");
+      let hash = 2166136261;
+      for (const ch of text) {
+        hash ^= ch.charCodeAt(0);
+        hash = Math.imul(hash, 16777619);
+      }
+      return (hash >>> 0).toString(36);
+    }
+
+    function savedCheck(secIdx, checkIdx) {
+      const saved = savedProgress.checks?.[checkKey(secIdx, checkIdx)];
+      const check = normalizeChecks(lesson.sections[secIdx])[checkIdx];
+      return saved?.signature === checkSignature(check) ? saved : null;
+    }
+
+    function shuffledIndexes(length, key) {
+      const hash = value => {
+        let h = 2166136261;
+        for (const ch of value) {
+          h ^= ch.charCodeAt(0);
+          h = Math.imul(h, 16777619);
+        }
+        return h >>> 0;
+      };
+      return Array.from({ length }, (_, i) => i)
+        .sort((a, b) => hash(key + ":" + a) - hash(key + ":" + b));
+    }
+
+    function isCheckDone(secIdx, checkIdx) {
+      const saved = savedCheck(secIdx, checkIdx);
+      return !!saved?.correct;
+    }
+
+    function farthestUnlocked() {
+      // Returns { sec, check } of the first incomplete check, or null if all done
+      for (let s = 0; s < lesson.sections.length; s++) {
+        const checks = normalizeChecks(lesson.sections[s]);
+        for (let c = 0; c < checks.length; c++) {
+          if (!isCheckDone(s, c)) return { sec: s, check: c };
+        }
+      }
+      return null;
+    }
+
+    function renderCheck(check, secIdx, checkIdx, total) {
+      const name = "qc-" + secIdx + "-" + checkIdx;
+      const done = isCheckDone(secIdx, checkIdx);
+      const saved = savedCheck(secIdx, checkIdx);
+      const order = shuffledIndexes(check.choices.length, id + ":" + secIdx + ":" + checkIdx);
+      const choicesHtml = order.map(ci => {
+        const c = check.choices[ci];
+        let cls = "choice qc-choice";
+        let checked = "";
+        if (done && saved) {
+          if (ci === check.answer) cls += " correct";
+          else if (ci === saved.chosen && !saved.correct) cls += " incorrect";
+          if (ci === saved.chosen) {
+            cls += " selected";
+            checked = " checked";
+          }
+        }
+        return (
+          '<label class="' + cls + '" data-ci="' + ci + '">' +
+            '<input type="radio" name="' + name + '" value="' + ci + '"' + checked + (done ? " disabled" : "") + " />" +
+            "<span>" + c + "</span>" +
+          "</label>"
+        );
+      }).join("");
+
+      const label = total > 1
+        ? ("Quick check <span class=\"qc-count\">(" + (checkIdx + 1) + " of " + total + ")</span>")
+        : "Quick check";
+
+      let buttonHtml;
+      let feedbackHtml = "";
+      if (done) {
+        buttonHtml = '<button class="btn btn-primary qc-submit" data-sec="' + secIdx + '" data-check="' + checkIdx + '" data-stage="done" disabled>' +
+          (saved.correct ? "Correct (saved)" : "Reviewed (saved)") +
+          "</button>";
+        feedbackHtml =
+          '<div class="qc-feedback" style="display:block">' +
+            (saved.correct
+              ? '<strong style="color:var(--easy)">Correct.</strong> '
+              : '<strong style="color:var(--hard)">Not quite - here is why:</strong> ') +
+            check.explain +
+          "</div>";
+      } else if (saved && !saved.correct) {
+        buttonHtml = '<button class="btn btn-secondary qc-submit" data-sec="' + secIdx + '" data-check="' + checkIdx + '" data-stage="check">Try again</button>';
+        feedbackHtml =
+          '<div class="qc-feedback" style="display:block">' +
+            '<strong style="color:var(--hard)">Previous attempt missed.</strong> Read the explanation, then choose again. ' +
+            check.explain +
+          "</div>";
+      } else {
+        buttonHtml = '<button class="btn btn-primary qc-submit" data-sec="' + secIdx + '" data-check="' + checkIdx + '" data-stage="check">Check answer</button>';
+        feedbackHtml = '<div class="qc-feedback" style="display:none"></div>';
+      }
+
+      // Lock only if this check is not yet reachable
+      const frontier = farthestUnlocked();
+      let lockedClass = "";
+      if (!done && frontier) {
+        if (secIdx > frontier.sec || (secIdx === frontier.sec && checkIdx > frontier.check)) {
+          lockedClass = "qc-locked";
+        }
+      }
+
+      return (
+        '<div class="quick-check ' + lockedClass + '" id="qc-' + secIdx + "-" + checkIdx + '">' +
+          '<div class="qc-label">' + label + (done ? " - done" : " - answer to continue") + "</div>" +
+          '<p class="qc-prompt">' + check.prompt + "</p>" +
+          '<div class="choices">' + choicesHtml + "</div>" +
+          '<div class="cta-row">' + buttonHtml + "</div>" +
+          feedbackHtml +
+        "</div>"
+      );
+    }
+
+    function renderLesson() {
+      const container = document.getElementById("content");
+      const frontier = farthestUnlocked();
+
+      container.innerHTML = (lesson.intro || "") + lesson.sections.map((sec, i) => {
+        const checks = normalizeChecks(sec);
+        const checksHtml = checks.map((c, ci) => renderCheck(c, i, ci, checks.length)).join("");
+
+        // Unlock section if first section, or all prior section checks done
+        let unlocked = (i === 0);
+        if (!unlocked) {
+          let priorDone = true;
+          for (let ps = 0; ps < i; ps++) {
+            const pcs = normalizeChecks(lesson.sections[ps]);
+            for (let pc = 0; pc < pcs.length; pc++) {
+              if (!isCheckDone(ps, pc)) { priorDone = false; break; }
+            }
+            if (!priorDone) break;
+          }
+          unlocked = priorDone;
+        }
+
+        const lockBadge = unlocked ? "" : '<span class="lock-badge">locked</span>';
+        return (
+          '<div class="lesson-section ' + (unlocked ? "" : "locked") + '" id="sec-' + i + '">' +
+            "<h3><span class=\"sec-num\">" + (i + 1) + "</span> " + sec.heading + " " + lockBadge + "</h3>" +
+            '<div class="section-body">' + sec.body + "</div>" +
+            checksHtml +
+          "</div>"
+        );
+      }).join("");
+
+      document.querySelectorAll(".qc-submit").forEach(btn => {
+        if (btn.dataset.stage !== "done") {
+          btn.addEventListener("click", () => onCheckSubmit(btn));
+        }
+      });
+
+      // Restore score from saved progress
+      score.correct = savedProgress.correct || 0;
+      score.total = savedProgress.total || 0;
+      updateScorePill();
+
+      if (!frontier) {
+        document.getElementById("final-score").textContent = score.correct + "/" + score.total;
+        document.getElementById("complete-banner").classList.remove("hidden");
+      } else {
+        document.getElementById("complete-banner").classList.add("hidden");
+        // Jump to where they left off
+        const resumeEl = document.getElementById("qc-" + frontier.sec + "-" + frontier.check);
+        if (resumeEl && score.total > 0) {
+          setTimeout(() => resumeEl.scrollIntoView({ behavior: "smooth", block: "center" }), 120);
+        }
+      }
+    }
+
+    function unlockNextCheck(secIdx, checkIdx, scroll) {
+      const nextCheck = document.getElementById("qc-" + secIdx + "-" + (checkIdx + 1));
+      if (nextCheck) {
+        nextCheck.classList.remove("qc-locked");
+        if (scroll !== false) {
+          setTimeout(() => nextCheck.scrollIntoView({ behavior: "smooth", block: "center" }), 80);
+        }
+        return;
+      }
+      const nextSection = document.getElementById("sec-" + (secIdx + 1));
+      if (nextSection) {
+        nextSection.classList.remove("locked");
+        nextSection.classList.add("unlocking");
+        const badge = nextSection.querySelector(".lock-badge");
+        if (badge) badge.remove();
+        // Unlock first check of next section
+        const firstQc = document.getElementById("qc-" + (secIdx + 1) + "-0");
+        if (firstQc) firstQc.classList.remove("qc-locked");
+        if (scroll !== false) {
+          setTimeout(() => nextSection.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
+        }
+      } else {
+        document.getElementById("final-score").textContent = score.correct + "/" + score.total;
+        document.getElementById("complete-banner").classList.remove("hidden");
+        const mastery = ProgressEngine.lessonMasteryStatus(id);
+        if (mastery.mastered) {
+          const at = new Date().toISOString();
+          Progress.setLessonMastery(id, { masteredAt: at, source: "checks" });
+          const mark = document.getElementById("mark");
+          if (mark) mark.textContent = "Mastered";
+        }
+      }
+    }
+
+    function onCheckSubmit(btn) {
+      const secIdx = Number(btn.dataset.sec);
+      const checkIdx = Number(btn.dataset.check);
+      const checkEl = document.getElementById("qc-" + secIdx + "-" + checkIdx);
+      const name = "qc-" + secIdx + "-" + checkIdx;
+
+      if (btn.dataset.stage === "continue") {
+        unlockNextCheck(secIdx, checkIdx);
+        return;
+      }
+
+      const selected = checkEl.querySelector('input[name="' + name + '"]:checked');
+      if (!selected) {
+        checkEl.style.outline = "2px solid var(--hard)";
+        return;
+      }
+      const ci = Number(selected.value);
+      const check = normalizeChecks(lesson.sections[secIdx])[checkIdx];
+      const correct = ci === check.answer;
+      const lessonSkills = metaLesson.skills || [];
+      const heading = (lesson.sections[secIdx].heading || "").toLowerCase();
+      const scoredSkills = lessonSkills.map(skillId => {
+        const skill = SKILLS[skillId] || {};
+        const terms = [skill.title, ...(skill.tags || [])]
+          .join(" ").toLowerCase().split(/[^a-z0-9]+/)
+          .filter(term => term.length >= 4);
+        return { skillId, score: terms.filter(term => heading.includes(term)).length };
+      }).sort((a, b) => b.score - a.score);
+      const fallbackIndex = lessonSkills.length
+        ? Math.min(lessonSkills.length - 1, Math.floor(secIdx * lessonSkills.length / lesson.sections.length))
+        : -1;
+      const skillId = scoredSkills[0]?.score > 0
+        ? scoredSkills[0].skillId
+        : lessonSkills[fallbackIndex] || null;
+
+      checkEl.querySelectorAll(".qc-choice").forEach(el => {
+        const eci = Number(el.dataset.ci);
+        el.classList.remove("correct", "incorrect", "selected");
+        if (eci === check.answer) el.classList.add("correct");
+        else if (eci === ci && !correct) el.classList.add("incorrect");
+        if (eci === ci) el.classList.add("selected");
+      });
+
+      const fb = checkEl.querySelector(".qc-feedback");
+      fb.style.display = "block";
+      fb.innerHTML = (correct
+        ? '<strong style="color:var(--easy)">Correct.</strong> '
+        : '<strong style="color:var(--hard)">Not quite - here is why:</strong> ') + check.explain;
+
+      checkEl.querySelectorAll('input[name="' + name + '"]').forEach(inp => inp.disabled = true);
+
+      // Persist before unlocking so a refresh mid-flow keeps the answer
+      savedProgress = Progress.saveLessonCheck(id, secIdx, checkIdx, ci, correct, checkSignature(check));
+      if (skillId) Progress.recordSkillAttempt(skillId, correct, "lesson-check");
+      score.correct = savedProgress.correct;
+      score.total = savedProgress.total;
+      updateScorePill();
+
+      if (correct) {
+        btn.disabled = true;
+        btn.textContent = "Correct (saved)";
+        btn.dataset.stage = "done";
+        unlockNextCheck(secIdx, checkIdx);
+      } else {
+        btn.dataset.stage = "check";
+        btn.textContent = "Try again after reviewing";
+        btn.classList.remove("btn-primary");
+        btn.classList.add("btn-secondary");
+        checkEl.querySelectorAll('input[name="' + name + '"]').forEach(inp => {
+          inp.disabled = false;
+          inp.checked = false;
+        });
+      }
+    }
+
+    document.getElementById("unlock-all").addEventListener("click", () => {
+      document.querySelectorAll(".lesson-section.locked").forEach(el => {
+        el.classList.remove("locked");
+        const badge = el.querySelector(".lock-badge");
+        if (badge) badge.remove();
+      });
+      document.querySelectorAll(".quick-check.qc-locked").forEach(el => {
+        el.classList.remove("qc-locked");
+      });
+    });
+
+    document.getElementById("reset-checks").addEventListener("click", () => {
+      if (!confirm("Clear all saved quick-check answers for this lesson? You will start the checks over.")) return;
+      Progress.clearLessonProgress(id);
+      savedProgress = { checks: {}, correct: 0, total: 0 };
+      score.correct = 0;
+      score.total = 0;
+      document.getElementById("complete-banner").classList.add("hidden");
+      const entryGate = ProgressEngine.lessonGateStatus(id);
+      if (entryGate.locked) {
+        const missingLinks = entryGate.missingPrereqs.map(prereqId => {
+          const prereq = ProgressEngine.lessonById(prereqId);
+          return '<a class="btn btn-secondary" href="guide.html?id=' + prereqId + '">' + (prereq?.title || prereqId) + "</a>";
+        }).join("");
+        document.querySelector(".lesson-toolbar").classList.add("hidden");
+        document.getElementById("content").innerHTML =
+          '<div class="callout"><strong>This lesson is ahead of your current path.</strong>' +
+          "<p>" + entryGate.reason + "</p>" +
+          '<div class="cta-row">' + missingLinks +
+          '<button class="btn btn-ghost" id="bypass-gate">Open only for review</button></div></div>';
+        document.getElementById("bypass-gate").addEventListener("click", () => {
+          Progress.bypassLesson(id);
+          location.reload();
+        });
+      } else {
+        renderLesson();
+      }
+    });
+
+    if (!lesson || !metaLesson || !lesson.sections) {
+      document.getElementById("content").innerHTML = '<p>Lesson not found. <a href="learn.html">Back to path</a>.</p>';
+      document.getElementById("unlock-all").style.display = "none";
+      document.getElementById("reset-checks").style.display = "none";
+    } else {
+      document.title = lesson.title + " - AZ NES Math Prep";
+      const totalChecks = lesson.sections.reduce((n, s) => n + normalizeChecks(s).length, 0);
+      document.getElementById("meta").innerHTML =
+        '<div class="eyebrow">' + metaLesson.domainTitle + "</div>" +
+        '<h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin:0">' + lesson.title + "</h1>" +
+        '<div class="tag-row">' +
+          '<span class="chip">' + metaLesson.minutes + " min</span>" +
+          '<span class="chip">' + metaLesson.level + "</span>" +
+          '<span class="chip">' + metaLesson.competencies + "</span>" +
+          '<span class="chip">' + lesson.sections.length + " sections - " + totalChecks + " quick checks</span>" +
+        "</div>";
+
+      renderLesson();
+
+      const isDone = ProgressEngine.lessonMasteryStatus(id).mastered;
+      document.getElementById("actions").innerHTML =
+        (prev ? '<a class="btn btn-ghost" href="guide.html?id=' + prev.id + '">&larr; ' + prev.id + "</a>" : "") +
+        '<button class="btn btn-accent" id="mark">' + (isDone ? "Mastered" : "Mark lesson mastered") + "</button>" +
+        '<a class="btn btn-secondary" href="practice.html?domain=' + metaLesson.domainId + '">Drill problems</a>' +
+        (next ? '<a class="btn btn-primary" href="guide.html?id=' + next.id + '">Next: ' + next.id + " &rarr;</a>" : '<a class="btn btn-primary" href="ace.html">Ace tracker</a>');
+
+      document.getElementById("mark").addEventListener("click", () => {
+        const mastery = ProgressEngine.lessonMasteryStatus(id);
+        if (!mastery.mastered) {
+          alert(mastery.reason + ". Review missed checks before marking this lesson mastered.");
+          return;
+        }
+        const at = new Date().toISOString();
+        Progress.setLessonMastery(id, { masteredAt: at, source: "checks" });
+        document.getElementById("mark").textContent = "Mastered";
+      });
+
+      const related = PROBLEMS.filter(p => p.domain === metaLesson.domainId).slice(0, 6);
+      const folderMap = {
+        foundation: "00 Foundation Bootcamp",
+        number: "01 Number Sense",
+        algebra: "02 Algebra",
+        geometry: "03 Geometry",
+        trigcalc: "04 Trig and Calculus",
+        stats: "05 Stats Probability Discrete",
+        pedagogy: "06 Pedagogy APK"
+      };
+      document.getElementById("obsidian-hint").innerHTML =
+        "Obsidian: <code>G:\\Therapy\\educator exams\\Lessons\\" + folderMap[metaLesson.domainId] + "\\" + id + " ...</code> - <a href=\"notes.html\">Notes hub</a>";
+      document.getElementById("related").innerHTML =
+        "<h3>Practice these next</h3><ul>" +
+        related.map(p => '<li><a href="practice.html?id=' + p.id + '">' + p.id + " - " + p.title + '</a> <span class="chip ' + p.difficulty + '">' + p.difficulty + "</span></li>").join("") +
+        "</ul>";
+
+      const entryGate = ProgressEngine.lessonGateStatus(id);
+      if (entryGate.locked) {
+        const missingLinks = entryGate.missingPrereqs.map(prereqId => {
+          const prereq = ProgressEngine.lessonById(prereqId);
+          return '<a class="btn btn-secondary" href="guide.html?id=' + prereqId + '">' + (prereq?.title || prereqId) + "</a>";
+        }).join("");
+        document.querySelector(".lesson-toolbar").classList.add("hidden");
+        document.getElementById("complete-banner").classList.add("hidden");
+        document.getElementById("content").innerHTML =
+          '<div class="callout"><strong>This lesson is ahead of your current path.</strong>' +
+          "<p>" + entryGate.reason + "</p>" +
+          '<div class="cta-row">' + missingLinks +
+          '<button class="btn btn-ghost" id="bypass-gate">Open only for review</button></div></div>';
+        document.getElementById("actions").innerHTML = "";
+        document.getElementById("related").classList.add("hidden");
+        document.getElementById("obsidian-hint").classList.add("hidden");
+        document.getElementById("bypass-gate").addEventListener("click", () => {
+          Progress.bypassLesson(id);
+          location.reload();
+        });
+      }
+    }
+  </script>
+</body>
+</html>

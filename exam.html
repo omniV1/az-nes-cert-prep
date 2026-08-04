@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exams — AZ NES Math Prep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">AZ NES <span>Math Prep</span></a>
+      <a href="index.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a href="practice.html">Practice</a>
+      <a class="active" href="exam.html">Exams</a>
+      <a href="ace.html">Ace</a>
+      <a href="notes.html">Notes</a>
+      <a href="formulas.html">Formulas</a>
+      <a href="traps.html">Traps</a>
+      <a href="plan.html">Mastery Plan</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div id="lobby">
+      <div class="eyebrow">HackerRank-style timed exams</div>
+      <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Practice exams</h1>
+      <p class="muted">Timed. No hints mid-exam. Ace standard: <strong>≥85% on Full Mock A and B</strong> before you book the real NES.</p>
+      <div class="grid grid-2" id="exam-cards" style="margin-top:1rem"></div>
+
+      <section class="card" style="margin-top:1.25rem">
+        <h2>Constructed-response gym (APK 052)</h2>
+        <p class="muted">The real pedagogy exam includes written tasks. Practice under time.</p>
+        <div id="cr-list" class="grid" style="gap:0.75rem"></div>
+      </section>
+
+      <section class="card" style="margin-top:1.25rem">
+        <h2>Recent results</h2>
+        <div id="history" class="muted">No exams yet.</div>
+      </section>
+    </div>
+
+    <div id="runner" class="hidden">
+      <div class="exam-bar">
+        <div>
+          <strong id="exam-title"></strong>
+          <div class="muted"><span id="qpos"></span></div>
+        </div>
+        <div class="timer" id="timer">00:00:00</div>
+        <button class="btn btn-secondary" id="submit-exam">Submit exam</button>
+      </div>
+      <div class="layout-split">
+        <section class="card">
+          <div id="qstem" class="problem-stem"></div>
+          <div class="choices" id="qchoices"></div>
+          <div class="cta-row">
+            <button class="btn btn-ghost" id="prev">Previous</button>
+            <button class="btn btn-primary" id="next">Next</button>
+          </div>
+        </section>
+        <aside class="card">
+          <h3 style="margin-top:0">Navigator</h3>
+          <div id="navgrid" class="grid" style="grid-template-columns:repeat(5,1fr);gap:0.35rem"></div>
+          <p class="muted" style="font-size:0.85rem;margin-top:0.75rem">Answered questions highlight in teal. Flag nothing — treat blanks as wrong.</p>
+        </aside>
+      </div>
+    </div>
+
+    <div id="results" class="hidden"></div>
+
+    <div id="cr-runner" class="hidden">
+      <div class="exam-bar">
+        <div><strong id="cr-title"></strong></div>
+        <div class="timer" id="cr-timer">00:30:00</div>
+        <button class="btn btn-secondary" id="cr-done">Finish & save draft</button>
+      </div>
+      <section class="card">
+        <div id="cr-prompt" class="problem-stem"></div>
+        <div class="field" style="margin-top:1rem">
+          <label for="cr-text">Your response</label>
+          <textarea id="cr-text" rows="14" placeholder="Write here…"></textarea>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/data/curriculum.js"></script>
+  <script src="js/data/skills.js"></script>
+  <script src="js/data/problems.js"></script>
+  <script src="js/data/problems-extra.js"></script>
+  <script src="js/data/problems-foundations.js"></script>
+  <script src="js/data/problems-mastery.js"></script>
+  <script src="js/data/problem-skills.js"></script>
+  <script src="js/data/exams.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/progress-engine.js"></script>
+  <script src="js/vault-sync.js"></script>
+  <script>
+    const lobby = document.getElementById("lobby");
+    const runner = document.getElementById("runner");
+    const results = document.getElementById("results");
+    const crRunner = document.getElementById("cr-runner");
+
+    let session = null;
+    let tick = null;
+
+    function shuffledIndexes(length, key) {
+      const hash = value => {
+        let h = 2166136261;
+        for (const ch of value) {
+          h ^= ch.charCodeAt(0);
+          h = Math.imul(h, 16777619);
+        }
+        return h >>> 0;
+      };
+      return Array.from({ length }, (_, i) => i)
+        .sort((a, b) => hash(key + ":" + a) - hash(key + ":" + b));
+    }
+
+    function fmt(sec) {
+      const h = Math.floor(sec / 3600);
+      const m = Math.floor((sec % 3600) / 60);
+      const s = sec % 60;
+      return [h, m, s].map(n => String(n).padStart(2, "0")).join(":");
+    }
+
+    function byId(id) {
+      return PROBLEMS.find(p => p.id === id);
+    }
+
+    function examCount(e) {
+      if (e.problemIds) return e.problemIds.length;
+      if (e.build?.count) return e.build.count;
+      return resolveExamItems(e).length;
+    }
+
+    function renderLobby() {
+      document.getElementById("exam-cards").innerHTML = EXAMS.map(e => `
+        <article class="card">
+          <h3 style="margin-top:0">${e.title}</h3>
+          <p class="muted">${e.description}</p>
+          <div class="tag-row">
+            <span class="chip">${examCount(e)} questions</span>
+            <span class="chip">${e.minutes} min</span>
+            <span class="chip">${e.type}</span>
+          </div>
+          <div class="cta-row" style="margin-top:0.8rem">
+            <button class="btn btn-accent" data-start="${e.id}">Start</button>
+          </div>
+        </article>`).join("");
+
+      document.querySelectorAll("[data-start]").forEach(btn => {
+        btn.onclick = () => startExam(btn.dataset.start);
+      });
+
+      document.getElementById("cr-list").innerHTML = CR_PROMPTS.map(c => `
+        <div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center;border:1px solid var(--line);border-radius:12px;padding:0.8rem 1rem">
+          <div>
+            <strong>${c.title}</strong>
+            <div class="muted" style="font-size:0.9rem">${c.minutes} minutes</div>
+          </div>
+          <button class="btn btn-secondary" data-cr="${c.id}">Practice</button>
+        </div>`).join("");
+
+      document.querySelectorAll("[data-cr]").forEach(btn => {
+        btn.onclick = () => startCR(btn.dataset.cr);
+      });
+
+      const hist = Progress.load().exams.slice(0, 8);
+      document.getElementById("history").innerHTML = hist.length
+        ? `<ul>${hist.map(h => `<li><strong>${h.title}</strong> — ${h.correct}/${h.total} (${h.percent}%) · ${new Date(h.at).toLocaleString()}</li>`).join("")}</ul>`
+        : "No exams yet.";
+    }
+
+    function startExam(examId) {
+      const exam = EXAMS.find(e => e.id === examId);
+      if (!exam) return;
+      const items = resolveExamItems(exam);
+      if (!items.length) {
+        alert("Could not build this exam — problem bank missing items.");
+        return;
+      }
+      session = {
+        exam,
+        items,
+        answers: Array(items.length).fill(null),
+        choiceOrders: items.map((item, index) =>
+          shuffledIndexes(item.choices.length, exam.id + ":" + index + ":" + item.id)
+        ),
+        index: 0,
+        remaining: exam.minutes * 60
+      };
+      lobby.classList.add("hidden");
+      results.classList.add("hidden");
+      crRunner.classList.add("hidden");
+      runner.classList.remove("hidden");
+      document.getElementById("exam-title").textContent = exam.title;
+      clearInterval(tick);
+      tick = setInterval(() => {
+        session.remaining -= 1;
+        document.getElementById("timer").textContent = fmt(Math.max(0, session.remaining));
+        if (session.remaining <= 0) {
+          clearInterval(tick);
+          finishExam();
+        }
+      }, 1000);
+      document.getElementById("timer").textContent = fmt(session.remaining);
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const i = session.index;
+      const p = session.items[i];
+      const choiceOrder = session.choiceOrders[i];
+      document.getElementById("qpos").textContent = `Question ${i + 1} of ${session.items.length}`;
+      document.getElementById("qstem").textContent = p.stem;
+      document.getElementById("qchoices").innerHTML = choiceOrder.map((originalIndex, displayIndex) => `
+        <label class="choice ${session.answers[i] === originalIndex ? "selected" : ""}">
+          <input type="radio" name="examans" value="${originalIndex}" ${session.answers[i] === originalIndex ? "checked" : ""} />
+          <span><strong>${String.fromCharCode(65 + displayIndex)}.</strong> ${p.choices[originalIndex]}</span>
+        </label>`).join("");
+
+      document.querySelectorAll("#qchoices .choice").forEach(ch => {
+        ch.onclick = () => {
+          const val = Number(ch.querySelector("input").value);
+          session.answers[i] = val;
+          renderQuestion();
+        };
+      });
+
+      document.getElementById("navgrid").innerHTML = session.items.map((_, idx) => `
+        <button class="btn ${idx === i ? "btn-accent" : "btn-secondary"}" style="padding:0.4rem;border-radius:8px;${session.answers[idx] != null ? "outline:2px solid var(--accent)" : ""}" data-jump="${idx}">${idx + 1}</button>`
+      ).join("");
+
+      document.querySelectorAll("[data-jump]").forEach(b => {
+        b.onclick = () => { session.index = Number(b.dataset.jump); renderQuestion(); };
+      });
+    }
+
+    document.getElementById("prev").onclick = () => {
+      session.index = Math.max(0, session.index - 1);
+      renderQuestion();
+    };
+    document.getElementById("next").onclick = () => {
+      session.index = Math.min(session.items.length - 1, session.index + 1);
+      renderQuestion();
+    };
+    document.getElementById("submit-exam").onclick = () => {
+      if (confirm("Submit exam now?")) finishExam();
+    };
+
+    function finishExam() {
+      clearInterval(tick);
+      const { exam, items, answers, choiceOrders } = session;
+      let correct = 0;
+      const byDomain = {};
+      const bySkill = {};
+      const itemResults = [];
+      items.forEach((p, i) => {
+        const ok = answers[i] === p.answer;
+        if (ok) correct++;
+        Progress.recordProblem(p.id, ok);
+        byDomain[p.domain] = byDomain[p.domain] || { correct: 0, total: 0 };
+        byDomain[p.domain].total++;
+        if (ok) byDomain[p.domain].correct++;
+        (p.skillIds || []).forEach(skillId => {
+          bySkill[skillId] = bySkill[skillId] || { correct: 0, total: 0, pct: 0 };
+          bySkill[skillId].total++;
+          if (ok) bySkill[skillId].correct++;
+          Progress.recordSkillAttempt(skillId, ok, "exam:" + exam.id);
+        });
+        itemResults.push({ problemId: p.id, correct: ok, chosen: answers[i], skillIds: p.skillIds || [] });
+      });
+      Object.values(byDomain).forEach(v => { v.pct = Math.round(100 * v.correct / v.total); });
+      Object.values(bySkill).forEach(v => { v.pct = Math.round(100 * v.correct / v.total); });
+      const percent = Math.round((correct / items.length) * 100);
+      Progress.recordExam({
+        id: exam.id,
+        title: exam.title,
+        type: exam.type,
+        correct,
+        total: items.length,
+        percent,
+        byDomain,
+        bySkill
+      });
+      if (exam.id === "math-diagnostic" || exam.id === "math-placement-short") {
+        Progress.savePlacement({ examId: exam.id, byDomain, bySkill, itemResults });
+      }
+      const remedial = ProgressEngine.getRemedialPlan();
+
+      runner.classList.add("hidden");
+      results.classList.remove("hidden");
+      results.innerHTML = `
+        <section class="card">
+          <div class="eyebrow">Results</div>
+          <div class="score-big">${percent}%</div>
+          <p><strong>${correct}</strong> / ${items.length} correct · ${exam.title}</p>
+          <p class="muted">${percent >= 85 ? "ACE RANGE — this is booking territory if both mocks clear 85%." : percent >= 75 ? "Close. Repair weak domains, then retake a full mock." : percent >= 65 ? "Foundation forming — not ace-ready. Back to Learn + domain drills." : "Large gaps. Follow the learning path before another full mock."}</p>
+          <h3>By domain</h3>
+          <ul>${Object.entries(byDomain).map(([d, v]) => {
+            const pct = Math.round((v.correct / v.total) * 100);
+            return `<li><strong>${d}</strong>: ${v.correct}/${v.total} (${pct}%)</li>`;
+          }).join("")}</ul>
+          <h3>Review</h3>
+          <div class="grid" style="gap:0.75rem">
+            ${items.map((p, i) => {
+              const ok = answers[i] === p.answer;
+              return `<div style="border:1px solid var(--line);border-radius:12px;padding:0.75rem 0.9rem">
+                <div class="tag-row"><span class="chip">${p.id}</span><span class="chip ${ok ? "done" : "hard"}">${ok ? "correct" : "missed"}</span></div>
+                <div style="margin:0.35rem 0">${p.stem}</div>
+                <div class="muted">Your answer: ${answers[i] == null ? "—" : String.fromCharCode(65 + choiceOrders[i].indexOf(answers[i]))} · Key: ${String.fromCharCode(65 + choiceOrders[i].indexOf(p.answer))}</div>
+                <div class="explanation">${p.explanation}</div>
+              </div>`;
+            }).join("")}
+          </div>
+          <div class="cta-row" style="margin-top:1rem">
+            <a class="btn btn-primary" href="exam.html">Back to exams</a>
+            <a class="btn btn-secondary" href="practice.html?status=todo">Drill unsolved</a>
+            ${remedial.suggestedLessons[0] ? `<a class="btn btn-accent" href="guide.html?id=${remedial.suggestedLessons[0]}">Repair weakest prerequisite</a>` : ""}
+          </div>
+        </section>`;
+    }
+
+    function startCR(id) {
+      const cr = CR_PROMPTS.find(c => c.id === id);
+      lobby.classList.add("hidden");
+      runner.classList.add("hidden");
+      results.classList.add("hidden");
+      crRunner.classList.remove("hidden");
+      document.getElementById("cr-title").textContent = cr.title;
+      document.getElementById("cr-prompt").textContent = cr.prompt;
+      document.getElementById("cr-text").value = "";
+      let remaining = cr.minutes * 60;
+      document.getElementById("cr-timer").textContent = fmt(remaining);
+      clearInterval(tick);
+      tick = setInterval(() => {
+        remaining -= 1;
+        document.getElementById("cr-timer").textContent = fmt(Math.max(0, remaining));
+        if (remaining <= 0) clearInterval(tick);
+      }, 1000);
+      document.getElementById("cr-done").onclick = () => {
+        clearInterval(tick);
+        const text = document.getElementById("cr-text").value;
+        localStorage.setItem("az-nes-cr-" + cr.id, text);
+        alert("Draft saved in this browser. Self-score with the PEEL checklist in lesson pk-08.");
+        location.href = "exam.html";
+      };
+    }
+
+    renderLobby();
+
+    const boot = new URLSearchParams(location.search).get("exam");
+    if (boot) startExam(boot);
+  </script>
+</body>
+</html>

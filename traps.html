@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trap Guide — AZ NES Math Prep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">AZ NES <span>Math Prep</span></a>
+      <a href="index.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a href="practice.html">Practice</a>
+      <a href="exam.html">Exams</a>
+      <a href="ace.html">Ace</a>
+      <a href="notes.html">Notes</a>
+      <a href="formulas.html">Formulas</a>
+      <a class="active" href="traps.html">Traps</a>
+      <a href="plan.html">Plan</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="eyebrow">Where good students lose points</div>
+    <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Exam trap guide</h1>
+    <p class="muted">Acing is less about exotic tricks and more about never falling for the same distractor twice.</p>
+
+    <div class="cta-row">
+      <button class="btn btn-accent" id="mark">Mark traps reviewed</button>
+      <a class="btn btn-secondary" href="ace.html">Back to Ace tracker</a>
+    </div>
+
+    <div class="grid" style="gap:1rem;margin-top:1.25rem">
+      <article class="card">
+        <h2>1. Algebra distractors</h2>
+        <ul>
+          <li><strong>Extraneous roots</strong> after squaring radicals or clearing denominators — always substitute back.</li>
+          <li><strong>Log domain</strong> — argument must be &gt; 0; base &gt; 0, ≠ 1.</li>
+          <li><strong>Absolute value</strong> — |A|=B requires B≥0; two cases.</li>
+          <li><strong>Inverse functions</strong> — swap x/y then solve; restrict quadratic domains.</li>
+          <li><strong>Composition order</strong> — (f∘g) means g first.</li>
+          <li><strong>Asymptotes vs holes</strong> — canceled factors = holes, not vertical asymptotes.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>2. Geometry distractors</h2>
+        <ul>
+          <li><strong>Scale ratios</strong> — lengths k, areas k², volumes k³. Mixing these is the #1 volume trap.</li>
+          <li><strong>SSA</strong> is not a congruence theorem (ambiguous case).</li>
+          <li><strong>AAA</strong> proves similarity, not congruence.</li>
+          <li><strong>Unit conversion for area/volume</strong> — square or cube the linear factor.</li>
+          <li><strong>Inscribed vs central angles</strong> — inscribed is half the central for same arc.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>3. Trig & calculus distractors</h2>
+        <ul>
+          <li><strong>Quadrant signs</strong> — ASTC; reference angle ≠ final answer.</li>
+          <li><strong>Period</strong> — 2π/|B|, not |B|/2π.</li>
+          <li><strong>Limits</strong> — 0/0 means factor, don’t declare undefined forever.</li>
+          <li><strong>Derivative vs integral</strong> — read the verb: slope/rate vs area/accumulate.</li>
+          <li><strong>Chain rule amnesia</strong> on √(g(x)), e^{g(x)}, ln(g(x)).</li>
+          <li><strong>FTC sign</strong> — F(b)−F(a), not a−b.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>4. Stats / probability distractors</h2>
+        <ul>
+          <li><strong>Permutation vs combination</strong> — order matters? Use P : C.</li>
+          <li><strong>Independent vs mutually exclusive</strong> — different ideas; exclusive ⇒ P(∩)=0.</li>
+          <li><strong>Mean vs median</strong> with outliers — mean moves, median resists.</li>
+          <li><strong>Observational ≠ causal</strong> unless random assignment (experiment).</li>
+          <li><strong>Conditional</strong> — divide by P(B), not by P(A).</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>5. Testcraft (points free)</h2>
+        <ul>
+          <li>Estimate before calculating; eliminate impossible magnitudes.</li>
+          <li>If two choices are algebraic twins, one usually forgot a sign/domain check.</li>
+          <li>Flag and move at ~60–70 seconds average; return with fresh eyes.</li>
+          <li>Never leave blanks — educated guess after eliminating one option.</li>
+          <li>Last 10 minutes: only check marked items + unfinished.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>6. Ace scoring mindset</h2>
+        <p>Official passing is a scaled <strong>220</strong>. Your practice target is higher: <strong>≥85% raw on two full mocks</strong>. That buffer absorbs form difficulty variance, fatigue, and a few bad reads.</p>
+        <p class="muted" style="margin-bottom:0">If Mock A is 88% and Mock B is 79%, you are not ready — repair the weak domain that moved, then retake B.</p>
+      </article>
+    </div>
+  </main>
+  <script src="js/storage.js"></script>
+  <script src="js/vault-sync.js"></script>
+  <script>
+    document.getElementById("mark").onclick = () => {
+      Progress.setReviewFlag("traps");
+      alert("Marked. Ace tracker updated.");
+      location.href = "ace.html";
+    };
+  </script>
+</body>
+</html>

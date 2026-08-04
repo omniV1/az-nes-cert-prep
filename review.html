@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spaced Review - AZ NES Math Prep</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">AZ NES <span>Math Prep</span></a>
+      <a href="index.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a href="practice.html">Practice</a>
+      <a href="exam.html">Exams</a>
+      <a class="active" href="review.html">Review</a>
+      <a href="ace.html">Ace</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <div class="eyebrow">Long-term memory</div>
+    <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Spaced review queue</h1>
+    <p class="muted">A skill returns after 1, 3, 7, 14, then up to 30 days. A miss shortens the interval so the gap is repaired before it grows.</p>
+    <div id="queue" class="grid" style="margin-top:1rem"></div>
+  </main>
+
+  <script src="js/data/curriculum.js"></script>
+  <script src="js/data/skills.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/progress-engine.js"></script>
+  <script src="js/vault-sync.js"></script>
+  <script>
+    const due = Progress.getDueReviews();
+    const queue = document.getElementById("queue");
+    if (!due.length) {
+      queue.innerHTML = `<section class="card"><h2>Nothing due right now</h2>
+        <p class="muted">Keep learning. Reviews will appear here when memory needs another retrieval.</p>
+        <a class="btn btn-primary" href="learn.html">Continue the learning path</a></section>`;
+    } else {
+      queue.innerHTML = due.map(item => {
+        const skill = SKILLS[item.skillId];
+        const lessonId = skill?.lessonIds?.[0];
+        return `<section class="card">
+          <div class="eyebrow">Due now · ${item.intervalDays}-day interval</div>
+          <h2>${skill?.title || item.skillId}</h2>
+          <p class="muted">Retrieve this skill without notes first. If you miss, return to the lesson explanation before trying another problem.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="practice.html?skill=${item.skillId}&status=todo">Practice this skill</a>
+            ${lessonId ? `<a class="btn btn-secondary" href="guide.html?id=${lessonId}">Review the lesson</a>` : ""}
+          </div>
+        </section>`;
+      }).join("");
+    }
+  </script>
+</body>
+</html>

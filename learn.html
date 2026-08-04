@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learn — AZ NES Math Prep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">AZ NES <span>Math Prep</span></a>
+      <a href="index.html">Dashboard</a>
+      <a class="active" href="learn.html">Learn</a>
+      <a href="practice.html">Practice</a>
+      <a href="exam.html">Exams</a>
+      <a href="ace.html">Ace</a>
+      <a href="notes.html">Notes</a>
+      <a href="formulas.html">Formulas</a>
+      <a href="traps.html">Traps</a>
+      <a href="plan.html">Mastery Plan</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="eyebrow">Khan-style learning path</div>
+    <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">From never-seen-it to exam-ready</h1>
+    <p class="muted">Start with Foundation Bootcamp if you are rebuilding from scratch. Lessons now follow prerequisites: concrete models first, then guided arithmetic, then symbols, then NES transfer. A missed check must be corrected before you advance. Algebra is the heaviest official domain (24%).</p>
+
+    <div id="path" class="grid" style="gap:1.25rem;margin-top:1.25rem"></div>
+  </main>
+
+  <footer class="footer">Mark lessons complete from each guide page. Progress syncs on this device.</footer>
+
+  <script src="js/data/curriculum.js"></script>
+  <script src="js/data/skills.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/progress-engine.js"></script>
+  <script src="js/vault-sync.js"></script>
+  <script>
+    const state = Progress.load();
+    const lessonProg = state.lessonProgress || {};
+    document.getElementById("path").innerHTML = CURRICULUM.domains.map(d => {
+      const finished = d.lessons.filter(L => ProgressEngine.lessonMasteryStatus(L.id, state).mastered).length;
+      const pct = Math.round((finished / d.lessons.length) * 100);
+      return `
+        <section class="card" id="${d.id}">
+          <div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline">
+            <h2 style="margin:0">${d.num}. ${d.title}</h2>
+            <span class="chip">${d.weight} · ${finished}/${d.lessons.length}</span>
+          </div>
+          <p class="muted">${d.blurb}</p>
+          <div class="progress" style="margin:0.75rem 0 1rem"><span style="width:${pct}%"></span></div>
+          <div class="grid" style="gap:0.5rem">
+            ${d.lessons.map((L, i) => {
+              const lp = lessonProg[L.id];
+              const mastery = ProgressEngine.lessonMasteryStatus(L.id, state);
+              const gate = ProgressEngine.lessonGateStatus(L.id, state);
+              let statusChip;
+              if (mastery.mastered) statusChip = '<span class="chip done">Mastered</span>';
+              else if (gate.locked) statusChip = '<span class="chip hard">Locked</span>';
+              else if (lp && lp.total > 0) statusChip = '<span class="chip">' + lp.total + ' checks saved</span>';
+              else statusChip = '<span class="chip">Open</span>';
+              const prereqText = gate.locked
+                ? '<div class="muted" style="font-size:0.8rem">Requires: ' + gate.missingPrereqs.map(id => ProgressEngine.lessonById(id)?.title || id).join(", ") + "</div>"
+                : "";
+              return `
+              <a href="guide.html?id=${L.id}" class="domain-item" style="grid-template-columns:2rem 1fr auto">
+                <div class="domain-num" style="width:2rem;height:2rem;font-size:0.85rem">${i + 1}</div>
+                <div>
+                  <strong>${L.title}</strong>
+                  <div class="muted" style="font-size:0.85rem">${L.minutes} min · ${L.level}</div>
+                  ${prereqText}
+                </div>
+                ${statusChip}
+              </a>`;
+            }).join("")}
+          </div>
+          ${d.id === "foundation" ? "" : `<div class="cta-row" style="margin-top:0.9rem">
+            <a class="btn btn-secondary" href="practice.html?domain=${d.id}">Practice ${d.id === "pedagogy" ? "pedagogy" : "problems"}</a>
+          </div>`}
+        </section>`;
+    }).join("");
+  </script>
+</body>
+</html>

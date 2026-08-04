@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Practice — AZ NES Math Prep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">AZ NES <span>Math Prep</span></a>
+      <a href="index.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a class="active" href="practice.html">Practice</a>
+      <a href="exam.html">Exams</a>
+      <a href="ace.html">Ace</a>
+      <a href="notes.html">Notes</a>
+      <a href="formulas.html">Formulas</a>
+      <a href="traps.html">Traps</a>
+      <a href="plan.html">Mastery Plan</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="eyebrow">NeetCode-style problem bank</div>
+    <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Practice problems</h1>
+    <p class="muted">Filter by domain and difficulty. Solve → reveal explanation → mark progress automatically.</p>
+
+    <div class="layout-split" style="margin-top:1rem">
+      <section class="card">
+        <div class="filters">
+          <select id="domain">
+            <option value="all">All domains</option>
+          </select>
+          <select id="diff">
+            <option value="all">All difficulties</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+          <select id="skill">
+            <option value="all">All skills</option>
+          </select>
+          <select id="status">
+            <option value="all">All statuses</option>
+            <option value="todo">Not solved</option>
+            <option value="solved">Solved</option>
+          </select>
+          <input id="q" type="search" placeholder="Search title or tag…" style="min-width:180px;flex:1" />
+        </div>
+        <div class="table-wrap">
+          <table class="problems">
+            <thead>
+              <tr><th>Status</th><th>ID</th><th>Title</th><th>Domain</th><th>Difficulty</th></tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card" id="panel">
+        <p class="muted">Select a problem to begin.</p>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/data/curriculum.js"></script>
+  <script src="js/data/skills.js"></script>
+  <script src="js/data/problems.js"></script>
+  <script src="js/data/problems-extra.js"></script>
+  <script src="js/data/problems-foundations.js"></script>
+  <script src="js/data/problems-mastery.js"></script>
+  <script src="js/data/problem-skills.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/progress-engine.js"></script>
+  <script src="js/vault-sync.js"></script>
+  <script>
+    const domainSelect = document.getElementById("domain");
+    const domains = [...new Set(PROBLEMS.map(p => p.domain))];
+    domains.forEach(d => {
+      const opt = document.createElement("option");
+      opt.value = d;
+      opt.textContent = CURRICULUM.domains.find(x => x.id === d)?.title || d;
+      domainSelect.appendChild(opt);
+    });
+    const skillSelect = document.getElementById("skill");
+    Object.entries(SKILLS)
+      .sort((a, b) => a[1].title.localeCompare(b[1].title))
+      .forEach(([skillId, skill]) => {
+        const opt = document.createElement("option");
+        opt.value = skillId;
+        opt.textContent = skill.title;
+        skillSelect.appendChild(opt);
+      });
+
+    const params = new URLSearchParams(location.search);
+    if (params.get("domain")) domainSelect.value = params.get("domain");
+    if (params.get("skill")) skillSelect.value = params.get("skill");
+    if (params.get("status")) document.getElementById("status").value = params.get("status");
+
+    let activeId = params.get("id");
+
+    function shuffledIndexes(length, key) {
+      const hash = value => {
+        let h = 2166136261;
+        for (const ch of value) {
+          h ^= ch.charCodeAt(0);
+          h = Math.imul(h, 16777619);
+        }
+        return h >>> 0;
+      };
+      return Array.from({ length }, (_, i) => i)
+        .sort((a, b) => hash(key + ":" + a) - hash(key + ":" + b));
+    }
+
+    function statusOf(id) {
+      const p = Progress.load().problems[id];
+      if (p?.correct) return "solved";
+      if (p) return "attempted";
+      return "todo";
+    }
+
+    function filtered() {
+      const d = domainSelect.value;
+      const diff = document.getElementById("diff").value;
+      const skill = skillSelect.value;
+      const st = document.getElementById("status").value;
+      const q = document.getElementById("q").value.trim().toLowerCase();
+      return PROBLEMS.filter(p => {
+        if (d !== "all" && p.domain !== d) return false;
+        if (diff !== "all" && p.difficulty !== diff) return false;
+        if (skill !== "all" && !(p.skillIds || []).includes(skill)) return false;
+        const s = statusOf(p.id);
+        if (st === "todo" && s === "solved") return false;
+        if (st === "solved" && s !== "solved") return false;
+        if (q && !(p.title.toLowerCase().includes(q) || p.id.toLowerCase().includes(q) || p.tags.some(t => t.includes(q)))) return false;
+        return true;
+      });
+    }
+
+    function renderRows() {
+      const rows = filtered();
+      document.getElementById("rows").innerHTML = rows.map(p => {
+        const s = statusOf(p.id);
+        return `<tr data-id="${p.id}" style="cursor:pointer">
+          <td><span class="chip ${s === "solved" ? "done" : ""}">${s}</span></td>
+          <td><a href="?id=${p.id}">${p.id}</a></td>
+          <td>${p.title}</td>
+          <td>${p.domain}</td>
+          <td><span class="chip ${p.difficulty}">${p.difficulty}</span></td>
+        </tr>`;
+      }).join("") || `<tr><td colspan="5" class="muted">No problems match.</td></tr>`;
+
+      document.querySelectorAll("#rows tr[data-id]").forEach(tr => {
+        tr.addEventListener("click", () => {
+          activeId = tr.dataset.id;
+          history.replaceState(null, "", `?id=${activeId}`);
+          renderPanel();
+          renderRows();
+        });
+      });
+    }
+
+    function renderPanel() {
+      const panel = document.getElementById("panel");
+      const p = PROBLEMS.find(x => x.id === activeId);
+      if (!p) {
+        panel.innerHTML = `<p class="muted">Select a problem to begin.</p>`;
+        return;
+      }
+      const choiceOrder = shuffledIndexes(p.choices.length, p.id);
+      panel.innerHTML = `
+        <div class="tag-row" style="margin-bottom:0.5rem">
+          <span class="chip">${p.id}</span>
+          <span class="chip ${p.difficulty}">${p.difficulty}</span>
+          ${p.tags.map(t => `<span class="chip">${t}</span>`).join("")}
+          ${(p.skillIds || []).map(skillId => `<span class="chip">${SKILLS[skillId]?.title || skillId}</span>`).join("")}
+        </div>
+        <h2 style="margin-top:0">${p.title}</h2>
+        <div class="problem-stem">${p.stem}</div>
+        <div class="choices" id="choices">
+          ${choiceOrder.map((originalIndex, displayIndex) => `
+            <label class="choice" data-i="${originalIndex}">
+              <input type="radio" name="ans" value="${originalIndex}" />
+              <span><strong>${String.fromCharCode(65 + displayIndex)}.</strong> ${p.choices[originalIndex]}</span>
+            </label>`).join("")}
+        </div>
+        <div class="cta-row">
+          <button class="btn btn-primary" id="check">Check answer</button>
+          <button class="btn btn-ghost" id="reveal">Show explanation</button>
+        </div>
+        <div id="result"></div>
+      `;
+
+      const choices = [...document.querySelectorAll(".choice")];
+      choices.forEach(ch => ch.addEventListener("click", () => {
+        choices.forEach(x => x.classList.remove("selected"));
+        ch.classList.add("selected");
+        ch.querySelector("input").checked = true;
+      }));
+
+      document.getElementById("check").onclick = () => {
+        const selected = document.querySelector("input[name=ans]:checked");
+        if (!selected) {
+          document.getElementById("result").innerHTML = `<p class="muted">Pick an option first.</p>`;
+          return;
+        }
+        const i = Number(selected.value);
+        const ok = i === p.answer;
+        Progress.recordProblem(p.id, ok);
+        (p.skillIds || []).forEach(skillId => Progress.recordSkillAttempt(skillId, ok, "practice:" + p.id));
+        choices.forEach(ch => {
+          const idx = Number(ch.dataset.i);
+          ch.classList.remove("correct", "incorrect");
+          if (idx === p.answer) ch.classList.add("correct");
+          if (idx === i && !ok) ch.classList.add("incorrect");
+        });
+        const repairLessonId = p.skillIds?.flatMap(skillId => SKILLS[skillId]?.lessonIds || [])[0];
+        document.getElementById("result").innerHTML = ok
+          ? `<p style="color:var(--easy);font-weight:600">Correct.</p><div class="explanation">${p.explanation}</div>`
+          : `<p style="color:var(--hard);font-weight:600">Not quite. This skill has been scheduled for review.</p>
+             <div class="explanation">${p.explanation}</div>
+             ${repairLessonId ? `<p><a class="btn btn-secondary" href="guide.html?id=${repairLessonId}">Repair the underlying lesson</a></p>` : ""}`;
+        renderRows();
+      };
+
+      document.getElementById("reveal").onclick = () => {
+        const displayAnswer = choiceOrder.indexOf(p.answer);
+        document.getElementById("result").innerHTML = `<div class="explanation"><strong>Explanation:</strong> ${p.explanation}<br/><br/>Answer: <strong>${String.fromCharCode(65 + displayAnswer)}</strong></div>`;
+      };
+    }
+
+    ["domain", "diff", "skill", "status", "q"].forEach(id => {
+      document.getElementById(id).addEventListener("input", renderRows);
+      document.getElementById(id).addEventListener("change", renderRows);
+    });
+
+    renderRows();
+    renderPanel();
+  </script>
+</body>
+</html>
