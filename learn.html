@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Learn — AZ NES Math Prep</title>
+  <title>Learn — AZ NES Cert Prep</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -12,7 +12,7 @@
 <body>
   <header class="site-header">
     <nav class="nav">
-      <a class="brand" href="index.html">AZ NES <span>Math Prep</span></a>
+      <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a class="active" href="learn.html">Learn</a>
       <a href="practice.html">Practice</a>
@@ -28,13 +28,20 @@
   <main class="wrap">
     <div class="eyebrow">Khan-style learning path</div>
     <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">From never-seen-it to exam-ready</h1>
-    <p class="muted">Start with Foundation Bootcamp if you are rebuilding from scratch. Lessons now follow prerequisites: concrete models first, then guided arithmetic, then symbols, then NES transfer. A missed check must be corrected before you advance. Algebra is the heaviest official domain (24%).</p>
+    <p class="muted">Two independent tracks. Math: foundations → five NT304 domains. English: grammar/reading foundations → five NT301 domains. Lessons follow prerequisites. A missed check must be corrected before you advance. Algebra is 24% of math; reading, literature, and writing modes are 23% each of ELA.</p>
 
     <details class="card official-calibration" style="margin-top:1.25rem">
-      <summary><strong>Embedded official NES Mathematics 304 framework</strong> — use this to verify the path</summary>
-      <p>The learning path below maps to all 16 official competencies. Expand and search this official Pearson/NES framework whenever you want to verify exactly what the exam may assess.</p>
+      <summary><strong>Embedded official NES Mathematics 304 framework</strong> — verify the math path</summary>
+      <p>The math path maps to all 16 official competencies. Expand and search this official Pearson/NES framework whenever you want to verify exactly what the exam may assess.</p>
       <iframe class="official-embed" src="https://www.nestest.com/static/docs/NES_Framework_304.pdf" title="Official NES Mathematics 304 test framework" loading="lazy"></iframe>
-      <p class="muted">If the PDF does not render, <a href="https://www.nestest.com/static/docs/NES_Framework_304.pdf" target="_blank" rel="noopener">open the official framework</a>.</p>
+      <p class="muted">If the PDF does not render, <a href="https://www.nestest.com/static/docs/NES_Framework_304.pdf" target="_blank" rel="noopener">open the official math framework</a>.</p>
+    </details>
+
+    <details class="card official-calibration" style="margin-top:1rem">
+      <summary><strong>Embedded official NES English Language Arts 301 framework</strong> — verify the ELA path</summary>
+      <p>The English path maps to all 17 official competencies (0001–0017). Search this official Pearson/NES framework to verify wording, text types, and literary knowledge the exam may assess.</p>
+      <iframe class="official-embed" src="https://www.nestest.com/static/docs/NES_Framework_301.pdf" title="Official NES English Language Arts 301 test framework" loading="lazy"></iframe>
+      <p class="muted">If the PDF does not render, <a href="https://www.nestest.com/static/docs/NES_Framework_301.pdf" target="_blank" rel="noopener">open the official ELA framework</a>.</p>
     </details>
 
     <div id="path" class="grid" style="gap:1.25rem;margin-top:1.25rem"></div>
@@ -50,7 +57,13 @@
   <script>
     const state = Progress.load();
     const lessonProg = state.lessonProgress || {};
-    document.getElementById("path").innerHTML = CURRICULUM.domains.map(d => {
+    const trackLabel = { math: "NES Mathematics (304)", english: "NES English Language Arts (301)", pedagogy: "APK Secondary (052)" };
+    const tracks = ["math", "english", "pedagogy"];
+    document.getElementById("path").innerHTML = tracks.map(track => {
+      const domains = CURRICULUM.domains.filter(d => (d.track || "math") === track);
+      if (!domains.length) return "";
+      return `<h2 style="font-family:var(--font-display);margin:1.5rem 0 0.5rem">${trackLabel[track]}</h2>` +
+      domains.map(d => {
       const finished = d.lessons.filter(L => ProgressEngine.lessonMasteryStatus(L.id, state).mastered).length;
       const pct = Math.round((finished / d.lessons.length) * 100);
       return `
@@ -86,10 +99,11 @@
               </a>`;
             }).join("")}
           </div>
-          ${d.id === "foundation" ? "" : `<div class="cta-row" style="margin-top:0.9rem">
+          ${d.id === "foundation" || d.id === "ela-foundation" ? "" : `<div class="cta-row" style="margin-top:0.9rem">
             <a class="btn btn-secondary" href="practice.html?domain=${d.id}">Practice ${d.id === "pedagogy" ? "pedagogy" : "problems"}</a>
           </div>`}
         </section>`;
+    }).join("");
     }).join("");
   </script>
 </body>

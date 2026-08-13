@@ -141,6 +141,115 @@ window.EXAMS = [
       "P001","P002","P003","P004","P005","P006","P007","P008","P009","P010",
       "P011","P012","P013","P014","P015","P016","P017","P018"
     ]
+  },
+  {
+    id: "ela-placement-short",
+    title: "ELA Foundation Placement Check",
+    type: "english",
+    minutes: 40,
+    description: "30 focused questions covering every ELA Foundation Bootcamp skill. Strong results can place you past known prerequisites; misses route to exact lessons.",
+    problemIds: [
+      "EF001","EF002","EF003","EF004","EF005","EF006","EF007","EF008","EF009",
+      "EF010","EF011","EF012","EF013","EF014","EF015","EF016","EF017","EF018",
+      "EF019","EF020","EF021","EF022","EF023","EF024","EF025","EF026","EF027",
+      "EF028","EF029","EF030"
+    ]
+  },
+  {
+    id: "ela-diagnostic",
+    title: "ELA Diagnostic (Mixed)",
+    type: "english",
+    minutes: 60,
+    description: "40 mixed questions. Day-1 baseline across all five NES English Language Arts domains.",
+    problemIds: [
+      "RD001","RD002","RD008","RD012","RD018","RD024",
+      "LT001","LT002","LT008","LT014","LT020","LT026","LT032",
+      "LG001","LG002","LG008","LG014","LG020",
+      "WR001","WR002","WR008","WR014","WR020",
+      "OV001","OV002","OV006","OV010","OV014",
+      "RD006","LT006","LG006","WR006","OV004",
+      "RD015","LT018","LG016","WR016","OV012"
+    ]
+  },
+  {
+    id: "ela-full-1",
+    title: "Half-Length ELA Mock A",
+    type: "english",
+    minutes: 90,
+    description: "75 questions in 1.5 hours: half of the official 150-question, 3-hour format. Use before full-length simulations.",
+    build: { count: 75, official: true, weighted: true, track: "english" }
+  },
+  {
+    id: "ela-full-2",
+    title: "Half-Length ELA Mock B",
+    type: "english",
+    minutes: 90,
+    description: "Second 75-question, 1.5-hour form with a different item mix. Clear both before a full-length simulation.",
+    build: { count: 75, official: true, weighted: true, track: "english" }
+  },
+  {
+    id: "ela-official-1",
+    title: "Official-Length ELA Simulation A",
+    type: "english",
+    minutes: 180,
+    description: "150 questions in 3 hours, weighted to the five official NT301 domains. Use only after both half-length forms are stable.",
+    build: { count: 150, official: true, weighted: true, track: "english" }
+  },
+  {
+    id: "ela-official-2",
+    title: "Official-Length ELA Simulation B",
+    type: "english",
+    minutes: 180,
+    description: "A second shuffled 150-question, 3-hour simulation. Ace gate: score at least 85% on both official-length forms.",
+    build: { count: 150, official: true, weighted: true, track: "english" }
+  },
+  {
+    id: "ela-reading-block",
+    title: "Domain Drill: Reading & Text Forms (23%)",
+    type: "english",
+    minutes: 45,
+    description: "Vocabulary, informational, persuasive, and technical reading — a 23% domain.",
+    build: { domain: "reading", count: 30 }
+  },
+  {
+    id: "ela-literature-block",
+    title: "Domain Drill: Literature (23%)",
+    type: "english",
+    minutes: 45,
+    description: "Prose, poetry, world literature, periods, and social context.",
+    build: { domain: "literature", count: 30 }
+  },
+  {
+    id: "ela-language-block",
+    title: "Domain Drill: Conventions & Research (19%)",
+    type: "english",
+    minutes: 40,
+    description: "Grammar, mechanics, process, and research ethics.",
+    build: { domain: "language", count: 28 }
+  },
+  {
+    id: "ela-writing-block",
+    title: "Domain Drill: Modes of Writing (23%)",
+    type: "english",
+    minutes: 45,
+    description: "Narrative, expository, persuasive, and analytical writing.",
+    build: { domain: "writing", count: 30 }
+  },
+  {
+    id: "ela-oral-block",
+    title: "Domain Drill: Oral & Visual (12%)",
+    type: "english",
+    minutes: 30,
+    description: "Smaller domain — still easy points if you know media bias and discussion norms.",
+    build: { domain: "oral", count: 20 }
+  },
+  {
+    id: "ela-hard-gauntlet",
+    title: "ELA Hard Gauntlet (Ace Sharpener)",
+    type: "english",
+    minutes: 60,
+    description: "Hard ELA items only. If you can clear ≥75% here, you're dangerous in a good way.",
+    build: { difficulties: ["hard"], count: 30, track: "english" }
   }
 ];
 
@@ -179,16 +288,26 @@ window.resolveExamItems = function resolveExamItems(exam) {
     return exam.problemIds.map(id => bank.find(p => p.id === id)).filter(Boolean);
   }
   if (exam.build) {
-    const officialDomains = ["number", "algebra", "geometry", "trigcalc", "stats"];
-    let pool = exam.build.official
-      ? bank.filter(p => officialDomains.includes(p.domain))
-      : bank.filter(p => p.domain !== "pedagogy" && p.domain !== "foundation");
+    const mathDomains = ["number", "algebra", "geometry", "trigcalc", "stats"];
+    const englishDomains = ["reading", "literature", "language", "writing", "oral"];
+    const track = exam.build.track || exam.type || "math";
+    const officialDomains = track === "english" ? englishDomains : mathDomains;
+    let pool;
+    if (exam.build.official) {
+      pool = bank.filter(p => officialDomains.includes(p.domain));
+    } else if (track === "english") {
+      pool = bank.filter(p => englishDomains.includes(p.domain) || p.domain === "ela-foundation");
+    } else {
+      pool = bank.filter(p => p.domain !== "pedagogy" && p.domain !== "foundation" && p.domain !== "ela-foundation" && !englishDomains.includes(p.domain));
+    }
     if (exam.build.difficulties) pool = pool.filter(p => exam.build.difficulties.includes(p.difficulty));
     if (exam.build.domain) pool = pool.filter(p => p.domain === exam.build.domain);
     pool = pool.slice().sort(() => Math.random() - 0.5);
     const count = exam.build.count || 30;
     if (exam.build.weighted) {
-      const weights = { number: 0.19, algebra: 0.24, geometry: 0.19, trigcalc: 0.19, stats: 0.19 };
+      const weights = track === "english"
+        ? { reading: 0.23, literature: 0.23, language: 0.19, writing: 0.23, oral: 0.12 }
+        : { number: 0.19, algebra: 0.24, geometry: 0.19, trigcalc: 0.19, stats: 0.19 };
       const targets = Object.fromEntries(officialDomains.map(domain => [
         domain,
         Math.floor(count * weights[domain])

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AZ NES Math Cert Prep — Phoenix Secondary</title>
+  <title>AZ NES Cert Prep — Math + English Secondary</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -12,7 +12,7 @@
 <body>
   <header class="site-header">
     <nav class="nav">
-      <a class="brand" href="index.html">AZ NES <span>Math Prep</span></a>
+      <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a class="active" href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
       <a href="practice.html">Practice</a>
@@ -28,15 +28,17 @@
   <main class="wrap">
     <section class="hero">
       <div>
-        <div class="eyebrow">Phoenix · Secondary 6–12 · Mathematics</div>
-        <h1>Ace the NES Mathematics exam.</h1>
+        <div class="eyebrow">Phoenix · Secondary 6–12 · Mathematics + English</div>
+        <h1>Ace both subject exams.</h1>
         <p>
-          Subject knowledge is the priority. This system now builds prerequisites before exam shortcuts, then targets a repeatable
-          <strong>≥85%</strong> on official-style timed mocks. The official NT304 format is approximately 150 questions in 5 hours.
+          Dual-track prep for NES Mathematics (304) and NES English Language Arts (301), plus APK Secondary (052).
+          Each subject has its own foundation bootcamp, official-domain lessons, problem bank, and 85% booking gates.
+          Official ELA format: approximately 150 questions in 3 hours. Official math format: approximately 150 questions in 5 hours.
         </p>
         <div class="cta-row">
           <a class="btn btn-primary" href="ace.html">Open Ace tracker</a>
-          <a class="btn btn-secondary" href="exam.html?exam=math-placement-short">Foundation placement</a>
+          <a class="btn btn-secondary" href="exam.html?exam=math-placement-short">Math placement</a>
+          <a class="btn btn-secondary" href="exam.html?exam=ela-placement-short">ELA placement</a>
           <a class="btn btn-ghost" href="practice.html">Problem bank</a>
         </div>
       </div>
@@ -47,9 +49,10 @@
     <section class="grid grid-2" style="margin-top:1.25rem">
       <article class="card">
         <h2>Your Arizona exams</h2>
-        <p class="muted">Secondary Mathematics certification typically requires both:</p>
+        <p class="muted">Secondary certification for math and English typically requires:</p>
         <ul>
-          <li><strong>NES Mathematics</strong> — subject knowledge for grades 6–12 (all math courses).</li>
+          <li><strong>NES Mathematics (304)</strong> — subject knowledge for grades 6–12 math.</li>
+          <li><strong>NES English Language Arts (301)</strong> — subject knowledge for grades 6–12 ELA.</li>
           <li><strong>NES Assessment of Professional Knowledge: Secondary (052)</strong> — pedagogy + 2 written tasks.</li>
         </ul>
         <p class="muted" style="margin-bottom:0">
@@ -70,7 +73,7 @@
 
     <section style="margin-top:1.5rem">
       <h2 style="font-family:var(--font-display);letter-spacing:-0.02em">Content domains</h2>
-      <p class="muted">Aligned to the official NES Mathematics framework — middle school through high school.</p>
+      <p class="muted">Aligned to the official NES Mathematics (304) and English Language Arts (301) frameworks.</p>
       <div class="domain-list" id="domains"></div>
     </section>
 
@@ -78,6 +81,9 @@
       <h2>Today’s recommended move</h2>
       <p id="recommend" class="muted"></p>
       <div class="cta-row" id="recommend-ctas"></div>
+      <hr style="border:0;border-top:1px solid var(--line);margin:1.1rem 0" />
+      <p id="recommend-ela" class="muted"></p>
+      <div class="cta-row" id="recommend-ela-ctas"></div>
     </section>
   </main>
 
@@ -92,20 +98,33 @@
   <script src="js/data/problems-extra.js"></script>
   <script src="js/data/problems-foundations.js"></script>
   <script src="js/data/problems-mastery.js"></script>
+  <script src="js/data/problems-english-foundations.js"></script>
+  <script src="js/data/problems-english-reading.js"></script>
+  <script src="js/data/problems-english-literature.js"></script>
+  <script src="js/data/problems-english-language.js"></script>
+  <script src="js/data/problems-english-writing.js"></script>
+  <script src="js/data/problems-english-oral.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/progress-engine.js"></script>
   <script src="js/vault-sync.js"></script>
   <script>
     const st = Progress.stats();
-    const dueReviews = Progress.getDueReviews().length;
     document.getElementById("stats").innerHTML = `
       <div class="stat"><div class="label">Lessons done</div><div class="value">${st.lessons}/${st.totalLessons}</div></div>
       <div class="stat"><div class="label">Problems solved</div><div class="value">${st.solved}/${st.totalProblems}</div></div>
-      <div class="stat"><div class="label">Reviews due</div><div class="value">${dueReviews}</div></div>
       <div class="stat"><div class="label">Best math %</div><div class="value">${st.bestMath ? st.bestMath + "%" : "—"}</div></div>
+      <div class="stat"><div class="label">Best ELA %</div><div class="value">${st.bestEnglish ? st.bestEnglish + "%" : "—"}</div></div>
     `;
 
-    document.getElementById("domains").innerHTML = CURRICULUM.domains.map(d => `
+    const trackLabel = { math: "Mathematics 304", english: "English Language Arts 301", pedagogy: "APK Secondary 052" };
+    const grouped = ["math", "english", "pedagogy"].map(track => ({
+      track,
+      label: trackLabel[track],
+      domains: CURRICULUM.domains.filter(d => (d.track || "math") === track)
+    })).filter(g => g.domains.length);
+    document.getElementById("domains").innerHTML = grouped.map(g => `
+      <div class="muted" style="font-weight:700;letter-spacing:0.04em;text-transform:uppercase;font-size:0.78rem;margin:1rem 0 0.4rem">${g.label}</div>
+      ${g.domains.map(d => `
       <a class="domain-item" href="learn.html#${d.id}">
         <div class="domain-num">${d.num}</div>
         <div>
@@ -118,29 +137,31 @@
           </div>
         </div>
         <div class="muted">→</div>
-      </a>
+      </a>`).join("")}
     `).join("");
 
-    const nextMove = ProgressEngine.recommendedNext(st.state);
-
-    const rec = document.getElementById("recommend");
-    const ctas = document.getElementById("recommend-ctas");
-    if (nextMove.type === "review") {
-      rec.textContent = `Spaced review is due: ${nextMove.title}. Reviewing now protects long-term memory.`;
-      ctas.innerHTML = `<a class="btn btn-accent" href="review.html">Start due review</a>`;
-    } else if (nextMove.lessonId) {
-      const lesson = ProgressEngine.lessonById(nextMove.lessonId);
-      rec.textContent = `Next mastery step: “${nextMove.title}” (~${lesson?.minutes || 45} min). Prerequisites are satisfied.`;
-      ctas.innerHTML = `<a class="btn btn-accent" href="guide.html?id=${nextMove.lessonId}">Open next lesson</a>
-        ${lesson?.domainId === "foundation" ? "" : `<a class="btn btn-secondary" href="practice.html?domain=${lesson?.domainId}">Practice this domain</a>`}`;
-    } else {
-      rec.textContent = nextMove.type === "maintenance"
-        ? "All mastery gates are clear. Maintain recall with mixed practice and due reviews."
-        : `All math lessons are mastered. Next exam gate: ${nextMove.title}.`;
-      ctas.innerHTML = nextMove.examId
-        ? `<a class="btn btn-accent" href="exam.html?exam=${nextMove.examId}">${nextMove.title}</a>`
-        : `<a class="btn btn-accent" href="practice.html">Mixed maintenance practice</a>`;
+    function renderMove(nextMove, recEl, ctaEl, heading) {
+      if (nextMove.type === "review") {
+        recEl.textContent = `${heading}: spaced review is due — ${nextMove.title}.`;
+        ctaEl.innerHTML = `<a class="btn btn-accent" href="review.html">Start due review</a>`;
+      } else if (nextMove.lessonId) {
+        const lesson = ProgressEngine.lessonById(nextMove.lessonId);
+        recEl.textContent = `${heading}: “${nextMove.title}” (~${lesson?.minutes || 45} min). Prerequisites are satisfied.`;
+        const foundation = lesson?.domainId === "foundation" || lesson?.domainId === "ela-foundation";
+        ctaEl.innerHTML = `<a class="btn btn-accent" href="guide.html?id=${nextMove.lessonId}">Open next lesson</a>
+          ${foundation ? "" : `<a class="btn btn-secondary" href="practice.html?domain=${lesson?.domainId}">Practice this domain</a>`}`;
+      } else {
+        recEl.textContent = nextMove.type === "maintenance"
+          ? `${heading}: all mastery gates are clear. Maintain recall with mixed practice.`
+          : `${heading}: next exam gate — ${nextMove.title}.`;
+        ctaEl.innerHTML = nextMove.examId
+          ? `<a class="btn btn-accent" href="exam.html?exam=${nextMove.examId}">${nextMove.title}</a>`
+          : `<a class="btn btn-accent" href="practice.html">Mixed maintenance practice</a>`;
+      }
     }
+
+    renderMove(ProgressEngine.recommendedNext(st.state, { track: "math" }), document.getElementById("recommend"), document.getElementById("recommend-ctas"), "Math");
+    renderMove(ProgressEngine.recommendedNext(st.state, { track: "english" }), document.getElementById("recommend-ela"), document.getElementById("recommend-ela-ctas"), "English");
   </script>
 </body>
 </html>

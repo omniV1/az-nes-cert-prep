@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Trap Guide — AZ NES Math Prep</title>
+  <title>Trap Guide — AZ NES Cert Prep</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -12,7 +12,7 @@
 <body>
   <header class="site-header">
     <nav class="nav">
-      <a class="brand" href="index.html">AZ NES <span>Math Prep</span></a>
+      <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
       <a href="practice.html">Practice</a>
@@ -28,11 +28,12 @@
   <main class="wrap">
     <div class="eyebrow">Where good students lose points</div>
     <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Exam trap guide</h1>
-    <p class="muted">Acing is less about exotic tricks and more about never falling for the same distractor twice.</p>
+    <p class="muted">Acing is less about exotic tricks and more about never falling for the same distractor twice. Math and ELA each have their own cheap-point killers.</p>
 
     <div class="cta-row">
-      <button class="btn btn-accent" id="mark">Mark traps reviewed</button>
-      <a class="btn btn-secondary" href="ace.html">Back to Ace tracker</a>
+      <button class="btn btn-accent" id="mark">Mark math traps reviewed</button>
+      <button class="btn btn-secondary" id="mark-ela">Mark ELA traps reviewed</button>
+      <a class="btn btn-ghost" href="ace.html">Back to Ace tracker</a>
     </div>
 
     <div class="grid" style="gap:1rem;margin-top:1.25rem">
@@ -90,8 +91,48 @@
       </article>
       <article class="card">
         <h2>6. Ace scoring mindset</h2>
-        <p>Official passing is a scaled <strong>220</strong>. Your practice target is higher: <strong>≥85% raw on two full mocks</strong>. That buffer absorbs form difficulty variance, fatigue, and a few bad reads.</p>
+        <p>Official passing is a scaled <strong>220</strong>. Your practice target is higher: <strong>≥85% raw on two full mocks</strong> per subject. That buffer absorbs form difficulty variance, fatigue, and a few bad reads.</p>
         <p class="muted" style="margin-bottom:0">If Mock A is 88% and Mock B is 79%, you are not ready — repair the weak domain that moved, then retake B.</p>
+      </article>
+      <article class="card">
+        <h2>7. ELA reading distractors</h2>
+        <ul>
+          <li><strong>Topic vs theme</strong> — “war” is a topic; “war destroys innocence” is a theme.</li>
+          <li><strong>Tone vs mood</strong> — tone is the author’s attitude; mood is the feeling created in the reader.</li>
+          <li><strong>Main idea vs a vivid detail</strong> — a striking example is not the controlling idea.</li>
+          <li><strong>Fact vs opinion in persuasion</strong> — “should,” “best,” and value words are opinions even when next to statistics.</li>
+          <li><strong>Insufficient vs irrelevant evidence</strong> — a true fact can still fail to support the claim.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>8. ELA literature distractors</h2>
+        <ul>
+          <li><strong>Apostrophe vs personification</strong> — apostrophe addresses; personification attributes.</li>
+          <li><strong>Metonymy vs synecdoche</strong> — association vs part-for-whole.</li>
+          <li><strong>Speaker ≠ poet</strong> — the “I” of a poem is a persona unless the item says otherwise.</li>
+          <li><strong>Fable vs myth vs legend</strong> — fable teaches a moral (often animals); myth explains origins/gods; legend has a historical kernel.</li>
+          <li><strong>Period by characteristic, not date trivia</strong> — if it celebrates ordinary social detail, think Realism, not Romanticism.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>9. ELA grammar and writing distractors</h2>
+        <ul>
+          <li><strong>Agreeing with the nearest noun</strong> — “The stack of essays <em>is</em>…”</li>
+          <li><strong>Comma splice “and” look-alikes</strong> — two independents need a period, semicolon, or FANBOYS.</li>
+          <li><strong>Dangling opener</strong> — the implied subject of the opener must be the grammatical subject.</li>
+          <li><strong>Revise vs edit vs proofread</strong> — ideas/organization, then sentences, then mechanics.</li>
+          <li><strong>Yes/no research questions</strong> — NES wants open-ended, researchable questions.</li>
+          <li><strong>Uncited paraphrase</strong> — changing words without citation is still plagiarism.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>10. ELA oral/visual distractors</h2>
+        <ul>
+          <li><strong>Hearing ≠ listening</strong> — barriers include bias, distraction, and rehearsing a reply.</li>
+          <li><strong>Caption vs image</strong> — a caption can reframe what the photo actually shows.</li>
+          <li><strong>Cropping and angle</strong> — selection is an argument, not a neutral window.</li>
+          <li><strong>Copyright on student presentations</strong> — cite sources; “I found it online” is not fair use.</li>
+        </ul>
       </article>
     </div>
   </main>
@@ -100,7 +141,12 @@
   <script>
     document.getElementById("mark").onclick = () => {
       Progress.setReviewFlag("traps");
-      alert("Marked. Ace tracker updated.");
+      alert("Math traps marked. Ace tracker updated.");
+      location.href = "ace.html";
+    };
+    document.getElementById("mark-ela").onclick = () => {
+      Progress.setReviewFlag("elaTraps");
+      alert("ELA traps marked. Ace tracker updated.");
       location.href = "ace.html";
     };
   </script>

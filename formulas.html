@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Formula Sheet — AZ NES Math Prep</title>
+  <title>Reference Sheets — AZ NES Cert Prep</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -12,7 +12,7 @@
 <body>
   <header class="site-header">
     <nav class="nav">
-      <a class="brand" href="index.html">AZ NES <span>Math Prep</span></a>
+      <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
       <a href="practice.html">Practice</a>
@@ -26,13 +26,14 @@
   </header>
 
   <main class="wrap">
-    <div class="eyebrow">Memorize · then verify on exam sheet</div>
-    <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Formula sheet drill</h1>
-    <p class="muted">The real NES provides an on-screen formula page + scientific calculator. Speed still comes from knowing these cold so you don’t hunt mid-item.</p>
+    <div class="eyebrow">Memorize · then verify on exam day</div>
+    <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Reference sheets</h1>
+    <p class="muted">Math provides an on-screen formula page. ELA provides nothing — literary terms, grammar, and rhetoric must be automatic.</p>
 
     <div class="cta-row">
-      <button class="btn btn-accent" id="mark">Mark formulas reviewed</button>
-      <a class="btn btn-secondary" href="ace.html">Back to Ace tracker</a>
+      <button class="btn btn-accent" id="mark">Mark math formulas reviewed</button>
+      <button class="btn btn-secondary" id="mark-ela">Mark ELA reference reviewed</button>
+      <a class="btn btn-ghost" href="ace.html">Back to Ace tracker</a>
     </div>
 
     <section class="card official-calibration" style="margin-top:1.25rem">
@@ -104,13 +105,94 @@ Ellipse: (x−h)²/a²+(y−k)²/b²=1
 Hyperbola: (x−h)²/a² − (y−k)²/b²=1</div>
       </section>
     </div>
+
+    <section class="card" style="margin-top:1.5rem">
+      <div class="eyebrow">ELA 301 — no formula sheet on test day</div>
+      <h2>Literary terms, grammar, and rhetoric</h2>
+      <p class="muted">Drill until you can name the device, the error, or the appeal in under ten seconds.</p>
+    </section>
+    <div class="grid grid-2" style="margin-top:1rem">
+      <section class="card lesson-content">
+        <h2>Figures &amp; sound</h2>
+        <div class="formula">Simile: like/as comparison
+Metaphor: implied comparison
+Personification: human traits on nonhuman
+Metonymy: associated name (the Crown)
+Synecdoche: part for whole (all hands)
+Apostrophe: direct address to absent/abstract
+Hyperbole / understatement / paradox / irony
+Alliteration: repeated initial consonants
+Assonance: repeated vowel sounds
+Allusion: reference to known text/event</div>
+      </section>
+      <section class="card lesson-content">
+        <h2>Poetry &amp; drama</h2>
+        <div class="formula">Sonnet: 14 lines; Shakespearean abab cdcd efef gg
+Villanelle: 19 lines, two refrains
+Ballad: narrative, often quatrains
+Epic: long heroic narrative
+Iambic pentameter: 5 iambs (˘ /)
+Soliloquy: alone on stage, inner thought
+Dramatic irony: audience knows more than character
+Denouement: unraveling after climax
+In medias res: start in the middle</div>
+      </section>
+      <section class="card lesson-content">
+        <h2>Grammar traps</h2>
+        <div class="formula">It's = it is; its = possessive
+Who = subject; whom = object
+Comma splice: two independents joined by comma only
+Fix splice with period, semicolon, or FANBOYS
+Dangling modifier: opening phrase must match subject
+Agreement: verb follows true subject, not nearest noun
+Parallelism: same grammatical form in a series
+That vs which: restrictive vs nonrestrictive</div>
+      </section>
+      <section class="card lesson-content">
+        <h2>Rhetoric &amp; research</h2>
+        <div class="formula">Ethos: credibility/character
+Pathos: emotion
+Logos: logic/evidence
+Claim → evidence → warrant
+Fact ≠ opinion; sufficient ≠ relevant
+Paraphrase: recast ideas + cite
+Quote: exact words + cite
+Plagiarism: uncited language OR uncited ideas
+Open-ended research question: not yes/no
+Primary source: original artifact; secondary: commentary</div>
+      </section>
+      <section class="card lesson-content">
+        <h2>Writing modes</h2>
+        <div class="formula">Narrative: scene, sequence, sensory detail
+Expository: thesis + explain; cause/effect, problem/solution
+Persuasive: position + reasons + counterargument
+Analytical: interpretive claim + quoted evidence
+Audience controls diction and tone
+Revise = ideas/organization; edit = sentences; proofread = mechanics</div>
+      </section>
+      <section class="card lesson-content">
+        <h2>Periods (characteristics, not trivia)</h2>
+        <div class="formula">Romanticism: emotion, nature, individual
+Realism: ordinary life, social detail
+Modernism: fragmentation, experiment
+Harlem Renaissance: Black art, identity, jazz-age cities
+Transcendentalism: intuition, self-reliance
+Enlightenment: reason, satire, social order
+Oral tradition: fable teaches a moral via animals</div>
+      </section>
+    </div>
   </main>
   <script src="js/storage.js"></script>
   <script src="js/vault-sync.js"></script>
   <script>
     document.getElementById("mark").onclick = () => {
       Progress.setReviewFlag("formulas");
-      alert("Marked. Ace tracker updated.");
+      alert("Math formulas marked. Ace tracker updated.");
+      location.href = "ace.html";
+    };
+    document.getElementById("mark-ela").onclick = () => {
+      Progress.setReviewFlag("elaReference");
+      alert("ELA reference marked. Ace tracker updated.");
       location.href = "ace.html";
     };
   </script>

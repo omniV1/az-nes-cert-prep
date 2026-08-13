@@ -1,6 +1,9 @@
 /* Central mastery, prerequisite, placement, and remediation logic. */
 window.ProgressEngine = (() => {
   const OFFICIAL_MATH_DOMAINS = ["number", "algebra", "geometry", "trigcalc", "stats"];
+  const OFFICIAL_ENGLISH_DOMAINS = ["reading", "literature", "language", "writing", "oral"];
+  const MATH_TRACK_DOMAINS = ["foundation", ...OFFICIAL_MATH_DOMAINS];
+  const ENGLISH_TRACK_DOMAINS = ["ela-foundation", ...OFFICIAL_ENGLISH_DOMAINS];
 
   function allLessons() {
     return (window.CURRICULUM?.domains || []).flatMap(domain =>
@@ -8,6 +11,7 @@ window.ProgressEngine = (() => {
         ...lesson,
         domainId: domain.id,
         domainTitle: domain.title,
+        track: domain.track || "math",
         officialExamDomain: !!domain.officialExamDomain,
         requiresOfficialCalibration: !!domain.officialExamDomain || domain.id === "pedagogy"
       }))
@@ -118,10 +122,14 @@ window.ProgressEngine = (() => {
     };
   }
 
-  function getRemedialPlan(stateArg) {
+  function getRemedialPlan(stateArg, track) {
     const state = stateArg || window.Progress.load();
     const weakSkills = [];
     for (const [skillId, skill] of Object.entries(window.SKILLS || {})) {
+      if (track) {
+        const domain = (window.CURRICULUM?.domains || []).find(d => d.id === skill.domain);
+        if ((domain?.track || "math") !== track) continue;
+      }
       const placement = state.placement?.bySkill?.[skillId];
       const progress = state.skillProgress?.[skillId];
       const total = progress ? progress.attempts : (placement?.total || 0);
@@ -144,9 +152,32 @@ window.ProgressEngine = (() => {
     };
   }
 
-  function recommendedNext(stateArg) {
+  function mockSequenceFor(track) {
+    if (track === "english") {
+      return [
+        { examId: "ela-full-1", title: "Half-Length ELA Mock A" },
+        { examId: "ela-full-2", title: "Half-Length ELA Mock B" },
+        { examId: "ela-official-1", title: "Official-Length ELA Simulation A" },
+        { examId: "ela-official-2", title: "Official-Length ELA Simulation B" }
+      ];
+    }
+    return [
+      { examId: "math-full-1", title: "Half-Length Math Mock A" },
+      { examId: "math-full-2", title: "Half-Length Math Mock B" },
+      { examId: "math-official-1", title: "Official-Length Math Simulation A" },
+      { examId: "math-official-2", title: "Official-Length Math Simulation B" }
+    ];
+  }
+
+  function recommendedNext(stateArg, opts = {}) {
     const state = stateArg || window.Progress.load();
-    const due = window.Progress.getDueReviews();
+    const track = opts.track || null;
+    const due = window.Progress.getDueReviews().filter(item => {
+      if (!track) return true;
+      const skill = window.SKILLS?.[item.skillId];
+      const domain = (window.CURRICULUM?.domains || []).find(d => d.id === skill?.domain);
+      return (domain?.track || "math") === track;
+    });
     if (due.length) {
       const skill = window.SKILLS?.[due[0].skillId];
       return {
@@ -157,36 +188,44 @@ window.ProgressEngine = (() => {
       };
     }
 
-    const remediation = getRemedialPlan(state);
+    const remediation = getRemedialPlan(state, track);
     for (const lessonId of remediation.suggestedLessons) {
       if (!lessonMasteryStatus(lessonId, state).mastered && !lessonGateStatus(lessonId, state).locked) {
         return { type: "remedial", lessonId, title: lessonById(lessonId)?.title };
       }
     }
 
-    for (const lesson of allLessons()) {
-      if (lesson.domainId === "pedagogy") continue;
-      if (!lessonMasteryStatus(lesson.id, state).mastered && !lessonGateStatus(lesson.id, state).locked) {
-        return { type: "lesson", lessonId: lesson.id, title: lesson.title, domainId: lesson.domainId };
+    const tracksToScan = track ? [track] : ["math", "english"];
+    for (const currentTrack of tracksToScan) {
+      for (const lesson of allLessons()) {
+        if (lesson.track !== currentTrack) continue;
+        if (!lessonMasteryStatus(lesson.id, state).mastered && !lessonGateStatus(lesson.id, state).locked) {
+          return { type: "lesson", lessonId: lesson.id, title: lesson.title, domainId: lesson.domainId, track: currentTrack };
+        }
       }
+      const best = examId => (state.exams || [])
+        .filter(exam => exam.id === examId)
+        .reduce((score, exam) => Math.max(score, exam.percent || 0), 0);
+      const nextMock = mockSequenceFor(currentTrack).find(mock => best(mock.examId) < 85);
+      if (nextMock) return { type: "mock", track: currentTrack, ...nextMock };
     }
-    const best = examId => (state.exams || [])
-      .filter(exam => exam.id === examId)
-      .reduce((score, exam) => Math.max(score, exam.percent || 0), 0);
-    const mockSequence = [
-      { examId: "math-full-1", title: "Half-Length Math Mock A" },
-      { examId: "math-full-2", title: "Half-Length Math Mock B" },
-      { examId: "math-official-1", title: "Official-Length Math Simulation A" },
-      { examId: "math-official-2", title: "Official-Length Math Simulation B" }
-    ];
-    const nextMock = mockSequence.find(mock => best(mock.examId) < 85);
-    return nextMock
-      ? { type: "mock", ...nextMock }
-      : { type: "maintenance", title: "Maintain mastery with mixed review" };
+    return { type: "maintenance", title: "Maintain mastery with mixed review" };
   }
 
   function officialMathDomains() {
     return OFFICIAL_MATH_DOMAINS.slice();
+  }
+
+  function officialEnglishDomains() {
+    return OFFICIAL_ENGLISH_DOMAINS.slice();
+  }
+
+  function mathTrackDomains() {
+    return MATH_TRACK_DOMAINS.slice();
+  }
+
+  function englishTrackDomains() {
+    return ENGLISH_TRACK_DOMAINS.slice();
   }
 
   return {
@@ -199,6 +238,9 @@ window.ProgressEngine = (() => {
     skillMasteryStatus,
     getRemedialPlan,
     recommendedNext,
-    officialMathDomains
+    officialMathDomains,
+    officialEnglishDomains,
+    mathTrackDomains,
+    englishTrackDomains
   };
 })();

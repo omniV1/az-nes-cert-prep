@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>16-Phase Mastery Plan — AZ NES Math Prep</title>
+  <title>Mastery Plan — AZ NES Cert Prep</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -12,7 +12,7 @@
 <body>
   <header class="site-header">
     <nav class="nav">
-      <a class="brand" href="index.html">AZ NES <span>Math Prep</span></a>
+      <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
       <a href="practice.html">Practice</a>
@@ -26,9 +26,9 @@
   </header>
 
   <main class="wrap">
-    <div class="eyebrow">Master’s + certification dual track</div>
-    <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">16-phase NES mastery plan</h1>
-    <p class="muted">Designed for a full reset. A phase is not a deadline: repeat it until the mastery gate is green, then advance. Depth and durable recall matter more than finishing quickly.</p>
+    <div class="eyebrow">Master’s + dual-subject certification</div>
+    <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">NES mastery plans: Math + English</h1>
+    <p class="muted">Two independent 16-phase tracks. A phase is not a deadline: repeat it until the mastery gate is green, then advance. You can study both in parallel from the dashboard.</p>
 
     <section class="card">
       <h2>Weekly rhythm (Khan + NeetCode hybrid)</h2>
@@ -38,12 +38,17 @@
         <li><strong>Exam pressure (20%)</strong> — Timed block or constructed response every week from Week 2 on.</li>
       </ol>
       <div class="callout" style="background:rgba(15,118,110,0.08);border:1px solid rgba(15,118,110,0.2);border-radius:12px;padding:0.9rem 1rem">
-        <strong>Booking gate:</strong> Book the subject exam only after every prerequisite is mastered, spaced reviews are current, and two 150-question five-hour simulations score at least 85%.
+        <strong>Booking gate:</strong> Book a subject exam only after every prerequisite for that track is mastered, spaced reviews are current, and two official-length simulations score at least 85%.
       </div>
     </section>
 
     <section style="margin-top:1.25rem">
+      <h2 style="font-family:var(--font-display)">Mathematics 304</h2>
       <div class="week-grid" id="weeks"></div>
+    </section>
+    <section style="margin-top:1.25rem">
+      <h2 style="font-family:var(--font-display)">English Language Arts 301</h2>
+      <div class="week-grid" id="ela-weeks"></div>
     </section>
 
     <section class="grid grid-2" style="margin-top:1.25rem">
@@ -51,16 +56,18 @@
         <h2>Certification checklist (AZ)</h2>
         <div class="roadmap">
           <div class="roadmap-step"><strong>Enroll / pathway</strong><div class="muted">Complete secondary education program requirements (your master’s route).</div></div>
-          <div class="roadmap-step"><strong>Subject knowledge</strong><div class="muted">Pass NES Mathematics (or qualify for an approved waiver if your degree/experience allows).</div></div>
+          <div class="roadmap-step"><strong>Subject knowledge</strong><div class="muted">Pass NES Mathematics (304) and/or NES English Language Arts (301) for each approved area you want.</div></div>
           <div class="roadmap-step"><strong>Professional knowledge</strong><div class="muted">Pass NES APK Secondary (052), including written assignments.</div></div>
           <div class="roadmap-step"><strong>Apply to ADE</strong><div class="muted">Submit certification application, IVP fingerprint clearance, and any institutional recommendation.</div></div>
-          <div class="roadmap-step"><strong>Approved area: Mathematics</strong><div class="muted">Authorizes departmentalized math in the grade band of your secondary certificate.</div></div>
+          <div class="roadmap-step"><strong>Approved areas: Mathematics and English</strong><div class="muted">Each passed subject exam authorizes that departmentalized area in the grade band of your secondary certificate.</div></div>
         </div>
       </article>
       <article class="card">
         <h2>External supplements</h2>
         <ul>
-          <li><a href="https://www.khanacademy.org/math" target="_blank" rel="noopener">Khan Academy Math</a> — free video reps for any weak lesson.</li>
+          <li><a href="https://www.khanacademy.org/math" target="_blank" rel="noopener">Khan Academy Math</a> — free video reps for any weak math lesson.</li>
+          <li><a href="https://www.khanacademy.org/humanities" target="_blank" rel="noopener">Khan Academy Humanities</a> — grammar, reading, and rhetoric refreshers.</li>
+          <li><a href="https://owl.purdue.edu/" target="_blank" rel="noopener">Purdue OWL</a> — citation, process, and mechanics.</li>
           <li><a href="https://www.aepa.nesinc.com/" target="_blank" rel="noopener">AEPA/NES official prep</a> — frameworks, formula sheet, tutorials.</li>
           <li><a href="https://www.azed.gov/educator-certification" target="_blank" rel="noopener">ADE Educator Certification</a> — certificates, approved areas, testing info.</li>
           <li>OpenStax Algebra / Precalculus / Calculus — free textbooks for depth.</li>
@@ -69,7 +76,7 @@
         <ul>
           <li>Domain drills: ≥85% before leaving a domain.</li>
           <li>Half-length forms: ≥85% before official-length simulation.</li>
-          <li>150-question, five-hour simulations: ≥85% twice.</li>
+          <li>150-question simulations: math 5 hours ≥85% twice; ELA 3 hours ≥85% twice.</li>
           <li>APK MCQ: ≥80% + two timed CR drafts scored against PEEL.</li>
         </ul>
       </article>
@@ -88,7 +95,8 @@
   <script src="js/storage.js"></script>
   <script src="js/vault-sync.js"></script>
   <script>
-    document.getElementById("weeks").innerHTML = CURRICULUM.weeks.map(w => `
+    function weekCards(weeks, extras) {
+      return weeks.map(w => `
       <article class="week-card">
         <h4>Phase ${w.week}: ${w.title}</h4>
         <p class="muted" style="margin:0 0 0.5rem;font-size:0.92rem">${w.focus}</p>
@@ -97,12 +105,21 @@
           ${w.domains.map(d => `<span class="chip">${d || "mixed"}</span>`).join("")}
         </div>
         <div class="cta-row" style="margin-top:0.65rem">
-          ${w.week === 1 ? `<a class="btn btn-accent" href="exam.html?exam=math-placement-short">Foundation placement</a>` : ""}
-          ${w.week === 15 ? `<a class="btn btn-accent" href="exam.html?exam=math-full-1">Half-length mock</a>` : ""}
-          ${w.week === 16 ? `<a class="btn btn-accent" href="exam.html?exam=math-official-1">Official-length simulation</a>` : ""}
+          ${extras(w)}
           <a class="btn btn-ghost" href="learn.html">Open learn</a>
         </div>
       </article>`).join("");
+    }
+    document.getElementById("weeks").innerHTML = weekCards(CURRICULUM.weeks, w => `
+          ${w.week === 1 ? `<a class="btn btn-accent" href="exam.html?exam=math-placement-short">Foundation placement</a>` : ""}
+          ${w.week === 15 ? `<a class="btn btn-accent" href="exam.html?exam=math-full-1">Half-length mock</a>` : ""}
+          ${w.week === 16 ? `<a class="btn btn-accent" href="exam.html?exam=math-official-1">Official-length simulation</a>` : ""}
+    `);
+    document.getElementById("ela-weeks").innerHTML = weekCards(CURRICULUM.englishWeeks || [], w => `
+          ${w.week === 1 ? `<a class="btn btn-accent" href="exam.html?exam=ela-placement-short">ELA placement</a>` : ""}
+          ${w.week === 15 ? `<a class="btn btn-accent" href="exam.html?exam=ela-full-1">Half-length mock</a>` : ""}
+          ${w.week === 16 ? `<a class="btn btn-accent" href="exam.html?exam=ela-official-1">Official-length simulation</a>` : ""}
+    `);
 
     document.getElementById("reset").onclick = () => {
       if (confirm("Reset all progress on this device?")) {

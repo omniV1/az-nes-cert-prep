@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Guide - AZ NES Math Prep</title>
+  <title>Guide - AZ NES Cert Prep</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -12,7 +12,7 @@
 <body>
   <header class="site-header">
     <nav class="nav">
-      <a class="brand" href="index.html">AZ NES <span>Math Prep</span></a>
+      <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a class="active" href="learn.html">Learn</a>
       <a href="practice.html">Practice</a>
@@ -50,17 +50,30 @@
 
   <script src="js/data/curriculum.js"></script>
   <script src="js/data/skills.js"></script>
+  <script src="js/data/lesson-kit.js"></script>
   <script src="js/data/lessons-foundations.js"></script>
   <script src="js/data/lessons-number.js"></script>
   <script src="js/data/lessons-algebra.js"></script>
   <script src="js/data/lessons-geometry.js"></script>
   <script src="js/data/lessons-trigcalc.js"></script>
   <script src="js/data/lessons-stats.js"></script>
+  <script src="js/data/lessons-ela-foundations.js"></script>
+  <script src="js/data/lessons-reading.js"></script>
+  <script src="js/data/lessons-literature.js"></script>
+  <script src="js/data/lessons-language.js"></script>
+  <script src="js/data/lessons-writing.js"></script>
+  <script src="js/data/lessons-oral.js"></script>
   <script src="js/data/lessons-pedagogy.js"></script>
   <script src="js/data/problems.js"></script>
   <script src="js/data/problems-extra.js"></script>
   <script src="js/data/problems-foundations.js"></script>
   <script src="js/data/problems-mastery.js"></script>
+  <script src="js/data/problems-english-foundations.js"></script>
+  <script src="js/data/problems-english-reading.js"></script>
+  <script src="js/data/problems-english-literature.js"></script>
+  <script src="js/data/problems-english-language.js"></script>
+  <script src="js/data/problems-english-writing.js"></script>
+  <script src="js/data/problems-english-oral.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/progress-engine.js"></script>
   <script src="js/vault-sync.js"></script>
@@ -73,6 +86,7 @@
       ...L,
       domainId: d.id,
       domainTitle: d.title,
+      track: d.track || "math",
       competencies: d.competencies,
       officialExamDomain: !!d.officialExamDomain,
       requiresOfficialCalibration: !!d.officialExamDomain || d.id === "pedagogy"
@@ -224,22 +238,30 @@
 
     function officialCalibrationHtml() {
       if (!metaLesson.requiresOfficialCalibration) return "";
-      const isMath = metaLesson.officialExamDomain;
-      const resourceUrl = isMath
-        ? "https://www.aepa.nesinc.com/Content/Docs/NES_Profile_304.pdf"
-        : "https://www.aepa.nesinc.com/Content/Docs/NES_Profile_052.pdf";
-      const resourceTitle = isMath
-        ? "Official NES Mathematics (304) profile and sample items"
-        : "Official APK Secondary (052) profile, samples, and written assignments";
+      const profiles = {
+        math: {
+          url: "https://www.aepa.nesinc.com/Content/Docs/NES_Profile_304.pdf",
+          title: "Official NES Mathematics (304) profile and sample items"
+        },
+        english: {
+          url: "https://www.aepa.nesinc.com/Content/Docs/NES_Profile_301.pdf",
+          title: "Official NES English Language Arts (301) profile and sample items"
+        },
+        pedagogy: {
+          url: "https://www.aepa.nesinc.com/Content/Docs/NES_Profile_052.pdf",
+          title: "Official APK Secondary (052) profile, samples, and written assignments"
+        }
+      };
+      const resource = profiles[metaLesson.track] || profiles.math;
       const competencyText = (metaLesson.competencyIds || []).join(", ") || metaLesson.competencies;
       const checked = !!Progress.load().officialResources?.[`lesson:${id}`];
       return `
         <section class="official-calibration" id="official-calibration">
           <div class="eyebrow">Required official calibration</div>
-          <h3>${resourceTitle}</h3>
+          <h3>${resource.title}</h3>
           <p>Use the embedded Pearson/NES material below. Find competency <strong>${competencyText}</strong>, solve its official sample item without revealing the answer, explain why each distractor is wrong, and then compare your reasoning with the official explanation.</p>
-          <iframe class="official-embed" src="${resourceUrl}" title="${resourceTitle}" loading="lazy"></iframe>
-          <p class="muted">If your browser blocks the embedded official page, <a href="${resourceUrl}" target="_blank" rel="noopener">open the same official material in a new tab</a>, then return here.</p>
+          <iframe class="official-embed" src="${resource.url}" title="${resource.title}" loading="lazy"></iframe>
+          <p class="muted">If your browser blocks the embedded official page, <a href="${resource.url}" target="_blank" rel="noopener">open the same official material in a new tab</a>, then return here.</p>
           <label class="official-confirm">
             <input type="checkbox" id="official-calibration-check" ${checked ? "checked" : ""} />
             <span>I completed the official sample-item calibration for this lesson and explained my reasoning before reading the answer.</span>
@@ -470,7 +492,7 @@
       document.getElementById("unlock-all").style.display = "none";
       document.getElementById("reset-checks").style.display = "none";
     } else {
-      document.title = lesson.title + " - AZ NES Math Prep";
+      document.title = lesson.title + " - AZ NES Cert Prep";
       const totalChecks = lesson.sections.reduce((n, s) => n + normalizeChecks(s).length, 0);
       document.getElementById("meta").innerHTML =
         '<div class="eyebrow">' + metaLesson.domainTitle + "</div>" +

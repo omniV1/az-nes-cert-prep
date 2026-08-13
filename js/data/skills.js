@@ -87,14 +87,62 @@ window.SKILLS = {
   "distributions": { title: "Probability distributions", domain: "stats", lessonIds: ["st-04"], tags: ["distributions"] },
   "binomial-normal": { title: "Binomial and normal distributions", domain: "stats", lessonIds: ["st-04"], tags: ["binomial", "normal"] },
   "sequences-series": { title: "Sequences and series", domain: "stats", lessonIds: ["st-06"], tags: ["sequences"] },
-  "matrices-sets": { title: "Matrices and sets", domain: "stats", lessonIds: ["st-06"], tags: ["matrices", "sets"] }
+  "matrices-sets": { title: "Matrices and sets", domain: "stats", lessonIds: ["st-06"], tags: ["matrices", "sets"] },
+
+  "parts-of-speech": { title: "Parts of speech", domain: "ela-foundation", lessonIds: ["efdn-01"], representations: ["label", "sentence"] },
+  "sentence-anatomy": { title: "Sentence anatomy", domain: "ela-foundation", lessonIds: ["efdn-01"], representations: ["diagram", "symbolic"] },
+  "phrases-clauses": { title: "Phrases and clauses", domain: "ela-foundation", lessonIds: ["efdn-02"], representations: ["sentence", "tree"] },
+  "punctuation-basics": { title: "Punctuation and mechanics", domain: "ela-foundation", lessonIds: ["efdn-03"], representations: ["sentence"] },
+  "agreement-usage": { title: "Agreement, pronouns, and modifiers", domain: "ela-foundation", lessonIds: ["efdn-04"], representations: ["sentence"] },
+  "vocab-context": { title: "Context, roots, and connotation", domain: "ela-foundation", lessonIds: ["efdn-05"], representations: ["word", "passage"] },
+  "reading-process": { title: "Reading process", domain: "ela-foundation", lessonIds: ["efdn-06"], representations: ["strategy"] },
+  "literary-elements-intro": { title: "Literary elements", domain: "ela-foundation", lessonIds: ["efdn-07"], representations: ["story-map"] },
+  "rhetoric-intro": { title: "Claims, evidence, and appeals", domain: "ela-foundation", lessonIds: ["efdn-08"], representations: ["argument"] },
+
+  "vocab-strategies": { title: "Vocabulary strategies", domain: "reading", lessonIds: ["rd-01"], tags: ["vocabulary"] },
+  "word-origins": { title: "Etymology and language change", domain: "reading", lessonIds: ["rd-01"], tags: ["etymology"] },
+  "informational-texts": { title: "Informational texts", domain: "reading", lessonIds: ["rd-02"], tags: ["informational"] },
+  "persuasive-texts": { title: "Persuasive texts", domain: "reading", lessonIds: ["rd-03"], tags: ["persuasive"] },
+  "rhetorical-appeals": { title: "Rhetorical appeals", domain: "reading", lessonIds: ["rd-03"], tags: ["rhetoric"] },
+  "technical-texts": { title: "Technical and functional texts", domain: "reading", lessonIds: ["rd-04"], tags: ["technical"] },
+  "evidence-credibility": { title: "Evidence and credibility", domain: "reading", lessonIds: ["rd-05"], tags: ["evidence"] },
+  "text-graphics": { title: "Graphics and text features", domain: "reading", lessonIds: ["rd-06"], tags: ["graphics"] },
+
+  "prose-drama-analysis": { title: "Prose and drama analysis", domain: "literature", lessonIds: ["lt-01"], tags: ["prose", "drama"] },
+  "poetry-forms": { title: "Poetry forms and meter", domain: "literature", lessonIds: ["lt-02"], tags: ["poetry"] },
+  "sound-devices": { title: "Sound devices", domain: "literature", lessonIds: ["lt-02"], tags: ["sound"] },
+  "figurative-language": { title: "Figurative language", domain: "literature", lessonIds: ["lt-03"], tags: ["figurative"] },
+  "narrative-elements": { title: "Plot, character, POV, tone, theme", domain: "literature", lessonIds: ["lt-04"], tags: ["narrative"] },
+  "world-literature": { title: "World literature and oral tradition", domain: "literature", lessonIds: ["lt-05"], tags: ["world-lit"] },
+  "literary-periods": { title: "Literary periods and movements", domain: "literature", lessonIds: ["lt-06"], tags: ["periods"] },
+  "literature-context": { title: "Literature and social context", domain: "literature", lessonIds: ["lt-07"], tags: ["context"] },
+
+  "grammar-usage": { title: "Grammar and usage", domain: "language", lessonIds: ["lg-01"], tags: ["grammar"] },
+  "mechanics": { title: "Mechanics", domain: "language", lessonIds: ["lg-02"], tags: ["mechanics"] },
+  "sentence-craft": { title: "Sentence combining and coherence", domain: "language", lessonIds: ["lg-03"], tags: ["sentences"] },
+  "essay-structure": { title: "Essay structure", domain: "language", lessonIds: ["lg-04"], tags: ["structure"] },
+  "writing-process": { title: "Writing process", domain: "language", lessonIds: ["lg-05"], tags: ["process"] },
+  "research-citation": { title: "Research and citation", domain: "language", lessonIds: ["lg-06"], tags: ["research"] },
+
+  "narrative-writing": { title: "Narrative writing", domain: "writing", lessonIds: ["wr-01"], tags: ["narrative"] },
+  "expository-writing": { title: "Expository writing", domain: "writing", lessonIds: ["wr-02"], tags: ["expository"] },
+  "persuasive-writing": { title: "Persuasive writing", domain: "writing", lessonIds: ["wr-03"], tags: ["persuasive"] },
+  "analytical-writing": { title: "Critical and analytical writing", domain: "writing", lessonIds: ["wr-04"], tags: ["analytical"] },
+  "thesis-support": { title: "Thesis and support", domain: "writing", lessonIds: ["wr-05"], tags: ["thesis"] },
+  "style-audience": { title: "Style, tone, and audience", domain: "writing", lessonIds: ["wr-06"], tags: ["style"] },
+
+  "listening-speaking": { title: "Listening and speaking", domain: "oral", lessonIds: ["ov-01"], tags: ["listening"] },
+  "group-discussion": { title: "Group discussion", domain: "oral", lessonIds: ["ov-01"], tags: ["discussion"] },
+  "speech-craft": { title: "Speech craft and delivery", domain: "oral", lessonIds: ["ov-02"], tags: ["speech"] },
+  "media-analysis": { title: "Visual media analysis", domain: "oral", lessonIds: ["ov-03"], tags: ["media"] },
+  "presentation-ethics": { title: "Presentations, copyright, and ethics", domain: "oral", lessonIds: ["ov-04"], tags: ["ethics"] }
 };
 
 for (const skill of Object.values(window.SKILLS)) {
   skill.mastery = skill.mastery || {
     minChecks: 2,
     minCheckAccuracy: 0.8,
-    minProblems: skill.domain === "foundation" ? 0 : 3,
+    minProblems: (skill.domain === "foundation" || skill.domain === "ela-foundation") ? 0 : 3,
     minProblemAccuracy: 0.75
   };
 }

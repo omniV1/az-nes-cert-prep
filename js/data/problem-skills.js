@@ -68,7 +68,42 @@
     ["binomial-normal", /binomial|normal distribution|z-score|empirical rule/],
     ["distributions", /probability distribution|expected value|binomial|normal distribution/],
     ["sequences-series", /sequence|series|arithmetic sequence|geometric sequence/],
-    ["matrices-sets", /matrix|set|union|intersection|venn/]
+    ["matrices-sets", /matrix|set|union|intersection|venn/],
+    ["parts-of-speech", /noun|verb|adjective|adverb|preposition|conjunction|pronoun|interjection|part of speech/],
+    ["phrases-clauses", /independent clause|dependent clause|subordinate|phrase vs clause|relative clause/],
+    ["punctuation-basics", /comma splice|semicolon|apostrophe|colon|dash|quotation mark/],
+    ["agreement-usage", /subject-verb|pronoun-antecedent|dangling|misplaced modifier|who\/whom/],
+    ["vocab-strategies", /context clue|connotation|denotation|root|prefix|suffix|etymolog/],
+    ["informational-texts", /informational|main idea|text structure|compare-contrast|cause-and-effect/],
+    ["persuasive-texts", /editorial|propaganda|advertisement|claim|counterargument/],
+    ["rhetorical-appeals", /ethos|pathos|logos|rhetorical appeal/],
+    ["technical-texts", /warranty|contract|timetable|application|functional text|flowchart/],
+    ["evidence-credibility", /credibility|reliability|bias|sufficient evidence|summary/],
+    ["text-graphics", /table|chart|caption|legend|graphic feature|schematic/],
+    ["prose-drama-analysis", /soliloquy|dramatic irony|denouement|flashback|characterization/],
+    ["poetry-forms", /sonnet|villanelle|ode|ballad|tanka|iambic|free verse|quatrain/],
+    ["figurative-language", /metaphor|simile|personification|metonymy|synecdoche|apostrophe|hyperbole|irony/],
+    ["sound-devices", /alliteration|assonance|consonance|rhyme|meter|iambic pentameter/],
+    ["narrative-elements", /point of view|tone|mood|theme|plot|setting|unreliable narrator/],
+    ["world-literature", /fable|epic|oral tradition|trickster|haiku|frame tale/],
+    ["literary-periods", /romanticism|realism|modernism|harlem renaissance|enlightenment|transcendental/],
+    ["literature-context", /child labor|abolition|civil rights|social issue|historical context/],
+    ["grammar-usage", /parallelism|fragment|run-on|tense shift|voice|mood of verb/],
+    ["mechanics", /capitalization|spelling|hyphen|its\/it's|there\/their\/they're/],
+    ["sentence-craft", /sentence combining|transition|wordiness|coherence|subordination/],
+    ["essay-structure", /thesis|introduction|conclusion|topic sentence|body paragraph/],
+    ["writing-process", /brainstorm|draft|revise|edit|proofread|prewriting/],
+    ["research-citation", /paraphrase|plagiarism|citation|works cited|primary source|open-ended question/],
+    ["narrative-writing", /in medias res|flashback|sensory detail|strong verb|narrative/],
+    ["expository-writing", /expository|explain|problem-and-solution|cause-and-effect organization/],
+    ["persuasive-writing", /counterargument|call to action|logical order|respectful tone/],
+    ["analytical-writing", /literary analysis|textual evidence|interpretive claim|close reading/],
+    ["style-audience", /diction|audience|formal tone|voice|style/],
+    ["listening-speaking", /active listening|barrier to listening|restating|clarifying/],
+    ["group-discussion", /group discussion|turn-taking|nonverbal cue/],
+    ["speech-craft", /speech|vocal variety|occasion|rhetorical device in speech/],
+    ["media-analysis", /media|visual image|photo manipulation|camera angle|advertisement image/],
+    ["presentation-ethics", /copyright|fair use|citation of media|presentation aid/]
   ];
 
   const domainFallback = {
@@ -77,7 +112,13 @@
     geometry: "measurement-units",
     trigcalc: "right-triangle-trig",
     stats: "descriptive-statistics",
-    pedagogy: null
+    pedagogy: null,
+    "ela-foundation": "sentence-anatomy",
+    reading: "informational-texts",
+    literature: "narrative-elements",
+    language: "grammar-usage",
+    writing: "expository-writing",
+    oral: "listening-speaking"
   };
 
   for (const problem of (window.PROBLEMS || [])) {
@@ -100,3 +141,12 @@
     return result;
   }
 })();
+
+window.stemHtml = function stemHtml(p) {
+  const esc = s => String(s ?? "").replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+  const withBreaks = s => esc(s).replace(/\n/g, "<br>");
+  const passage = p.passage
+    ? `<blockquote class="passage">${withBreaks(p.passage)}</blockquote>`
+    : "";
+  return passage + `<div class="problem-stem">${withBreaks(p.stem)}</div>`;
+};

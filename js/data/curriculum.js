@@ -1,4 +1,4 @@
-/* NES Mathematics (Secondary 6–12) + Professional Knowledge Secondary curriculum */
+/* NES Mathematics (304) + English Language Arts (301) + Professional Knowledge Secondary curriculum */
 window.CURRICULUM = {
   exams: {
     math: {
@@ -8,6 +8,14 @@ window.CURRICULUM = {
       timeMinutes: 300,
       passing: 220,
       note: "Official format: approximately 150 multiple-choice questions in 5 hours, with an on-screen scientific calculator and formula page."
+    },
+    english: {
+      code: "NES English Language Arts (301)",
+      aka: "Arizona Secondary English Language Arts Subject Knowledge",
+      questions: 150,
+      timeMinutes: 180,
+      passing: 220,
+      note: "Official format: approximately 150 multiple-choice questions in 3 hours. No reference sheet is provided — literary terms, grammar, and rhetoric must be automatic."
     },
     pedagogy: {
       code: "NES APK Secondary (052)",
@@ -22,6 +30,7 @@ window.CURRICULUM = {
       id: "foundation",
       num: "F",
       title: "Foundation Bootcamp",
+      track: "math",
       weight: "Prerequisite",
       competencies: "Supports 0001–0016",
       officialExamDomain: false,
@@ -43,6 +52,7 @@ window.CURRICULUM = {
       id: "number",
       num: "I",
       title: "Number Sense & Mathematical Processes",
+      track: "math",
       weight: "19%",
       competencies: "0001–0003",
       blurb: "Problem solving, reasoning, number theory, reals/complexes, ratios, proportions.",
@@ -61,6 +71,7 @@ window.CURRICULUM = {
       id: "algebra",
       num: "II",
       title: "Patterns, Algebra & Functions",
+      track: "math",
       weight: "24%",
       competencies: "0004–0007",
       blurb: "Largest domain. Relations, polynomials, exponential/log, rational/radical/absolute/piecewise.",
@@ -80,6 +91,7 @@ window.CURRICULUM = {
       id: "geometry",
       num: "III",
       title: "Measurement & Geometry",
+      track: "math",
       weight: "19%",
       competencies: "0008–0010",
       blurb: "Units, area/volume, Euclidean proofs, coordinate geometry, transformations, conics.",
@@ -99,6 +111,7 @@ window.CURRICULUM = {
       id: "trigcalc",
       num: "IV",
       title: "Trigonometry & Calculus",
+      track: "math",
       weight: "19%",
       competencies: "0011–0013",
       blurb: "High-school stretch domain: unit circle, identities, limits, derivatives, integrals.",
@@ -117,6 +130,7 @@ window.CURRICULUM = {
       id: "stats",
       num: "V",
       title: "Statistics, Probability & Discrete Math",
+      track: "math",
       weight: "19%",
       competencies: "0014–0016",
       blurb: "Data displays, sampling bias, probability, counting, sequences, matrices, sets.",
@@ -132,9 +146,125 @@ window.CURRICULUM = {
       ]
     },
     {
+      id: "ela-foundation",
+      num: "EF",
+      title: "ELA Foundation Bootcamp",
+      track: "english",
+      weight: "Prerequisite",
+      competencies: "Supports 0001–0017",
+      officialExamDomain: false,
+      blurb: "Rebuild grammar, vocabulary, reading process, literary elements, and rhetoric from scratch before exam-depth analysis.",
+      color: "#44403c",
+      lessons: [
+        { id: "efdn-01", title: "Parts of speech and sentence anatomy", minutes: 55, level: "foundation", prerequisites: [], skills: ["parts-of-speech", "sentence-anatomy"], competencyIds: [] },
+        { id: "efdn-02", title: "Phrases, clauses, and sentence types", minutes: 60, level: "foundation", prerequisites: ["efdn-01"], skills: ["phrases-clauses"], competencyIds: ["0009"] },
+        { id: "efdn-03", title: "Punctuation and mechanics", minutes: 55, level: "foundation", prerequisites: ["efdn-01"], skills: ["punctuation-basics"], competencyIds: ["0009"] },
+        { id: "efdn-04", title: "Usage: agreement, pronouns, and modifiers", minutes: 60, level: "foundation", prerequisites: ["efdn-02"], skills: ["agreement-usage"], competencyIds: ["0009"] },
+        { id: "efdn-05", title: "Vocabulary: roots, context, and connotation", minutes: 55, level: "foundation", prerequisites: ["efdn-01"], skills: ["vocab-context"], competencyIds: ["0001"] },
+        { id: "efdn-06", title: "The reading process: before, during, after", minutes: 50, level: "foundation", prerequisites: ["efdn-05"], skills: ["reading-process"], competencyIds: ["0001"] },
+        { id: "efdn-07", title: "Literary elements: plot, character, setting, theme", minutes: 55, level: "foundation", prerequisites: ["efdn-06"], skills: ["literary-elements-intro"], competencyIds: ["0005"] },
+        { id: "efdn-08", title: "Rhetoric and argument: claims, evidence, appeals", minutes: 55, level: "foundation", prerequisites: ["efdn-06"], skills: ["rhetoric-intro"], competencyIds: ["0003"] }
+      ]
+    },
+    {
+      id: "reading",
+      num: "E-I",
+      title: "Vocabulary, Reading Comprehension & Text Forms",
+      track: "english",
+      weight: "23%",
+      competencies: "0001–0004",
+      officialExamDomain: true,
+      blurb: "Word meaning, informational/persuasive/technical texts, evidence, credibility, and graphics.",
+      color: "#0e7490",
+      lessons: [
+        { id: "rd-01", title: "Vocabulary strategies and comprehension", minutes: 70, level: "foundation", prerequisites: ["efdn-05", "efdn-06"], skills: ["vocab-strategies", "word-origins"], competencyIds: ["0001"] },
+        { id: "rd-02", title: "Informational texts: structure, purpose, summary", minutes: 75, level: "core", prerequisites: ["rd-01"], skills: ["informational-texts"], competencyIds: ["0002"] },
+        { id: "rd-03", title: "Persuasive texts and rhetorical appeals", minutes: 75, level: "core", prerequisites: ["rd-01", "efdn-08"], skills: ["persuasive-texts", "rhetorical-appeals"], competencyIds: ["0003"] },
+        { id: "rd-04", title: "Technical and functional texts", minutes: 65, level: "core", prerequisites: ["rd-02"], skills: ["technical-texts"], competencyIds: ["0004"] },
+        { id: "rd-05", title: "Evidence, credibility, and accurate summary", minutes: 70, level: "exam", prerequisites: ["rd-02", "rd-03"], skills: ["evidence-credibility"], competencyIds: ["0002", "0003"] },
+        { id: "rd-06", title: "Graphics, features, and multimodal texts", minutes: 65, level: "exam", prerequisites: ["rd-02", "rd-04"], skills: ["text-graphics"], competencyIds: ["0002", "0004"] }
+      ]
+    },
+    {
+      id: "literature",
+      num: "E-II",
+      title: "Analyzing and Interpreting Literature",
+      track: "english",
+      weight: "23%",
+      competencies: "0005–0008",
+      officialExamDomain: true,
+      blurb: "Prose, drama, poetry, world literature, literary periods, and social/historical context.",
+      color: "#9f1239",
+      lessons: [
+        { id: "lt-01", title: "Fiction, literary nonfiction, and drama", minutes: 80, level: "foundation", prerequisites: ["efdn-07"], skills: ["prose-drama-analysis"], competencyIds: ["0005"] },
+        { id: "lt-02", title: "Poetry forms, meter, and sound", minutes: 80, level: "core", prerequisites: ["efdn-07"], skills: ["poetry-forms", "sound-devices"], competencyIds: ["0006"] },
+        { id: "lt-03", title: "Figurative language and imagery", minutes: 75, level: "core", prerequisites: ["lt-02"], skills: ["figurative-language"], competencyIds: ["0006"] },
+        { id: "lt-04", title: "Plot, character, point of view, tone, and theme", minutes: 80, level: "core", prerequisites: ["lt-01"], skills: ["narrative-elements"], competencyIds: ["0005"] },
+        { id: "lt-05", title: "World literature, genres, and oral tradition", minutes: 75, level: "exam", prerequisites: ["lt-01", "lt-02"], skills: ["world-literature"], competencyIds: ["0007"] },
+        { id: "lt-06", title: "Literary periods, movements, and major writers", minutes: 80, level: "exam", prerequisites: ["lt-05"], skills: ["literary-periods"], competencyIds: ["0007"] },
+        { id: "lt-07", title: "Literature as social and historical argument", minutes: 75, level: "exam", prerequisites: ["lt-06"], skills: ["literature-context"], competencyIds: ["0008"] }
+      ]
+    },
+    {
+      id: "language",
+      num: "E-III",
+      title: "Conventions, Composition, Process & Research",
+      track: "english",
+      weight: "19%",
+      competencies: "0009–0011",
+      officialExamDomain: true,
+      blurb: "Standard American English, sentence craft, essay architecture, writing process, and research ethics.",
+      color: "#a16207",
+      lessons: [
+        { id: "lg-01", title: "Grammar and usage under pressure", minutes: 75, level: "foundation", prerequisites: ["efdn-04"], skills: ["grammar-usage"], competencyIds: ["0009"] },
+        { id: "lg-02", title: "Mechanics: punctuation, spelling, capitalization", minutes: 65, level: "foundation", prerequisites: ["efdn-03"], skills: ["mechanics"], competencyIds: ["0009"] },
+        { id: "lg-03", title: "Sentence combining, parallelism, and coherence", minutes: 70, level: "core", prerequisites: ["lg-01"], skills: ["sentence-craft"], competencyIds: ["0009", "0010"] },
+        { id: "lg-04", title: "Introductions, body development, and conclusions", minutes: 70, level: "core", prerequisites: ["lg-03"], skills: ["essay-structure"], competencyIds: ["0009"] },
+        { id: "lg-05", title: "The writing process: generate through proofread", minutes: 70, level: "core", prerequisites: ["lg-04"], skills: ["writing-process"], competencyIds: ["0010"] },
+        { id: "lg-06", title: "Research: questions, sources, paraphrase, citation", minutes: 80, level: "exam", prerequisites: ["rd-05", "lg-05"], skills: ["research-citation"], competencyIds: ["0011"] }
+      ]
+    },
+    {
+      id: "writing",
+      num: "E-IV",
+      title: "Modes of Writing",
+      track: "english",
+      weight: "23%",
+      competencies: "0012–0015",
+      officialExamDomain: true,
+      blurb: "Narrative, expository, persuasive, and critical/analytical writing — purpose, organization, and style.",
+      color: "#6d28d9",
+      lessons: [
+        { id: "wr-01", title: "Narrative writing: scene, sequence, and voice", minutes: 75, level: "foundation", prerequisites: ["lg-05", "efdn-07"], skills: ["narrative-writing"], competencyIds: ["0012"] },
+        { id: "wr-02", title: "Expository writing: thesis, explanation, and clarity", minutes: 75, level: "core", prerequisites: ["lg-05", "rd-02"], skills: ["expository-writing"], competencyIds: ["0013"] },
+        { id: "wr-03", title: "Persuasive writing: position, support, and counterargument", minutes: 80, level: "core", prerequisites: ["lg-05", "rd-03"], skills: ["persuasive-writing"], competencyIds: ["0014"] },
+        { id: "wr-04", title: "Critical and analytical writing about literature", minutes: 80, level: "exam", prerequisites: ["wr-02", "lt-04"], skills: ["analytical-writing"], competencyIds: ["0015"] },
+        { id: "wr-05", title: "Thesis, organization, and supporting detail across modes", minutes: 70, level: "exam", prerequisites: ["wr-02", "wr-03"], skills: ["thesis-support"], competencyIds: ["0013", "0014", "0015"] },
+        { id: "wr-06", title: "Style, tone, diction, and audience", minutes: 70, level: "exam", prerequisites: ["wr-05"], skills: ["style-audience"], competencyIds: ["0012", "0014"] }
+      ]
+    },
+    {
+      id: "oral",
+      num: "E-V",
+      title: "Oral and Visual Communication",
+      track: "english",
+      weight: "12%",
+      competencies: "0016–0017",
+      officialExamDomain: true,
+      blurb: "Listening, discussion, speech craft, media analysis, presentations, and citation ethics.",
+      color: "#115e59",
+      lessons: [
+        { id: "ov-01", title: "Listening, speaking, and group discussion", minutes: 65, level: "foundation", prerequisites: ["efdn-08"], skills: ["listening-speaking", "group-discussion"], competencyIds: ["0016"] },
+        { id: "ov-02", title: "Speech craft: purpose, audience, and delivery", minutes: 70, level: "core", prerequisites: ["ov-01", "wr-03"], skills: ["speech-craft"], competencyIds: ["0016"] },
+        { id: "ov-03", title: "Visual media: images, bias, and manipulation", minutes: 70, level: "exam", prerequisites: ["rd-03", "rd-06"], skills: ["media-analysis"], competencyIds: ["0017"] },
+        { id: "ov-04", title: "Presentations, technologies, copyright, and ethics", minutes: 65, level: "exam", prerequisites: ["ov-02", "ov-03"], skills: ["presentation-ethics"], competencyIds: ["0017"] }
+      ]
+    },
+    {
       id: "pedagogy",
       num: "PK",
       title: "Professional Knowledge: Secondary",
+      track: "pedagogy",
       weight: "Exam 052",
       competencies: "0001–0010",
       blurb: "Adolescent development, planning, instruction, assessment, classroom management, ethics.",
@@ -169,5 +299,23 @@ window.CURRICULUM = {
     { week: 14, title: "Probability and discrete mathematics", focus: "Counting, probability, distributions, sequences, matrices, and sets", domains: ["stats"], hours: "10–14" },
     { week: 15, title: "Interleaved repair", focus: "Spaced review, weakest skills, and both 75-question half-length forms", domains: ["number", "algebra", "geometry", "trigcalc", "stats"], hours: "10–14" },
     { week: 16, title: "Official-length simulations", focus: "Two 150-question, 5-hour simulations plus targeted repair between them", domains: ["number", "algebra", "geometry", "trigcalc", "stats"], hours: "12–16" }
+  ],
+  englishWeeks: [
+    { week: 1, title: "ELA foundation placement", focus: "Measure grammar, usage, vocabulary, and reading-process prerequisites", domains: ["ela-foundation"], hours: "repeat until ≥85%" },
+    { week: 2, title: "Sentence anatomy", focus: "Parts of speech, phrases, clauses, and sentence types", domains: ["ela-foundation"], hours: "repeat until ≥85%" },
+    { week: 3, title: "Mechanics and usage", focus: "Punctuation, agreement, pronouns, and modifiers", domains: ["ela-foundation"], hours: "repeat until ≥85%" },
+    { week: 4, title: "Reading and rhetoric bridge", focus: "Vocabulary, reading process, literary elements, and argument", domains: ["ela-foundation"], hours: "repeat until ≥85%" },
+    { week: 5, title: "Vocabulary and informational reading", focus: "Word-meaning strategies, informational structure, summary, and graphics", domains: ["reading"], hours: "8–12" },
+    { week: 6, title: "Persuasive and technical reading", focus: "Appeals, credibility, evidence, warranties, and functional texts", domains: ["reading"], hours: "8–12" },
+    { week: 7, title: "Prose, drama, and narrative craft", focus: "Fiction, literary nonfiction, drama, plot, character, POV, and tone", domains: ["literature"], hours: "10–14" },
+    { week: 8, title: "Poetry and figurative language", focus: "Forms, meter, sound devices, imagery, and figures of speech", domains: ["literature"], hours: "8–12" },
+    { week: 9, title: "World literature and context", focus: "Genres, oral tradition, periods, movements, and social argument", domains: ["literature"], hours: "10–14" },
+    { week: 10, title: "Conventions and composition", focus: "Grammar under pressure, sentence craft, and essay architecture", domains: ["language"], hours: "8–12" },
+    { week: 11, title: "Process and research", focus: "Generate–revise–edit–proofread, sources, paraphrase, and citation", domains: ["language"], hours: "8–12" },
+    { week: 12, title: "Narrative and expository modes", focus: "Scene and voice; thesis, explanation, and succinct development", domains: ["writing"], hours: "8–12" },
+    { week: 13, title: "Persuasive and analytical modes", focus: "Counterargument, literary analysis, style, tone, and audience", domains: ["writing"], hours: "10–14" },
+    { week: 14, title: "Oral and visual communication", focus: "Discussion, speech craft, media bias, presentations, and ethics", domains: ["oral"], hours: "6–10" },
+    { week: 15, title: "ELA interleaved repair", focus: "Spaced review, weakest skills, and both 75-question half-length forms", domains: ["reading", "literature", "language", "writing", "oral"], hours: "10–14" },
+    { week: 16, title: "ELA official-length simulations", focus: "Two 150-question, 3-hour simulations plus targeted repair between them", domains: ["reading", "literature", "language", "writing", "oral"], hours: "10–14" }
   ]
 };

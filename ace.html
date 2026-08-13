@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ace Tracker — AZ NES Math Prep</title>
+  <title>Ace Tracker — AZ NES Cert Prep</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -12,7 +12,7 @@
 <body>
   <header class="site-header">
     <nav class="nav">
-      <a class="brand" href="index.html">AZ NES <span>Math Prep</span></a>
+      <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
       <a href="practice.html">Practice</a>
@@ -27,33 +27,46 @@
 
   <main class="wrap">
     <div class="eyebrow">Exam-first readiness</div>
-    <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Ace the NES Mathematics exam</h1>
-    <p class="muted">This is the gate. Pedagogy matters for the license, but <strong>subject mastery</strong> is what you’re optimizing here. Do not book until the checklist flips green.</p>
+    <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Ace both subject exams</h1>
+    <p class="muted">Two independent booking gates: NES Mathematics (304) and NES English Language Arts (301). Pedagogy is license exam #3. Do not book a subject until that checklist is green.</p>
 
     <section class="card" id="verdict" style="margin-top:1rem"></section>
-
     <section class="stat-row" id="stats" style="margin-top:1rem"></section>
 
     <section class="card" style="margin-top:1.25rem">
-      <h2>Domain mastery</h2>
-      <p class="muted">Target ≥85% correct among attempted items in each math domain. Algebra is 24% of the real exam — treat it like a boss fight.</p>
-      <div id="domains" class="grid" style="gap:0.75rem;margin-top:0.75rem"></div>
-    </section>
-
-    <section class="grid grid-2" style="margin-top:1.25rem">
-      <article class="card">
-        <h2>Ace checklist</h2>
-        <ul id="checks"></ul>
-      </article>
-      <article class="card">
-        <h2>Next actions</h2>
-        <div id="actions" class="grid" style="gap:0.5rem"></div>
-      </article>
+      <h2>Mathematics 304</h2>
+      <p class="muted">Target ≥85% with ≥10 attempts in each math domain. Algebra is 24% of the real exam.</p>
+      <div id="math-domains" class="grid" style="gap:0.75rem;margin-top:0.75rem"></div>
+      <div class="grid grid-2" style="margin-top:1rem">
+        <div>
+          <h3>Math checklist</h3>
+          <ul id="math-checks"></ul>
+        </div>
+        <div>
+          <h3>Math next actions</h3>
+          <div id="math-actions" class="grid" style="gap:0.5rem"></div>
+        </div>
+      </div>
+      <h3>Math official-length log</h3>
+      <div id="math-mocks" class="muted"></div>
     </section>
 
     <section class="card" style="margin-top:1.25rem">
-      <h2>Mock exam log (math)</h2>
-      <div id="mocks" class="muted"></div>
+      <h2>English Language Arts 301</h2>
+      <p class="muted">Target ≥85% with ≥10 attempts in each ELA domain. Reading, literature, and writing modes are 23% each — treat them like boss fights. Oral/visual is only 12%, but those are cheap points.</p>
+      <div id="ela-domains" class="grid" style="gap:0.75rem;margin-top:0.75rem"></div>
+      <div class="grid grid-2" style="margin-top:1rem">
+        <div>
+          <h3>ELA checklist</h3>
+          <ul id="ela-checks"></ul>
+        </div>
+        <div>
+          <h3>ELA next actions</h3>
+          <div id="ela-actions" class="grid" style="gap:0.5rem"></div>
+        </div>
+      </div>
+      <h3>ELA official-length log</h3>
+      <div id="ela-mocks" class="muted"></div>
     </section>
   </main>
 
@@ -63,13 +76,18 @@
   <script src="js/data/problems-extra.js"></script>
   <script src="js/data/problems-foundations.js"></script>
   <script src="js/data/problems-mastery.js"></script>
+  <script src="js/data/problems-english-foundations.js"></script>
+  <script src="js/data/problems-english-reading.js"></script>
+  <script src="js/data/problems-english-literature.js"></script>
+  <script src="js/data/problems-english-language.js"></script>
+  <script src="js/data/problems-english-writing.js"></script>
+  <script src="js/data/problems-english-oral.js"></script>
   <script src="js/data/problem-skills.js"></script>
   <script src="js/data/exams.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/progress-engine.js"></script>
   <script src="js/vault-sync.js"></script>
   <script>
-    const mathDomains = ["number","algebra","geometry","trigcalc","stats"];
     const st = Progress.stats();
     const state = st.state;
 
@@ -87,94 +105,153 @@
         }
       }
       const pct = attempted ? Math.round(100 * correct / attempted) : 0;
-      const coverage = Math.round(100 * attempted / pool.length);
+      const coverage = pool.length ? Math.round(100 * attempted / pool.length) : 0;
       return { pool: pool.length, attempted, correct, pct, coverage, hardAttempted, hardCorrect };
     }
 
-    const mathMocks = state.exams.filter(e => e.type === "math" && (e.id === "math-official-1" || e.id === "math-official-2" || (e.title || "").includes("Official-Length")));
-    const mockA = state.exams.filter(e => e.id === "math-official-1").map(e => e.percent);
-    const mockB = state.exams.filter(e => e.id === "math-official-2").map(e => e.percent);
-    const bestA = mockA.length ? Math.max(...mockA) : 0;
-    const bestB = mockB.length ? Math.max(...mockB) : 0;
-    const gateA = bestA >= 85;
-    const gateB = bestB >= 85;
+    function trackReport(cfg) {
+      const domainRows = cfg.domains.map(d => ({
+        id: d,
+        ...domainStats(d),
+        title: CURRICULUM.domains.find(x => x.id === d)?.title || d
+      }));
+      const allDomainsHot = domainRows.every(d => d.attempted >= 10 && d.pct >= 85);
+      const officialDomains = CURRICULUM.domains.filter(d => d.officialExamDomain && d.track === cfg.track);
+      const officialLessons = officialDomains.flatMap(d => d.lessons);
+      const lessonsTotal = officialLessons.length;
+      const lessonsDone = officialLessons.filter(L => ProgressEngine.lessonMasteryStatus(L.id, state).mastered).length;
+      const lessonsGate = lessonsDone === lessonsTotal;
+      const officialCalibrationsDone = officialLessons.filter(L => state.officialResources?.[`lesson:${L.id}`]).length;
+      const officialMaterialsGate = officialCalibrationsDone === officialLessons.length;
+      const foundationLessons = CURRICULUM.domains.find(d => d.id === cfg.foundationId)?.lessons || [];
+      const foundationGate = foundationLessons.every(L => ProgressEngine.lessonMasteryStatus(L.id, state).mastered);
+      const hardPool = PROBLEMS.filter(p => cfg.domains.includes(p.domain) && p.difficulty === "hard");
+      const hardSolved = hardPool.filter(p => state.problems[p.id]?.correct).length;
+      const hardGate = hardPool.length ? hardSolved >= Math.ceil(hardPool.length * 0.7) : false;
+      const bestA = (state.exams.filter(e => e.id === cfg.simA).map(e => e.percent));
+      const bestB = (state.exams.filter(e => e.id === cfg.simB).map(e => e.percent));
+      const topA = bestA.length ? Math.max(...bestA) : 0;
+      const topB = bestB.length ? Math.max(...bestB) : 0;
+      const gateA = topA >= 85;
+      const gateB = topB >= 85;
+      const reviewsGate = Progress.getDueReviews().filter(item => {
+        const skill = SKILLS[item.skillId];
+        const domain = CURRICULUM.domains.find(d => d.id === skill?.domain);
+        return (domain?.track || "math") === cfg.track;
+      }).length === 0;
+      const refGate = !!state.reviewFlags?.[cfg.refFlag];
+      const trapsGate = !!state.reviewFlags?.[cfg.trapsFlag];
+      const mocks = state.exams.filter(e => e.id === cfg.simA || e.id === cfg.simB);
+      const ready = gateA && gateB && allDomainsHot && lessonsGate && officialMaterialsGate && foundationGate &&
+        reviewsGate && hardGate && refGate && trapsGate;
+      return {
+        domainRows, allDomainsHot, lessonsTotal, lessonsDone, lessonsGate, officialCalibrationsDone,
+        officialLessons, officialMaterialsGate, foundationGate, hardPool, hardSolved, hardGate,
+        topA, topB, gateA, gateB, reviewsGate, refGate, trapsGate, mocks, ready
+      };
+    }
 
-    const domainRows = mathDomains.map(d => ({ id: d, ...domainStats(d), title: CURRICULUM.domains.find(x => x.id === d).title }));
-    const allDomainsHot = domainRows.every(d => d.attempted >= 10 && d.pct >= 85);
-    const officialDomains = CURRICULUM.domains.filter(d => d.officialExamDomain);
-    const officialLessons = officialDomains.flatMap(d => d.lessons);
-    const lessonsMath = officialDomains.reduce((n, d) => n + d.lessons.length, 0);
-    const lessonsDoneMath = officialDomains.reduce((n, d) => n + d.lessons.filter(L => ProgressEngine.lessonMasteryStatus(L.id, state).mastered).length, 0);
-    const lessonsGate = lessonsDoneMath === lessonsMath;
-    const officialCalibrationsDone = officialLessons.filter(L => state.officialResources?.[`lesson:${L.id}`]).length;
-    const officialMaterialsGate = officialCalibrationsDone === officialLessons.length;
-    const foundationLessons = CURRICULUM.domains.find(d => d.id === "foundation")?.lessons || [];
-    const foundationGate = foundationLessons.every(L => ProgressEngine.lessonMasteryStatus(L.id, state).mastered);
-    const hardPool = PROBLEMS.filter(p => p.domain !== "pedagogy" && p.difficulty === "hard");
-    const hardSolved = hardPool.filter(p => state.problems[p.id]?.correct).length;
-    const hardGate = hardSolved >= Math.ceil(hardPool.length * 0.7);
-    const reviewsGate = Progress.getDueReviews().length === 0;
-    const formulaGate = !!state.reviewFlags?.formulasReviewedAt;
-    const trapsGate = !!state.reviewFlags?.trapsReviewedAt;
+    const math = trackReport({
+      track: "math",
+      domains: ProgressEngine.officialMathDomains(),
+      foundationId: "foundation",
+      simA: "math-official-1",
+      simB: "math-official-2",
+      refFlag: "formulasReviewedAt",
+      trapsFlag: "trapsReviewedAt"
+    });
+    const ela = trackReport({
+      track: "english",
+      domains: ProgressEngine.officialEnglishDomains(),
+      foundationId: "ela-foundation",
+      simA: "ela-official-1",
+      simB: "ela-official-2",
+      refFlag: "elaReferenceReviewedAt",
+      trapsFlag: "elaTrapsReviewedAt"
+    });
 
-    const ready = gateA && gateB && allDomainsHot && lessonsGate && officialMaterialsGate && foundationGate &&
-      reviewsGate && hardGate && formulaGate && trapsGate;
-
-    document.getElementById("verdict").innerHTML = ready
-      ? `<h2 style="margin-top:0;color:var(--easy)">READY TO BOOK</h2>
-         <p>You’ve cleared the ace gates. Register for NES Mathematics at <a href="https://www.aepa.nesinc.com/" target="_blank" rel="noopener">aepa.nesinc.com</a>, sleep well, and do a light formula review the morning of — not a cram.</p>`
-      : `<h2 style="margin-top:0;color:var(--copper)">NOT READY YET</h2>
-         <p class="muted" style="margin-bottom:0">Keep grinding the red checklist items. Booking early costs money and confidence. Ace means boring consistency at ≥85% under time.</p>`;
+    document.getElementById("verdict").innerHTML = (math.ready && ela.ready)
+      ? `<h2 style="margin-top:0;color:var(--easy)">READY TO BOOK BOTH</h2>
+         <p>Both subject gates are green. Register at <a href="https://www.aepa.nesinc.com/" target="_blank" rel="noopener">aepa.nesinc.com</a>. Light review the morning of — not a cram.</p>`
+      : `<h2 style="margin-top:0;color:var(--copper)">NOT READY TO BOOK BOTH YET</h2>
+         <p class="muted" style="margin-bottom:0">Math: ${math.ready ? "ready" : "still red"}. English: ${ela.ready ? "ready" : "still red"}. Ace means ≥85% under time on both official-length forms for that subject.</p>`;
 
     document.getElementById("stats").innerHTML = `
       <div class="stat"><div class="label">Bank solved</div><div class="value">${st.solved}</div></div>
-      <div class="stat"><div class="label">Mock A best</div><div class="value">${bestA ? bestA + "%" : "—"}</div></div>
-      <div class="stat"><div class="label">Mock B best</div><div class="value">${bestB ? bestB + "%" : "—"}</div></div>
-      <div class="stat"><div class="label">Hard solved</div><div class="value">${hardSolved}/${hardPool.length}</div></div>`;
+      <div class="stat"><div class="label">Math sim bests</div><div class="value">${math.topA || "—"}/${math.topB || "—"}</div></div>
+      <div class="stat"><div class="label">ELA sim bests</div><div class="value">${ela.topA || "—"}/${ela.topB || "—"}</div></div>
+      <div class="stat"><div class="label">Hard math / ELA</div><div class="value">${math.hardSolved}/${math.hardPool.length} · ${ela.hardSolved}/${ela.hardPool.length}</div></div>`;
 
-    document.getElementById("domains").innerHTML = domainRows.map(d => {
-      const ok = d.attempted >= 10 && d.pct >= 85;
-      return `<div style="border:1px solid var(--line);border-radius:12px;padding:0.85rem 1rem">
-        <div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap">
-          <strong>${d.title}</strong>
-          <span class="chip ${ok ? "done" : "medium"}">${ok ? "Mastered" : "Needs work"} · ${d.pct}%</span>
-        </div>
-        <div class="progress" style="margin:0.55rem 0"><span style="width:${d.pct}%"></span></div>
-        <div class="muted" style="font-size:0.85rem">${d.correct}/${d.attempted} correct · ${d.coverage}% of bank touched · hard ${d.hardCorrect}/${d.hardAttempted}</div>
-        <a href="practice.html?domain=${d.id}">Drill ${d.id} →</a>
-      </div>`;
-    }).join("");
+    function renderDomains(el, rows) {
+      el.innerHTML = rows.map(d => {
+        const ok = d.attempted >= 10 && d.pct >= 85;
+        return `<div style="border:1px solid var(--line);border-radius:12px;padding:0.85rem 1rem">
+          <div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+            <strong>${d.title}</strong>
+            <span class="chip ${ok ? "done" : "medium"}">${ok ? "Mastered" : "Needs work"} · ${d.pct}%</span>
+          </div>
+          <div class="progress" style="margin:0.55rem 0"><span style="width:${d.pct}%"></span></div>
+          <div class="muted" style="font-size:0.85rem">${d.correct}/${d.attempted} correct · ${d.coverage}% of bank touched · hard ${d.hardCorrect}/${d.hardAttempted}</div>
+          <a href="practice.html?domain=${d.id}">Drill ${d.id} →</a>
+        </div>`;
+      }).join("");
+    }
+    renderDomains(document.getElementById("math-domains"), math.domainRows);
+    renderDomains(document.getElementById("ela-domains"), ela.domainRows);
 
-    const checks = [
-      { ok: lessonsGate, text: `Master every official math lesson (${lessonsDoneMath}/${lessonsMath})` },
-      { ok: officialMaterialsGate, text: `Complete embedded official sample-item calibrations (${officialCalibrationsDone}/${officialLessons.length})` },
-      { ok: foundationGate, text: "Master or place out of every Foundation Bootcamp prerequisite" },
-      { ok: allDomainsHot, text: "Hit ≥85% accuracy with ≥10 attempts in every math domain" },
-      { ok: gateA, text: "Official-length 150-question Simulation A ≥ 85%" },
-      { ok: gateB, text: "Official-length 150-question Simulation B ≥ 85%" },
-      { ok: reviewsGate, text: "Clear all due spaced-review skills" },
-      { ok: hardGate, text: `Solve ≥70% of hard items (${hardSolved}/${hardPool.length})` },
-      { ok: formulaGate, text: "Review formula sheet end-to-end once" },
-      { ok: trapsGate, text: "Read trap guide end-to-end once" }
-    ];
+    function renderChecks(el, items) {
+      el.innerHTML = items.map(c => `<li style="margin:0.35rem 0">${c.ok ? "✅" : "⬜"} ${c.text}</li>`).join("");
+    }
+    renderChecks(document.getElementById("math-checks"), [
+      { ok: math.lessonsGate, text: `Master every official math lesson (${math.lessonsDone}/${math.lessonsTotal})` },
+      { ok: math.officialMaterialsGate, text: `Official 304 sample-item calibrations (${math.officialCalibrationsDone}/${math.officialLessons.length})` },
+      { ok: math.foundationGate, text: "Master or place out of Math Foundation Bootcamp" },
+      { ok: math.allDomainsHot, text: "≥85% accuracy with ≥10 attempts in every math domain" },
+      { ok: math.gateA, text: "Official-length math Simulation A ≥ 85%" },
+      { ok: math.gateB, text: "Official-length math Simulation B ≥ 85%" },
+      { ok: math.reviewsGate, text: "Clear due math spaced-review skills" },
+      { ok: math.hardGate, text: `Solve ≥70% of hard math items (${math.hardSolved}/${math.hardPool.length})` },
+      { ok: math.refGate, text: "Review math formula sheet end-to-end once" },
+      { ok: math.trapsGate, text: "Read math trap guide end-to-end once" }
+    ]);
+    renderChecks(document.getElementById("ela-checks"), [
+      { ok: ela.lessonsGate, text: `Master every official ELA lesson (${ela.lessonsDone}/${ela.lessonsTotal})` },
+      { ok: ela.officialMaterialsGate, text: `Official 301 sample-item calibrations (${ela.officialCalibrationsDone}/${ela.officialLessons.length})` },
+      { ok: ela.foundationGate, text: "Master or place out of ELA Foundation Bootcamp" },
+      { ok: ela.allDomainsHot, text: "≥85% accuracy with ≥10 attempts in every ELA domain" },
+      { ok: ela.gateA, text: "Official-length ELA Simulation A ≥ 85%" },
+      { ok: ela.gateB, text: "Official-length ELA Simulation B ≥ 85%" },
+      { ok: ela.reviewsGate, text: "Clear due ELA spaced-review skills" },
+      { ok: ela.hardGate, text: `Solve ≥70% of hard ELA items (${ela.hardSolved}/${ela.hardPool.length})` },
+      { ok: ela.refGate, text: "Review ELA reference sheet end-to-end once" },
+      { ok: ela.trapsGate, text: "Read ELA trap guide end-to-end once" }
+    ]);
 
-    document.getElementById("checks").innerHTML = checks.map(c =>
-      `<li style="margin:0.35rem 0">${c.ok ? "✅" : "⬜"} ${c.text}</li>`
-    ).join("");
+    function renderActions(el, report, cfg) {
+      const weak = report.domainRows.filter(d => !(d.attempted >= 10 && d.pct >= 85)).sort((a,b) => a.pct - b.pct);
+      const actions = [];
+      if (!report.gateA) actions.push(`<a class="btn btn-accent" href="exam.html?exam=${cfg.simA}">Take Official-Length Simulation A</a>`);
+      else if (!report.gateB) actions.push(`<a class="btn btn-accent" href="exam.html?exam=${cfg.simB}">Take Official-Length Simulation B</a>`);
+      if (weak[0]) actions.push(`<a class="btn btn-secondary" href="practice.html?domain=${weak[0].id}&status=todo">Repair weakest: ${weak[0].id}</a>`);
+      actions.push(`<a class="btn btn-secondary" href="exam.html?exam=${cfg.gauntlet}">Hard Gauntlet</a>`);
+      actions.push(`<a class="btn btn-ghost" href="formulas.html">${cfg.refLabel}</a>`);
+      actions.push(`<a class="btn btn-ghost" href="traps.html">Trap guide</a>`);
+      el.innerHTML = actions.join("");
+    }
+    renderActions(document.getElementById("math-actions"), math, {
+      simA: "math-official-1", simB: "math-official-2", gauntlet: "math-hard-gauntlet", refLabel: "Formula sheet"
+    });
+    renderActions(document.getElementById("ela-actions"), ela, {
+      simA: "ela-official-1", simB: "ela-official-2", gauntlet: "ela-hard-gauntlet", refLabel: "ELA reference"
+    });
 
-    const weak = domainRows.filter(d => !(d.attempted >= 10 && d.pct >= 85)).sort((a,b) => a.pct - b.pct);
-    const actions = [];
-    if (!gateA) actions.push(`<a class="btn btn-accent" href="exam.html?exam=math-official-1">Take Official-Length Simulation A</a>`);
-    else if (!gateB) actions.push(`<a class="btn btn-accent" href="exam.html?exam=math-official-2">Take Official-Length Simulation B</a>`);
-    if (weak[0]) actions.push(`<a class="btn btn-secondary" href="practice.html?domain=${weak[0].id}&status=todo">Repair weakest: ${weak[0].id}</a>`);
-    actions.push(`<a class="btn btn-secondary" href="exam.html?exam=math-hard-gauntlet">Hard Gauntlet</a>`);
-    actions.push(`<a class="btn btn-ghost" href="formulas.html">Formula sheet</a>`);
-    actions.push(`<a class="btn btn-ghost" href="traps.html">Trap guide</a>`);
-    document.getElementById("actions").innerHTML = actions.join("");
-
-    document.getElementById("mocks").innerHTML = mathMocks.length
-      ? `<ul>${mathMocks.slice(0,10).map(m => `<li><strong>${m.title}</strong> — ${m.percent}% (${m.correct}/${m.total}) · ${new Date(m.at).toLocaleString()}</li>`).join("")}</ul>`
-      : "No full math mocks yet. That is your #1 gap.";
+    function renderMocks(el, mocks, empty) {
+      el.innerHTML = mocks.length
+        ? `<ul>${mocks.slice(0,10).map(m => `<li><strong>${m.title}</strong> — ${m.percent}% (${m.correct}/${m.total}) · ${new Date(m.at).toLocaleString()}</li>`).join("")}</ul>`
+        : empty;
+    }
+    renderMocks(document.getElementById("math-mocks"), math.mocks, "No official-length math simulations yet.");
+    renderMocks(document.getElementById("ela-mocks"), ela.mocks, "No official-length ELA simulations yet.");
   </script>
 </body>
 </html>

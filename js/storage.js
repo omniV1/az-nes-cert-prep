@@ -26,7 +26,9 @@ window.Progress = (() => {
       reviewQueue: [],
       reviewFlags: {
         formulasReviewedAt: null,
-        trapsReviewedAt: null
+        trapsReviewedAt: null,
+        elaReferenceReviewedAt: null,
+        elaTrapsReviewedAt: null
       },
       officialResources: {},
       gates: {
@@ -68,7 +70,9 @@ window.Progress = (() => {
     s.reviewQueue = Array.isArray(s.reviewQueue) ? s.reviewQueue : [];
     s.reviewFlags = Object.assign({
       formulasReviewedAt: localStorage.getItem("az-nes-formulas-reviewed") || null,
-      trapsReviewedAt: localStorage.getItem("az-nes-traps-reviewed") || null
+      trapsReviewedAt: localStorage.getItem("az-nes-traps-reviewed") || null,
+      elaReferenceReviewedAt: null,
+      elaTrapsReviewedAt: null
     }, s.reviewFlags || {});
     s.officialResources = s.officialResources || {};
     s.gates = Object.assign({
@@ -238,7 +242,15 @@ window.Progress = (() => {
 
   function savePlacement(result) {
     const s = load();
-    s.placement = Object.assign({}, result, { at: new Date().toISOString() });
+    const prev = s.placement || {};
+    s.placement = {
+      ...prev,
+      ...result,
+      bySkill: Object.assign({}, prev.bySkill || {}, result.bySkill || {}),
+      byDomain: Object.assign({}, prev.byDomain || {}, result.byDomain || {}),
+      examIds: [...new Set([...(prev.examIds || (prev.examId ? [prev.examId] : [])), result.examId].filter(Boolean))],
+      at: new Date().toISOString()
+    };
     s.gates.placementComplete = true;
     save(s);
     return s.placement;
@@ -253,7 +265,13 @@ window.Progress = (() => {
 
   function setReviewFlag(name) {
     const s = load();
-    const key = name === "formulas" ? "formulasReviewedAt" : "trapsReviewedAt";
+    const keyMap = {
+      formulas: "formulasReviewedAt",
+      traps: "trapsReviewedAt",
+      elaReference: "elaReferenceReviewedAt",
+      elaTraps: "elaTrapsReviewedAt"
+    };
+    const key = keyMap[name] || (name.endsWith("ReviewedAt") ? name : name + "ReviewedAt");
     s.reviewFlags[key] = new Date().toISOString();
     save(s);
     return s.reviewFlags;
@@ -315,7 +333,8 @@ window.Progress = (() => {
     const totalLessons = (window.CURRICULUM?.domains || []).reduce((n, d) => n + d.lessons.length, 0);
     const examCount = s.exams.length;
     const bestMath = s.exams.filter(e => e.type === "math").reduce((m, e) => Math.max(m, e.percent || 0), 0);
-    return { totalProblems, solved, attempted, lessons, totalLessons, examCount, bestMath, state: s };
+    const bestEnglish = s.exams.filter(e => e.type === "english").reduce((m, e) => Math.max(m, e.percent || 0), 0);
+    return { totalProblems, solved, attempted, lessons, totalLessons, examCount, bestMath, bestEnglish, state: s };
   }
 
   function reset() {

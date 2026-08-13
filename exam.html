@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Exams — AZ NES Math Prep</title>
+  <title>Exams — AZ NES Cert Prep</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -12,7 +12,7 @@
 <body>
   <header class="site-header">
     <nav class="nav">
-      <a class="brand" href="index.html">AZ NES <span>Math Prep</span></a>
+      <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
       <a href="practice.html">Practice</a>
@@ -29,14 +29,21 @@
     <div id="lobby">
       <div class="eyebrow">HackerRank-style timed exams</div>
       <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Practice exams</h1>
-      <p class="muted">Timed. No hints mid-exam. Ace standard: <strong>≥85% on Full Mock A and B</strong> before you book the real NES.</p>
-      <div class="grid grid-2" id="exam-cards" style="margin-top:1rem"></div>
+      <p class="muted">Timed. No hints mid-exam. Ace standard: <strong>≥85% on both official-length simulations</strong> for that subject before you book.</p>
+      <div id="exam-groups" style="margin-top:1rem"></div>
 
       <details class="card official-calibration" style="margin-top:1.25rem">
         <summary><strong>Embedded free Arizona mathematics practice workbook</strong></summary>
         <p>This retired AEPA Field 10 guide predates NES 304, so it is supplemental rather than the current blueprint. Its selected-response practice questions remain useful after you complete the corresponding current lessons. Use the current embedded 304 profile in each lesson for final alignment.</p>
         <iframe class="official-embed" src="https://www.aepa.nesinc.com/Content/Docs/AZ_Field10_StudyGuide.pdf" title="Free retired AEPA Field 10 mathematics study guide" loading="lazy"></iframe>
         <p class="muted">If the PDF does not render, <a href="https://www.aepa.nesinc.com/Content/Docs/AZ_Field10_StudyGuide.pdf" target="_blank" rel="noopener">open the free official archive guide</a>.</p>
+      </details>
+
+      <details class="card official-calibration" style="margin-top:1.25rem">
+        <summary><strong>Embedded official NES English Language Arts 301 profile</strong></summary>
+        <p>Use this Pearson/NES profile for sample items aligned to the current 301 blueprint. Pair it with the required calibration inside each official ELA lesson.</p>
+        <iframe class="official-embed" src="https://www.aepa.nesinc.com/Content/Docs/NES_Profile_301.pdf" title="Official NES English Language Arts 301 profile" loading="lazy"></iframe>
+        <p class="muted">If the PDF does not render, <a href="https://www.aepa.nesinc.com/Content/Docs/NES_Profile_301.pdf" target="_blank" rel="noopener">open the official 301 profile</a>.</p>
       </details>
 
       <section class="card" style="margin-top:1.25rem">
@@ -101,6 +108,12 @@
   <script src="js/data/problems-extra.js"></script>
   <script src="js/data/problems-foundations.js"></script>
   <script src="js/data/problems-mastery.js"></script>
+  <script src="js/data/problems-english-foundations.js"></script>
+  <script src="js/data/problems-english-reading.js"></script>
+  <script src="js/data/problems-english-literature.js"></script>
+  <script src="js/data/problems-english-language.js"></script>
+  <script src="js/data/problems-english-writing.js"></script>
+  <script src="js/data/problems-english-oral.js"></script>
   <script src="js/data/problem-skills.js"></script>
   <script src="js/data/exams.js"></script>
   <script src="js/storage.js"></script>
@@ -146,7 +159,16 @@
     }
 
     function renderLobby() {
-      document.getElementById("exam-cards").innerHTML = EXAMS.map(e => `
+      const groups = [
+        { title: "NES Mathematics (304)", type: "math" },
+        { title: "NES English Language Arts (301)", type: "english" },
+        { title: "APK Secondary (052)", type: "pedagogy" }
+      ];
+      document.getElementById("exam-groups").innerHTML = groups.map(g => {
+        const exams = EXAMS.filter(e => e.type === g.type);
+        if (!exams.length) return "";
+        return `<h2 style="font-family:var(--font-display);margin:1.25rem 0 0.6rem">${g.title}</h2>
+          <div class="grid grid-2">${exams.map(e => `
         <article class="card">
           <h3 style="margin-top:0">${e.title}</h3>
           <p class="muted">${e.description}</p>
@@ -158,7 +180,8 @@
           <div class="cta-row" style="margin-top:0.8rem">
             <button class="btn btn-accent" data-start="${e.id}">Start</button>
           </div>
-        </article>`).join("");
+        </article>`).join("")}</div>`;
+      }).join("");
 
       document.querySelectorAll("[data-start]").forEach(btn => {
         btn.onclick = () => startExam(btn.dataset.start);
@@ -224,7 +247,7 @@
       const p = session.items[i];
       const choiceOrder = session.choiceOrders[i];
       document.getElementById("qpos").textContent = `Question ${i + 1} of ${session.items.length}`;
-      document.getElementById("qstem").textContent = p.stem;
+      document.getElementById("qstem").innerHTML = (typeof stemHtml === "function" ? stemHtml(p) : `<div class="problem-stem">${p.stem}</div>`);
       document.getElementById("qchoices").innerHTML = choiceOrder.map((originalIndex, displayIndex) => `
         <label class="choice ${session.answers[i] === originalIndex ? "selected" : ""}">
           <input type="radio" name="examans" value="${originalIndex}" ${session.answers[i] === originalIndex ? "checked" : ""} />
@@ -295,7 +318,8 @@
         byDomain,
         bySkill
       });
-      if (exam.id === "math-diagnostic" || exam.id === "math-placement-short") {
+      if (exam.id === "math-diagnostic" || exam.id === "math-placement-short" ||
+          exam.id === "ela-diagnostic" || exam.id === "ela-placement-short") {
         Progress.savePlacement({ examId: exam.id, byDomain, bySkill, itemResults });
       }
       const remedial = ProgressEngine.getRemedialPlan();
@@ -319,7 +343,7 @@
               const ok = answers[i] === p.answer;
               return `<div style="border:1px solid var(--line);border-radius:12px;padding:0.75rem 0.9rem">
                 <div class="tag-row"><span class="chip">${p.id}</span><span class="chip ${ok ? "done" : "hard"}">${ok ? "correct" : "missed"}</span></div>
-                <div style="margin:0.35rem 0">${p.stem}</div>
+                <div style="margin:0.35rem 0">${typeof stemHtml === "function" ? stemHtml(p) : p.stem}</div>
                 <div class="muted">Your answer: ${answers[i] == null ? "—" : String.fromCharCode(65 + choiceOrders[i].indexOf(answers[i]))} · Key: ${String.fromCharCode(65 + choiceOrders[i].indexOf(p.answer))}</div>
                 <div class="explanation">${p.explanation}</div>
               </div>`;

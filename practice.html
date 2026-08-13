@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Practice — AZ NES Math Prep</title>
+  <title>Practice — AZ NES Cert Prep</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -12,7 +12,7 @@
 <body>
   <header class="site-header">
     <nav class="nav">
-      <a class="brand" href="index.html">AZ NES <span>Math Prep</span></a>
+      <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
       <a class="active" href="practice.html">Practice</a>
@@ -74,6 +74,12 @@
   <script src="js/data/problems-extra.js"></script>
   <script src="js/data/problems-foundations.js"></script>
   <script src="js/data/problems-mastery.js"></script>
+  <script src="js/data/problems-english-foundations.js"></script>
+  <script src="js/data/problems-english-reading.js"></script>
+  <script src="js/data/problems-english-literature.js"></script>
+  <script src="js/data/problems-english-language.js"></script>
+  <script src="js/data/problems-english-writing.js"></script>
+  <script src="js/data/problems-english-oral.js"></script>
   <script src="js/data/problem-skills.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/progress-engine.js"></script>
@@ -181,7 +187,7 @@
           ${(p.skillIds || []).map(skillId => `<span class="chip">${SKILLS[skillId]?.title || skillId}</span>`).join("")}
         </div>
         <h2 style="margin-top:0">${p.title}</h2>
-        <div class="problem-stem">${p.stem}</div>
+        ${typeof stemHtml === "function" ? stemHtml(p) : `<div class="problem-stem">${p.stem}</div>`}
         <div class="choices" id="choices">
           ${choiceOrder.map((originalIndex, displayIndex) => `
             <label class="choice" data-i="${originalIndex}">

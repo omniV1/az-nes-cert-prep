@@ -435,6 +435,19 @@ table.problems a:hover {
 
 .problem-stem {
   font-size: 1.05rem;
+  white-space: pre-wrap;
+}
+
+.passage {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  background: #fff;
+  border-left: 4px solid #0e7490;
+  padding: 0.9rem 1.1rem;
+  margin: 0 0 1rem;
+  color: var(--ink);
+  white-space: pre-wrap;
 }
 
 .choices {
