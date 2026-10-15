@@ -54,6 +54,19 @@ to the vault.
 | Trap guide | Stop losing cheap points in both subjects |
 | APK + CR prompts | License exam #3 |
 
+## Writing questions
+
+Answer choices are shuffled, so explanations must never name a choice by letter
+or position ("B is a comma splice", "the last choice"). Either describe the
+option's content, or reference it with `{{opt:<optionId>}}`, which renders as the
+letter that option actually had on screen. Legacy option IDs are
+`<problemId>-<sourceIndex>` (e.g. `LG002-1` is the second entry in `choices`).
+
+```
+npm run validate   # every bank: exactly one correct option, no hardcoded letters
+npm test           # unit tests + Chromium exam-review test (needs playwright)
+```
+
 ## Official links
 
 - [AEPA/NES](https://www.aepa.nesinc.com/)
