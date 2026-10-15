@@ -189,32 +189,32 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF125", domain: "reading", title: "Dust note — main idea", difficulty: "hard", tags: ["informational", "longform"], skillIds: ["informational-texts"], passageSet: "dust", passage: P.dust,
       stem: "The after-action note’s primary purpose is to—",
       choices: [
-        "rank the five campuses from dirtiest to cleanest so the board can close Canal road first",
-        "report limited sensor data, refuse over-reading the table, and recommend a backup sensor plus hourly files",
-        "adopt the parent appendix’s claim that Canal road should have cancelled recess by 2:00 p.m.",
-        "prove that parent-text opt-in, not PM10, caused every indoor decision in this county"
+        "rank the five campuses from dirtiest to cleanest so the board knows where to close recess first",
+        "report limited sensor data, warn against over-reading it, and recommend a backup sensor and hourly files",
+        "endorse the parent appendix’s argument that Canal road should have cancelled recess by 2:00 p.m.",
+        "show that the peer districts’ opt-in findings explain this county’s indoor decisions better than PM10 does"
       ], answer: 1,
-      explanation: "The note reports peaks, warns against ranking, rejects the appendix’s 2:00 claim, and asks for a backup sensor and hourly files. Peer opt-in studies are called suggestive, not proof for this event." },
+      explanation: "The note reports peaks, warns that the table is not a ranking, declines to adopt the appendix, and recommends a backup sensor and hourly files. It calls the peer studies suggestive, not a substitute for this event’s data." },
 
     { id: "LF126", domain: "reading", title: "Dust note — table limit", difficulty: "hard", tags: ["graphics", "longform"], skillIds: ["text-graphics"], passageSet: "dust", passage: P.dust,
       stem: "Staff refuse to treat the table as a neighborhood-risk ranking primarily because—",
       choices: [
-        "Mesa View’s north-field sensor is the only complete row, so the other campuses cannot be compared",
-        "wind shifted after 4:00 p.m., so Canal road’s logged peak may not match when it was downwind of the heaviest plume",
-        "buses held is already a perfect safety ranking, which makes PM10 unnecessary",
-        "Hillside’s 98 reading is below any health threshold, so the table cannot include it"
+        "the north-field sensor at Mesa View failed, so no campus can be compared with any other that afternoon",
+        "wind shifted after 4:00 p.m., so Canal road’s peak was logged before it sat downwind of the heaviest plume",
+        "buses held and recess cancellations capture risk better than any PM10 reading could, as the note explains",
+        "Hillside and Canal road sit at different elevations, which the note says distorts their sensor readings"
       ], answer: 1,
-      explanation: "Timing vs wind is the stated limit. The failed sensor is omitted from means, not the only complete row. Buses held is explicitly not a safety proof. The note never says 98 cannot appear." },
+      explanation: "The stated reason is timing: the wind shifted after Canal road’s peak was already logged. One failed sensor does not block every comparison, the note says buses held is not proof of safety, and it never mentions elevation." },
 
     { id: "LF127", domain: "reading", title: "Dust note — vocab", difficulty: "hard", tags: ["vocabulary", "longform"], skillIds: ["vocab-strategies"], passageSet: "dust", passage: P.dust,
       stem: "In “suggestive, not interchangeable,” interchangeable most nearly means—",
       choices: [
-        "interesting as a story, even if the numbers are invented",
-        "able to be swapped in as if the peer studies were the same measurement as this event",
-        "proof that Canal road’s parent appendix is already official policy",
-        "a synonym for omitted, applying only to the failed Mesa View sensor"
+        "useful as a rough illustration, even though the methods differ",
+        "able to be swapped in as if the peer studies measured this same event",
+        "contradictory to this county’s findings about parent-text alerts and PM10 readings",
+        "easily confused with this county’s results because both used similar alert vendors"
       ], answer: 1,
-      explanation: "Different vendors and settings: you cannot plug their finding in as this county’s result. The word is about comparability, not fiction, the appendix, or the failed sensor." },
+      explanation: "Interchangeable means able to stand in for one another. The authors call the peer studies suggestive (a rough illustration) precisely because they cannot be swapped in for this event. Nothing says they contradict this county’s data, and the passage says the vendors differed." },
 
     { id: "LF128", domain: "reading", title: "Dust note — fact vs claim", difficulty: "hard", tags: ["evidence", "longform"], skillIds: ["evidence-credibility"], passageSet: "dust", passage: P.dust,
       stem: "Which statement is a fact reported in the note rather than a policy claim the note refuses?",
@@ -249,12 +249,12 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF131", domain: "reading", title: "Sunday hours — concession", difficulty: "hard", tags: ["persuasive", "longform"], skillIds: ["persuasive-texts"], passageSet: "hours", passage: P.hours,
       stem: "“Staffing is a real constraint, not an insult” functions primarily as—",
       choices: [
-        "the thesis that Sundays should close at both large branches",
-        "a concession that Monday-evening crowding is a genuine limit that still does not erase Sunday’s unique users",
-        "a retraction of the holds statistic, as if Sunday pickups were not 18 percent of the week",
-        "an admission that Sunday users will automatically shift if the building closes"
+        "a rebuttal showing that the critics’ staffing concern rests on a misreading of the gate counts",
+        "a concession that staffing is a genuine limit that still does not erase Sunday’s unique users",
+        "the author’s thesis that Sunday staff should move to Monday evenings, where lines are longer",
+        "a sarcastic dismissal of the critics, since the author believes staffing worries are exaggerated"
       ], answer: 1,
-      explanation: "It grants the staffing worry, then refuses the shift assumption. It is not the thesis, not a denial of holds data, and not the critics’ conclusion." },
+      explanation: "The line grants that staffing is a real constraint, then argues it does not erase Sunday’s users. It is not a rebuttal of the staffing concern, not the thesis (keep Sundays), and not sarcasm; the author explicitly treats the worry as legitimate." },
 
     { id: "LF132", domain: "reading", title: "Sunday hours — assumption", difficulty: "hard", tags: ["persuasive", "longform"], skillIds: ["persuasive-texts", "rhetorical-appeals"], passageSet: "hours", passage: P.hours,
       stem: "The argument depends most heavily on which unstated assumption?",
@@ -269,12 +269,12 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF133", domain: "reading", title: "Sunday hours — evidence", difficulty: "hard", tags: ["evidence", "longform"], skillIds: ["evidence-credibility"], passageSet: "hours", passage: P.hours,
       stem: "Which criticism of the author’s evidence is fairest?",
       choices: [
-        "Sunday hold-share is treated as if it already proved that a one-year pilot at two branches will succeed.",
-        "The 18 percent holds figure shows Sunday is used, but not that those patrons could not pick up holds on another day — the very shift the author faults critics for assuming without evidence.",
-        "Gate counts are denied outright, so the lower Sunday traffic figure cannot be checked.",
-        "The author presents the user survey as already finished and favorable."
+        "The author treats Sunday’s 18 percent share of holds as if it already proved that the one-year pilot at two branches will succeed and should become permanent.",
+        "The holds figure shows Sunday is used, but not that those patrons could not come another day, so the author has not disproved the shift either.",
+        "Gate counts are dismissed outright, so the author never concedes that Sunday afternoons are quieter than Saturdays.",
+        "The author relies on a user survey that has already been completed but never reports how many people responded."
       ], answer: 1,
-      explanation: "A fair criticism names a real gap the author leaves open: Sunday pickups prove Sunday use, not that those patrons have no other day, which is exactly what the pilot would need to show. {{opt:LF133-0}} misstates the argument (the pilot is a test, not a claimed success). Gate counts are granted, not denied. The survey is proposed, not completed." },
+      explanation: "A fair criticism names a real gap: Sunday pickups prove Sunday use, not that those patrons have no other day, which is what the pilot must test. The pilot is proposed as a test, not claimed as a success; gate counts are granted, not dismissed; and the survey is proposed, not completed." },
 
     { id: "LF134", domain: "reading", title: "Pool rules — apply", difficulty: "hard", tags: ["technical", "longform"], skillIds: ["technical-texts"], passageSet: "pool", passage: P.pool,
       stem: "A member wants to use metal-edged paddles in lane 2 during open swim. Staff should—",
@@ -289,12 +289,12 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF135", domain: "reading", title: "Pool rules — exception", difficulty: "hard", tags: ["technical", "longform"], skillIds: ["technical-texts"], passageSet: "pool", passage: P.pool,
       stem: "A swim-club banquet organizer texts 20 minutes after a reserved start, asking to keep the lane because of car trouble. The supervisor should—",
       choices: [
-        "grant the monthly extension, because car trouble is listed with late buses as a documented cause",
-        "refuse: club banquets and car trouble are not documented late buses, and texts after start do not create an extension",
-        "grant it once, because section 3’s 90-second yield rule is the same as a reservation extension",
-        "grant it if the group leaves gear on the benches after deck close, which counts as a late checkout"
+        "grant it, because the supervisor may extend any group’s reservation once per month, whatever the reason given",
+        "refuse: banquets and car trouble are not documented late buses, and after-start texts create no extension",
+        "grant it, because the text arrived within the first 30 minutes of the reserved time slot",
+        "refuse only because the group already used its monthly extension earlier in the month"
       ], answer: 1,
-      explanation: "Section 7 names the only documented exception and rejects after-start texts. Banquets and car trouble are explicitly out. Yield rules and overnight storage are different sections." },
+      explanation: "Section 7 allows an extension only for a documented school late bus, excludes banquets and car trouble, and says texts after the start create no extension. The monthly extension is not for any reason, there is no 30-minute grace period, and the passage never says the group used its extension." },
 
     { id: "LF136", domain: "reading", title: "Pool rules — inference", difficulty: "hard", tags: ["technical", "longform"], skillIds: ["technical-texts"], passageSet: "pool", passage: P.pool,
       stem: "A snorkel not marked “open-swim approved” is best treated as—",
@@ -349,22 +349,22 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF141", domain: "literature", title: "Blake — last couplet", difficulty: "hard", tags: ["tone", "longform"], skillIds: ["narrative-elements", "analytical-writing"], passageSet: "blake", passage: P.blake,
       stem: "“If all do their duty, they need not fear harm” is most defensibly read as—",
       choices: [
-        "Blake’s unironic endorsement of child sweeping as harmless when children obey",
-        "a line that may voice the consolation the boys need, while the coffins and dark morning pressure the reader to doubt it",
-        "a stage instruction that Tom should fear harm if he dreams of rivers",
-        "proof the mother who died in line 1 has already been replaced by the Angel as legal parent"
+        "Blake’s sincere moral that obedient children are protected, which the Angel’s promise in the dream confirms",
+        "a line that may voice the comfort the boys need, while the coffins and dark morning push the reader to doubt it",
+        "the speaker’s bitter sarcasm, spoken knowingly to mock the adults who send children up the chimneys",
+        "Tom’s own conclusion, which shows he has rejected the Angel’s promise and accepted that the work is dangerous"
       ], answer: 1,
-      explanation: "Innocent-poem surface vs the images that will not stay innocent. Not a simple endorsement, not a ban on the dream, not a custody transfer." },
+      explanation: "The couplet can be the consolation the boys need, while the coffins, the dark, and the cold invite readers to doubt it. Reading it as Blake’s sincere moral misses that pressure, the child speaker is not knowingly sarcastic, and Tom has not rejected the dream." },
 
     { id: "LF142", domain: "literature", title: "Keats — apostrophe", difficulty: "hard", tags: ["figurative", "longform"], skillIds: ["figurative-language", "poetry-forms"], passageSet: "keats", passage: P.keats,
       stem: "Addressing the urn as “bride,” “foster-child,” and “historian” is primarily—",
       choices: [
-        "literal genealogy: the urn had a wedding and a childhood in Arcady",
-        "apostrophe plus metaphor: the object is treated as a being that holds a story better than the poet’s rhyme",
-        "dramatic irony that the maidens on the urn can hear the poet and answer",
-        "a simile comparing the urn only to pipes and timbrels, not to a teller of tales"
+        "personification only, since the speaker describes the urn’s qualities but never actually speaks to it directly",
+        "apostrophe plus metaphor: the urn is addressed as a being that tells a story better than the poet’s rhyme",
+        "simile, because the urn is compared to a bride, a foster-child, and a historian in turn",
+        "allegory, in which each title stands for a specific historical figure the urn depicts"
       ], answer: 1,
-      explanation: "Apostrophe = address to what cannot answer; the titles are figures for what the still object does. The figures on the urn do not reply. Historian is the tale-telling claim, not a simile limited to instruments." },
+      explanation: "“Thou still unravish’d bride” addresses the urn (apostrophe) and calls it bride, foster-child, and historian (metaphor). The speaker does address it, there is no like or as, and the titles describe what the urn is, not historical people." },
 
     { id: "LF143", domain: "literature", title: "Keats — paradox", difficulty: "hard", tags: ["figurative", "longform"], skillIds: ["figurative-language"], passageSet: "keats", passage: P.keats,
       stem: "“Heard melodies are sweet, but those unheard / Are sweeter” works as a paradox because it—",
@@ -379,22 +379,22 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF144", domain: "literature", title: "Keats — frozen love", difficulty: "hard", tags: ["theme", "longform"], skillIds: ["narrative-elements", "literary-periods"], passageSet: "keats", passage: P.keats,
       stem: "The Bold Lover “never canst thou kiss” yet “do not grieve” because—",
       choices: [
-        "the poem promises he will catch her once slow time finishes",
+        "the lover will win the maiden later, once the poem’s slow time finally runs out",
         "the freeze that denies the kiss also denies fading: she stays fair and he stays in love",
-        "unheard melodies have already been played to the sensual ear",
-        "Tempe and Arcady are named so the scene can be dated and then forgotten"
+        "the lover is only a carved image, so his feelings do not matter and grief would be foolish",
+        "the maiden does not truly love him, so losing the kiss costs him nothing at all"
       ], answer: 1,
-      explanation: "Permanence is the compensation for incompletion. Time does not thaw the marble. Heard vs unheard is the pipes, not the kiss. Place-names open questions, not a date stamp that ends the scene." },
+      explanation: "The same freeze that denies the kiss also denies fading: she stays fair and he stays in love forever. Time will not run out for a carved scene, the poem treats the lover’s feeling as real, and nothing says the maiden does not love him." },
 
     { id: "LF145", domain: "literature", title: "Keats — period habit", difficulty: "hard", tags: ["periods", "longform"], skillIds: ["literary-periods"], passageSet: "keats", passage: P.keats,
       stem: "The urn’s mix of immortal stillness and intense feeling is most characteristic of—",
       choices: [
-        "Augustan satire that mainly catalogs social types in rhymed couplets of public wit",
+        "Augustan neoclassicism, because the ode imitates a classical Greek object, setting, and myth",
         "Romantic lyric that treats art, nature, and intensity of mind as subjects, including paradox",
-        "Naturalist fiction that tracks heredity and environment in a city slum",
-        "Modernist collage that fragments newspaper headlines without a speaking “thou”"
+        "Victorian realism, because the urn’s scenes depict ordinary village life in detail",
+        "Modernism, because the poem fragments time and refuses to give the scene an ending"
       ], answer: 1,
-      explanation: "Ode, apostrophe, sensation vs ideal. Not Popean social satire, Dreiser, or The Waste Land." },
+      explanation: "Romantic odes make art, imagination, and intense feeling their subject, often through paradox (“unheard” melodies are “sweeter”). Classical subject matter alone is not neoclassicism, the scenes are idealized rather than realist, and the frozen moment is a Romantic paradox, not Modernist fragmentation." },
 
     { id: "LF146", domain: "literature", title: "Chopin — grief then window", difficulty: "hard", tags: ["narrative", "longform"], skillIds: ["narrative-elements"], passageSet: "chopin", passage: P.chopin,
       stem: "The scene’s structure most clearly moves from—",
@@ -409,12 +409,12 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF147", domain: "literature", title: "Chopin — spring details", difficulty: "hard", tags: ["figurative", "longform"], skillIds: ["figurative-language", "narrative-elements"], passageSet: "chopin", passage: P.chopin,
       stem: "The quivering trees, rain-breath, sparrows, and patches of blue function primarily as—",
       choices: [
-        "proof that Josephine invented the railroad disaster to frighten her sister",
+        "a contrast showing how little the outside world cares about Mrs. Mallard’s private grief",
         "sensory life outside the room that the coming feeling of freedom will use as its path",
-        "a weather report whose only job is to date the story in late autumn",
-        "evidence Mrs. Mallard’s heart trouble has already been cured by sitting down"
+        "foreshadowing that Brently Mallard will soon return home alive and well",
+        "signs of spring that mirror the depth of her grief and sense of loss"
       ], answer: 1,
-      explanation: "The “thing” reaches through sounds, scents, color. Spring, not autumn. Josephine told the news; she did not invent it here. Exhaustion still “haunts” the body." },
+      explanation: "The “thing” approaching her reaches “through the sounds, the scents, the color,” so the spring details are the path of the coming feeling of freedom. They are not indifference, the excerpt gives no hint of Brently’s return, and spring renewal does not mirror grief." },
 
     { id: "LF148", domain: "literature", title: "Chopin — free", difficulty: "hard", tags: ["theme", "longform"], skillIds: ["narrative-elements", "literature-context"], passageSet: "chopin", passage: P.chopin,
       stem: "The whispered “free, free, free!” is best understood as—",
@@ -439,32 +439,32 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF150", domain: "literature", title: "Dunbar — extended figure", difficulty: "hard", tags: ["figurative", "longform"], skillIds: ["figurative-language", "poetry-forms"], passageSet: "dunbar", passage: P.dunbar,
       stem: "The mask that “grins and lies” functions as—",
       choices: [
-        "a literal costume the speakers put on only at a masquerade ball",
+        "a symbol of hypocrisy, showing that the speakers secretly enjoy deceiving the world around them",
         "an extended metaphor for a public face that conceals pain the world is not to count",
-        "apostrophe to Christ that replaces the mask image after the first stanza",
-        "dramatic irony that the world already sees the torn hearts, so the mask has failed"
+        "a literal disguise the speakers wear to hide their identity from those who hurt them",
+        "an image the poem drops after the first stanza in favor of a direct prayer to Christ"
       ], answer: 1,
-      explanation: "Public grin vs bleeding hearts; refrain keeps the figure. Christ is addressed in stanza 3 but the mask remains. The world is told to dream otherwise—it does not already see." },
+      explanation: "The mask is an extended metaphor for a public face that hides real suffering, and the refrain keeps it in every stanza. It is forced concealment, not enjoyed hypocrisy; it is figurative, not a literal disguise; and the poem returns to it after addressing Christ." },
 
     { id: "LF151", domain: "literature", title: "Dunbar — audience", difficulty: "hard", tags: ["context", "longform"], skillIds: ["literature-context", "world-literature"], passageSet: "dunbar", passage: P.dunbar,
       stem: "“Why should the world be over-wise, / In counting all our tears” most nearly implies that the speakers—",
       choices: [
-        "want the world to inventory every sigh as official policy",
+        "want the world to understand their suffering fully and to count every tear they have shed",
         "refuse to give the world full access to their suffering, even while they still suffer",
-        "deny that any tears exist, which is why the hearts are not torn",
-        "address only Christ, so “the world” is a synonym for the church"
+        "have stopped feeling pain, so there are no tears left for the world to count",
+        "believe the world is too ignorant to notice suffering even if it were shown openly"
       ], answer: 1,
-      explanation: "Let them see only the mask. Tears exist (tortured souls, vile clay). “World” vs Christ are split in stanza 3." },
+      explanation: "The rhetorical question means: why should the world know all our pain? Let it see only the mask. The speakers do not want full visibility, they still suffer (“torn and bleeding hearts”), and the issue is withholding, not the world’s inability to notice." },
 
     { id: "LF152", domain: "literature", title: "Dunbar — tone", difficulty: "hard", tags: ["tone", "longform"], skillIds: ["narrative-elements"], passageSet: "dunbar", passage: P.dunbar,
       stem: "The tone of the last stanza is best described as—",
       choices: [
-        "uncomplicated cheer, because singing is mentioned",
-        "defiant concealment: cries to Christ, vile clay, long mile, and still the mask for the world",
-        "satire of Christ, who is blamed for inventing the grin",
-        "pastoral ease, because clay and mile are landscape decoration only"
+        "quiet acceptance: the speakers have made peace with suffering and no longer mind the mask",
+        "defiant concealment: cries and suffering are admitted, yet the mask stays on for the world",
+        "despair: the speakers abandon the mask and finally let the world see their pain",
+        "bitter anger aimed at Christ, whom the speakers blame for their tortured souls"
       ], answer: 1,
-      explanation: "Smile + cries + vile clay. Not simple cheer, not a joke at Christ, not a nature idyll." },
+      explanation: "The stanza admits the cries and the vile clay yet ends “We wear the mask!”: defiant concealment. There is no peace, the mask is kept rather than abandoned, and the cries rise to Christ in appeal, not blame." },
 
     { id: "LF153", domain: "literature", title: "Dunbar — refrain", difficulty: "hard", tags: ["sound", "longform"], skillIds: ["sound-devices", "poetry-forms"], passageSet: "dunbar", passage: P.dunbar,
       stem: "Repeating “We wear the mask” at the close of stanzas 2 and 3 primarily—",
@@ -479,22 +479,22 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF154", domain: "reading", title: "Emerson — central claim", difficulty: "hard", tags: ["persuasive", "longform"], skillIds: ["persuasive-texts"], passageSet: "emerson", passage: P.emerson,
       stem: "The excerpt’s controlling claim is that—",
       choices: [
-        "church doctrines are sacred because a valued adviser importuned him when young",
-        "a person must not outsource right and wrong to names and traditions, but test them against the mind’s integrity",
-        "impulses from below should be obeyed because they are identical with immortal palms",
-        "the world will never grant “suffrage” to anyone who lives from within"
+        "church doctrines deserve respect but should be followed only when they do not conflict with law",
+        "a person must test inherited ideas of good against the integrity of his own mind",
+        "a person should reject all traditions simply because they are old, since newness is a virtue",
+        "society rewards conformity, so the nonconformist must expect to be punished by the world"
       ], answer: 1,
-      explanation: "Nonconformist; explore if it be goodness; integrity of mind. The adviser is the foil. “If I am the Devil’s child” is a retort, not a metaphysics of palms. Suffrage of the world follows self-absolution in the argument." },
+      explanation: "The controlling claim is that the integrity of one’s own mind is the test of goodness (“Nothing is at last sacred but the integrity of your own mind”). Emerson does not appeal to law, does not reject tradition merely for being old, and promises the nonconformist “the suffrage of the world.”" },
 
     { id: "LF155", domain: "reading", title: "Emerson — analogy of names", difficulty: "hard", tags: ["rhetoric", "longform"], skillIds: ["rhetorical-appeals", "vocab-strategies"], passageSet: "emerson", passage: P.emerson,
       stem: "“Good and bad are but names very readily transferable” is meant to—",
       choices: [
-        "deny that any action can be judged, so the rest of the paragraph has no ethic",
+        "deny that any action can be judged at all, so that the paragraph finally ends without any ethic",
         "warn that moral labels can be stuck on either side, so the test is what fits one’s constitution",
-        "prove the friend’s “from below” warning is a scientific classification of impulses",
-        "define immortal palms as a church office the speaker intends to gather"
+        "show that the friend’s labels prove Emerson’s impulses come from below",
+        "argue that society’s moral labels are always correct and should not be questioned"
       ], answer: 1,
-      explanation: "Names move; right/wrong track the constitution. He still has an ethic (integrity, nature’s law). The friend offered a below/above split, not a lab result." },
+      explanation: "Emerson warns that moral labels can be attached to either side, so the real test is what fits one’s own constitution. He still has an ethic (“the only right is what is after my constitution”), he does not concede the friend’s point, and he questions labels rather than trusting them." },
 
     { id: "LF156", domain: "reading", title: "Emerson — Devil’s child", difficulty: "hard", tags: ["rhetoric", "longform"], skillIds: ["rhetorical-appeals"], passageSet: "emerson", passage: P.emerson,
       stem: "The reply “if I am the Devil’s child, I will live then from the Devil” functions primarily as—",
@@ -510,21 +510,21 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
       stem: "The emphasis on inner law over inherited doctrine is most characteristic of—",
       choices: [
         "American Transcendentalism’s trust in individual intuition against mere conformity",
-        "Naturalism’s claim that heredity and mill conditions determine every choice",
+        "Naturalism, which holds that heredity and environment determine every choice a person makes",
         "Neoclassical satire whose main tool is a type-character in a city coffeehouse",
         "Medieval allegory in which Good and Bad are personified as competing knights"
       ], answer: 0,
-      explanation: "Self-Reliance is a Transcendental set piece. Not Dreiser, not Pope, not Everyman." },
+      explanation: "Self-Reliance is a Transcendentalist set piece: inner law over inherited doctrine. Naturalism denies that kind of freedom, neoclassical satire mocks social types, and medieval allegory personifies virtues." },
 
     { id: "LF158", domain: "literature", title: "Frankenstein — creature’s claim", difficulty: "hard", tags: ["narrative", "longform"], skillIds: ["prose-drama-analysis"], passageSet: "frankenstein", passage: P.frankenstein,
       stem: "The creature’s opening argument is that Frankenstein owes him—",
       choices: [
         "death, because misery has already made him a fiend beyond any duty",
         "duty and a chance at happiness, on the ground that a creator is bound to the created",
-        "equality with every other human, which he says he already possesses as Adam",
-        "silence, because speech would “sport with life” more than killing would"
+        "equality with every other human being, which he claims he already possesses as Frankenstein’s Adam",
+        "punishment, since the creature admits his crimes and wants to be judged fairly"
       ], answer: 1,
-      explanation: "Do your duty; I ought to be thy Adam; make me happy. He fears being killed, not requesting it. He is excluded from bliss, not already equal. He is speaking, not demanding silence." },
+      explanation: "Do your duty, I ought to be thy Adam, make me happy: he argues that a creator is bound to his creation. He fears being killed rather than asking for it, says he is excluded from bliss rather than already equal, and asks for happiness, not punishment." },
 
     { id: "LF159", domain: "literature", title: "Frankenstein — Adam / fallen angel", difficulty: "hard", tags: ["figurative", "longform"], skillIds: ["figurative-language", "literature-context"], passageSet: "frankenstein", passage: P.frankenstein,
       stem: "“I ought to be thy Adam, but I am rather the fallen angel” contrasts—",
@@ -549,42 +549,42 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF161", domain: "literature", title: "Frankenstein — virtue", difficulty: "hard", tags: ["theme", "longform"], skillIds: ["narrative-elements", "literature-context"], passageSet: "frankenstein", passage: P.frankenstein,
       stem: "“Misery made me a fiend. Make me happy, and I shall again be virtuous” treats vice as—",
       choices: [
-        "an unchangeable species trait that happiness cannot touch",
+        "an unchangeable trait of his nature, which no amount of happiness could ever reverse",
         "a product of exclusion and suffering that might reverse if the creator relents",
-        "Frankenstein’s laboratory error in choosing the wrong chemicals",
-        "a joke, because the creature has just denied being wretched"
+        "a choice he made freely, for which Frankenstein bears no responsibility",
+        "proof that he was evil from the moment of his creation"
       ], answer: 1,
-      explanation: "Cause (misery) and proposed cure (make me happy). He calls himself wretched at the start. Not a materials-science thesis." },
+      explanation: "Cause (misery) and proposed cure (make me happy): vice is treated as a product of suffering that could reverse. He denies it is fixed in his nature, holds Frankenstein responsible, and says he “was benevolent and good” at first." },
 
     { id: "LF162", domain: "language", title: "Revise draft — dangling", difficulty: "hard", tags: ["usage", "longform"], skillIds: ["grammar-usage", "agreement-usage"], passageSet: "revise", passage: P.revise,
       stem: "“Walking toward the office, the complaint forms was already gone” is weakest because it—",
       choices: [
-        "uses a comma splice between two independent clauses about the dashboard",
-        "dangles the opener so the forms, not a person, seem to be walking, and it fails agreement (forms was)",
-        "is a clear, grammatical report of who walked and what they found",
-        "plagiarizes the blog sentence about late buses harming learning"
+        "is a comma splice joining two independent clauses with only a comma",
+        "dangles the opener (forms cannot walk) and fails agreement (forms was)",
+        "has a dangling opener, but its subject and verb agree correctly",
+        "has a subject-verb agreement error, but the opening phrase is correctly placed"
       ], answer: 1,
-      explanation: "Modifier + was/were. The blog theft is a different sentence. The dashboard contrast is later." },
+      explanation: "The sentence has two errors: the opener dangles, since forms cannot walk, and “forms was” fails agreement. It is not a comma splice, and each partial option names only one error while denying the other." },
 
     { id: "LF163", domain: "language", title: "Revise draft — agreement", difficulty: "hard", tags: ["usage", "longform"], skillIds: ["grammar-usage"], passageSet: "revise", passage: P.revise,
       stem: "“Ms. Chen who wait with two kids” should be revised for—",
       choices: [
-        "subject-verb agreement and a needed comma or relative-clause punctuation around who waits",
-        "a missing citation, because waiting at a stop cannot be quoted",
-        "passive voice, which is forbidden in all civic proposals",
-        "a comma splice, which is the only error in that sentence"
+        "subject-verb agreement (who waits) and commas around the nonrestrictive clause",
+        "pronoun case: who should be whom because it follows a proper noun",
+        "verb tense: wait should be waited to match the past-tense story",
+        "a comma splice, since the sentence joins two independent clauses with a comma"
       ], answer: 0,
-      explanation: "Who wait → who waits; restrictive/nonrestrictive punctuation is also rough. Quotation of her words is a separate later issue. Passive is not the miss. It is not a comma splice." },
+      explanation: "Who refers to Ms. Chen (singular), so who waits, and the clause adds extra information, so commas set it off. Who is the correct case for a subject, the draft is not a past-tense story here, and there is no comma splice." },
 
     { id: "LF164", domain: "language", title: "Revise draft — plagiarism", difficulty: "hard", tags: ["research", "longform"], skillIds: ["research-citation"], passageSet: "revise", passage: P.revise,
       stem: "Changing harm to harms on a copied blog sentence is—",
       choices: [
-        "adequate paraphrase because one verb inflection is original work",
+        "acceptable paraphrase, because changing a verb’s form makes the sentence the student’s own",
         "still plagiarism: the sentence is taken, and a cosmetic change does not make it the student’s",
-        "correct citation, because the dashboard percentages appear in the next sentence",
-        "acceptable if the blog is unsigned, matching Source B in a different cluster"
+        "acceptable if the student lists the blog in the works-cited page, even without quotation marks",
+        "common knowledge, because claims about lateness and learning need no citation"
       ], answer: 1,
-      explanation: "The draft even confesses the copy. Dashboard numbers do not cite the blog. Unsigned is not a free pass." },
+      explanation: "Copying a sentence and changing one letter is still plagiarism: the wording is not the student’s. A verb change is not paraphrase, a works-cited entry without quotation marks still passes off the wording as the student’s, and the claim is not common knowledge." },
 
     { id: "LF165", domain: "language", title: "Revise draft — splice", difficulty: "hard", tags: ["mechanics", "longform"], skillIds: ["mechanics"], passageSet: "revise", passage: P.revise,
       stem: "“That contrast is important, it does not prove…” should be repaired by—",
@@ -599,52 +599,52 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF166", domain: "language", title: "Revise draft — overclaim", difficulty: "hard", tags: ["research", "longform"], skillIds: ["research-citation", "thesis-support"], passageSet: "revise", passage: P.revise,
       stem: "The draft’s fairest use of the 22% vs 9% contrast is already closest to which sentence?",
       choices: [
-        "Heat caused the August lateness, which everyone knows.",
-        "The seasonal contrast is important and still does not, by itself, prove heat caused the lateness.",
-        "The blog sentence, once the verb is changed, proves causation.",
-        "Ms. Chen’s quotation replaces the need for a rate chart."
+        "Heat caused the August lateness, as the jump from 9% to 22% shows.",
+        "The contrast is important but does not, by itself, prove heat caused the lateness.",
+        "The contrast proves the bus routes were planned badly for August traffic.",
+        "Because lateness fell to 9% in January, cold weather improves bus reliability."
       ], answer: 1,
-      explanation: "The last sentence of the draft already walks back causation. Opening overclaim and the blog theft do not." },
+      explanation: "The draft’s last sentence already uses the contrast fairly: important, but not proof that heat caused lateness. The other options turn a seasonal difference into a cause: heat, poor planning, or cold weather." },
 
     { id: "LF167", domain: "reading", title: "Water pair — credibility", difficulty: "hard", tags: ["paired", "longform"], skillIds: ["evidence-credibility"], passageSet: "water", passage: P.water,
       stem: "For a paper on indoor use after the rate change, Source A is more usable than Source B primarily because it—",
       choices: [
-        "covers the whole service area, while Source B discusses only 1,200 meters",
+        "covers the whole service area, while Source B discusses only the 1,200 meters staff sampled",
         "reports a limited sample, names competing explanations, and refuses a success headline",
         "is unsigned and therefore free of the utility’s institutional bias",
         "already concludes the rate starved lawns, which matches the paper’s thesis"
       ], answer: 1,
-      explanation: "Limits and methods beat loaded rhetoric. {{opt:LF167-0}} reverses who has the 1,200-meter sample: Source A has it, not Source B. Unsigned is a weakness. {{opt:LF167-3}} is Source B’s claim, which Source A will not headline." },
+      explanation: "Limits and named alternative explanations make Source A usable. Source A, not Source B, has the 1,200-meter sample; being unsigned is a weakness, not neutrality; and the starved-lawns claim is Source B’s, which Source A refuses to headline." },
 
     { id: "LF168", domain: "reading", title: "Water pair — misuse", difficulty: "hard", tags: ["paired", "longform"], skillIds: ["evidence-credibility", "research-citation"], passageSet: "water", passage: P.water,
       stem: "“Staff proved every quiet sprinkler is a crime against childhood” misuses the sources because—",
       choices: [
-        "Source A never mentions meters, so the sentence has no documentary hook",
-        "A’s limited sample, wetter winter, and no-headline warning cannot support “proved…every…crime,” and B is slogan",
-        "Source B is the more cautious document, so the sentence should have cited B for staff’s view",
-        "both sources agree the rate should be frozen, which makes “proved” unnecessary rather than false"
+        "Source A’s 4% median drop is too small to prove anything, so neither source supports any claim about use",
+        "Source A’s small sample and weather caveat cannot support “proved … every,” and Source B is a slogan",
+        "the sentence quotes Source B’s words but credits them to staff, though the claim itself is accurate",
+        "staff did prove the rate caused the drops, but “crime against childhood” is too emotional for a paper"
       ], answer: 1,
-      explanation: "Universal moral language is what A blocks and B shouts. A does mention meters. B is not cautious. Neither is a freeze study from staff." },
+      explanation: "Source A’s limited sample and wetter-winter caveat block any universal causal claim, and Source B’s language is a slogan, not a finding. Source A does support a limited claim, the sentence’s claim is not accurate, and staff explicitly did not prove causation." },
 
     { id: "LF169", domain: "reading", title: "Water pair — loaded words", difficulty: "hard", tags: ["paired", "longform"], skillIds: ["persuasive-texts"], passageSet: "water", passage: P.water,
       stem: "In Source B, “starving,” “crime,” and “thirsty kids” function as—",
       choices: [
-        "method labels matching A’s median, tier, and sample size",
+        "precise summaries of Source A’s findings, restated in plainer language for readers",
         "loaded language that moralizes the rate instead of reporting the limited billing result",
-        "synonyms for “wetter winter,” applied to indoor use",
-        "a paraphrase of staff’s request for one more quarter before a success headline"
+        "evidence of the flyer writer’s firsthand knowledge of the households affected by the rate",
+        "neutral descriptions of the rate change’s effects on lawns and families"
       ], answer: 1,
-      explanation: "Pathos and guilt, not methods. B does not restate the extra quarter or the winter caveat." },
+      explanation: "“Starving,” “crime,” and “thirsty kids” moralize the rate instead of reporting data. They do not summarize Source A, show no firsthand knowledge, and are anything but neutral." },
 
     { id: "LF170", domain: "reading", title: "Water pair — synthesis", difficulty: "hard", tags: ["paired", "longform"], skillIds: ["informational-texts", "evidence-credibility"], passageSet: "water", passage: P.water,
       stem: "Which sentence fairly synthesizes both sources?",
       choices: [
-        "A limited billing sample shows mixed declines and a weather caveat; a flyer converts that into a moral indictment of the tier.",
-        "Both sources agree 1,200 meters are the whole service area and that the rate caused every drop.",
-        "Source B is unsigned, so it must be omitted from any synthesis that mentions lawns.",
-        "Staff and the flyer differ only in tone; they report the same causal conclusion about childhood."
+        "A limited billing sample shows mixed declines with a weather caveat; a flyer turns that into a moral indictment.",
+        "Both sources agree that the rate change reduced water use, though they describe the reduction in different tones.",
+        "Source A proves the rate worked, while Source B proves it harmed families; the paper should present both as findings.",
+        "Source B is unsigned, so a fair synthesis should mention only Source A’s billing results."
       ], answer: 0,
-      explanation: "Keeps each genre honest. B is false on sample and cause. Unsigned ≠ unmentionable. Tone is not the only gap." },
+      explanation: "A fair synthesis keeps each genre honest: a cautious, limited billing study and a flyer that moralizes it. Source A does not attribute the declines to the rate, neither source proves its claim, and an unsigned flyer can still be described for what it is." },
 
     { id: "LF171", domain: "oral", title: "Board — restating", difficulty: "hard", tags: ["discussion", "longform"], skillIds: ["group-discussion"], passageSet: "board", passage: P.board,
       stem: "Member Ruiz’s best discussion move after River speaks is—",
@@ -659,12 +659,12 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF172", domain: "oral", title: "Board — weak move", difficulty: "hard", tags: ["discussion", "longform"], skillIds: ["group-discussion", "listening-speaking"], passageSet: "board", passage: P.board,
       stem: "Priya’s comment is a weak work-session move primarily because it—",
       choices: [
-        "uses a phone and replaces the distinction Ruiz asked for with a slogan the board is not voting",
-        "restates the pediatric brief more accurately than Noor, so Ruiz should have started over",
-        "asks Hale to restate River, which is only the chair’s job",
+        "uses a phone and replaces the distinction Ruiz asked for with a slogan the board is not voting on",
+        "is rude to Coach Hale, whose concern about sports deserved more attention from the board",
+        "is correct that kids need sleep but should have cited the pediatric brief’s specific numbers to support it",
         "cites the whisper about football as the only evidence, ignoring the brief"
       ], answer: 0,
-      explanation: "Phone + category error. Priya does not restate, does not run accountable talk, and does not cite the brief." },
+      explanation: "Ruiz names both problems: the phone, and a category error (a slogan instead of the biology-versus-facilities distinction). Priya’s remark targets the process rather than Hale, and adding numbers would not fix answering the wrong question." },
 
     { id: "LF173", domain: "oral", title: "Board — River vs Hale", difficulty: "hard", tags: ["discussion", "longform"], skillIds: ["group-discussion"], passageSet: "board", passage: P.board,
       stem: "River’s addition is stronger than Hale’s first claim because River—",
@@ -679,22 +679,22 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF174", domain: "oral", title: "Board — purpose", difficulty: "hard", tags: ["speech", "longform"], skillIds: ["speech-craft", "group-discussion"], passageSet: "board", passage: P.board,
       stem: "Ruiz’s purpose in this stretch is to—",
       choices: [
-        "answer the football whisper so the parent knows Ruiz’s private views",
+        "persuade the board to adopt the later bell before Coach Hale’s facilities concerns can be raised",
         "keep biology evidence and facilities arguments from collapsing into one slogan before a vote",
-        "establish that Noor already proved 8:15 raises GPA in this district",
-        "let Hale’s “sports will die” stand as the paraphrase of the pediatric brief"
+        "defend Coach Hale’s concern about sports against students who dismiss it",
+        "prevent a vote until every person in the room has restated every other speaker’s view"
       ], answer: 1,
-      explanation: "Restate, then separate claims. Ruiz does not take the whisper. Noor denied the GPA overclaim. Hale is the foil." },
+      explanation: "Ruiz asks for a restatement, then separates a biology claim from a facilities claim before any vote. Ruiz does not advocate a decision, does not take Hale’s side, and is not demanding endless restatement." },
 
     { id: "LF175", domain: "oral", title: "Poster — graphic lie", difficulty: "hard", tags: ["media", "longform"], skillIds: ["media-analysis", "text-graphics"], passageSet: "poster", passage: P.poster,
       stem: "Doubling both height and width of the “after” lung is a problem primarily because—",
       choices: [
-        "cartoons cannot be used in a cafeteria, regardless of scale",
-        "area grows by a factor of four, so the picture can overstate “triples damage” even if the label is the intended claim",
-        "QR codes are illegal on student posters, which is the teacher’s only objection",
-        "a footnote with n=18 already makes any picture statistically equivalent to a CDC study"
+        "the cartoon style makes the poster look unserious, which undercuts its message about health risks",
+        "area grows fourfold, so the picture can overstate even the “triples” claim it illustrates",
+        "the larger lung is placed on the right, where readers’ eyes land last",
+        "the survey of 18 students is too small to justify any image at all"
       ], answer: 1,
-      explanation: "Area scales with the square of linear dimensions. Cartoons can be used; the issue is distortion. QR legality is not the stated problem. n=18 hallway is a weak study, not a fix." },
+      explanation: "Doubling height and width quadruples area, so the image exaggerates even beyond its own label. Cartoon style, placement, and sample size are other issues, not the scaling distortion the question asks about." },
 
     { id: "LF176", domain: "oral", title: "Poster — citation quality", difficulty: "hard", tags: ["media", "longform"], skillIds: ["evidence-credibility", "media-analysis"], passageSet: "poster", passage: P.poster,
       stem: "The footnote “club survey, n=18, hallway, Tuesday” is weakest as support for “triples damage” because it—",
@@ -710,31 +710,31 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
       stem: "Placing a CDC QR beside a hoodie-fundraiser QR most clearly risks—",
       choices: [
         "readers treating a health claim and a club sale as if they had the same authority",
-        "the CDC page becoming unsigned, like Source B in a utilities flyer",
-        "violating the pool’s metal-edge paddle rule, which governs cafeteria art",
-        "proving the cartoon lung is a peer-reviewed measurement of one puff"
+        "the poster becoming too cluttered to read, since two QR codes compete for the same space",
+        "a copyright violation, since the CDC’s name appears next to a fundraiser",
+        "students skipping the CDC page because QR codes are rarely scanned"
       ], answer: 0,
-      explanation: "Adjacent codes blur health authority and fundraising. CDC is not unsigned. Pool rules are another text. The cartoon is not peer review." },
+      explanation: "Side-by-side codes blur a health authority with a club sale, so readers may lend the fundraiser the CDC’s credibility. Clutter, scanning habits, and copyright are not the main risk here." },
 
     { id: "LF178", domain: "oral", title: "Poster — best revision", difficulty: "hard", tags: ["media", "longform"], skillIds: ["media-analysis", "speech-craft"], passageSet: "poster", passage: P.poster,
       stem: "The most responsible Friday revision would—",
       choices: [
-        "keep the 4×-area lung and delete the footnote, so the claim looks cleaner",
-        "use equal-scale images or a clearly labeled chart, define terms, separate health sources from the fundraiser, and drop an unsupported “triples”",
-        "replace the CDC link with a second fundraiser code so the poster has one purpose",
-        "label the before-lung “a year” and the after-lung “one puff” to match the original captions"
+        "replace the cartoon lungs with a real medical photo of a damaged lung to make the danger more vivid",
+        "use equal-scale images, define “after,” split health sources from the fundraiser, and drop “triples”",
+        "keep the images as they are but enlarge the n=18 footnote and the survey date so readers can judge the claim themselves",
+        "add more survey responses before Friday so the “triples damage” claim rests on a larger sample"
       ], answer: 1,
-      explanation: "Fix distortion, define after, split purposes, unsell the fake multiplier. Cleaning by hiding the n=18 is worse. Swapping labels reverses the already confused captions." },
+      explanation: "The responsible revision fixes the distortion, defines terms, separates health information from fundraising, and drops an unsupported multiplier. A shock photo adds pathos without fixing the claim, a bigger footnote leaves the distortion in place, and more hallway responses still would not measure “damage.”" },
 
     { id: "LF179", domain: "writing", title: "Analysis draft — overclaim", difficulty: "hard", tags: ["analytical", "longform"], skillIds: ["analytical-writing", "thesis-support"], passageSet: "analysis", passage: P.analysis,
       stem: "The first paragraph’s thesis is weakest because it—",
       choices: [
-        "notices that comfort arrives in sleep, which the second paragraph will also say",
-        "treats the Angel dream and the duty couplet as proof Blake endorses child labor if children are “good”",
-        "quotes “your chimneys,” which cannot appear in a poem about sweeping",
-        "refuses to mention Tom, so the dream has no speaker"
+        "argues too forcefully, when a thesis should avoid taking a clear position",
+        "treats the dream and the duty couplet as proof that Blake endorses child labor for “good” children",
+        "quotes the duty couplet, which should never be used as evidence",
+        "focuses on the dream instead of on Blake’s biography and the history of chimney sweeping in London"
       ], answer: 1,
-      explanation: "It flattens irony/context into endorsement. The second paragraph is the stronger reading. “Your chimneys” is in the poem. Tom is in both paragraphs." },
+      explanation: "The first paragraph flattens the poem’s irony into endorsement. A thesis should take a clear position, the couplet is fair evidence when read in context, and biography would not repair the misreading." },
 
     { id: "LF180", domain: "writing", title: "Analysis draft — better warrant", difficulty: "hard", tags: ["analytical", "longform"], skillIds: ["analytical-writing"], passageSet: "analysis", passage: P.analysis,
       stem: "The second paragraph is stronger primarily because it—",
@@ -759,12 +759,12 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF182", domain: "writing", title: "Analysis draft — revision", difficulty: "hard", tags: ["revision", "longform"], skillIds: ["analytical-writing", "essay-structure"], passageSet: "analysis", passage: P.analysis,
       stem: "The most effective revision of the draft as a whole would—",
       choices: [
-        "delete paragraph two so the happy-dream thesis stays uncontested",
-        "lead with the sleep/work and “your chimneys” warrants, and recast paragraph one as a misreading to reject",
-        "add a citation to the pool lane rules, which govern nineteenth-century labor",
-        "replace Blake with a licensed modern lyric so the paper feels more current"
+        "delete paragraph one, since a weak reading has no place in a revised paper",
+        "lead with the sleep/work and “your chimneys” evidence and recast paragraph one as a misreading to reject",
+        "combine both paragraphs into a balanced thesis saying the poem is both endorsement and critique",
+        "add historical background on chimney sweeps before either reading, then keep both paragraphs as written"
       ], answer: 1,
-      explanation: "Keep the stronger reading; use the weaker as foil. Pool rules and licensed lyrics are off-task (and the second is not how this bank is built)." }
+      explanation: "The strongest revision leads with the better-supported reading and uses the weaker one as a foil. Deleting it loses a useful counterargument, a both-ways thesis gives up the claim, and background alone does not resolve the conflict between the paragraphs." }
   ];
 
   window.PROBLEMS = (window.PROBLEMS || []).concat(items);

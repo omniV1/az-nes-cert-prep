@@ -2,8 +2,8 @@
 window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"WR001", domain:"writing", title:"Narrative Opening", difficulty:"easy", tags:["narrative"], skillIds:["narrative-writing"],
     stem:"Which opening best begins a narrative with a specific scene rather than a vague summary?",
-    choices:["This is a story about a time I learned something important.","The gym doors slammed, and the scoreboard still showed 41–40 with twelve seconds left.","I have had many experiences in my life that taught me lessons.","Sports matter to some people, which is the point of this essay."], answer:1,
-    explanation:"Effective narratives drop readers into sensory action (in medias res or a concrete moment). {{opt:WR001-0}}, {{opt:WR001-2}}, and {{opt:WR001-3}} announce or generalize instead of showing a scene." },
+    choices:["I will never forget the night of the championship game, because it changed everything for me.","The gym doors slammed, and the scoreboard still showed 41–40 with twelve seconds left.","Basketball has always been important in my family, and that season it mattered more than ever.","This is a story about the closest game I ever played and what it taught me."], answer:1,
+    explanation:"A scene opening drops readers into concrete action: slammed doors, the score, the clock. Announcing significance, giving family background, and naming the story’s topic all summarize instead of showing." },
 
   { id:"WR002", domain:"writing", title:"Expository Purpose", difficulty:"easy", tags:["expository"], skillIds:["expository-writing"],
     stem:"The primary purpose of an expository essay is to—",
@@ -12,28 +12,28 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"WR003", domain:"writing", title:"Call to Action", difficulty:"easy", tags:["persuasive"], skillIds:["persuasive-writing"],
     stem:"Which closing is the clearest call to action in a persuasive letter to the school board?",
-    choices:["Libraries are nice places for students who already have time.","Please restore Saturday hours for one year and publish the attendance counts.","I went to the library once and found it quiet.","Some people like books, and others may not."], answer:1,
-    explanation:"A call to action names a specific next step. The other choices are vague praise, a personal anecdote, or a noncommittal observation." },
+    choices:["We hope the board will think carefully about how much our community values its libraries.","Please restore Saturday hours for one year and publish the attendance counts.","Libraries matter, and we trust the board to make the right decision for our city.","Please consider the many students who depend on quiet places to study on weekends."], answer:1,
+    explanation:"A call to action names a specific, checkable step. Hoping the board will think carefully, trusting its judgment, and asking it to consider students are appeals without an action." },
 
   { id:"WR004", domain:"writing", title:"Analytical Claim", difficulty:"easy", tags:["analytical"], skillIds:["analytical-writing"],
     stem:"Which thesis is analytical rather than merely plot summary?",
-    choices:["Hamlet talks to himself in several famous speeches.","Hamlet's 'to be' speech uses antithesis and hesitation to show thought delaying action.","Shakespeare wrote plays that are still performed.","There is a prince in Denmark named Hamlet."], answer:1,
-    explanation:"Analysis makes an interpretive claim about how language works. The other options restate facts or plot without arguing a reading." },
+    choices:["Hamlet’s 'to be' speech is about whether he should live or die, which he discusses at length.","Hamlet's 'to be' speech uses antithesis and hesitation to show thought delaying action.","Shakespeare’s Hamlet is one of the most famous tragedies ever written in the English language.","Hamlet speaks the 'to be' soliloquy alone on stage in the third act of the play."], answer:1,
+    explanation:"An analytical thesis claims how language works (antithesis, hesitation) and what that shows. Paraphrasing the speech’s subject, praising the play’s fame, and locating the speech are summary or fact, not interpretation." },
 
   { id:"WR005", domain:"writing", title:"Support for a Thesis", difficulty:"easy", tags:["thesis"], skillIds:["thesis-support"],
     stem:"A thesis claims later start times improve attendance. Which sentence is the most relevant support?",
-    choices:["The cafeteria sells pizza on Fridays, when attendance is highest.","A two-year district study found first-period absences dropped 14 percent after the bell moved to 8:30.","My cousin likes sleeping in on weekends.","Buses are yellow, so a later bell would confuse drivers."], answer:1,
-    explanation:"Support must be relevant evidence for the claim. Pizza, a cousin's preference, and bus color do not test attendance—even when they borrow school-day details." },
+    choices:["Many students say they feel more awake and focused when classes begin later in the morning.","A two-year district study found first-period absences dropped 14 percent after the bell moved to 8:30.","Several neighboring states have passed laws requiring later start times for high schools.","The American Academy of Pediatrics recommends that middle and high schools start at 8:30 a.m. or later."], answer:1,
+    explanation:"The claim is about attendance, so the best support measures attendance. Students’ feelings, other states’ laws, and a medical recommendation are relevant to start times generally but do not show attendance improving." },
 
   { id:"WR006", domain:"writing", title:"Audience and Diction", difficulty:"medium", tags:["style"], skillIds:["style-audience"],
     stem:"A student emails a principal to request a schedule change. Which diction is most appropriate?",
-    choices:["yo can u switch me thx","I am writing to request a move from fourth-period study hall to fourth-period chemistry, and I have attached my counselor's note.","WHATEVER YOU THINK I GUESS!!!","idk lol chemistry maybe?"], answer:1,
-    explanation:"A principal is a formal institutional audience: complete sentences, a clear ask, and attached documentation. Slang, all-caps, and shrugs mismatch the occasion." },
+    choices:["Hey Mr. Lopez! Hope you’re having a great week!! Any chance I could swap study hall for chemistry? Thanks so much!","I am writing to request a move from fourth-period study hall to chemistry; my counselor’s note is attached.","Pursuant to my academic objectives, I hereby formally petition for the reassignment of my fourth-period enrollment.","I need to be moved into chemistry fourth period. My counselor already said it’s fine, so please just do it."], answer:1,
+    explanation:"A principal is a formal audience: complete sentences, a clear and polite request, and supporting documentation. Gushing informality, inflated legalese, and a demanding tone each misjudge that audience." },
 
   { id:"WR007", domain:"writing", title:"Sensory Detail", difficulty:"medium", tags:["narrative"], skillIds:["narrative-writing"],
     stem:"Which sentence uses the strongest sensory detail for a narrative?",
-    choices:["The kitchen was nice that evening.","It was a thing that happened in the kitchen.","Garlic hit the pan with a sharp hiss, and the window fogged.","There was food cooking on the stove."], answer:2,
-    explanation:"Concrete sound and sight (hiss, fogged window) show the scene. Nice, thing, and food are vague placeholders a skimmer might accept as 'description.'" },
+    choices:["The kitchen smelled wonderful, and everyone felt happy and warm inside.","Dinner was being prepared in the busy kitchen that cold evening.","Garlic hit the pan with a sharp hiss, and the window fogged.","It was the most delicious meal I had ever smelled in my whole life."], answer:2,
+    explanation:"Strong sensory detail renders specific sounds and sights (a sharp hiss, a fogged window). “Smelled wonderful,” a general description, and an exaggerated claim tell the reader rather than show." },
 
   { id:"WR008", domain:"writing", title:"Cause-and-Effect Organization", difficulty:"medium", tags:["expository"], skillIds:["expository-writing"],
     stem:"An expository paragraph explains that removing ground cover leads to faster runoff and higher flood peaks. The organization is primarily—",
@@ -42,23 +42,23 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"WR009", domain:"writing", title:"Respectful Counterargument", difficulty:"easy", tags:["persuasive"], skillIds:["persuasive-writing"],
     stem:"Which sentence handles a counterargument most fairly?",
-    choices:["Anyone who disagrees about cost is not worth answering.","Critics worry about cost; a one-year pilot with published numbers would test that worry without a permanent commitment.","There is no need to mention cost if the hours are restored.","There is no other view once circulation numbers are cited."], answer:1,
-    explanation:"Fair persuasion names the other side and answers it. Dismissing critics, skipping the objection, and denying disagreement weaken ethos." },
+    choices:["Some people worry about cost, but literacy is far too important for money to be part of this decision.","Critics worry about cost; a one-year pilot with published numbers would test that worry first.","Critics worry about cost, and they are right that the library budget is tight; still, the hours matter more.","Although cost is a concern, other cities have restored weekend hours, so ours should too."], answer:1,
+    explanation:"Fair handling states the objection and answers it with something testable. Waving cost away, conceding it and then ignoring it, and pointing to other cities all leave the actual worry unanswered." },
 
   { id:"WR010", domain:"writing", title:"Textual Evidence", difficulty:"easy", tags:["analytical"], skillIds:["analytical-writing"],
     stem:"After claiming that Dickinson makes Death courteous, which follow-up is the best use of textual evidence?",
-    choices:["Death is a character in the poem, which is enough.","The speaker says Death 'kindly stopped for me' and notes 'His Civility.'","I feel the courtesy in my heart as a reader.","Dickinson lived in the 1800s, so the claim is automatic."], answer:1,
-    explanation:"Analytical writing quotes or closely paraphrases the lines that actually show courtesy. Feelings and biography do not replace the words on the page; naming Death as a character is plot, not evidence of courtesy." },
+    choices:["The poem calls Death a gentleman who is polite to everyone he meets along the road.","The speaker says Death 'kindly stopped for me' and notes 'His Civility.'","Dickinson often wrote about death, so it makes sense that she would make Death courteous.","The speaker rides in a carriage with Death and Immortality, which shows they are friends."], answer:1,
+    explanation:"Textual evidence quotes the words that show courtesy (“kindly stopped,” “His Civility”). An invented paraphrase, a generalization about the poet, and a plot detail that does not show courtesy do not prove the claim." },
 
   { id:"WR011", domain:"writing", title:"Too-Broad Thesis", difficulty:"easy", tags:["thesis"], skillIds:["thesis-support"],
     stem:"Which thesis is appropriately narrow for a five-paragraph essay?",
-    choices:["Everything about education in the district is broken.","The district should move the first bell to 8:30 because attendance data and bus-route models support a one-year trial.","Life is a series of scheduling problems.","Schools exist, so start times can be anything."], answer:1,
-    explanation:"A workable thesis is specific and arguable. Everything, Life, and Schools exist are too broad or too obvious to guide evidence." },
+    choices:["Later start times would improve students’ health, grades, attendance, safety, and overall happiness in our district.","The district should move the first bell to 8:30 because attendance data support a one-year trial.","The district should think about changing the start time because many students are tired in the morning.","School start times have been debated across the United States for more than twenty years by experts."], answer:1,
+    explanation:"A workable thesis is specific, arguable, and sized to the essay. Five sweeping benefits are too many to prove, “think about changing” is vague, and a history of the debate is not an arguable claim." },
 
   { id:"WR012", domain:"writing", title:"Tone Shift Error", difficulty:"easy", tags:["style"], skillIds:["style-audience"],
     stem:"A lab report's methods section should most avoid—",
-    choices:["precise verbs and measurements","a sudden slang aside about 'totally nuking' the samples","past-tense description of procedures","labeled quantities with units"], answer:1,
-    explanation:"Scientific audience and purpose call for consistent formal tone. Slang clashes with methods writing; precision is required, not optional." },
+    choices:["passive voice, which scientific methods sections should never use","a sudden slang aside about 'totally nuking' the samples","past-tense descriptions of the procedures performed","precise measurements with units for each quantity"], answer:1,
+    explanation:"Methods sections need a consistent formal register, and a slang aside breaks it. Passive voice, past tense, and precise units are all normal in methods writing." },
 
   { id:"WR013", domain:"writing", title:"Strong Verb", difficulty:"medium", tags:["narrative"], skillIds:["narrative-writing"],
     stem:"Which revision replaces a weak verb plus adverb with a stronger verb?",
@@ -67,18 +67,18 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"WR014", domain:"writing", title:"Problem-Solution Exposition", difficulty:"medium", tags:["expository"], skillIds:["expository-writing"],
     stem:"Which outline is the best problem-and-solution structure?",
-    choices:["Open with an unrelated anecdote, then stop before naming a remedy.","Name the attendance drop, explain causes, propose a later bell, and note how it would be measured.","List the writer's hobbies as extra context for the bell.","Attack a classmate who prefers the current schedule."], answer:1,
-    explanation:"Problem-solution exposition defines the problem, explains it, offers a remedy, and often includes evaluation criteria. Anecdotes without a remedy, hobby lists, and personal attacks are other (weaker) moves." },
+    choices:["Describe attendance problems at several schools, then compare their bell schedules side by side.","Name the attendance drop, explain causes, propose a later bell, and note how it would be measured.","Tell the story of one student who struggles to get to first period on time each morning.","Explain the history of the bell schedule and how it was originally designed around bus routes."], answer:1,
+    explanation:"Problem-solution names the problem, explains its causes, proposes a fix, and says how to judge it. Comparing schools is compare-contrast, one student’s story is narrative, and the schedule’s history is background." },
 
   { id:"WR015", domain:"writing", title:"Logical Order of Reasons", difficulty:"medium", tags:["persuasive"], skillIds:["persuasive-writing"],
     stem:"For a speech asking the council to restore library hours, the most logical order is—",
-    choices:["insult the council, then a childhood memory, then no specific ask","need (who is shut out), evidence (circulation), answer to cost, specific request","a specific request with no reasons, then a lyric about silence","cost fears first, with no proposal for how to test them"], answer:1,
-    explanation:"Persuasion usually moves from problem to proof to rebuttal to ask. Insults and lyrics without a case do not substitute for that sequence; cost without a proposal leaves the speech unfinished." },
+    choices:["the specific request, then a childhood memory, then thanks, with no evidence of need","need (who is shut out), evidence (circulation), answer to cost, specific request","evidence of need, then the request, ending without addressing cost, the council’s main worry","the answer to cost first, before the council has heard why the hours are needed"], answer:1,
+    explanation:"Persuasive speeches usually move from need to evidence to rebuttal to a specific ask. Skipping evidence, ignoring the council’s main objection, and rebutting cost before establishing need each weaken the case." },
 
   { id:"WR016", domain:"writing", title:"Close Reading Sentence", difficulty:"medium", tags:["analytical"], skillIds:["analytical-writing"],
     stem:"Which sentence does close-reading work rather than biography?",
-    choices:["Poe had a difficult life, so the raven is sad.","The refrain 'nevermore' turns a single word into a drumbeat of finality, closing stanza after stanza.","Ravens are birds, which explains the speaker's fear.","I liked this poem more than his other work."], answer:1,
-    explanation:"Close reading explains how a device (refrain) produces an effect. Biography-as-shortcut, zoology, and preference are not analysis of craft." },
+    choices:["Poe wrote 'The Raven' after years of personal loss, which is why the speaker grieves for Lenore.","The refrain 'nevermore' turns one word into a drumbeat of finality, stanza after stanza.","'The Raven' was so popular that Poe became famous soon after it was published in 1845.","The speaker in 'The Raven' is sad because he lost Lenore and cannot stop thinking about her."], answer:1,
+    explanation:"Close reading explains how a device (the refrain) creates an effect. Biography as explanation, publication history, and plot summary are not analysis of craft." },
 
   { id:"WR017", domain:"writing", title:"Irrelevant Evidence", difficulty:"medium", tags:["thesis"], skillIds:["thesis-support"],
     stem:"A paper argues that a warranty excludes commercial use. Which sentence is irrelevant and should be cut?",
@@ -87,8 +87,8 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"WR018", domain:"writing", title:"Voice Consistency", difficulty:"medium", tags:["style"], skillIds:["style-audience"],
     stem:"Which pair shows an inappropriate voice shift inside one formal essay?",
-    choices:["Both sentences in academic English","'The data suggest a trial is warranted. Also tbh the board is sus.'","Two sentences of careful qualification","A definition followed by an example"], answer:1,
-    explanation:"Mixing academic claims with internet slang (tbh, sus) breaks voice. Qualification, definition, and example can stay inside one register." },
+    choices:["'The data suggest a trial is warranted. Moreover, the cost appears manageable.'","'The data suggest a trial is warranted. Also tbh the board is sus.'","'The data suggest a trial is warranted. However, two studies found smaller effects.'","'The data suggest a trial is warranted. For example, attendance rose 6 percent.'"], answer:1,
+    explanation:"Mixing an academic claim with internet slang (“tbh,” “sus”) breaks the essay’s voice. Transitions such as moreover, however, and for example keep the same formal register." },
 
   { id:"WR019", domain:"writing", title:"Flashback Purpose", difficulty:"medium", tags:["narrative"], skillIds:["narrative-writing"],
     stem:"A story opens at a medal ceremony, then shifts to the injury that almost ended the season. That shift is best described as a flashback used to—",
@@ -102,18 +102,18 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"WR021", domain:"writing", title:"Ethos in Persuasion", difficulty:"medium", tags:["persuasive"], skillIds:["persuasive-writing"],
     stem:"Which sentence most responsibly builds ethos in a student op-ed?",
-    choices:["I am always right about library policy.","As a weekend library tutor who logs attendance, I have watched Saturday no-shows rise since the cut.","Trust me; I saw the empty stacks in a dream.","My opponents have no interest in literacy."], answer:1,
-    explanation:"Ethos here is relevant experience plus a checkable practice (logging attendance), not grandiosity, dreams, or insults." },
+    choices:["As someone who has loved libraries since childhood, I know how much Saturday hours mean to everyone.","As a weekend library tutor who logs attendance, I have watched Saturday no-shows rise since the cut.","As a student with a 4.0 GPA, I am qualified to say the board made the wrong decision.","Everyone I have talked to agrees that cutting Saturday hours was a serious mistake."], answer:1,
+    explanation:"Ethos rests on relevant experience the reader can check. A love of libraries is not relevant expertise, a GPA is credibility in the wrong domain, and “everyone I talked to” is a bandwagon claim." },
 
   { id:"WR022", domain:"writing", title:"Interpretive Claim Test", difficulty:"medium", tags:["analytical"], skillIds:["analytical-writing"],
     stem:"Which statement about Austen's opening is a defensible interpretive claim?",
-    choices:["The first sentence has words arranged in a complete clause.","The narrator ironically inflates a neighborhood prejudice into a 'universal truth' about wealthy bachelors.","Jane Austen existed and wrote about marriage.","The book can be purchased in modern editions."], answer:1,
-    explanation:"A claim must be arguable and text-based. Having words, existing, and being for sale are trivial facts, not interpretations." },
+    choices:["Austen opens the novel by stating a truth that every reader in her time already accepted.","The narrator ironically inflates a neighborhood prejudice into a 'universal truth.'","The first sentence shows that Austen believed wealthy men should marry as soon as possible.","The opening sentence introduces Mr. Darcy, the wealthy bachelor at the center of the novel."], answer:1,
+    explanation:"An interpretive claim must be arguable and supported by the text. Taking the sentence as sincere misses the irony, assigning the view to Austen confuses narrator with author, and the opening sentence names no character at all." },
 
   { id:"WR023", domain:"writing", title:"Warrant between Data and Claim", difficulty:"medium", tags:["thesis"], skillIds:["thesis-support"],
     stem:"Data: Saturday checkouts fell from 1,204 to 811. Claim: Restore Saturday hours. The missing warrant is closest to—",
-    choices:["the drop shows lost access that hours would recover, not an unrelated seasonal fluke","pizza sales in the cafe explain the checkout drop","the numbers are decorative and need no interpretation","no link is needed between a checkout drop and a hours policy"], answer:0,
-    explanation:"A warrant is the reasoning that connects evidence to claim. Without it, a checkout drop might mean many things. Policy arguments need that bridge." },
+    choices:["the drop shows lost access that hours would recover, not an unrelated seasonal fluke","the drop proves that Saturday hours were the most popular hours of the week","checkout numbers are the only way to measure whether a library is valuable","public libraries should be funded no matter what their checkout numbers show"], answer:0,
+    explanation:"A warrant links the data to the claim: the drop reflects lost access that restored hours would recover. Calling Saturday the most popular overreads the numbers, treating checkouts as the only measure is too narrow, and funding regardless of the numbers abandons the evidence." },
 
   { id:"WR024", domain:"writing", title:"Jargon and Audience", difficulty:"medium", tags:["style"], skillIds:["style-audience"],
     stem:"Writing a how-to for new bus riders, which choice best matches audience?",
@@ -122,8 +122,8 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"WR025", domain:"writing", title:"Pacing a Climax", difficulty:"hard", tags:["narrative"], skillIds:["narrative-writing"],
     stem:"Just before a narrative climax, the most effective choice is usually to—",
-    choices:["summarize the next five years in one sentence and stop","slow into concrete actions and sensory beats rather than abstract labels ('it was intense')","switch to an informational brief on soil types","add a documentation list of sources mid-scene"], answer:1,
-    explanation:"Climax needs scene, not summary or a genre switch. Intense names a feeling without rendering it." },
+    choices:["speed up the pace with short summary sentences so readers reach the climax quickly","slow into concrete actions and sensory beats instead of labels like 'it was intense'","add the narrator’s reflection on what the climax will mean, so readers know what to feel","insert a flashback explaining the backstory so readers fully understand the stakes"], answer:1,
+    explanation:"Before a climax, writers usually slow down and render the moment in concrete action and sensory detail. Rushing with summary, telling readers what to feel, and stalling with a flashback all weaken the build." },
 
   { id:"WR026", domain:"writing", title:"Classification Exposition", difficulty:"hard", tags:["expository"], skillIds:["expository-writing"],
     stem:"An essay divides warranties into full, limited, and as-is, then explains each with an example. The controlling pattern is—",
@@ -132,18 +132,18 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"WR027", domain:"writing", title:"Anticipate the Cost Objection", difficulty:"hard", tags:["persuasive"], skillIds:["persuasive-writing"],
     stem:"Opponents will say Saturday hours cost too much. The strongest preemptive move is to—",
-    choices:["ignore money entirely and stress literacy alone","propose a one-year pilot with a published cost-per-visit figure and a sunset unless targets are met","claim money is not a real constraint for public libraries","insult the treasurer for raising cost at all"], answer:1,
-    explanation:"Anticipate the likely objection with a testable, limited commitment. Denial, fantasy, and insult do not answer cost." },
+    choices:["acknowledge that cost is a real concern and promise that the library will find the money somewhere in the budget","propose a one-year pilot with a published cost per visit and a sunset unless targets are met","argue that literacy is too important to measure in dollars, so cost should not count","cite a study showing libraries improve literacy, which outweighs any cost concern"], answer:1,
+    explanation:"The strongest preemptive move answers cost with a limited, testable commitment. A vague promise, dismissing cost as unmeasurable, and an unrelated benefit study do not answer the objection." },
 
   { id:"WR028", domain:"writing", title:"Avoiding Plot Summary Dump", difficulty:"hard", tags:["analytical"], skillIds:["analytical-writing"],
     stem:"Which paragraph plan is more analytical than a plot dump?",
-    choices:["Retell Hamlet's whole biography in order with no claim","One claim about hesitation, two short quotations, and commentary on antithesis","A list of every character's name as if that were analysis","A summary of a different play that also uses soliloquy"], answer:1,
-    explanation:"Analysis is claim + brief evidence + explanation of craft. Full retell, name lists, and off-text summary do not interpret." },
+    choices:["A summary of the soliloquy line by line, followed by a sentence saying it is important","One claim about hesitation, two short quotations, and commentary on antithesis","Three quotations from different scenes, each followed by a brief paraphrase","A list of the literary devices in the speech, with a definition of each"], answer:1,
+    explanation:"Analysis pairs a claim with brief evidence and commentary on how the language works. Line-by-line summary, quotation plus paraphrase, and a device inventory never argue a reading." },
 
   { id:"WR029", domain:"writing", title:"Topic Sentence as Mini-Claim", difficulty:"hard", tags:["thesis"], skillIds:["thesis-support"],
     stem:"A paper's thesis is that Equiano uses sensory overload to force moral witness. The best topic sentence for a body paragraph is—",
-    choices:["Equiano was a person who wrote a narrative.","Crowding, heat, and 'loathsome smells' turn the hold into evidence the reader cannot dismiss as abstract.","Ships exist, so the Middle Passage can be assumed.","This paragraph is about sensory details in general."], answer:1,
-    explanation:"A topic sentence should be a mini-claim that ties devices to the thesis. Existence claims and vague 'details' do not guide evidence." },
+    choices:["Equiano describes the conditions aboard the slave ship in great detail throughout his narrative.","Crowding, heat, and 'loathsome smells' make the hold evidence the reader cannot dismiss.","The Middle Passage was one of the most horrific chapters in human history.","Equiano’s narrative was widely read in Britain and helped the abolitionist movement grow."], answer:1,
+    explanation:"A topic sentence should be a claim that ties devices to the thesis. Noting that he describes conditions, condemning the Middle Passage in general, and citing the book’s influence make no claim about sensory overload." },
 
   { id:"WR030", domain:"writing", title:"Connotation for Audience", difficulty:"hard", tags:["style"], skillIds:["style-audience"],
     stem:"A reporter wanting a relatively neutral tone should prefer which verb for a mayor's refusal to speak?",
@@ -157,8 +157,8 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"WR032", domain:"writing", title:"Sequence Words in How-To", difficulty:"hard", tags:["expository"], skillIds:["expository-writing"],
     stem:"A technical how-to for a bus pass should rely most on—",
-    choices:["unnumbered memories of riding the bus","numbered or sequenced steps that match the form's required fields","insults to clerks who return incomplete packets","rhymed couplets that name each field once"], answer:1,
-    explanation:"Functional exposition uses chronological, numbered steps aligned to the actual application. Memory, insult, and rhyme do not help a user complete the form." },
+    choices:["a short narrative about one student’s experience applying for a pass","numbered or sequenced steps that match the form's required fields","a persuasive paragraph explaining why every student should get a pass","a single dense paragraph that lists every requirement in one sentence"], answer:1,
+    explanation:"Procedural writing uses numbered steps matched to the form. A narrative, a persuasive pitch, and a dense paragraph all make the steps harder to follow." },
 
   { id:"WR033", domain:"writing", title:"Avoid Hasty Generalization", difficulty:"hard", tags:["persuasive"], skillIds:["persuasive-writing"],
     stem:"Which sentence is the weakest as support because it overgeneralizes?",
@@ -167,13 +167,13 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"WR034", domain:"writing", title:"So What in Analysis", difficulty:"hard", tags:["analytical"], skillIds:["analytical-writing"],
     stem:"After quoting 'country of the free' from Barrett Browning, the commentary should mainly explain—",
-    choices:["the poet's biography, including childhood homes","how the phrase ironizes a national boast while children weep in 'playtime of the others'","that the poem has commas and exclamation points","a transit schedule that also uses the word free"], answer:1,
-    explanation:"The 'so what' is the social irony. Biography, punctuation-counting, and unrelated documents do not complete the analysis." },
+    choices:["that Barrett Browning was protesting child labor in Victorian England’s mines and factories","how the phrase ironizes a national boast while children weep in 'playtime of the others'","that 'free' in the phrase means the children are not paid for their work","how the poem’s regular rhyme and meter make it sound like a children’s song"], answer:1,
+    explanation:"Commentary explains how the quoted words work: “country of the free” sets a national boast against children weeping in others’ playtime. Background context, a misreading of “free,” and a point about meter do not explain the phrase." },
 
   { id:"WR035", domain:"writing", title:"Integrated Quote", difficulty:"hard", tags:["thesis"], skillIds:["thesis-support"],
     stem:"Which sentence best integrates a quotation?",
-    choices:["Douglass calls his enslavers 'a band of successful robbers,' recasting them as thieves of persons.","Douglass uses the word robbers without showing whose sentence it is.","Quote: a band of successful robbers.","He said enslavers were criminals, which is close enough."], answer:0,
-    explanation:"Integration weaves the quoted words into a grammatical sentence and explains their work. A dropped word, an unintegrated quote, and a vague paraphrase do not support a thesis." },
+    choices:["Douglass calls his enslavers 'a band of successful robbers,' recasting them as thieves.","In chapter seven, Douglass says, 'a band of successful robbers.' This shows how he felt.","Douglass calls his enslavers 'robbers,' which is a very strong word to use in a book.","Douglass compares slavery to robbery, as many abolitionist writers did in the 1840s."], answer:0,
+    explanation:"Integration weaves the quotation into the writer’s sentence and explains its work. A dropped quotation with vague commentary, a remark on word strength, and a generalization about other writers do not analyze the phrase." },
 
   { id:"WR036", domain:"writing", title:"Second-Person in Instructions", difficulty:"easy", tags:["style"], skillIds:["style-audience"],
     stem:"Which point of view is most appropriate for a set of lab-safety instructions?",
