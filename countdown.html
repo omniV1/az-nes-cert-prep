@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exam Countdown — AZ NES Cert Prep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .cd-field { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin: 0.5rem 0; }
+    .cd-field input[type="date"], .cd-field input[type="text"] { font: inherit; padding: 0.4rem 0.55rem; border: 1px solid var(--line); border-radius: 8px; }
+    .cd-field input[type="text"] { flex: 1 1 12rem; min-width: 0; }
+    .cd-check { display: flex; gap: 0.5rem; align-items: flex-start; margin: 0.45rem 0; }
+    .cd-check input { margin-top: 0.25rem; }
+    .cd-domain { margin: 0.65rem 0; }
+    .cd-domain-head { display: flex; justify-content: space-between; gap: 0.5rem; font-size: 0.95rem; }
+    .cd-domain .progress > span.low { background: linear-gradient(90deg, var(--copper), #f97316); }
+    .cd-list { margin: 0.4rem 0 0; padding-left: 1.1rem; }
+    .cd-list li { margin: 0.3rem 0; }
+    .week-card.now { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.15); }
+    .week-card .milestone { margin: 0.45rem 0 0; font-weight: 600; color: var(--copper); }
+    .cd-note { background: rgba(180, 83, 9, 0.08); border: 1px solid rgba(180, 83, 9, 0.25); border-radius: 12px; padding: 0.75rem 1rem; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
+      <a href="index.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a href="study-guides.html">Guides</a>
+      <a href="practice.html">Practice</a>
+      <a href="exam.html">Exams</a>
+      <a href="ace.html">Ace</a>
+      <a href="notes.html">Notes</a>
+      <a href="formulas.html">Formulas</a>
+      <a href="cards.html">Cards</a>
+      <a href="traps.html">Traps</a>
+      <a href="plan.html">Mastery Plan</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="eyebrow">NES English Language Arts (301)</div>
+    <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Exam countdown</h1>
+    <p class="muted">Set your test date. The plan works backward from it: a baseline sitting, your weakest areas, hard passages, the one-shot Pearson practice test with time left to act on it, then a taper. Weak areas update from your saved results every time you open this page.</p>
+
+    <section class="grid grid-2">
+      <article class="card">
+        <h2>Test date</h2>
+        <div class="cd-field">
+          <input type="date" id="test-date" aria-label="Test date" />
+          <button class="btn btn-primary" id="save-date">Save</button>
+        </div>
+        <p class="muted" id="date-status" style="margin:0.25rem 0 0"></p>
+      </article>
+      <article class="card">
+        <h2>Before test day</h2>
+        <label class="cd-check"><input type="checkbox" data-check="booked" /> <span>Seat booked with Pearson. December fills up; an early-December date leaves room to retake.</span></label>
+        <label class="cd-check"><input type="checkbox" data-check="format" /> <span>Checked the <a href="https://www.nestest.com/prepare/301" target="_blank" rel="noopener">official NES 301 page</a> for the current format, time limit, and passing score.</span></label>
+        <label class="cd-check"><input type="checkbox" data-check="retake" /> <span>Checked the retake waiting period, so you know the last date a retake still meets your deadline.</span></label>
+        <label class="cd-check"><input type="checkbox" id="pearson-taken" /> <span>Took the Pearson practice test</span></label>
+        <div class="cd-field" id="pearson-fields">
+          <input type="date" id="pearson-date" aria-label="Date taken" />
+          <input type="text" id="pearson-note" placeholder="Score and weakest areas from the report" aria-label="Pearson result" />
+          <button class="btn btn-secondary" id="save-pearson">Save</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="stat-row" id="stats" style="margin-top:1.25rem"></section>
+
+    <section class="card" style="margin-top:1.25rem;background:rgba(15,118,110,0.06)">
+      <div class="eyebrow">Today</div>
+      <div id="today"></div>
+    </section>
+
+    <div id="notes"></div>
+
+    <section class="grid grid-2" style="margin-top:1.25rem">
+      <article class="card">
+        <h2>Weak areas by domain</h2>
+        <p class="muted" style="margin-top:0">From your last 8 ELA sittings, ordered by points at stake: how far below 80% a domain is, times its share of the test.</p>
+        <div id="domains"></div>
+      </article>
+      <article class="card">
+        <h2>Weakest skills</h2>
+        <p class="muted" style="margin-top:0">Skills under 75% after at least 4 tries, from practice and exams.</p>
+        <div id="skills"></div>
+        <h3 style="margin-top:1rem">Traps you fall for most</h3>
+        <div id="traps"></div>
+      </article>
+    </section>
+
+    <section style="margin-top:1.25rem">
+      <h2 style="font-family:var(--font-display)">Week by week</h2>
+      <p class="muted">Every study day: cards for 20–30 minutes, then a passage set or drill for 45–60 minutes. One timed sitting per week.</p>
+      <div class="week-grid" id="weeks"></div>
+    </section>
+
+    <section class="card" style="margin-top:1.25rem">
+      <h2>Am I ready?</h2>
+      <div id="ready"></div>
+    </section>
+  </main>
+
+  <footer class="footer">Unofficial study plan. Scores here suggest readiness; they do not predict your NES result. Confirm all test details with Pearson.</footer>
+
+  <script src="js/data/curriculum.js"></script>
+  <script src="js/data/skills.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/progress-engine.js"></script>
+  <script src="js/vault-sync.js"></script>
+  <script src="js/countdown.js"></script>
+  <script>
+    const C = window.Countdown;
+    const $ = id => document.getElementById(id);
+    const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const fmt = (day, opts) => new Date(day * 86400000).toLocaleDateString(undefined, Object.assign({ timeZone: "UTC", month: "short", day: "numeric" }, opts));
+    const range = (a, b) => a === b ? fmt(a) : fmt(a) + " – " + fmt(b);
+    const link = (l, cls) => `<a class="btn ${cls || "btn-secondary"}" href="${l.href}"${/^https?:/.test(l.href) ? ' target="_blank" rel="noopener"' : ""}>${esc(l.label)}</a>`;
+    const PHASE_TITLES = { baseline: "Baseline", weak: "Weak areas", passages: "Hard passages", fix: "Fix Pearson gaps", taper: "Taper" };
+
+    function render() {
+      const state = Progress.load();
+      const cd = state.countdown;
+      const today = C.localToday();
+      const a = C.analyze(state, { skills: window.SKILLS, domains: window.CURRICULUM?.domains });
+      const pearsonDate = cd.pearson?.date || null;
+      const sched = cd.testDate ? C.buildSchedule({
+        today,
+        testDate: cd.testDate,
+        baselineDone: a.baselineDone || !!pearsonDate,
+        pearsonDate
+      }) : null;
+      const t = C.parseDay(today);
+
+      $("test-date").value = cd.testDate || "";
+      $("date-status").textContent = !cd.testDate
+        ? "No date set yet. Pick your scheduled date, or a target date if you have not booked."
+        : sched.past ? "That date has passed. Set your next test date." : "";
+      document.querySelectorAll("[data-check]").forEach(box => { box.checked = !!cd.checks[box.dataset.check]; });
+      $("pearson-taken").checked = !!pearsonDate;
+      $("pearson-fields").classList.toggle("hidden", !$("pearson-taken").checked);
+      $("pearson-date").value = pearsonDate || "";
+      $("pearson-note").value = cd.pearson?.note || "";
+
+      const phase = sched && !sched.past ? C.phaseOn(sched, t) : null;
+      const milestoneToday = sched?.milestones?.find(m => m.day === t) || null;
+      const latest = a.latest;
+      $("stats").innerHTML = `
+        <div class="stat"><div class="label">Days to test</div><div class="value">${sched && !sched.past ? sched.daysLeft : "—"}</div></div>
+        <div class="stat"><div class="label">Phase now</div><div class="value" style="font-size:1.2rem">${milestoneToday ? esc(milestoneToday.title) : phase ? esc(PHASE_TITLES[phase.id]) : "—"}</div></div>
+        <div class="stat"><div class="label">Latest full sitting</div><div class="value">${latest ? latest.percent + "%" : "—"}</div></div>
+        <div class="stat"><div class="label">Best passage set</div><div class="value">${a.bestPassage ? a.bestPassage + "%" : "—"}</div></div>`;
+
+      // Today
+      let todayHtml;
+      if (!sched) {
+        todayHtml = `<p>Set your test date above to build the plan.</p>`;
+      } else if (sched.past) {
+        todayHtml = `<p>Your saved test date has passed. Set your next date above.</p>`;
+      } else if (sched.daysLeft === 0) {
+        todayHtml = `<h2 style="margin-top:0">Test day</h2><p>No new studying. Eat, bring your ID, arrive early, and read every passage before the questions.</p>`;
+      } else if (milestoneToday) {
+        todayHtml = `<h2 style="margin-top:0">${esc(milestoneToday.title)}</h2><p>${esc(milestoneToday.detail)}</p>
+          ${milestoneToday.href ? `<div class="cta-row">${link({ label: "Open", href: milestoneToday.href }, "btn-accent")}</div>` : ""}`;
+      } else if (phase) {
+        const loop = ProgressEngine.elaPasserLoop(state);
+        const top = a.weakDomains[0];
+        const focusLinks = phase.id === "weak" && top
+          ? [{ label: `${top.title} drill`, href: `exam.html?exam=${top.drillId}` }, ...phase.links]
+          : phase.links;
+        todayHtml = `<h2 style="margin-top:0">${esc(phase.title)}</h2>
+          <p class="muted" style="margin-top:0">${range(phase.start, phase.end)}</p>
+          <p>${esc(phase.focus)}</p>
+          ${phase.id === "taper" ? "" : `<ol class="cd-list">
+            <li>${loop.cards.done ? "Done: " : ""}<a href="${loop.cards.href}">${esc(loop.cards.label)}</a></li>
+            <li>${loop.passage.done ? "Done: " : ""}Passage or drill, 45–60 minutes${phase.id === "weak" && top ? `: start with <strong>${esc(top.title)}</strong> (${top.pct}%)` : ""}.</li>
+          </ol>`}
+          <div class="cta-row" style="margin-top:0.75rem">${focusLinks.map((l, i) => link(l, i === 0 ? "btn-accent" : "btn-secondary")).join("")}</div>`;
+      } else {
+        todayHtml = `<p>Light review today.</p>`;
+      }
+      $("today").innerHTML = todayHtml;
+
+      $("notes").innerHTML = (sched?.notes || []).map(n => `<div class="cd-note">${esc(n)}</div>`).join("");
+
+      // Weak areas
+      const hasDomainData = a.domainRows.some(r => r.total > 0);
+      $("domains").innerHTML = !hasDomainData
+        ? `<p>No ELA sittings saved yet. Take the <a href="exam.html?exam=ela-clusters">cluster exam</a> to see where you stand.</p>`
+        : a.domainRows.slice().sort((x, y) => y.priority - x.priority || (x.pct ?? 101) - (y.pct ?? 101)).map(r => `
+          <div class="cd-domain">
+            <div class="cd-domain-head"><strong>${esc(r.title)}</strong><span>${r.pct == null ? "no data" : `${r.pct}% · ${r.correct}/${r.total}`} · ${r.weight}% of test</span></div>
+            <div class="progress"><span class="${r.pct != null && r.pct < C.TARGET_PCT ? "low" : ""}" style="width:${r.pct || 0}%"></span></div>
+            ${r.priority > 0 ? `<div class="tag-row"><a class="chip" href="exam.html?exam=${r.drillId}">Domain drill</a><a class="chip" href="practice.html?track=english&domain=${r.id}">Practice</a><a class="chip" href="learn.html#${r.id}">Lessons</a></div>` : ""}
+          </div>`).join("");
+
+      $("skills").innerHTML = a.weakSkills.length
+        ? `<ul class="cd-list">${a.weakSkills.map(s => `<li><strong>${esc(s.title)}</strong>: ${s.pct}% of ${s.attempts}.
+            <a href="practice.html?track=english&domain=${s.domain}&skill=${s.id}">Practice</a>${s.lessonId ? ` · <a href="guide.html?id=${s.lessonId}">Lesson</a>` : ""}</li>`).join("")}</ul>`
+        : `<p class="muted">Nothing under 75% yet${hasDomainData ? "" : " (not enough data)"}.</p>`;
+
+      $("traps").innerHTML = a.traps.length
+        ? `<ul class="cd-list">${a.traps.map(x => `<li>${esc(ProgressEngine.trapLabel(x.trap))}: ${x.n}</li>`).join("")}</ul><p style="margin:0.4rem 0 0"><a href="traps.html">Review traps</a></p>`
+        : `<p class="muted">None logged yet. After a sitting, log the trap type for each miss on the review screen.</p>`;
+
+      // Weeks
+      $("weeks").innerHTML = !sched || sched.past ? "" : sched.weeks.map(w => {
+        const isNow = w.start <= t && w.end >= t;
+        const weekPhases = w.phaseIds.map(id => sched.phases.find(p => p.id === id));
+        const main = weekPhases.slice().sort((x, y) => (Math.min(y.end, w.end) - Math.max(y.start, w.start)) - (Math.min(x.end, w.end) - Math.max(x.start, w.start)))[0];
+        return `<article class="week-card${isNow ? " now" : ""}">
+          <h4>Week ${w.n}${isNow ? " · now" : ""}</h4>
+          <p class="muted" style="margin:0 0 0.4rem;font-size:0.92rem">${range(w.start, w.end)}</p>
+          <div class="tag-row" style="margin-top:0">${w.phaseIds.map(id => `<span class="chip">${esc(PHASE_TITLES[id])}</span>`).join("")}</div>
+          ${main ? `<p style="margin:0.5rem 0 0;font-size:0.92rem">${esc(main.focus)}</p>` : ""}
+          ${w.milestones.map(m => `<p class="milestone">${fmt(m.day, { weekday: "short" })}: ${esc(m.title)}</p>`).join("")}
+          ${w.timed ? `<div class="cta-row" style="margin-top:0.6rem">${link(w.timed, "btn-secondary")}</div>` : ""}
+        </article>`;
+      }).join("") + (sched && !sched.past ? `<article class="week-card"><h4>Test day</h4><p class="muted" style="margin:0">${fmt(sched.testDay, { weekday: "long", month: "long" })}</p></article>` : "");
+
+      // Readiness
+      const rows = a.sittings.slice().reverse().map(e => `<li>${esc(e.title || e.id)}: <strong>${e.percent}%</strong> <span class="muted">${new Date(e.at).toLocaleDateString()}</span></li>`).join("");
+      $("ready").innerHTML = `
+        <p>${a.metTarget
+          ? "You have reached 80% on a passage-set sitting. Confirm it on a cluster mix you have not seen, then let the Pearson practice test have the final say."
+          : `Target: <strong>80% or higher</strong> on a passage-set sitting whose passages are mostly new to you.${a.bestPassage ? ` Your best so far is ${a.bestPassage}%.` : ""}`}</p>
+        ${rows ? `<h3>Recent full sittings</h3><ul class="cd-list">${rows}</ul>` : ""}
+        ${pearsonDate ? `<p><strong>Pearson practice test (${esc(pearsonDate)}):</strong> ${esc(cd.pearson.note || "no notes saved")}</p>` : ""}
+        <p class="muted">This app is unofficial and much of its hard content is original, so a high score here suggests readiness but does not guarantee a pass.</p>`;
+    }
+
+    $("save-date").onclick = () => {
+      const v = $("test-date").value;
+      Progress.saveCountdown({ testDate: C.parseDay(v) != null ? v : null });
+      render();
+    };
+    document.querySelectorAll("[data-check]").forEach(box => {
+      box.onchange = () => {
+        const checks = Object.assign({}, Progress.getCountdown().checks, { [box.dataset.check]: box.checked ? new Date().toISOString() : null });
+        Progress.saveCountdown({ checks });
+      };
+    });
+    $("pearson-taken").onchange = () => {
+      if ($("pearson-taken").checked) {
+        $("pearson-fields").classList.remove("hidden");
+        if (!$("pearson-date").value) $("pearson-date").value = C.localToday();
+      } else {
+        Progress.saveCountdown({ pearson: null });
+        render();
+      }
+    };
+    $("save-pearson").onclick = () => {
+      const date = $("pearson-date").value;
+      if (C.parseDay(date) == null) { $("pearson-date").focus(); return; }
+      Progress.saveCountdown({ pearson: { date, note: $("pearson-note").value.trim() } });
+      render();
+    };
+    render();
+  </script>
+</body>
+</html>

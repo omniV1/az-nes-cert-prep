@@ -36,6 +36,7 @@ window.Progress = (() => {
       aepaItems: {},
       trapLog: [],
       studyLoop: { days: {}, lastTimedAt: null },
+      countdown: { testDate: null, checks: {}, pearson: null },
       gates: {
         strictPrereqs: true,
         placementComplete: false,
@@ -84,6 +85,7 @@ window.Progress = (() => {
     s.trapLog = Array.isArray(s.trapLog) ? s.trapLog : [];
     s.studyLoop = Object.assign({ days: {}, lastTimedAt: null }, s.studyLoop || {});
     s.studyLoop.days = s.studyLoop.days || {};
+    s.countdown = Object.assign({ testDate: null, checks: {}, pearson: null }, s.countdown || {});
     s.gates = Object.assign({
       strictPrereqs: true,
       placementComplete: false,
@@ -332,6 +334,17 @@ window.Progress = (() => {
     return s.trapLog;
   }
 
+  function getCountdown() {
+    return load().countdown;
+  }
+
+  function saveCountdown(patch) {
+    const s = load();
+    s.countdown = Object.assign({}, s.countdown, patch);
+    save(s);
+    return s.countdown;
+  }
+
   function trapCounts() {
     const s = load();
     const counts = {};
@@ -458,6 +471,7 @@ window.Progress = (() => {
     getLessonProgress, clearLessonProgress, setLessonMastery,
     recordSkillAttempt, scheduleReview, getDueReviews, savePlacement, saveLastExamRepair,
     setGate, setReviewFlag, setOfficialResource, bypassLesson, recordExam, recordAepaItem, stats, reset, defaultState,
-    migrateState, exportData, importData, markStudyLoop, studyLoopToday, addTrapLogs, trapCounts, todayKey
+    migrateState, exportData, importData, markStudyLoop, studyLoopToday, addTrapLogs, trapCounts, todayKey,
+    getCountdown, saveCountdown
   };
 })();
