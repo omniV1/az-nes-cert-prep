@@ -27,8 +27,8 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"EF006", domain:"ela-foundation", title:"Context Clue Meaning", difficulty:"easy", tags:["vocabulary"], skillIds:["vocab-context"],
     stem:"In the sentence below, the word arid most nearly means—\n\nThe arid plain produced almost no grass after three rainless months.",
-    choices:["mountainous, because a plain can still be high ground","crowded, because three months without rain draw people in","dry","fertile, because plains are usually good farmland"], answer:2,
-    explanation:"Rainless months and almost no grass signal dryness. Mountainous and crowded are unsupported by context. Fertile is a real association with plains that this sentence contradicts." },
+    choices:["flat","dry","vast","cold"], answer:1,
+    explanation:"Rainless months and almost no grass are the clues: arid means dry. Flat and vast describe what plains often look like, not what this sentence's clues point to, and nothing mentions temperature." },
 
   { id:"EF007", domain:"ela-foundation", title:"Previewing a Chapter", difficulty:"easy", tags:["reading-process"], skillIds:["reading-process"],
     stem:"Before reading a dense chapter, a student skims headings, bold terms, and the first sentence of each section. This strategy is best described as—",
@@ -77,8 +77,8 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"EF016", domain:"ela-foundation", title:"Annotating to Monitor", difficulty:"medium", tags:["reading-process"], skillIds:["reading-process"],
     stem:"A student writes questions in the margin while reading and then checks whether the next section answers them. This habit primarily supports—",
-    choices:["decoding unfamiliar letters in the next heading","monitoring comprehension","memorizing the author's biography from the preface","avoiding rereading once a question is written"], answer:1,
-    explanation:"Generating and checking questions is a metacognitive way to monitor whether meaning is coming through. It is not phonics, not biography work, and an unanswered question often prompts rereading rather than avoiding it." },
+    choices:["previewing the text before reading","monitoring comprehension","summarizing each section afterward","activating prior knowledge"], answer:1,
+    explanation:"Writing questions and checking whether the text answers them is self-questioning, a way to monitor whether meaning is coming through. Previewing happens before reading, summarizing restates content afterward, and activating prior knowledge connects the topic to what the reader already knows." },
 
   { id:"EF017", domain:"ela-foundation", title:"Types of Conflict", difficulty:"medium", tags:["literary-elements"], skillIds:["literary-elements-intro"],
     stem:"A protagonist wants a scholarship, but a rival sabotages the application. This conflict is best classified as—",
@@ -87,13 +87,13 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"EF018", domain:"ela-foundation", title:"Ethos in an Advertisement", difficulty:"medium", tags:["rhetoric"], skillIds:["rhetoric-intro"],
     stem:"A dentist advertisement reads, 'As a board-certified pediatric dentist with 20 years of practice, I recommend fluoride varnish.' The appeal is primarily—",
-    choices:["logos, because it cites a statistic about cavities later in the campaign","pathos, because it tries to frighten parents about enamel","ethos, because it stresses the speaker's credentials","kairos, because 'recommend' implies a once-a-year deadline"], answer:2,
-    explanation:"Ethos relies on credibility and character. The ad highlights certification and experience. It does not offer cavity data (logos) or fear (pathos), and no timing deadline (kairos) appears." },
+    choices:["logos, because a medical recommendation is a reasoned conclusion","pathos, because parents worry about their children's teeth","ethos, because it stresses the speaker's credentials","kairos, because it ties the advice to a timely health concern"], answer:2,
+    explanation:"Ethos relies on the speaker's credibility, and the ad leads with board certification and 20 years of practice. It offers no data or reasoning (logos), no emotional scene (pathos), and no appeal to timing (kairos)." },
 
   { id:"EF019", domain:"ela-foundation", title:"Gerund as Subject", difficulty:"hard", tags:["grammar"], skillIds:["parts-of-speech"],
     stem:"In the sentence Baking bread relaxes her, the word Baking functions as a—",
-    choices:["present participle modifying bread","gerund serving as the subject","infinitive phrase","coordinating conjunction"], answer:1,
-    explanation:"A gerund is an -ing form used as a noun. Baking bread is the subject of relaxes. A participle would modify a noun (The baking bread smelled warm). Infinitives use to (to bake). Conjunctions join; they do not act as subjects." },
+    choices:["present participle modifying bread","gerund serving as the subject","infinitive phrase","the main verb of the sentence"], answer:1,
+    explanation:"A gerund is an -ing form used as a noun. Baking bread is the subject of relaxes, which is the main verb. A participle would modify a noun (The baking bread smelled warm), and infinitives use to (to bake)." },
 
   { id:"EF020", domain:"ela-foundation", title:"Compound-Complex Sentence", difficulty:"hard", tags:["sentences"], skillIds:["sentence-anatomy"],
     stem:"Which sentence is compound-complex?",
@@ -107,8 +107,8 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"EF022", domain:"ela-foundation", title:"Colon before a List", difficulty:"hard", tags:["punctuation"], skillIds:["punctuation-basics"],
     stem:"Which sentence uses a colon correctly?",
-    choices:["She packed: a laptop a charger and a notebook.","She packed three items: a laptop, a charger, and a notebook.","She packed a laptop: a charger, and a notebook.","She: packed a laptop, a charger, and a notebook."], answer:1,
-    explanation:"A colon may introduce a list only after an independent clause. She packed three items can stand alone. {{opt:EF022-0}} places the colon after a verb with no complete clause; {{opt:EF022-2}} and {{opt:EF022-3}} split the clause incorrectly." },
+    choices:["She packed: a laptop, a charger, and a notebook.","She packed three items: a laptop, a charger, and a notebook.","She packed a laptop: a charger, and a notebook.","She packed three items; a laptop, a charger, and a notebook."], answer:1,
+    explanation:"A colon may introduce a list only after a complete independent clause, and She packed three items can stand alone. A colon right after the verb packed splits the verb from its objects, a colon in the middle of the list breaks the series, and a semicolon joins two independent clauses rather than introducing a list." },
 
   { id:"EF023", domain:"ela-foundation", title:"Dangling Modifier", difficulty:"hard", tags:["modifiers"], skillIds:["agreement-usage"],
     stem:"Which sentence contains a dangling modifier?",
@@ -117,33 +117,33 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"EF024", domain:"ela-foundation", title:"Latin Root -ject-", difficulty:"hard", tags:["vocabulary"], skillIds:["vocab-context"],
     stem:"The root -ject- (as in eject, reject, and projectile) most nearly means—",
-    choices:["write, as in inscribe or scripture","throw","hear, as in audible","lead, as in conduct"], answer:1,
-    explanation:"Latin jacere / ject- means throw. Eject = throw out; reject = throw back; projectile = something thrown forward. Script- is write, aud- is hear, and duc- is lead." },
+    choices:["carry","throw","send","write"], answer:1,
+    explanation:"Latin jacere / ject- means throw: eject is throw out, reject is throw back, and a projectile is thrown forward. Port- means carry (transport), mit-/miss- means send (transmit), and script- means write." },
 
   { id:"EF025", domain:"ela-foundation", title:"Fix-Up Strategies", difficulty:"hard", tags:["reading-process"], skillIds:["reading-process"],
     stem:"A reader realizes a paragraph no longer makes sense, rereads the prior section, and adjusts a prediction. This is an example of—",
-    choices:["skimming for main idea only and then moving on","a fix-up (repair) strategy","reading every word at one speed regardless of confusion","ignoring text features that might have clarified the paragraph"], answer:1,
-    explanation:"Noticing a breakdown, rereading, and revising a prediction are classic fix-up strategies. Skimming and a single speed would not repair confusion. Ignoring headings and captions would remove useful cues." },
+    choices:["previewing","a fix-up (repair) strategy","skimming","summarizing"], answer:1,
+    explanation:"Noticing a breakdown, rereading, and revising a prediction are classic fix-up strategies. Previewing happens before reading, skimming moves quickly for gist rather than repairing confusion, and summarizing restates what was already understood." },
 
   { id:"EF026", domain:"ela-foundation", title:"Limited Narrator", difficulty:"hard", tags:["literary-elements"], skillIds:["literary-elements-intro"],
     stem:"A first-person narrator insists he is calm and sane while describing an obsessive crime in minute detail. Students should treat the narration as—",
-    choices:["objective omniscience","a trustworthy summary of facts","a limited, possibly distorted point of view","the author's unfiltered biography"], answer:2,
-    explanation:"First-person narrators can be biased or self-deceiving. The clash between I am sane and obsessive detail invites skepticism. Omniscience is third-person all-knowing; the narrator is not automatically factual; narrator is not the same as the author." },
+    choices:["objective third-person narration","reliable, because he took part in the events","a limited, possibly distorted point of view","the author's own view, since the narrator says I"], answer:2,
+    explanation:"First-person narrators can be biased or self-deceiving, and the clash between I am calm and sane and the obsessive detail invites skepticism. The narration is first person, not objective third person; taking part in events does not make a narrator reliable; and the narrator is not the author." },
 
   { id:"EF027", domain:"ela-foundation", title:"Pathos without Evidence", difficulty:"hard", tags:["rhetoric"], skillIds:["rhetoric-intro"],
     stem:"A campaign mailer shows a crying child beside the sentence 'If you cared about families, you would vote yes,' with no data. The dominant appeal is—",
-    choices:["logos, because voting is always a logical civic duty","ethos, because the mailer names a university the child attends","pathos, because it uses emotion and guilt in place of evidence","a concession to the opposing view that families already vote yes"], answer:2,
-    explanation:"Pathos targets emotion. Guilt (if you cared) plus an image of distress, without evidence, is emotional pressure. Logos would use data; ethos would build credibility; a concession would acknowledge the other side." },
+    choices:["logos, because it states what voters should conclude","ethos, because it questions the voter's character","pathos, using guilt and an image instead of evidence","kairos, because it ties the vote to an urgent moment"], answer:2,
+    explanation:"Pathos targets emotion. Guilt (if you cared) plus an image of distress, with no evidence, is emotional pressure. Stating a conclusion is not logos without reasons or data, ethos concerns the speaker's credibility rather than the voter's character, and nothing in the mailer is about timing." },
 
   { id:"EF028", domain:"ela-foundation", title:"Pronoun-Antecedent Agreement", difficulty:"medium", tags:["agreement"], skillIds:["agreement-usage"],
     stem:"Which sentence has correct pronoun-antecedent agreement on a traditional usage test?",
-    choices:["Each of the singers forgot their music stand.","Each of the singers forgot his or her music stand.","Each of the singers forgot they music stand.","Each of the singers forgot them music stand."], answer:1,
-    explanation:"Each is singular, so a singular pronoun is the conventional test key. Their is a common informal (and increasingly accepted) choice, but NES-style items still flag it when a singular option is offered. {{opt:EF028-2}} and {{opt:EF028-3}} are ungrammatical." },
+    choices:["Each of the singers forgot their music stand.","Each of the singers forgot his or her music stand.","Each of the singers have forgotten his or her music stand.","All of the singers forgot his or her music stand."], answer:1,
+    explanation:"Each is singular, so a singular pronoun is the conventional test key. Their is common informally (and increasingly accepted), but NES-style items still flag it when a singular option is offered. Have forgotten breaks subject-verb agreement with each, and all is plural, so his or her no longer agrees." },
 
   { id:"EF029", domain:"ela-foundation", title:"Comma with Coordinating Conjunction", difficulty:"easy", tags:["punctuation"], skillIds:["punctuation-basics"],
     stem:"Which sentence correctly punctuates a compound sentence?",
-    choices:["The lights dimmed but the film continued.","The lights dimmed, but the film continued.","The lights dimmed, the film continued.","The lights, dimmed but the film continued."], answer:1,
-    explanation:"When a coordinating conjunction (but) joins two independent clauses, place a comma before it. {{opt:EF029-0}} omits the comma. {{opt:EF029-2}} is a comma splice. {{opt:EF029-3}} misplaces the comma inside the first clause." },
+    choices:["The lights dimmed but the film continued.","The lights dimmed, but the film continued.","The lights dimmed, the film continued.","The lights dimmed but, the film continued."], answer:1,
+    explanation:"When a coordinating conjunction (but) joins two independent clauses, put a comma before it. Leaving the comma out runs the clauses together, a comma alone is a comma splice, and a comma after but is in the wrong place." },
 
   { id:"EF030", domain:"ela-foundation", title:"Logos with Data", difficulty:"medium", tags:["rhetoric"], skillIds:["rhetoric-intro"],
     stem:"Which sentence relies primarily on logos?",

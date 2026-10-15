@@ -48,23 +48,23 @@
               "Students are deciding whether a candidate's assembly speech used fair evidence. Which type of listening is most appropriate?",
               [
                 "Critical listening",
-                "Appreciative listening only",
-                "Empathetic listening only",
-                "No listening, because speeches are entertainment"
+                "Appreciative listening",
+                "Empathetic listening",
+                "Discriminative listening"
               ],
               0,
-              "Evaluating evidence is critical listening. Enjoyment or emotional support may occur, but they are not the primary job for a campaign speech."
+              "Evaluating evidence is critical listening. Appreciative listening is for enjoyment, empathetic listening for support, and discriminative listening for telling sounds or cues apart."
             ),
             check(
               "A lab partner whispers that she cannot see the board and sounds close to tears. Which listening type should come first?",
               [
                 "Empathetic listening, then a practical clarification about seating",
-                "Appreciative listening for the beauty of the whisper",
-                "Critical listening to rate her argumentative thesis",
-                "Discriminative listening to ignore her and track only the bell"
+                "Critical listening, to check whether she really cannot see",
+                "Informational listening, to note the facts and move on",
+                "Appreciative listening, to acknowledge how she expressed it"
               ],
               0,
-              "Distress calls for empathy first. You can still solve the seating problem; you should not treat her feelings as a debate case."
+              "Distress calls for empathy first; then solve the seating problem. Doubting her, logging facts only, or appreciating how she spoke all skip her feelings."
             )
           ]
         ),
@@ -109,23 +109,23 @@
               "Which listening barrier is strongest in this scene: a student spends the entire counterargument composing a sarcastic reply and then attacks a point the speaker never made?",
               [
                 "Rehearsing a response (internal noise), which produced a straw man",
-                "A hearing impairment the scene never mentions",
-                "Appreciative listening taken too far",
-                "Too much note-taking of the actual evidence"
+                "Environmental noise from the room",
+                "Message overload from too much evidence",
+                "Semantic noise from unfamiliar vocabulary"
               ],
               0,
-              "Planning a dunk while the other person talks is a classic barrier and often creates a fake version of their claim."
+              "Planning a reply while the other person talks is a classic internal barrier and often creates a false version of their claim. Nothing in the scene mentions room noise, overload, or unfamiliar words."
             ),
             check(
               "The HVAC drowns the last three steps of a lab briefing. Students in the back miss the warning about the wet floor. Which barrier is this, and what is the best repair?",
               [
                 "Environmental noise; move, amplify, or post the steps where they can be seen",
-                "Semantic barrier; ban the word <em>floor</em>",
-                "Empathetic excess; students cared too much",
-                "No barrier, because the front row heard it"
+                "Semantic noise; define safety terms more clearly",
+                "Psychological noise; students were not paying attention",
+                "Physiological noise; students in back have hearing loss"
               ],
               0,
-              "If sound cannot reach listeners, the barrier is environmental. Repair the channel; do not pretend the front row's luck counts as communication."
+              "If sound cannot reach listeners, the barrier is environmental, so repair the channel. Nothing suggests unclear terms, inattention, or hearing loss."
             )
           ]
         ),
@@ -169,23 +169,23 @@ NONVERBAL leak: eye-roll, side-talk, packing up while they finish</pre>`,
               "Which discussion move best follows a classmate's confusing proposal about \"fixing lunch\"?",
               [
                 "Ask a clarifying question: \"Do you mean longer lunch, a second line, or a nut-free table?\"",
-                "Talk over them with a prepared speech on an unrelated topic",
-                "Roll your eyes and whisper to a neighbor",
-                "Declare that clarifying questions are rude"
+                "State your own lunch proposal so the group has a clearer option",
+                "Agree with the proposal to keep the discussion moving",
+                "Ask the teacher to explain what the classmate meant"
               ],
               0,
-              "Clarifying specifies the ask. Interruptions and nonverbal contempt are barriers, not norms."
+              "A clarifying question specifies the ask and keeps the speaker in the conversation. Replacing their idea, agreeing without understanding, or routing it through the teacher skips that step."
             ),
             check(
               "A student restates an opponent's cost concern accurately, then offers ridership data. What did the restatement accomplish?",
               [
                 "It showed comprehensive listening and framed a fair rebuttal, without requiring agreement",
-                "It meant the student secretly switched sides",
-                "It was pseudolistening because paraphrase is always fake",
-                "It violated norms by not interrupting"
+                "It conceded the cost concern, weakening the student's position",
+                "It delayed the rebuttal and wasted discussion time",
+                "It was pseudolistening, since the student had a rebuttal ready"
               ],
               0,
-              "Accurate restatement is a norm of good disagreement. It is not surrender and not fake attention."
+              "Accurate restatement shows the student heard the concern and sets up a fair reply. Restating is not conceding, it is not wasted time, and it is the opposite of pseudolistening."
             )
           ]
         )
@@ -236,23 +236,23 @@ NONVERBAL leak: eye-roll, side-talk, packing up while they finish</pre>`,
               "Which purpose best fits a two-minute comment at a school-board meeting about cutting the late bus?",
               [
                 "Persuade the board to keep or pilot the route, using local ridership and safety evidence",
-                "Entertain with a ten-minute comedy set about buses",
-                "Commemorate a historical figure unrelated to transportation",
-                "Inform the board of your favorite movie"
+                "Inform the board about the history of the late bus",
+                "Entertain the board to build goodwill before the vote",
+                "Express frustration about the proposed cut"
               ],
               0,
-              "The occasion is a decision meeting. Persuasion with local evidence matches purpose, audience, and time."
+              "A decision meeting calls for persuasion with local evidence. History, entertainment, or venting do not ask the board to decide anything."
             ),
             check(
               "A speaker gives a dense, jargon-filled kiln lecture at a pep rally. What is the main speech-craft error?",
               [
                 "Occasion and audience called for energy and shared school identity, not a technical lecture",
-                "Pep rallies legally forbid complete sentences",
-                "Kilns may never be mentioned in any speech",
-                "The speaker should have used more sarcasm about the football team"
+                "The lecture was too short for the topic",
+                "The speaker should have used more statistics",
+                "The speaker should have used slides"
               ],
               0,
-              "Occasion mismatch is the diagnosis. Technical content belongs in a studio demo, not a rally."
+              "Occasion mismatch is the diagnosis. Length, statistics, and slides would not fix a technical lecture at a pep rally."
             )
           ]
         ),
@@ -295,23 +295,23 @@ NONVERBAL leak: eye-roll, side-talk, packing up while they finish</pre>`,
               "Which rhetorical choice best fits a solemn retirement speech for a librarian?",
               [
                 "A short repeated line about the quiet way she found books for shy readers",
-                "A string of sarcastic questions humiliating a rival employee",
-                "A fake-legal paragraph of \"heretofore\" and \"whereas\" with no memories",
-                "A pep-rally chant of the librarian's last name"
+                "A detailed timeline of every position she held",
+                "Several jokes about overdue fines",
+                "A statistical summary of the books she circulated"
               ],
               0,
-              "A restrained refrain matches commemorative occasion. Humiliation, frozen legalese, and chants do not."
+              "A restrained refrain fits a solemn commemorative occasion. A résumé timeline, jokes, and statistics miss the tone."
             ),
             check(
               "A board comment includes the analogy \"students are customers, so cut whatever they don't buy.\" Why is this a weak device here?",
               [
                 "It is a false analogy: students are not only customers, and a late bus can be a safety duty rather than a product",
-                "Analogies are never allowed in speeches",
-                "Boards cannot understand any comparison",
-                "The analogy is too short to count as language"
+                "It is too informal for a board meeting",
+                "It appeals to emotion instead of logic",
+                "It uses a business term the board may not know"
               ],
               0,
-              "Analogies fail when the comparison hides a duty the audience actually has. Devices are allowed; false ones are still weak."
+              "Analogies fail when the comparison hides a duty the audience actually has. The problem is the faulty comparison, not formality, emotion, or vocabulary."
             )
           ]
         ),
@@ -369,12 +369,12 @@ Is this sincere for the     variety without theater
               "A speaker arguing for a crossing guard pounds the podium and shouts the word \"idiots\" at the transportation chart. What is the delivery/tone problem?",
               [
                 "Aggressive volume and insulting stress destroy ethos even if the chart is accurate",
-                "Podiums may never be touched",
-                "Charts are illegal visual aids",
-                "The speaker should have shouted more to show passion"
+                "The speaker relied on a chart instead of a story",
+                "The speaker's passion shows commitment, so there is no problem",
+                "The speaker should have let the chart speak without comment"
               ],
               0,
-              "Delivery that attacks people undercuts a public-safety ask. Passion is not the same as contempt."
+              "Delivery that insults people undercuts a public-safety ask. Passion is not the same as contempt, and the chart is not the problem."
             )
           ]
         )
@@ -426,12 +426,12 @@ Is this sincere for the     variety without theater
               "A campus news photo shows only the one cracked instrument from a band trip, captioned \"Band ruins another festival.\" Which bias technique is most central?",
               [
                 "Selective framing plus a caption that generalizes one mishap into a total failure",
-                "A fair wide shot of the whole successful concert",
-                "A citation of the festival schedule",
-                "An interview with the director that includes praise"
+                "Loaded language in the photographer's credit line",
+                "An unflattering camera angle on the band director",
+                "Omitting the date the photo was taken"
               ],
               0,
-              "One damaged object plus a totalizing caption is selection bias. Fair wide shots and balanced interviews would reduce, not create, that bias."
+              "One damaged object plus a totalizing caption is selection bias. The scene involves no credit line or director, and a missing date is not the central distortion."
             ),
             check(
               "Which caption is least biased for a photo of students waiting at a late bus?",
@@ -486,23 +486,23 @@ Is this sincere for the     variety without theater
               "Which media manipulation is at work? A campaign video loops a five-person huddle shot while a voiceover says \"the whole school has already decided.\"",
               [
                 "Bandwagon / false consensus: a small group is presented as everyone",
-                "A fair census of all 1,200 students",
-                "A citation of the official vote tally",
-                "An invitation to read the full platform"
+                "Testimonial: a celebrity endorses the candidate",
+                "Glittering generalities: vague virtue words",
+                "Plain folks: the candidate poses as ordinary"
               ],
               0,
-              "A handful of people cannot visually prove a schoolwide decision. That is bandwagon imagery."
+              "A handful of people looped as the whole school is bandwagon imagery. No celebrity, vague virtue words, or ordinary-person pose appear."
             ),
             check(
               "A poster for a study-app (invented for class) shows a student holding an A paper beside the logo, with no time, no other methods, and the slogan \"Download this, get that.\" Which manipulation is central?",
               [
                 "Implied causation: the image treats correlation (or staging) as proof the app caused the grade",
-                "A randomized study reported in the fine print that does not exist on the poster",
-                "Too many sourced statistics",
-                "A clear disclaimer that grades have many causes"
+                "Bandwagon: everyone is already using the app",
+                "Glittering generalities: vague words like amazing",
+                "Transfer: school colors lend the app authority"
               ],
               0,
-              "Staging a grade next to a product implies a cause the poster never demonstrates."
+              "Staging a grade next to a product implies a cause the poster never shows. There is no claim that everyone uses it, no vague virtue words, and no borrowed symbol."
             )
           ]
         ),
@@ -549,23 +549,23 @@ ask what knowledge you used, and what the maker wanted you to use.</pre>`,
               "A new family from another district sees a hallway poster of a mascot they associate with a rival school and reads it as mockery. The poster is actually this school's own mascot. What does this illustrate?",
               [
                 "Prior knowledge can misread an image even when the maker did not intend mockery",
-                "The family is not allowed to interpret images",
-                "Mascots cannot carry meaning",
-                "Only one interpretation can ever exist"
+                "The poster designer intended mockery",
+                "Mascots carry the same meaning for everyone",
+                "The family should ignore their first reaction"
               ],
               0,
-              "Viewers import old associations. Intent and effect can diverge; media literacy names that gap."
+              "Viewers bring old associations, so intent and effect can diverge. The maker did not intend mockery, mascots do not mean the same thing to everyone, and media literacy names the gap rather than dismissing the reaction."
             ),
             check(
               "Which classroom move best accounts for prior knowledge when presenting a photo of a crowded lunch line?",
               [
                 "State when it was taken, what sits outside the frame, and ask how different roles (student, cashier, custodian) might read it",
-                "Insist there is only one adult reading",
-                "Refuse to caption it at all and dare people to guess",
-                "Crop it tighter so fewer questions arise"
+                "Present it without comment so viewers form their own view",
+                "Add a caption stating what the photo proves",
+                "Crop it tighter so the line is the only subject"
               ],
               0,
-              "Context plus multiple-role readings is media literacy. Tighter crops usually increase, not reduce, manipulation."
+              "Context plus multiple-role readings is media literacy. Saying nothing leaves prior knowledge unexamined, a proof caption closes interpretation, and tighter crops usually increase manipulation."
             )
           ]
         )
@@ -617,23 +617,23 @@ ask what knowledge you used, and what the maker wanted you to use.</pre>`,
               "A presenter will speak to new immigrant families about early dismissal. Which modification is most appropriate?",
               [
                 "Plain language, the time and door in numerals, a translated handout, and no unexplained idioms",
-                "More sarcastic school slang to sound friendly",
-                "A 40-slide history of the district with no dismissal time",
-                "Speaking faster to show energy"
+                "More school slang to sound friendly",
+                "A detailed English-only handout",
+                "Slides with no spoken explanation"
               ],
               0,
-              "Families need the actionable facts in accessible language. Slang, history dumps, and speed all raise barriers."
+              "Families need actionable facts in accessible language. Slang, an English-only handout, and slides without explanation all raise barriers."
             ),
             check(
               "Why should a student shorten a 30-slide research deck to 8 slides for a three-minute fair?",
               [
                 "Occasion and audience time require a modified presentation, not the full paper on a wall",
-                "Slides are illegal in fairs",
-                "Research should never be shared",
-                "Three minutes is enough to read 30 slides aloud if you skip breathing"
+                "Judges prefer fewer slides",
+                "Shorter decks look more professional",
+                "Eight slides is the standard length for any presentation"
               ],
               0,
-              "Time is an audience constraint. Modification is part of competency 0017, not a lesser version of the work."
+              "Time is an audience constraint. Modification is part of competency 0017, not judges' taste, appearance, or a fixed rule."
             )
           ]
         ),
@@ -680,23 +680,23 @@ Aid that steals the show
               "Which visual aid best supports a three-minute explanation of a new dismissal map?",
               [
                 "One high-contrast projected map with two labeled doors and a spoken walk-through",
-                "Twenty slides of unreadable hallway photos plus autoplay music",
-                "A phone passed along one row",
-                "A spinning animation of the mascot with no map"
+                "A printed handout of the map given out after the talk",
+                "A video tour of the hallways",
+                "A written list of directions on one slide"
               ],
               0,
-              "One readable map does the job. Music, phone-passing, and mascot spin do not communicate doors."
+              "One readable map with a walk-through supports the explanation live. A handout afterward misses the moment, a video tour eats the time, and a list of directions is harder to follow than a map."
             ),
             check(
               "A live demo of a website requires login, but the guest Wi-Fi is down. What is the best technology decision?",
               [
                 "Switch to screenshots or a downloaded offline copy prepared as backup",
-                "Apologize and end the presentation with no content",
-                "Describe a different website from memory with no relation to the purpose",
-                "Ask the audience to shout passwords"
+                "Postpone the presentation until the Wi-Fi returns",
+                "Skip the demo and show only the title slide",
+                "Describe the website from memory"
               ],
               0,
-              "Backups are part of competent use of technology. Ending or fishing for passwords is not."
+              "Prepared backups are part of competent technology use. Postponing, skipping the demo, or describing from memory all lose the content."
             )
           ]
         ),
@@ -750,12 +750,12 @@ Aid that steals the show
               "A student quotes two lines of a district policy on a slide, with quotation marks and a citation to the handbook, then explains the lines in her own words. Is this plagiarism?",
               [
                 "No; short quotation with marks and a source, plus original explanation, is responsible use",
-                "Yes; policies may never be quoted",
-                "Yes; slides cannot contain citations",
-                "Only if the font is too large"
+                "Yes; quoting more than one line requires permission",
+                "Yes; policies must be paraphrased, not quoted",
+                "No, but only because district policies are public domain"
               ],
               0,
-              "Citation and quotation marks are how you use others' language without stealing it. The explanation should stay original."
+              "Quotation marks plus a citation is how you use others' language responsibly. Two lines need no permission, policies can be quoted, and public availability is not the reason it is acceptable."
             )
           ]
         )

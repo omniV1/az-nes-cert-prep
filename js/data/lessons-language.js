@@ -547,10 +547,10 @@ YES: His essay is stronger than Maya's (essay).</pre>`,
                 "Therefore",
                 "However",
                 "For example",
-                "Meanwhile in contrast"
+                "Similarly"
               ],
               0,
-              "A full bin causing an extra emptying is result, so <em>therefore</em> fits. <em>However</em> and contrast phrases invent opposition that is not there."
+              "A full bin causing an extra emptying is a result, so <em>therefore</em> fits. <em>However</em> invents an opposition, <em>for example</em> introduces an illustration, and <em>similarly</em> signals a parallel point."
             ),
             check(
               "Which revision best improves coherence? <em>The sculpture fell. This made them upset, and it was glued.</em>",
@@ -624,12 +624,12 @@ STRONG: Shortening the lunch period to 20 minutes has increased
               "A student starts an essay with a dictionary definition of <em>responsibility</em>. Why is this usually a weak hook?",
               [
                 "It delays a specific claim and tells readers almost nothing they could not already guess.",
-                "Definitions are never allowed in academic writing.",
-                "Hooks must always be questions.",
-                "The dictionary is not a credible source for any purpose."
+                "It is too informal for an academic essay",
+                "It forces the essay into a definition structure",
+                "It requires a citation the writer may not have"
               ],
               0,
-              "Generic definitions waste the introduction. Hooks can be questions, anecdotes, or surprising facts — but they must lead to a thesis, not replace one."
+              "Generic definitions waste the introduction: they delay the claim and tell readers what they already know. A definition is not informal, does not lock the essay's structure, and is easy to cite."
             )
           ]
         ),
@@ -674,22 +674,22 @@ NOT a body paragraph: a new thesis, a plot summary, or a list of quotes with no 
               [
                 "Students who must cross campus for band already arrive after the bell, which is an attendance problem, not a motivation problem.",
                 "Passing periods exist in many schools.",
-                "I hate being late.",
-                "In conclusion, bells are loud."
+                "Some teachers believe shorter passing periods improve focus.",
+                "The passing period was cut from six minutes to four last year."
               ],
               0,
-              "The first sentence makes a specific, thesis-serving claim the paragraph can prove. The others are background, venting, or a misplaced conclusion."
+              "The best topic sentence makes a specific claim that serves the thesis. The others are background, a counterargument, or a fact the paragraph might use as evidence."
             ),
             check(
               "Which sentence best uses contrast to sharpen a body paragraph about silent-reading time?",
               [
                 "Unlike study hall, which students use to finish homework, silent-reading time is protected for books students choose themselves.",
-                "Silent reading is good, however homework is good too, and sports are also good.",
-                "However, reading.",
-                "On the other hand, the school has lockers."
+                "Silent reading is good; however, many students prefer music.",
+                "Silent-reading time, like study hall, gives students a quiet period.",
+                "However, some schools have dropped silent reading altogether."
               ],
               0,
-              "Useful contrast distinguishes two similar-looking periods. Random <em>however</em> sentences do not create emphasis."
+              "Useful contrast distinguishes two similar-looking periods. A <em>however</em> that changes topic, a comparison that blurs the difference, and an unrelated fact do not sharpen the paragraph."
             )
           ]
         ),
@@ -731,23 +731,23 @@ NOT a body paragraph: a new thesis, a plot summary, or a list of quotes with no 
               "Which conclusion best fits an explanatory essay on how the school's rain garden works?",
               [
                 "Taken together, the gravel layer, native plants, and overflow pipe show why the courtyard no longer floods after spring storms.",
-                "In conclusion, rain gardens are a thing I discussed.",
-                "Everyone should hug a tree today.",
-                "The real issue, which I did not mention earlier, is cafeteria pizza."
+                "In conclusion, this essay has explained the rain garden.",
+                "Every school should build a rain garden this year.",
+                "Rain gardens also attract butterflies, which is another benefit."
               ],
               0,
-              "Resolution synthesizes the body's parts. Repetition, an unrelated call to action, and a new topic all fail the ending test."
+              "A strong conclusion synthesizes the body's parts. Announcing the essay, switching to a persuasive call, and adding a new point all fail an explanatory ending."
             ),
             check(
               "A persuasive speech to the PTA argues for a later start time. Which ending is the best call to action?",
               [
                 "Please vote next Tuesday to support the 8:15 start in the survey the district already emailed.",
                 "Society must value sleep.",
-                "In conclusion, start times.",
-                "I will now repeat my three body paragraphs."
+                "Thank you for listening to my ideas about sleep.",
+                "Teenagers need eight to ten hours of sleep each night."
               ],
               0,
-              "The best call to action is specific, timed, and aimed at the people in the room. Vague moralizing and mere repetition are not actions."
+              "The best call to action is specific, timed, and aimed at the people in the room. A slogan, a thank-you, and a statistic are not actions."
             )
           ]
         )
@@ -800,22 +800,22 @@ Generate (quantity) → Organize (groups + order) → Draft (sentences)</pre>`,
               [
                 "A one-page notice with the deadline, the form's location, and a contact name",
                 "A narrative about the writer's own field-trip memories",
-                "A rhymed cheer",
+                "A persuasive letter urging parents to let children attend",
                 "A literary analysis of a novel that mentions travel"
               ],
               0,
-              "Functional form follows purpose: parents need instructions, not a story or a poem."
+              "Parents need instructions: a functional notice with the deadline, form, and contact. A memoir, a persuasive letter, and literary analysis serve other purposes."
             ),
             check(
               "During which stage should a writer discard a vivid anecdote that does not support the thesis?",
               [
                 "Organizing (or early revision), because generating is for quantity and organizing is for fit",
-                "Proofreading, because anecdotes are spelling issues",
+                "Proofreading, the final check before submission",
                 "Never; every generated idea must appear in the draft",
-                "Only after publication"
+                "Generating, before any drafting begins"
               ],
               0,
-              "Fit is an organizing and revising job. Proofreading catches conventions, not relevance."
+              "Fit is an organizing and revising job. Generating is for quantity, proofreading catches conventions rather than relevance, and keeping every idea weakens focus."
             )
           ]
         ),
@@ -860,21 +860,21 @@ Generate (quantity) → Organize (groups + order) → Draft (sentences)</pre>`,
                 "Several students waited in line to sign up.",
                 "There were several students who were waiting.",
                 "Several students were in the process of waiting in a line in order that they might sign up.",
-                "Students. Line. Sign up."
+                "Several students who were waiting in line to sign up."
               ],
               0,
-              "The lean sentence keeps every necessary idea. Fragments and extra process-language are not improvements."
+              "The lean sentence keeps every necessary idea. Dropping the purpose, adding process language, or leaving a fragment are not improvements."
             ),
             check(
               "A teacher says, \"Your third page repeats page one in different words.\" Which stage is this feedback aimed at?",
               [
                 "Revision for focus and redundancy",
                 "Proofreading for capital letters",
-                "Generating more unrelated ideas",
-                "Choosing a new audience at random"
+                "Editing for sentence variety",
+                "Generating new ideas for page three"
               ],
               0,
-              "Repeating the same content is a revision problem. Proofreading would not find it."
+              "Repeated content is a revision problem of focus. Proofreading and sentence-variety editing work at the sentence level, and new ideas do not fix repetition."
             )
           ]
         ),
@@ -931,11 +931,11 @@ A spell-checker is a helper, not a proofreader: it misses homophones.</pre>`,
               [
                 "Proofread conventions; do not reopen generating",
                 "Delete the thesis and brainstorm again",
-                "Change the audience to kindergarteners",
-                "Add however to every sentence"
+                "Revise the paragraph order",
+                "Edit the sentences for variety"
               ],
               0,
-              "When ideas and sentence craft are done, the last job is proofreading remaining mechanical errors."
+              "When ideas, structure, and sentences are done, the remaining job is proofreading the spelling and apostrophe errors. Reopening organization or style would undo finished work."
             )
           ]
         )
@@ -986,11 +986,11 @@ A spell-checker is a helper, not a proofreader: it misses homophones.</pre>`,
               [
                 "How did the late-bus pilot in spring 2025 affect attendance at after-school tutoring for ninth graders?",
                 "Is transportation good or bad?",
-                "Why are buses?",
+                "What is the history of school buses in the United States?",
                 "Should society improve everything about schools?"
               ],
               0,
-              "The first question is open-ended, bounded by program, time, and population. The others are vague, incomplete, or unresearchable."
+              "The first question is open-ended and bounded by program, time, and population. The others are a vague yes/no, too broad to research well, or unanswerable."
             ),
             check(
               "A student changes \"Is the rain garden successful?\" to \"How many gallons of runoff did the courtyard rain garden divert during the three heaviest 2025 storms, compared with 2022 logs?\" What did the revision improve?",
@@ -1044,12 +1044,12 @@ A spell-checker is a helper, not a proofreader: it misses homophones.</pre>`,
               "A student researching cafeteria food waste is choosing among sources. Which is most credible for local amounts?",
               [
                 "The district's dated waste-audit spreadsheet plus an interview with the cafeteria manager",
-                "An undated listicle titled \"10 Shocking School Lunch Facts\" with no author",
-                "A comment under a cooking video",
-                "A meme about mystery meat"
+                "An undated listicle titled 10 Shocking School Lunch Facts with no author",
+                "A national report on school food waste from 2015",
+                "A student survey asking whether lunches seem wasteful"
               ],
               0,
-              "Local, dated, accountable sources beat anonymous clickbait. Humor is not a waste audit."
+              "Local amounts need local, dated, accountable data. The listicle has no author or date, a national report does not measure this cafeteria, and opinions about waste are not a waste count."
             ),
             check(
               "Which note-taking habit best prevents lost citations?",
@@ -1115,11 +1115,11 @@ A spell-checker is a helper, not a proofreader: it misses homophones.</pre>`,
               [
                 "When the original wording is distinctive or legally precise and you will discuss those exact words",
                 "Whenever a sentence feels hard to rewrite",
-                "For every statistic, even ordinary numbers",
-                "Instead of a works-cited list"
+                "Whenever the source is an expert",
+                "For every statistic, to show it is accurate"
               ],
               0,
-              "Quote what you will analyze as wording. Ordinary facts should be paraphrased and cited. Quotations never replace a bibliography."
+              "Quote what you will analyze as wording. Difficulty rewriting, an expert source, or a statistic are not reasons to quote; paraphrase and cite them."
             )
           ]
         )

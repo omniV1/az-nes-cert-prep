@@ -81,7 +81,7 @@
           "Calling any speech a soliloquy, or calling the climax the denouement. Climax is the turning peak; denouement is the aftermath's arrangement.",
           [
             check("Which passage is the best example of foreshadowing?", ["A chapter that returns to the character's childhood before the crime", "A cracked portrait falling the night before a family disaster", "The detective explaining every clue after the culprit is caught", "Two servants chatting about the weather with no later payoff"], 1, "The falling portrait hints a coming disaster. Childhood is flashback; the detective's wrap-up is denouement/explanation; idle weather is not a device unless paid off."),
-            check("A character alone on stage reveals a plan the others do not hear. The device is:", ["Omniscient narration", "Soliloquy", "Dramatic irony only, with no speech", "A tanka"], 1, "Alone + inner plan spoken = soliloquy. Dramatic irony may result, but the device named by the speech situation is soliloquy.")
+            check("A character alone on stage reveals a plan the others do not hear. The device is:", ["Aside", "Soliloquy", "Monologue", "Dramatic irony"], 1, "Alone on stage and speaking inner thoughts is a soliloquy. An aside is a brief remark while others are present, a monologue is a long speech to other characters, and dramatic irony may result but is not the speech device.")
           ]
         ),
         section(
@@ -118,7 +118,7 @@
           { problem: "A first-person narrator describes a &ldquo;cozy&rdquo; cellar while listing rusted locks and no windows. Split tone, mood, and possible unreliability.", hint: "Tone is the narrator's cozy label; mood may be claustrophobic; the mismatch is a cue." },
           "Using tone, mood, and voice as synonyms. Tone is attitude in the speaker; mood is the reader's induced atmosphere; voice is the signature of how that speaker sounds across sentences.",
           [
-            check("In a passage, rain ticks on a tin roof and the street is empty. This description primarily establishes:", ["The author's biography", "Mood (uneasy stillness)", "The rhyme scheme", "A warranty exclusion"], 1, "Sensory setting that invites a feeling is mood. It does not by itself name the narrator's attitude (tone)."),
+            check("In a passage, rain ticks on a tin roof and the street is empty. This description primarily establishes:", ["Theme", "Mood (uneasy stillness)", "Tone (the narrator's attitude)", "Characterization"], 1, "Sensory setting that invites a feeling is mood. It does not by itself name the narrator's attitude (tone), state a theme, or characterize anyone."),
             check("Which is direct characterization?", ["&ldquo;He kicked the chair aside and spoke before anyone else could.&rdquo;", "&ldquo;Mara was impatient with delay.&rdquo;", "&ldquo;The room smelled of oranges.&rdquo;", "&ldquo;Then the story jumped back to June.&rdquo;"], 1, "A stated trait is direct. Kicking a chair is indirect. Smell is setting. June is flashback.")
           ]
         )
@@ -166,7 +166,7 @@
           "Identifying forms by topic (a &ldquo;nature poem&rdquo; could be ode, tanka, or free verse). Count lines, refrains, and stanza math.",
           [
             check("Which description fits a ballad rather than an epic?", ["A compact, songlike narrative stanza, often with refrain, telling a stark story", "Thousands of lines on a nation's founding war, with epithets and catalogues", "Exactly 14 lines and a couplet", "Five tercets plus a quatrain with two repeating lines"], 0, "Ballads are portable sung stories. Epics are long cultural narratives. 14 lines is a sonnet; the refrain machine is a villanelle."),
-            check("A 5-7-5-7-7 lyric on autumn is a:", ["Sonnet", "Tanka", "Epic", "Villanelle"], 1, "Tanka syllabic pattern. Haiku would stop at 5-7-5.")
+            check("A 5-7-5-7-7 lyric on autumn is a:", ["Sonnet", "Tanka", "Haiku", "Villanelle"], 1, "5-7-5-7-7 is the tanka pattern. A haiku stops at 5-7-5, and sonnets and villanelles are longer rhymed forms.")
           ]
         ),
         section(
@@ -201,7 +201,7 @@
           { problem: "A hymn stanza has four lines rhyming ABAB. Name the stanza type.", hint: "Four lines = quatrain; rhyme scheme is extra information." },
           "Counting words instead of feet, or calling any unrhymed poem free verse (blank verse is unrhymed iambic pentameter&mdash;regular meter, no rhyme).",
           [
-            check("Blank verse is:", ["Unrhymed iambic pentameter", "A villanelle without refrains", "Any paragraph with line breaks", "A tanka translated into English"], 0, "Blank verse has meter (iambic pentameter) but not rhyme. Free verse has neither regular meter nor regular rhyme."),
+            check("Blank verse is:", ["Unrhymed iambic pentameter", "Unrhymed lines with no regular meter", "Rhymed iambic pentameter couplets", "Prose arranged in short lines"], 0, "Blank verse has meter (iambic pentameter) but not rhyme. Unrhymed lines with no regular meter are free verse, rhymed pentameter couplets are heroic couplets, and prose in short lines is not verse."),
             check("A four-line stanza is a:", ["Couplet", "Tercet", "Quatrain", "Sestet"], 2, "Couplet 2, tercet 3, quatrain 4, sestet 6.")
           ]
         ),
@@ -238,8 +238,8 @@
           { problem: "Name the device: &ldquo;The long low moan of the ocean.&rdquo;", hint: "Repeated <em>o</em> vowel = assonance; <em>l</em> may also alliterate." },
           "Calling every repeated letter alliteration. Alliteration is initial sound, not spelling (<em>phone/philosophy</em> alliterate on <em>f</em>). Silent letters do not count.",
           [
-            check("In &ldquo;silent sea,&rdquo; the repeated <em>s</em> is:", ["A volta", "Alliteration", "Iambic pentameter", "Synecdoche"], 1, "Initial /s/ repeats. Meter and figurative-language terms name other jobs."),
-            check("Assonance is best defined as:", ["Rhyme at the ends of lines only", "Repetition of vowel sounds in nearby words", "Fourteen lines of verse", "A hero's catalogue of ships"], 1, "Assonance is vowel echo. End rhyme is a different pattern.")
+            check("In &ldquo;silent sea,&rdquo; the repeated <em>s</em> is:", ["Assonance", "Alliteration", "Onomatopoeia", "Rhyme"], 1, "The initial /s/ repeats: alliteration. Assonance repeats vowel sounds, onomatopoeia imitates a sound, and <em>silent</em> and <em>sea</em> do not rhyme."),
+            check("Assonance is best defined as:", ["Rhyme at the ends of lines only", "Repetition of vowel sounds in nearby words", "Repetition of initial consonant sounds", "Repetition of consonant sounds within or at the ends of words"], 1, "Assonance is vowel echo. End rhyme matches whole ending sounds, alliteration repeats initial consonants, and consonance repeats consonants inside or at the ends of words.")
           ]
         )
       ]
@@ -319,7 +319,7 @@
           "Guessing synecdoche whenever a concrete noun appears. Ask whether a part stands for a whole, or a related institution stands for people.",
           [
             check("Which figure is apostrophe?", ["&ldquo;The crown will not yield.&rdquo;", "&ldquo;All hands on deck.&rdquo;", "&ldquo;O storm, embodied, rising along the beach!&rdquo;", "&ldquo;He eats like a wolf.&rdquo;"], 2, "O-address to the storm is apostrophe. Crown is metonymy; hands is synecdoche; like a wolf is simile."),
-            check("&ldquo;The press hounded the mayor&rdquo; uses:", ["Synecdoche of a mayor's hands", "Metonymy (press = journalists/institutions)", "Iambic pentameter", "A villanelle refrain"], 1, "Press is the associated institution, not a body part of the mayor.")
+            check("&ldquo;The press hounded the mayor&rdquo; uses:", ["Synecdoche", "Metonymy", "Simile", "Apostrophe"], 1, "<em>The press</em> stands for journalists by association, not as a part of them: metonymy. Synecdoche names a part for the whole, there is no <em>like</em> or <em>as</em>, and no one is addressed.")
           ]
         ),
         section(
@@ -355,8 +355,8 @@
           { problem: "A fire station burns down while the crew is at a false alarm. Irony type?", hint: "Outcome reverses the institution's purpose = situational irony." },
           "Calling every sad ending ironic, or every image a symbol. A symbol recurs or is positioned to mean; a one-off description may only be imagery.",
           [
-            check("Wordsworth's &ldquo;The Child is father of the Man&rdquo; is best labeled:", ["A timetable", "Paradox", "Synecdoche", "Blank verse only"], 1, "A child cannot literally father an adult, yet the line holds a truth: childhood experience shapes the grown person. An apparent contradiction that resolves into insight is a paradox."),
-            check("A novel names a tempting offer &ldquo;this apple in the garden.&rdquo; The device is:", ["Allusion to Genesis", "Iambic pentameter", "A warranty clause", "Free verse"], 0, "Apple + garden imports Eden. That is allusion, not meter.")
+            check("Wordsworth's &ldquo;The Child is father of the Man&rdquo; is best labeled:", ["Oxymoron", "Paradox", "Irony", "Hyperbole"], 1, "A child cannot literally father an adult, yet the line holds a truth: childhood shapes the grown person. An apparent contradiction that resolves into insight is a paradox. An oxymoron squeezes opposites into one phrase, irony sets expectation against outcome, and the line does not exaggerate."),
+            check("A novel names a tempting offer &ldquo;this apple in the garden.&rdquo; The device is:", ["Allusion to Genesis", "Hyperbole", "Personification", "Onomatopoeia"], 0, "Apple plus garden imports the Eden story: an allusion. Nothing is exaggerated, given human traits, or imitating a sound.")
           ]
         )
       ]
@@ -399,7 +399,7 @@
           "Retelling the plot as a list of events with <em>and then</em> instead of <em>because</em>. Theme questions will punish a plot summary that never becomes a claim.",
           [
             check("Which sentence describes plot rather than setting?", ["The mill town is soot-black and loud after dusk.", "Because she hid the letter, the engagement collapsed at dinner.", "The year is 1842.", "Windows rattle in the west wind."], 1, "Because + consequence is plot. The others locate atmosphere or time."),
-            check("A character who represents only &ldquo;greedy landlord&rdquo; and does not change is:", ["Round", "Flat (and possibly symbolic)", "The implied author", "A villanelle"], 1, "Single-trait, unchanging figures are flat. They can still matter.")
+            check("A character who represents only &ldquo;greedy landlord&rdquo; and does not change is:", ["Round", "Flat (and possibly symbolic)", "Dynamic", "Protagonist"], 1, "Single-trait, unchanging figures are flat. Round characters are complex, dynamic characters change, and nothing makes the landlord the protagonist. Flat characters can still matter.")
           ]
         ),
         section(
@@ -436,8 +436,8 @@
           { problem: "A narrator says a neighbor is &ldquo;always kind&rdquo; but reports that the neighbor poisons cats. Unreliable? Why?", hint: "Adjective vs reported action." },
           "Assuming third person is always objective, or that every child narrator is unreliable. Cite the contradiction.",
           [
-            check("The strongest evidence of an unreliable narrator is:", ["The story uses I", "The speaker's claims clash with the events the speaker also reports", "There is a setting", "The author is anonymous"], 1, "Unreliability is a gap between assertion and evidence inside the text."),
-            check("An omniscient narrator could most easily:", ["Know several characters' private thoughts in the same chapter", "Speak only as one character's limited I", "Avoid all adjectives", "Exist only in tanka"], 0, "Omniscience is access across minds. First-person limited cannot honestly do that without a special device.")
+            check("The strongest evidence of an unreliable narrator is:", ["The story uses I", "The speaker's claims clash with the events the speaker also reports", "The narrator is a child", "The narrator describes events years later"], 1, "Unreliability is a gap between what the narrator claims and what the narrator's own report shows. First person, a young narrator, or a looking-back account can make unreliability possible, but none proves it."),
+            check("An omniscient narrator could most easily:", ["Know several characters' private thoughts in the same chapter", "Report only what a camera could record", "Stay inside one character's mind throughout", "Address the reader as you"], 0, "Omniscience is access across minds. Camera-like reporting is the objective point of view, staying with one mind is limited point of view, and addressing the reader as you is second person.")
           ]
         ),
         section(
@@ -473,7 +473,7 @@
           "Circling the topic word that also appears in the passage and calling it theme. Theme must be a sentence-worth of idea.",
           [
             check("Which choice is a theme rather than a topic?", ["Jealousy", "Revenge", "Unchecked suspicion can destroy the innocent and the accuser together", "Venice"], 2, "Only the third is a claim. The others are subjects or a setting."),
-            check("A speaker describes a funeral with slang and jokes. The tone is most likely:", ["Solemnly reverent", "Irreverent or defensive", "A tanka", "Omniscient"], 1, "Diction (slang, jokes) carries tone. The topic remains death.")
+            check("A speaker describes a funeral with slang and jokes. The tone is most likely:", ["Solemnly reverent", "Irreverent or defensive", "Mournful", "Detached and clinical"], 1, "Diction carries tone: slang and jokes make it irreverent or defensive even though the topic is death. Reverence or mourning would show in the word choice, and jokes are not clinical detachment.")
           ]
         )
       ]
@@ -517,8 +517,8 @@
           { problem: "Why is &ldquo;a fantasy that criticizes society with huge exaggerations&rdquo; a weak definition of fable?", hint: "That description fits some satire or tall tale better than Aesop's moral-animal pattern." },
           "Using <em>myth</em> for any falsehood in ordinary speech. In literary study, myth is a genre of sacred/explanatory narrative, not &ldquo;a lie.&rdquo;",
           [
-            check("Which statement best describes a fable?", ["It memorializes a documented local hero with slight exaggeration", "It dramatizes human behavior through animal characters to teach a moral", "It combines modern city life with unexplained magic as equal realities", "It is always written in iambic pentameter"], 1, "NES wants the moral + anthropomorphism definition. Magical realism is a different tradition; meter is irrelevant."),
-            check("A story explaining why earthquakes happen through a god's shifting body is a:", ["Warranty", "Myth", "Newspaper inverted pyramid", "Sonnet"], 1, "Origin/cosmic explanation = myth.")
+            check("Which statement best describes a fable?", ["It memorializes a documented local hero with slight exaggeration", "It dramatizes human behavior through animal characters to teach a moral", "It combines modern city life with unexplained magic as equal realities", "It recounts a hero's journey in elevated verse"], 1, "Fables teach a moral through animal characters. Legends memorialize real heroes, magical realism blends the everyday with magic, and a hero's journey in elevated verse is epic."),
+            check("A story explaining why earthquakes happen through a god's shifting body is a:", ["Legend", "Myth", "Fable", "Folktale"], 1, "A story explaining a natural event through a god is a myth. Legends grow from historical figures, fables teach morals with animals, and folktales are popular stories that usually lack the sacred, explanatory role.")
           ]
         ),
         section(
@@ -556,8 +556,8 @@
           { problem: "Why do epics use repeated epithets (swift-footed, wine-dark)?", hint: "Meter, memory, and instant characterization in performance." },
           "Assuming oral works are naive or for children only. Epics and myths can be philosophically dense; the style is mnemonic, not simple-minded.",
           [
-            check("Which feature most strongly signals oral tradition?", ["A unique, copyrighted wording that never varies", "Formulaic repetition and multiple living variants", "Footnoted page numbers", "A truncated bar graph"], 1, "Variants plus formulas are the oral signature. Frozen unique wording is print culture."),
-            check("A frame tale is:", ["A story that contains other stories inside a wrapping situation", "Always a fable about tortoises", "A type of warranty", "Iambic tetrameter only"], 0, "Pilgrims telling tales, or a narrator delaying death by storytelling, are frame structures.")
+            check("Which feature most strongly signals oral tradition?", ["A unique, copyrighted wording that never varies", "Formulaic repetition and multiple living variants", "A single named author", "Footnotes citing sources"], 1, "Variants and formulas are the oral signature. Fixed wording, a single named author, and footnotes belong to print culture."),
+            check("A frame tale is:", ["A story that contains other stories inside a wrapping situation", "A story told in flashbacks from one character's memory", "A story that begins in the middle of the action", "A story with a moral stated at the end"], 0, "Pilgrims telling tales, or a narrator delaying death with stories, are frame structures. Flashback, in medias res, and a closing moral are different devices.")
           ]
         ),
         section(
@@ -593,8 +593,8 @@
           { problem: "A chorus in a Greek play comments on the action as a group voice. How is that unlike a novel's limited first person?", hint: "Communal, staged commentary vs one mind's private report." },
           "Treating &ldquo;world literature&rdquo; as a list of names to memorize. The items give stylistic traits; your job is to match the trait to the genre tradition.",
           [
-            check("A brief three-line poem capturing a seasonal instant is closest to:", ["A Homeric catalogue", "Haiku", "A five-act tragedy's denouement", "An editorial"], 1, "Seasonal snapshot in a tiny lyric body is the haiku habit."),
-            check("Invocation of a muse, a hero's rage, and a nation's suffering signal:", ["Tanka", "Epic opening", "Pop-up advertisement", "Critical biography of a living scientist"], 1, "Those are epic conventions.")
+            check("A brief three-line poem capturing a seasonal instant is closest to:", ["A Homeric catalogue", "Haiku", "Limerick", "Sonnet"], 1, "A seasonal snapshot in a tiny three-line lyric is the haiku habit. Limericks are five comic rhymed lines, sonnets have fourteen lines, and a catalogue is a long list."),
+            check("Invocation of a muse, a hero's rage, and a nation's suffering signal:", ["Ode", "Epic opening", "Elegy", "Ballad"], 1, "A muse invocation, a hero's rage, and a nation's suffering are epic conventions (the <em>Iliad</em>). An ode praises, an elegy mourns, and a ballad is a short sung story.")
           ]
         )
       ]
@@ -638,8 +638,8 @@
           { problem: "Paine: &ldquo;These are the times that try men's souls.&rdquo; Why is this Enlightenment political prose rather than Romantic nature lyric?", hint: "Public crisis, civic &ldquo;men,&rdquo; persuasive essay cadence&mdash;not a daffodil." },
           "Memorizing start years (1492, 1798) as if the exam were a history multiple-choice. The passage's habits beat the timeline.",
           [
-            check("A polished satire in heroic couplets attacking dullness and bad writing is most at home in the:", ["Harlem Renaissance", "Enlightenment / neoclassical mode", "Oral trickster cycle only", "Contemporary magical realism"], 1, "Pope-style couplet satire is an Enlightenment/neoclassical habit."),
-            check("A pilgrimage frame with mixed social estates telling tales is a hallmark of:", ["Medieval narrative architecture (Chaucer)", "Imagist free-verse fragments of 1922", "A technical schematic", "Realist newspaper inverted pyramid"], 0, "The Canterbury frame is the teaching example for Medieval variety-in-pilgrimage.")
+            check("A polished satire in heroic couplets attacking dullness and bad writing is most at home in the:", ["Harlem Renaissance", "Enlightenment / neoclassical mode", "Romanticism", "Modernism"], 1, "Pope-style couplet satire against dullness is Enlightenment neoclassicism. Romanticism prized feeling over polish, Modernism broke inherited forms, and the Harlem Renaissance was a twentieth-century Black arts movement."),
+            check("A pilgrimage frame with mixed social estates telling tales is a hallmark of:", ["Medieval narrative (Chaucer)", "Renaissance pastoral", "Enlightenment satire", "Romantic lyric"], 0, "The Canterbury Tales' pilgrimage frame, with tellers from every estate, is the standard medieval example. Pastoral idealizes shepherds, Enlightenment satire mocks in polished verse, and the Romantic lyric centers one feeling speaker.")
           ]
         ),
         section(
@@ -674,8 +674,8 @@
           { problem: "A novel spends chapters on how a provincial bank actually clears a check, with no supernatural events. Period habit?", hint: "Ordinary institutions + probable cause = Realism." },
           "Calling anything emotional Romantic, or anything sad Modernist. Romanticism is a theory of imagination and nature; Modernism is a crisis of form and meaning after industrial modernity.",
           [
-            check("Which excerpt best illustrates Romantic habit?", ["A ledger of mill wages in 1872", "A lyric in which memory of a natural scene restores the speaker's mind", "A collage of pub talk and mythic fragments with no single narrator", "A pop-up ad"], 1, "Nature + memory + restored self is Wordsworthian Romanticism. The ledger is Realist; the collage is Modernist."),
-            check("Modernist fiction is most likely to:", ["Trust a single omniscient moralizer without irony", "Fragment time and point of view to show consciousness under strain", "Exist only as tanka", "Avoid all figurative language"], 1, "Broken time and limited/unstable POV are Modernist signatures.")
+            check("Which excerpt best illustrates Romantic habit?", ["A ledger of mill wages in 1872", "A lyric in which memory of a natural scene restores the speaker's mind", "A collage of pub talk and mythic fragments with no single narrator", "A polished couplet mocking fashionable society"], 1, "Nature plus memory plus a restored self is Wordsworthian Romanticism. The ledger is Realist, the collage is Modernist, and couplet satire is Enlightenment."),
+            check("Modernist fiction is most likely to:", ["Trust a single omniscient moralizer without irony", "Fragment time and point of view to show consciousness under strain", "Follow a strict chronological plot with a clear resolution", "Present characters as products of heredity and environment"], 1, "Broken time and unstable point of view are Modernist signatures. A trusted moralizing narrator and tidy chronology belong to earlier fiction, and heredity-and-environment determinism is Naturalism.")
           ]
         ),
         section(
@@ -710,8 +710,8 @@
           { problem: "Why is &ldquo;lists every Harlem writer&rdquo; a weak study strategy compared with &ldquo;vernacular plus sonnet plus diasporic history&rdquo;?", hint: "NES asks characteristics of movements." },
           "Treating the Harlem Renaissance as only &ldquo;jazz background&rdquo; or contemporary literature as only &ldquo;anything recent.&rdquo; Name the artistic problem each movement is solving.",
           [
-            check("A defining characteristic of Harlem Renaissance writing is:", ["A refusal to use lyric or sonnet forms", "Modern Black artistic self-definition using both vernacular and high-literary resources", "The invention of the epic invocation", "A ban on historical reference"], 1, "The movement claims the full toolkit. It does not invent Homer's invocation or reject form."),
-            check("Contemporary world literature is best approached on this exam by:", ["Memorizing every Booker Prize winner", "Recognizing recurring concerns such as migration, empire's afterlives, and hybrid language", "Assuming it is identical to Enlightenment satire", "Quoting living poets at length"], 1, "Characteristics, not trivia lists or copyrighted catalogues.")
+            check("A defining characteristic of Harlem Renaissance writing is:", ["A refusal to use lyric or sonnet forms", "Modern Black artistic self-definition using both vernacular and high-literary resources", "Expatriate writers reacting to World War I", "Fragmented forms that reject all tradition"], 1, "The movement claims the full toolkit, from blues to McKay's sonnets. Expatriate post-war writing is the Lost Generation, and rejecting all tradition misdescribes a movement that drew on folk and classical forms."),
+            check("Contemporary world literature is best approached on this exam by:", ["Memorizing every Booker Prize winner", "Recognizing recurring concerns such as migration, empire's afterlives, and hybrid language", "Reading it mainly as autobiography", "Treating it as a branch of British literature"], 1, "Recognize characteristic concerns, not trivia. Reading every work as autobiography or as British literature erases the variety the exam asks about.")
           ]
         )
       ]
@@ -756,8 +756,8 @@
           { problem: "Why is &ldquo;infant mortality rates&rdquo; a tempting wrong answer to the Browning excerpt?", hint: "Death imagery is there, but the scene is labor in the mine, not a census of infants." },
           "Picking any social problem you know was real in 1843. The excerpt must license the issue.",
           [
-            check("In the mine-and-cowslip excerpt, Browning is most clearly trying to influence opinion about:", ["Elementary truancy", "Child labor exploitation", "A new sonnet fashion", "Railroad timetables"], 1, "Mine, coal-shadows, and denied play point to labor, not skipping school as the main target."),
-            check("The children's question about cowslips vs weeds near the mine functions as:", ["A warranty exclusion", "A rebuttal to a comfortable pastoral solution", "A villanelle refrain", "Comic relief unrelated to theme"], 1, "They reject the speaker's meadow as unlike their world.")
+            check("In the mine-and-cowslip excerpt, Browning is most clearly trying to influence opinion about:", ["Elementary truancy", "Child labor exploitation", "The decline of farming", "Crowding in industrial cities"], 1, "Mines, coal-shadows, and denied play point to the exploitation of child labor. The children are not skipping school, and the poem is not about farming or city crowding."),
+            check("The children's question about cowslips vs weeds near the mine functions as:", ["A complaint that the meadow is too far away", "A rebuttal to a comfortable pastoral solution", "Evidence that the children prefer the mine", "A comic interruption that lightens the poem"], 1, "The children reject the speaker's meadow as unlike their world, rebutting the comfortable solution. They do not prefer the mine, the problem is not distance, and the moment is bitter, not comic.")
           ]
         ),
         section(
@@ -793,8 +793,8 @@
           { problem: "Why is a slave narrative both literature and political evidence?", hint: "Craft (scene, irony, address) serves a public claim about an institution." },
           "Reading these texts only as &ldquo;historical background&rdquo; and skipping how the sentences argue. Competency 0008 wants the literary work as the comment.",
           [
-            check("Sojourner Truth's &ldquo;Ain't I a woman?&rdquo; most directly challenges:", ["Railroad scheduling", "A definition of womanhood that excludes Black women's labor and strength", "The rules of iambic pentameter", "How to read a schematic"], 1, "The repeated question tests who is allowed inside the category woman."),
-            check("Equiano's shipboard terror is best read, for this competency, as:", ["A random ghost story with no civic target", "Literary witness meant to turn readers against the slave trade", "A fable whose moral is &ldquo;slow and steady&rdquo;", "An Enlightenment satire of coffee-house wits"], 1, "The narrative's job is public persuasion about an institution.")
+            check("Sojourner Truth's &ldquo;Ain't I a woman?&rdquo; most directly challenges:", ["Laws denying women the vote", "A definition of womanhood that excludes Black women's labor and strength", "Northern indifference to slavery", "Church teaching on marriage"], 1, "The repeated question tests who counts as a woman, challenging a definition that excludes Black women's labor and strength. Suffrage, abolition politics, and church teaching surround the speech but are not the refrain's target."),
+            check("Equiano's shipboard terror is best read, for this competency, as:", ["A personal memoir with no public purpose", "Literary witness meant to turn readers against the slave trade", "A travel narrative describing the voyage", "An adventure tale meant mainly to entertain"], 1, "The narrative's job is public persuasion about an institution. It is personal and describes a voyage, but its purpose is to turn readers against the trade, not to record travel or entertain.")
           ]
         ),
         section(
@@ -828,8 +828,8 @@
           { problem: "Blake's &ldquo;mind-forged manacles&rdquo;: labor law, or something else too?", hint: "Manacles are mental as well as legal&mdash;ideology plus institution." },
           "Stopping at the author's life (&ldquo;Whitman was a nurse&rdquo;) instead of the text's public claim. Biography can help; the exam still wants the excerpt.",
           [
-            check("Austen's opening sentence is most defensible as a comment on:", ["Naval timetables", "Gender, money, and marriage as a social market", "How to scan a villanelle", "Child labor in mines"], 1, "The joke about bachelors and wives targets a gendered economic custom."),
-            check("When an NES item asks how a writer influenced opinion, the best first move is to:", ["Name the issue licensed by the excerpt's concrete details, then the literary means", "List every war in the century", "Ignore the text and recall the author's birthday", "Call every excerpt a fable"], 0, "Issue + means is competency 0008's decision procedure.")
+            check("Austen's opening sentence is most defensible as a comment on:", ["Romantic love as the basis of marriage", "Gender, money, and marriage as a social market", "The decline of the landed gentry", "The education of young women"], 1, "The joke about wealthy bachelors and wives treats marriage as a market shaped by gender and money. The sentence mocks the idea that love drives the match, and it says nothing about the gentry's decline or education."),
+            check("When an NES item asks how a writer influenced opinion, the best first move is to:", ["Name the issue licensed by the excerpt's concrete details, then the literary means", "Recall the author's biography and historical period", "Identify the excerpt's genre first", "Summarize the plot of the full work"], 0, "Issue plus means is competency 0008's decision procedure. Biography, genre labels, and full-work summaries can give context but do not answer how this excerpt influences opinion.")
           ]
         )
       ]

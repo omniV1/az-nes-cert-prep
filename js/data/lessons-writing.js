@@ -48,21 +48,21 @@
                 "A present-day frame with a flashback to the kitchen, then a return to the present insight",
                 "A strict minute-by-minute chronology of the senior year only, with the kitchen omitted",
                 "In medias res starting at graduation, with no return to the kitchen",
-                "A cause-effect report with statistics about kitchens"
+                "Chronological order from the kitchen scene forward to senior year, with no return to the present"
               ],
               0,
-              "Flashback is for a past scene that interprets the present. Omitting the kitchen drops the meaning; a report is the wrong mode."
+              "Flashback is for a past scene that interprets the present, so a present-day frame lets the senior's insight reshape the kitchen memory. Omitting the kitchen drops the meaning, and starting in the past without returning loses the now-I-understand frame."
             ),
             check(
               "A prompt asks students to recount one event that taught them a lesson. Which subject is appropriately limited?",
               [
                 "The moment the understudy had to go on after the lead's microphone failed",
                 "Everything that happened in drama club since sixth grade",
-                "A history of theater in America",
-                "Why art is important to society"
+                "My three years as stage manager",
+                "The best and worst days of freshman year"
               ],
               0,
-              "One staged moment can carry a lesson. A multi-year dump, a history lecture, and a slogan are not limited narrative subjects."
+              "One moment can carry a lesson. Several years, or two different days, cover too much for a single-event narrative."
             )
           ]
         ),
@@ -108,10 +108,10 @@ STRONG: Mateo edged toward the kiln door.</pre>`,
                 "Clay water had spilled down the slab table and the kiln timer was still blinking red.",
                 "It was a very, very messy, bad, super-stressful morning in the art room.",
                 "The art room had a lot of stuff and things everywhere.",
-                "Morning. Art. Stress."
+                "The morning in the art room was chaotic."
               ],
               0,
-              "Concrete nouns and a telling object (the blinking timer) show the mess. Intensifiers, vague stuff, and fragments do not."
+              "Concrete details (clay water, a blinking timer) show the mess. Intensifiers, vague <em>stuff</em>, and a single abstract adjective tell instead."
             ),
             check(
               "Which sentence uses a strong verb and a specific noun most effectively?",
@@ -247,10 +247,10 @@ WEAK thesis: You should build a rain garden tomorrow (that's persuasive).</pre>`
                 "The three-step audition: sign-up sheet, one-minute prepared piece, eight-bar sight-read",
                 "The entire history of jazz",
                 "Why music matters to humanity",
-                "My feelings about every teacher in the building"
+                "A review of the jazz band's recent concerts"
               ],
               0,
-              "Exposition for this audience needs the procedure, not a history of a genre or a manifesto."
+              "Exposition for this audience needs the procedure, not a history of the genre, a manifesto, or a concert review."
             )
           ]
         ),
@@ -292,23 +292,23 @@ WEAK thesis: You should build a rain garden tomorrow (that's persuasive).</pre>`
               "A writer must explain why the choir missed the festival bus. Which organizational pattern is best?",
               [
                 "Cause-effect: rehearsal ran over, the risers delayed loading, therefore the bus left",
-                "In medias res narrative starting with a scream",
-                "Comparison of two unrelated novels",
-                "Order of importance of the author's childhood memories"
+                "Chronological narrative of the whole festival day",
+                "Comparison of this year's trip with last year's",
+                "Problem-solution proposing a new bus schedule"
               ],
               0,
-              "A why-question about a missed bus is cause-effect. Narrative panic and literary comparison are the wrong modes."
+              "A why-question about a missed bus calls for cause-effect. A full-day narrative buries the causes, a comparison answers a different question, and a solution proposal skips the explanation."
             ),
             check(
               "Which organizational pattern best fits an article informing families how the new rain-delay protocol for baseball works?",
               [
                 "Chronological steps from first rumble of thunder to cancellation text",
-                "A persuasive attack on the umpire",
-                "Flashback to a game in 1998 as the whole structure",
-                "A random list of sports equipment"
+                "Cause-effect explaining why lightning is dangerous",
+                "Comparison of the old and new protocols",
+                "Persuasive argument for the new protocol"
               ],
               0,
-              "Protocols are processes. Readers need the sequence of actions, not a speech or a memory."
+              "Protocols are processes, so readers need the sequence of steps. Lightning science, comparison with the old policy, and persuasion answer different questions."
             )
           ]
         ),
@@ -352,12 +352,12 @@ BETTER: Use the red valve first.</pre>`,
               "Which sentence is the most effective expository support?",
               [
                 "On the three rainy Mondays in April, the rain garden's overflow pipe ran for 12, 9, and 14 minutes, and the band-room floor stayed dry (custodial log).",
-                "The rain garden is super awesome and really works a lot.",
-                "Gardens have been important since ancient times.",
-                "You must care about water or you are a bad person."
+                "The rain garden has worked well since it was installed.",
+                "Rain gardens can reduce flooding in many communities.",
+                "Several teachers say the band room floods less now."
               ],
               0,
-              "Dated, specific measurements with a source explain. Cheerleading, history-of-the-world, and moralizing do not."
+              "Dated, specific measurements with a source explain best. A general claim, a statement about rain gardens everywhere, and secondhand impressions are weaker support."
             ),
             check(
               "Which revision is most direct and succinct for a how-to? <em>Students should make an effort to be in the process of submitting the form prior to the time when the office closes.</em>",
@@ -426,22 +426,22 @@ Logical chain:
               [
                 "The yearbook staff should receive one extra production week before spring photos are locked.",
                 "Yearbooks are part of school life in many ways.",
-                "I have opinions about photos.",
-                "Something ought to change regarding stuff."
+                "I think the yearbook could maybe use more time, if possible.",
+                "The yearbook deadline has caused problems for years."
               ],
               0,
-              "The first names the actor, the action, and the timing. The others are topics or fog."
+              "The first names the actor, the action, and the timing. The others are a topic statement, a hedge, or a background fact."
             ),
             check(
               "For a two-minute PTA speech, a writer has a weak anecdote, a strong district statistic, and a medium-strength cost estimate. Which organizational pattern is best?",
               [
                 "Order of importance: statistic first, then cost, then a brief anecdote as illustration",
-                "A chronological life story from kindergarten to now",
+                "Chronological order of when the writer found each piece",
                 "Problem-solution with no stated position",
-                "In medias res starting with a joke unrelated to the ask"
+                "Anecdote first to hook the audience, then statistic, then cost"
               ],
               0,
-              "Short persuasive remarks should lead with the strongest public evidence. A life story and an unstated position waste the clock."
+              "Short persuasive remarks should lead with the strongest public evidence. Discovery order is irrelevant, an unstated position wastes the clock, and opening with the weakest material spends the audience's best attention on it."
             )
           ]
         ),
@@ -485,23 +485,23 @@ Logical chain:
               "Which sentence best combines a fact and a reason for the claim <em>add a second calculator-checkout crate</em>?",
               [
                 "Last unit, 14 students shared six calculators, so check-out lines spilled into instructional time (teacher tally, May 12).",
-                "Calculators are cool.",
-                "I feel like math is hard.",
-                "A celebrity once used a calculator."
+                "Calculators help students learn math.",
+                "Many schools already have two calculator crates.",
+                "Students say they want more calculators."
               ],
               0,
-              "The tally is a fact; the link to lost instructional time is the reason. Coolness, feelings, and celebrity are not policy support."
+              "The tally is a fact, and the link to lost instructional time is the reason. A general benefit, other schools' choices, and student wishes are weaker support."
             ),
             check(
               "A writer cites accurate bus-ridership numbers and fairly summarizes the transportation director's budget limit. Which appeal is strongest here?",
               [
                 "Ethos, because the writer shows fairness and knowledge of real constraints",
-                "Pathos only, because numbers are always emotional",
-                "No appeal is present, because facts cannot be appeals",
-                "A personal attack, because a director was named"
+                "Pathos, because ridership affects real families",
+                "Kairos, because the budget is a current issue",
+                "Ad hominem, because the director is named"
               ],
               0,
-              "Fair, informed treatment of the other side builds ethos. Naming an official is not an attack."
+              "Fair, informed treatment of the other side's constraint builds ethos. The passage does not target feelings or timing, and naming an official is not an attack."
             )
           ]
         ),
@@ -544,12 +544,12 @@ Tone red flags: always, idiots, obviously, anyone with a brain, \"so-called\" ex
               "Which response best anticipates a counterargument to <em>keep the late bus</em>?",
               [
                 "Although the late bus costs $412 a week, security logs show fewer students crossing the highway after dark, and a six-week ridership count can test whether the cost is justified.",
-                "Anyone against the late bus is cruel.",
-                "There are no possible objections.",
-                "Cost does not matter in any school decision ever."
+                "The late bus is important, so its cost should not be discussed.",
+                "Some people worry about cost, but safety matters more.",
+                "The late bus costs $412 a week, which the district can easily afford."
               ],
               0,
-              "The first fairly names cost, answers with safety evidence, and offers a test. Denial and insults are not rebuttals."
+              "The first names the cost fairly, answers with safety evidence, and offers a test. Refusing to discuss cost, waving it away without evidence, or asserting affordability without support does not answer it."
             ),
             check(
               "Which sentence most damages respectful tone in a letter to the school board?",
@@ -624,11 +624,11 @@ If no, you probably wrote a fact or a slogan.</pre>`,
               [
                 "It summarizes plot instead of making an interpretive claim supported by language",
                 "It uses too many quotations",
-                "It compares two works, which is never allowed",
-                "It is too focused on a single image"
+                "It analyzes language too closely",
+                "It has too many transitions"
               ],
               0,
-              "Scene-by-scene recap is the classic failed analysis paragraph. Quotations and comparison, done well, are strengths."
+              "Scene-by-scene recap is the classic failed analysis paragraph. It has no quotations to overuse and no language analysis at all, and transitions are not the problem."
             )
           ]
         ),
@@ -676,23 +676,23 @@ Comparison (two works):
               "Which organizational plan best serves a comparison of Douglass's and Equiano's narratives on learning to read?",
               [
                 "Point-by-point: a paragraph on each writer's motive for literacy, then one on how each describes the cost of knowledge",
-                "A full plot summary of Douglass, then a full plot summary of Equiano, then \"both were important\"",
-                "A chronological list of every chapter in both books",
-                "A persuasive speech telling readers to value books, with no quotations"
+                "A full plot summary of Douglass, then a full plot summary of Equiano, then a sentence noting both were important",
+                "Chronological order of when each book was published",
+                "A paragraph on each author's biography, then one on their legacies"
               ],
               0,
-              "A shared analytic feature, treated in both texts, is comparison. Double summary and a slogan speech are not."
+              "Comparison treats a shared analytic feature in both texts. Back-to-back summaries, publication order, and biographies avoid analyzing the narratives themselves."
             ),
             check(
               "An essay argues that a story's cheerful narrator becomes less trustworthy after a quiet detail in paragraph 8. Which organization fits?",
               [
                 "Complexity: establish the cheerful voice, then the detail that undercuts it, then the effect on the reader",
-                "Problem-solution: how to fix the narrator",
-                "Chronological biography of the author only",
-                "Order of importance of unrelated themes from other books"
+                "Chronological summary of the story's events",
+                "Order of importance, starting with the narrator's most cheerful moment",
+                "Compare-contrast with a different unreliable narrator"
               ],
               0,
-              "A claim about a turn in reliability should follow that turn. Fixing the narrator or leaving the text are the wrong patterns."
+              "A claim about a turn in reliability should follow that turn. Summary skips the claim, ranking cheerful moments ignores the undercutting detail, and a second story changes the subject."
             )
           ]
         ),
@@ -749,12 +749,12 @@ Across works:
               "Which sentence best relates theme across Douglass's narrative and Sojourner Truth's speech without flattening them?",
               [
                 "Both insist that denied education or denied recognition is a tool of oppression, but Douglass traces a private literacy struggle while Truth turns the demand into a public refrain before a live audience.",
-                "Both are old texts, so they mean the same thing.",
-                "Both have words in them.",
-                "Truth copied Douglass's plot, so comparison is unnecessary."
+                "Both texts are about slavery and freedom.",
+                "Douglass and Truth both use first-person narration to describe their lives.",
+                "Both are persuasive, but Douglass writes a book while Truth gives a speech."
               ],
               0,
-              "A precise shared theme plus a difference in method is real relation. Sameness slogans and false copying claims are not."
+              "A precise shared theme plus a difference in method relates the texts without flattening them. A shared topic, a shared technique, and a difference in format do not state a theme."
             )
           ]
         )
@@ -805,12 +805,12 @@ Across works:
               "Prompt: write an explanatory article on how the lost-and-found is sorted. Which thesis is best?",
               [
                 "Staff sort items by type and date, hold them for two weeks, then donate unclaimed clothing on the last Friday of the month.",
-                "Lost-and-found is a metaphor for the human condition.",
-                "Students should never lose anything.",
+                "The lost-and-found shows how careless students have become.",
+                "Every school needs a well-organized lost-and-found.",
                 "I once lost a jacket and learned a lesson about love."
               ],
               0,
-              "The first sentence explains the system. Metaphor, scolding, and memoir belong to other modes."
+              "The first sentence explains the system. A judgment of students, a persuasive claim, and a memoir belong to other modes."
             ),
             check(
               "Prompt: analyze how point of view shapes a fable. Which thesis is weakest because it is in the wrong mode?",
@@ -867,23 +867,23 @@ Across works:
               "Which organizational pattern best fits a persuasive letter asking the PTA to fund a second water-bottle filler?",
               [
                 "Order of importance: health/wait-time data first, then cost, then a brief student example, then a fair cost objection and a rebuttal",
-                "In medias res starting with an unrelated locker-room scene",
-                "A complexity analysis of a sonnet",
-                "Chronological autobiography from birth"
+                "Chronological story of a day spent waiting at the water fountain",
+                "Cause-effect explaining why students get thirsty",
+                "Comparison of water-bottle filler brands"
               ],
               0,
-              "A funding ask should rank public reasons and handle cost. Narrative stunts and literary complexity are the wrong skeletons."
+              "A funding ask should rank public reasons and handle cost. A narrative, a science explanation, and a brand comparison are the wrong skeletons."
             ),
             check(
               "Prompt: explain why the glaze crawled in last week's firing. Which pattern is best?",
               [
                 "Cause-effect: dust on the bisque, then uneven thickness, therefore crawl",
-                "Call to action to fire the ceramics teacher",
-                "Comparison of two novels",
-                "Flashback to the writer's first birthday"
+                "Chronological narrative of the whole firing day",
+                "Compare-contrast of two glaze brands",
+                "Problem-solution proposing a new kiln"
               ],
               0,
-              "A why-explanation of a firing is cause-effect. Revenge, novels, and birthday scenes do not answer the question."
+              "A why-explanation of a firing defect is cause-effect. A day narrative buries the causes, a brand comparison answers another question, and a new kiln skips the explanation."
             )
           ]
         ),
@@ -926,23 +926,23 @@ Across works:
               "Which supporting detail best belongs in an analytical paragraph about Sojourner Truth's refrain?",
               [
                 "The repeated question \"Ain't I a woman?\" turns recognition into a public chant the audience must answer",
-                "A story about the writer's aunt",
-                "A statistic about modern crop yields with no link to the speech",
-                "A call to sell raffle tickets"
+                "The date and city where Truth gave the speech",
+                "A summary of Truth's life after the speech",
+                "A modern statistic on women's wages"
               ],
               0,
-              "Quoted refrain plus effect is analytical support. Family stories, random stats, and raffle asks belong elsewhere."
+              "A quoted line plus its effect is analytical support. Date, biography, and modern data can give context but do not analyze the refrain."
             ),
             check(
               "A persuasive paragraph arguing for a later start time uses only a description of fog on the bus windows. What is the main problem?",
               [
                 "It offers narrative atmosphere where policy evidence and reasons are required",
-                "Fog is never allowed in any writing",
-                "The paragraph quotes too much poetry",
-                "It uses too many framed statistics"
+                "It is too short",
+                "It uses too many statistics",
+                "It lacks a counterargument"
               ],
               0,
-              "A little atmosphere can illustrate, but a policy paragraph cannot run on weather description alone."
+              "Some atmosphere can illustrate, but a policy paragraph cannot run on weather description alone. It has no statistics, and while a counterargument could help, the main gap is evidence and reasons."
             )
           ]
         )
@@ -1005,11 +1005,11 @@ Board (public, evidence-forward): A labeled table would reduce exposure risk
               [
                 "I can write the procedure if you two log the temperatures.",
                 "One is inclined to commence the methodology section forthwith.",
-                "A legal brief attacking the lab partner's character",
-                "A sonnet about friendship with no task list"
+                "Hey, whatever you guys want is fine, I guess.",
+                "Please find attached a task allocation for your review."
               ],
               0,
-              "Peers still need clear tasks. Inflated formality, attacks, and poems miss the job."
+              "Peers still need clear tasks. Inflated formality, a shrug, and stiff office language miss the job."
             )
           ]
         ),
@@ -1051,12 +1051,12 @@ Board (public, evidence-forward): A labeled table would reduce exposure risk
               "A lab explanation says, <em>Turn the valve until the hiss is steady.</em> The topic is potentially dangerous. What is the tone?",
               [
                 "Direct and calm; danger is in the situation, not in panicky diction",
-                "Hysterical, because valves are always emotional",
-                "Comic, because the sentence is short",
-                "Romantic, because hissing appears in poetry"
+                "Urgent and alarmed, because the topic is dangerous",
+                "Casual, because the sentence is short",
+                "Cautious and hesitant, because it avoids details"
               ],
               0,
-              "Tone comes from how the writer speaks, not from the hazard itself. Short, clear instructions are a calm tone."
+              "Tone comes from how the writer speaks, not from the hazard itself. Short, clear instructions sound calm and direct, not alarmed, casual, or hesitant."
             ),
             check(
               "Which change would most damage a consistent wry narrative voice about a failed soufflé in culinary class?",
