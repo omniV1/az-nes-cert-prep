@@ -184,7 +184,7 @@ Opening the laptop, the screen froze. (illogical: the screen did not open it)</p
                 "Covered in glaze, placing the pottery on the drying rack."
               ],
               0,
-              "The word right after the comma must be what is covered in glaze. Only the pottery fits. The last choice is also a fragment."
+              "The word right after the comma must be what is covered in glaze. Only the pottery fits. The <em>placing the pottery</em> version is also a fragment."
             )
           ]
         )
@@ -428,7 +428,7 @@ Opening the laptop, the screen froze. (illogical: the screen did not open it)</p
                 "The clay was still wet; Lila carved her initials the letters sank."
               ],
               0,
-              "Cause-effect subordination is precise and grammatical. Choice B is a comma-splice chain; C is a floppy and-string; D fuses the last two clauses."
+              "Cause-effect subordination is precise and grammatical. The comma-only version is a comma-splice chain; the and-and version is a floppy and-string; the semicolon version fuses the last two clauses."
             ),
             check(
               "A writer wants to combine two equal, closely related independents. Which pattern is best?",

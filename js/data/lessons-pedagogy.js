@@ -431,7 +431,7 @@ window.LESSONS = Object.assign(window.LESSONS || {}, {
               "Give the whole class extra homework problems on calculating slope from tables, since that is the skill being tested"
             ],
             answer: 0,
-            explain: "The data shows two important things at once: the gap is isolated to a small subgroup (6 of 30) AND to a specific sub-skill (interpreting slope in context, not computing it). A whole-class reteach would waste time for the 24 who already show mastery, and reteaching computation specifically (the tempting last distractor) would not address the actual gap, which is about contextual interpretation."
+            explain: "The data shows two important things at once: the gap is isolated to a small subgroup (6 of 30) AND to a specific sub-skill (interpreting slope in context, not computing it). A whole-class reteach would waste time for the 24 who already show mastery, and assigning more slope-from-table computation practice (the tempting homework distractor) would not address the actual gap, which is about contextual interpretation."
           }
         ]
       }
@@ -531,7 +531,7 @@ window.LESSONS = Object.assign(window.LESSONS || {}, {
               "Direct instruction only, since the Pythagorean theorem is a fixed mathematical fact like the order of operations"
             ],
             answer: 0,
-            explain: "The objective's verb is \"explain why,\" targeting the underlying reasoning/relationship, not just applying a known formula -- this is a discoverable, reasoned relationship suited to guided inquiry with visual support. A pure lecture would fit an objective like \"state the theorem,\" and treating it like a fixed convention (the last distractor) ignores that the objective is specifically about the proof's reasoning, not rote application."
+            explain: "The objective's verb is \"explain why,\" targeting the underlying reasoning/relationship, not just applying a known formula -- this is a discoverable, reasoned relationship suited to guided inquiry with visual support. A pure lecture would fit an objective like \"state the theorem,\" and treating it like a fixed convention for direct instruction only (the order-of-operations distractor) ignores that the objective is specifically about the proof's reasoning, not rote application."
           }
         ]
       },
@@ -823,7 +823,7 @@ window.LESSONS = Object.assign(window.LESSONS || {}, {
               "Ignore it for now since the disruption has not yet affected the whole class"
             ],
             answer: 0,
-            explain: "The first, less-intrusive redirection already failed, and the behavior is now recruiting another student -- both signal a need to escalate, not repeat the same minimal step (option 2) or ignore it (option 4). A loud public reprimand (option 3) is more intrusive than necessary and risks public humiliation, which is not best practice; a firmer but still private, planned consequence is the proportional next step."
+            explain: "The first, less-intrusive redirection already failed, and the behavior is now recruiting another student -- both signal a need to escalate, not repeat the same quiet proximity cue or ignore it. A loud public reprimand is more intrusive than necessary and risks public humiliation, which is not best practice; a firmer but still private, planned consequence is the proportional next step."
           }
         ]
       },
@@ -1065,7 +1065,7 @@ window.LESSONS = Object.assign(window.LESSONS || {}, {
               "\"I would let the student skip the lecture portions entirely.\"",
             ],
             answer: 0,
-            explain: "Only the first option names a specific strategy, ties it to a principle, gives a concrete scenario-specific example, and explains why it works -- the full 4-part structure graders look for."
+            explain: "Only the hands-on, inquiry-based response names a specific strategy, ties it to a principle, gives a concrete scenario-specific example, and explains why it works -- the full 4-part structure graders look for."
           },
           {
             prompt: "For the SAME prompt (a student who disengages during independent practice but thrives in group discussion), compare two candidate responses: (A) \"I would use cooperative learning strategies like think-pair-share, since peer interaction supports engagement for socially-motivated learners, by pairing this student with a partner during independent work time, which keeps them engaged by leveraging their strength.\" (B) \"I would use more group work in my classroom because working with others is generally good for most students and can help with a variety of issues.\" Which response scores higher, and why does the other one fall short despite naming a similar strategy?",

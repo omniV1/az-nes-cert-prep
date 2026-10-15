@@ -3,7 +3,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"WR001", domain:"writing", title:"Narrative Opening", difficulty:"easy", tags:["narrative"], skillIds:["narrative-writing"],
     stem:"Which opening best begins a narrative with a specific scene rather than a vague summary?",
     choices:["This is a story about a time I learned something.","The gym doors slammed, and the scoreboard still showed 41–40 with twelve seconds left.","I have had many experiences in my life.","Sports are important to some people."], answer:1,
-    explanation:"Effective narratives drop readers into sensory action (in medias res or a concrete moment). A, C, and D announce or generalize instead of showing a scene." },
+    explanation:"Effective narratives drop readers into sensory action (in medias res or a concrete moment). {{opt:WR001-0}}, {{opt:WR001-2}}, and {{opt:WR001-3}} announce or generalize instead of showing a scene." },
 
   { id:"WR002", domain:"writing", title:"Expository Purpose", difficulty:"easy", tags:["expository"], skillIds:["expository-writing"],
     stem:"The primary purpose of an expository essay is to—",
@@ -153,7 +153,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"WR031", domain:"writing", title:"Dialogue Punctuation in Narrative", difficulty:"hard", tags:["narrative"], skillIds:["narrative-writing"],
     stem:"Which line correctly punctuates dialogue in a narrative?",
     choices:["Mom said go home.","\"Go home,\" Mom said.","\"Go home\" Mom said.","Mom said, Go home.\""], answer:1,
-    explanation:"American narrative style puts commas inside the quotation and attributes after. A has no marks; C omits the comma; D mismatches marks." },
+    explanation:"American narrative style puts commas inside the quotation and attributes after. {{opt:WR031-0}} has no marks; {{opt:WR031-2}} omits the comma; {{opt:WR031-3}} mismatches marks." },
 
   { id:"WR032", domain:"writing", title:"Sequence Words in How-To", difficulty:"hard", tags:["expository"], skillIds:["expository-writing"],
     stem:"A technical how-to for a bus pass should rely most on—",

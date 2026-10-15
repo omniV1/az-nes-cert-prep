@@ -116,6 +116,7 @@
   <script src="js/data/problems-english-oral.js"></script>
   <script src="js/data/problem-skills.js"></script>
   <script src="js/data/exams.js"></script>
+  <script src="js/quiz-core.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/progress-engine.js"></script>
   <script src="js/vault-sync.js"></script>
@@ -127,19 +128,6 @@
 
     let session = null;
     let tick = null;
-
-    function shuffledIndexes(length, key) {
-      const hash = value => {
-        let h = 2166136261;
-        for (const ch of value) {
-          h ^= ch.charCodeAt(0);
-          h = Math.imul(h, 16777619);
-        }
-        return h >>> 0;
-      };
-      return Array.from({ length }, (_, i) => i)
-        .sort((a, b) => hash(key + ":" + a) - hash(key + ":" + b));
-    }
 
     function fmt(sec) {
       const h = Math.floor(sec / 3600);
@@ -217,9 +205,10 @@
       session = {
         exam,
         items,
+        // answers[i] is the chosen option ID (null = blank), never a display letter or index
         answers: Array(items.length).fill(null),
-        choiceOrders: items.map((item, index) =>
-          shuffledIndexes(item.choices.length, exam.id + ":" + index + ":" + item.id)
+        optionOrders: items.map((item, index) =>
+          QuizCore.shuffleOptionIds(item, exam.id + ":" + index + ":" + item.id)
         ),
         index: 0,
         remaining: exam.minutes * 60
@@ -245,19 +234,18 @@
     function renderQuestion() {
       const i = session.index;
       const p = session.items[i];
-      const choiceOrder = session.choiceOrders[i];
+      const optionOrder = session.optionOrders[i];
       document.getElementById("qpos").textContent = `Question ${i + 1} of ${session.items.length}`;
       document.getElementById("qstem").innerHTML = (typeof stemHtml === "function" ? stemHtml(p) : `<div class="problem-stem">${p.stem}</div>`);
-      document.getElementById("qchoices").innerHTML = choiceOrder.map((originalIndex, displayIndex) => `
-        <label class="choice ${session.answers[i] === originalIndex ? "selected" : ""}">
-          <input type="radio" name="examans" value="${originalIndex}" ${session.answers[i] === originalIndex ? "checked" : ""} />
-          <span><strong>${String.fromCharCode(65 + displayIndex)}.</strong> ${p.choices[originalIndex]}</span>
+      document.getElementById("qchoices").innerHTML = optionOrder.map((optionId, displayIndex) => `
+        <label class="choice ${session.answers[i] === optionId ? "selected" : ""}">
+          <input type="radio" name="examans" value="${optionId}" ${session.answers[i] === optionId ? "checked" : ""} />
+          <span><strong>${QuizCore.letterAt(displayIndex)}.</strong> ${QuizCore.findOption(p, optionId).text}</span>
         </label>`).join("");
 
       document.querySelectorAll("#qchoices .choice").forEach(ch => {
         ch.onclick = () => {
-          const val = Number(ch.querySelector("input").value);
-          session.answers[i] = val;
+          session.answers[i] = ch.querySelector("input").value;
           renderQuestion();
         };
       });
@@ -285,13 +273,15 @@
 
     function finishExam() {
       clearInterval(tick);
-      const { exam, items, answers, choiceOrders } = session;
+      const { exam, items, answers, optionOrders } = session;
+      // Record every submission (right, wrong, or blank) before grading from that record.
+      const attemptItems = items.map((p, i) => QuizCore.buildAttemptItem(p, optionOrders[i], answers[i]));
       let correct = 0;
       const byDomain = {};
       const bySkill = {};
       const itemResults = [];
       items.forEach((p, i) => {
-        const ok = answers[i] === p.answer;
+        const ok = attemptItems[i].correct;
         if (ok) correct++;
         Progress.recordProblem(p.id, ok);
         byDomain[p.domain] = byDomain[p.domain] || { correct: 0, total: 0 };
@@ -303,7 +293,7 @@
           if (ok) bySkill[skillId].correct++;
           Progress.recordSkillAttempt(skillId, ok, "exam:" + exam.id);
         });
-        itemResults.push({ problemId: p.id, correct: ok, chosen: answers[i], skillIds: p.skillIds || [] });
+        itemResults.push({ problemId: p.id, correct: ok, chosenOptionId: attemptItems[i].chosenOptionId, skillIds: p.skillIds || [] });
       });
       Object.values(byDomain).forEach(v => { v.pct = Math.round(100 * v.correct / v.total); });
       Object.values(bySkill).forEach(v => { v.pct = Math.round(100 * v.correct / v.total); });
@@ -316,7 +306,8 @@
         total: items.length,
         percent,
         byDomain,
-        bySkill
+        bySkill,
+        items: attemptItems
       });
       if (exam.id === "math-diagnostic" || exam.id === "math-placement-short" ||
           exam.id === "ela-diagnostic" || exam.id === "ela-placement-short") {
@@ -340,12 +331,13 @@
           <h3>Review</h3>
           <div class="grid" style="gap:0.75rem">
             ${items.map((p, i) => {
-              const ok = answers[i] === p.answer;
+              const r = QuizCore.describeAttemptItem(p, attemptItems[i]);
+              const ok = r.correct;
               return `<div style="border:1px solid var(--line);border-radius:12px;padding:0.75rem 0.9rem">
                 <div class="tag-row"><span class="chip">${p.id}</span><span class="chip ${ok ? "done" : "hard"}">${ok ? "correct" : "missed"}</span></div>
                 <div style="margin:0.35rem 0">${typeof stemHtml === "function" ? stemHtml(p) : p.stem}</div>
-                <div class="muted">Your answer: ${answers[i] == null ? "—" : String.fromCharCode(65 + choiceOrders[i].indexOf(answers[i]))} · Key: ${String.fromCharCode(65 + choiceOrders[i].indexOf(p.answer))}</div>
-                <div class="explanation">${p.explanation}</div>
+                <div class="muted">Your answer: ${r.blank ? "—" : r.yourLetter} · Key: ${r.keyLetter}</div>
+                <div class="explanation">${r.explanation}</div>
               </div>`;
             }).join("")}
           </div>
