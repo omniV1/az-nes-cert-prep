@@ -49,17 +49,17 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id: "EG010", domain: "writing", title: "Ad populum vs data", difficulty: "hard", tags: ["fallacies"], skillIds: ["persuasive-writing", "rhetorical-appeals"],
     stem: "Which closing is logically stronger for a board memo?",
     choices: [
-      "Everyone who matters already agrees, so vote yes.",
-      "Here are three years of leak counts, repair bids, and a one-year pilot metric we will publish.",
-      "Opponents are cowards.",
-      "If you vote no, you hate this town."
+      "Every board member I spoke with already supports the repair, so tonight's vote should be a formality.",
+      "Three years of leak counts and two repair bids show patching now costs more than replacing.",
+      "Our school deserves a roof as strong as the students who learn under it.",
+      "Delaying again would repeat the mistake the board made with the gym floor."
     ],
-    answer: 1, explanation: "Checkable evidence beats popularity, insult, and moral blackmail." },
+    answer: 1, explanation: "Checkable evidence (leak counts, bids, a cost comparison) is the logically strongest close. Agreement among members is bandwagon, the roof-and-students line is an emotional slogan, and the gym-floor comparison asserts a past mistake without showing it applies." },
 
   { id: "EG011", domain: "reading", title: "Semantic change — nice", difficulty: "medium", tags: ["etymology", "dialect"], skillIds: ["word-origins"],
     stem: "Historically nice could mean “foolish” or “fastidious” before “pleasant.” This is an example of—",
-    choices: ["semantic change (a word’s meaning shifting over time)", "narrowing: a broader meaning becoming more specific", "dialect: a regional variety treated as the whole history of the word", "register: a one-audience formality shift, not a historical meaning change"],
-    answer: 0, explanation: "Meanings drift. NES 0001 / Field 02 language-change items test that habit, not a single year." },
+    choices: ["semantic change (a word's meaning shifting over time)", "narrowing (a broad meaning becoming more specific)", "dialect (a regional variety of a language)", "register (formality suited to an audience)"],
+    answer: 0, explanation: "Nice moved from foolish to fastidious to pleasant, so its meaning shifted over time: semantic change. Narrowing would mean a broad sense became more specific, which is not what happened. Dialect and register describe variation between speakers or situations, not change across centuries." },
 
   { id: "EG012", domain: "reading", title: "Semantic narrowing — meat", difficulty: "medium", tags: ["etymology"], skillIds: ["word-origins"],
     stem: "Old English mete meant food in general; modern meat is usually animal flesh. The change is—",
@@ -68,38 +68,38 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id: "EG013", domain: "reading", title: "Amelioration — knight", difficulty: "medium", tags: ["etymology"], skillIds: ["word-origins"],
     stem: "Knight once meant a youth or servant and later a ranked mounted warrior. That rise in status-meaning is—",
-    choices: ["amelioration", "pejoration: a fall in status-meaning", "narrowing: a broader sense becoming more specific with no status rise", "broadening: a specific sense becoming more general"],
-    answer: 0, explanation: "Amelioration = meaning becomes more positive or higher-status. Pejoration is the opposite." },
+    choices: ["amelioration", "pejoration", "narrowing", "broadening"],
+    answer: 0, explanation: "Amelioration means a word's meaning rises in status or becomes more positive: a servant boy became a ranked warrior. Pejoration is the opposite fall. Narrowing and broadening describe how wide a meaning is, not whether its status rose." },
 
   { id: "EG014", domain: "reading", title: "Pejoration — villain", difficulty: "medium", tags: ["etymology"], skillIds: ["word-origins"],
     stem: "Villain once related to a farm worker and now names a wicked character. This is—",
-    choices: ["pejoration (meaning becomes more negative)", "amelioration: a rise in status-meaning", "narrowing: farm worker becoming a more specific job title only", "broadening: a specific sense becoming more general"],
-    answer: 0, explanation: "Status/moral fall in the word’s usual sense." },
+    choices: ["pejoration", "amelioration", "narrowing", "broadening"],
+    answer: 0, explanation: "Villain fell from a farm worker to a wicked character, a drop in status and moral standing: pejoration. Amelioration is a rise. Narrowing and broadening describe the range of a meaning, not its status." },
 
   { id: "EG015", domain: "reading", title: "Dialect vs error", difficulty: "hard", tags: ["dialect"], skillIds: ["word-origins", "grammar-usage"],
     stem: "A literary narrator writes, “He don’t never come by here.” On an NES item about dialect in literature, the best first move is to—",
     choices: [
-      "treat it only as a student grammar error to “fix” before reading meaning",
-      "ask what the nonstandard pattern is doing (voice, region, character) rather than only marking it wrong",
-      "read it as a register mismatch to a formal audience, ignoring literary voice",
-      "read it as semantic change (a word’s historical meaning shift) rather than a dialect pattern"
+      "mark it as a usage error the writer should correct",
+      "ask what the nonstandard pattern shows about voice, region, or character",
+      "treat it as a register error, since the narrator is not using formal English",
+      "read it as an example of semantic change in the word never"
     ],
-    answer: 1, explanation: "Field 02 / NES literature items treat dialect as a feature of voice and culture, not only as a worksheet error. Usage items in a student-draft context are a different game." },
+    answer: 1, explanation: "In literature, dialect is a choice that builds voice and culture, so the first move is to ask what it does. Correcting it treats a character's speech like a student draft. Register is about matching formality to an audience, which is not the issue in a character's voice, and no word's meaning is changing over time here." },
 
   { id: "EG016", domain: "reading", title: "Register", difficulty: "easy", tags: ["dialect", "style"], skillIds: ["style-audience", "word-origins"],
     stem: "A job application that says “gonna crush this gig lol” is weak primarily because of—",
-    choices: ["register: informal slang mismatches a formal civic/employment audience", "dialect: a regional grammar pattern rather than an audience-formality mismatch", "semantic narrowing: a word’s meaning becoming more specific over centuries", "pejoration: a historical fall in a word’s status-meaning"],
-    answer: 0, explanation: "Audience controls diction. The content may even be confident; the register is wrong." },
+    choices: ["register: slang that does not suit a job application", "dialect: a regional variety of English", "jargon: specialized vocabulary from a single field", "concision: the sentence is too short to be complete"],
+    answer: 0, explanation: "Audience controls diction: gonna, gig, and lol are informal slang in a formal setting, a register mismatch. They are not regional dialect features or specialized jargon, and the sentence is not weak because it is short." },
 
   { id: "EG017", domain: "reading", title: "Borrowing", difficulty: "easy", tags: ["etymology"], skillIds: ["word-origins"],
     stem: "Piano, soprano, and soprano’s cousin alto in music vocabulary are historically—",
-    choices: ["borrowings from Italian arts vocabulary", "coinages invented inside English with no loan source", "semantic narrowing of native English music words", "dialect variants of the same native English roots"],
-    answer: 0, explanation: "English constantly borrows. Music terms from Italian are a standard example." },
+    choices: ["borrowings from Italian", "borrowings from French", "coinages invented in English", "native English words that narrowed in meaning"],
+    answer: 0, explanation: "Piano, soprano, and alto came into English from Italian, the source of much musical vocabulary. They did not come through French, they were not invented in English, and they are not native English words." },
 
   { id: "EG018", domain: "reading", title: "Coinage vs shift", difficulty: "medium", tags: ["etymology"], skillIds: ["word-origins"],
     stem: "A company invents the trademarked name of a new gadget; a century later the word is used generically for any similar device. The second stage is—",
-    choices: ["genericization (a brand becomes a common noun), a kind of semantic change", "coinage only: the trademark naming event, stopping before the later generic use", "borrowing from another language rather than a brand becoming a common noun", "narrowing: a general device name becoming a single trademark"],
-    answer: 0, explanation: "Aspirin-style drift. Distinct from the original coinage event." },
+    choices: ["genericization: a brand name becomes a common noun", "coinage: a new word is invented", "borrowing: a word is taken from another language", "narrowing: a broad meaning becomes more specific"],
+    answer: 0, explanation: "A trademark used for any similar device has become a common noun: genericization, a kind of semantic change (as with aspirin). Coinage describes the first stage, when the name was invented. Nothing was borrowed from another language, and the meaning grew broader, not narrower." },
 
   { id: "EG019", domain: "literature", title: "Classical epic habit", difficulty: "medium", tags: ["periods"], skillIds: ["literary-periods", "world-literature"],
     stem: "An opening that calls on a muse, names a wandering hero, and starts mid-story is most characteristic of—",
@@ -108,145 +108,145 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id: "EG020", domain: "literature", title: "Medieval romance habit", difficulty: "medium", tags: ["periods"], skillIds: ["literary-periods"],
     stem: "A questing knight, a courtly love test, and marvels alongside Christian symbols most nearly signal—",
-    choices: ["medieval romance", "classical epic (muse invocation and in medias res wanderer)", "English Renaissance tragedy (public blank verse and asides)", "Naturalism (determinism of heredity and industry)"],
-    answer: 0, explanation: "Arthurian/romance furniture. Not Dreiser or Pound’s single image." },
+    choices: ["medieval romance", "classical epic", "Gothic novel", "Renaissance pastoral"],
+    answer: 0, explanation: "A questing knight, a test of courtly love, and marvels set among Christian symbols are the furniture of medieval romance (Arthurian tales such as Sir Gawain). Classical epic invokes a muse and centers a war or homecoming, the Gothic novel builds dread in a threatened space, and pastoral idealizes rural shepherd life." },
 
   { id: "EG021", domain: "literature", title: "Renaissance drama habit", difficulty: "medium", tags: ["periods"], skillIds: ["literary-periods", "prose-drama-analysis"],
     stem: "Blank-verse public speech, a tragic fall, and asides to the audience are most at home in—",
-    choices: ["English Renaissance tragedy (Shakespearean toolkit)", "medieval romance (questing knight and marvels)", "British Romantic lyric (solitary nature-memory)", "American Transcendentalism (intuition and self-reliance essays)"],
-    answer: 0, explanation: "Stage, verse, aside, fall. Not medieval romance, Romantic nature-memory, or Emerson’s woods." },
+    choices: ["English Renaissance tragedy", "medieval romance", "Restoration comedy of manners", "Greek tragedy"],
+    answer: 0, explanation: "Blank verse, a tragic fall, and asides to the audience together point to English Renaissance tragedy (Shakespeare, Marlowe). Greek tragedy has a fall but no English blank verse and uses a chorus rather than asides. Restoration comedy uses asides but ends in marriage, not a fall, and medieval romance is narrative, not drama." },
 
   { id: "EG022", domain: "literature", title: "Enlightenment habit", difficulty: "easy", tags: ["periods"], skillIds: ["literary-periods"],
     stem: "Public reason, satire of institutions, and social-contract argument (Paine, Swift, Popean couplets) characterize—",
-    choices: ["Enlightenment / neoclassical writing", "British Romantic lyric (solitary feeling in nature)", "American Realism (ordinary class and money)", "medieval romance (courtly quest and marvels)"],
-    answer: 0, explanation: "Reason and public satire, not Wordsworth’s inward eye as the definition." },
+    choices: ["Enlightenment / neoclassical writing", "British Romanticism", "American Realism", "Modernism"],
+    answer: 0, explanation: "Public reason, satire of institutions, and social-contract argument mark the Enlightenment (Paine, Swift, Pope). Romanticism turns inward to feeling and nature, Realism portrays ordinary social life, and Modernism fragments form." },
 
   { id: "EG023", domain: "literature", title: "Romantic habit", difficulty: "easy", tags: ["periods"], skillIds: ["literary-periods"],
     stem: "A solitary speaker restored by a natural scene stored in memory is a hallmark of—",
-    choices: ["British Romantic lyric", "Enlightenment / neoclassical satire and public reason", "Realism’s ordinary social cause and class detail", "Naturalism’s grim industrial determinism"],
-    answer: 0, explanation: "Wordsworthian pattern. Augustan satire and documentary wages are other toolkits." },
+    choices: ["British Romanticism", "Enlightenment / neoclassical writing", "Realism", "Modernism"],
+    answer: 0, explanation: "A solitary speaker restored by a remembered natural scene is the Wordsworthian Romantic pattern (Tintern Abbey, I wandered lonely as a cloud). The Enlightenment favors public reason and satire, Realism ordinary social life, and Modernism fragmented form." },
 
   { id: "EG024", domain: "literature", title: "Realism habit", difficulty: "easy", tags: ["periods"], skillIds: ["literary-periods"],
     stem: "Ordinary money, class, and probable social cause (rather than sublime nature) most nearly mark—",
-    choices: ["Realism", "British Romantic lyric (sublime nature and solitary self)", "Naturalism (heredity and chance crushing characters)", "Modernism (fragmented time and broken narration)"],
-    answer: 0, explanation: "Austen-to-Eliot-to-Twain social world. Romantic sublime, Naturalist determinism, and Modernist fracture are other period habits." },
+    choices: ["Realism", "Romanticism", "Gothic fiction", "Modernism"],
+    answer: 0, explanation: "Ordinary money, class, and plausible social causes are Realism's subject (Austen, George Eliot, Twain). Romanticism seeks the sublime in nature, Gothic fiction builds dread, and Modernism breaks narrative form." },
 
   { id: "EG025", domain: "literature", title: "Naturalism habit", difficulty: "medium", tags: ["periods"], skillIds: ["literary-periods"],
     stem: "Characters crushed by heredity, industry, and chance, narrated with grim determinism, best fits—",
-    choices: ["Naturalism (a harder-edged heir of Realism)", "Realism (ordinary social cause without grim determinism as the rule)", "American Transcendentalism (intuition and self-trust)", "British Romantic lyric (restorative nature and imagination)"],
-    answer: 0, explanation: "Determinism + social forces. Emerson’s self-trust is the opposite mood." },
+    choices: ["Naturalism", "Realism", "Romanticism", "Transcendentalism"],
+    answer: 0, explanation: "Characters crushed by heredity, industry, and chance, told with grim determinism, define Naturalism (Crane, Dreiser), a harder-edged heir of Realism. Realism shows ordinary life without making determinism the rule, while Romanticism and Transcendentalism trust imagination and the self." },
 
   { id: "EG026", domain: "literature", title: "Modernism habit", difficulty: "easy", tags: ["periods"], skillIds: ["literary-periods"],
     stem: "Fragmented form, broken time, and distrust of a single smooth narrator most nearly mark—",
-    choices: ["Modernism", "Enlightenment / neoclassical couplet order and public reason", "Realism’s probable social cause and ordinary speech", "the Harlem Renaissance as a jazz-cadence project only"],
-    answer: 0, explanation: "Make it new / make it broken. Not Pope’s balance, Realist social cause, or Harlem Renaissance self-definition as the whole cluster." },
+    choices: ["Modernism", "Realism", "Naturalism", "Romanticism"],
+    answer: 0, explanation: "Fragmented form, broken time, and distrust of a single smooth narrator are Modernist signatures (Woolf, Faulkner, Eliot). Realism and Naturalism rely on a steady narrator and chronological cause, and Romanticism centers a unified, feeling self." },
 
   { id: "EG027", domain: "literature", title: "Harlem Renaissance habit", difficulty: "easy", tags: ["periods"], skillIds: ["literary-periods"],
     stem: "Modern Black artistic self-definition using both vernacular and high form (sonnet, blues cadence, diasporic history) is a defining habit of—",
-    choices: ["the Harlem Renaissance", "Modernism (broken chronology without that Black-arts self-definition project)", "American Transcendentalism (nature and self-reliance essays)", "Enlightenment / Augustan mock-epic satire"],
-    answer: 0, explanation: "The movement claims the full toolkit, not a ban on form." },
+    choices: ["the Harlem Renaissance", "Modernism", "Realism", "Transcendentalism"],
+    answer: 0, explanation: "Black artistic self-definition that claims both vernacular (blues, spirituals) and high forms (McKay's sonnets) defines the Harlem Renaissance. It overlaps Modernism in time, but Modernism alone does not name that project. Realism and Transcendentalism belong to the nineteenth century." },
 
   { id: "EG028", domain: "literature", title: "Transcendentalism habit", difficulty: "easy", tags: ["periods"], skillIds: ["literary-periods"],
     stem: "Intuition over stale custom, the self in nature, and “trust thyself” rhetoric characterize—",
-    choices: ["American Transcendentalism", "Naturalism (characters crushed by heredity and chance)", "British Romantic lyric as imported English nature-feeling only", "American Realism (wages and probable social cause)"],
-    answer: 0, explanation: "Emerson/Thoreau habit. Naturalism denies that freedom; Romantic nature-feeling and Realist wages are other toolkits." },
+    choices: ["American Transcendentalism", "Puritan plain style", "Naturalism", "Realism"],
+    answer: 0, explanation: "Intuition over custom, the self in nature, and trust thyself are Emerson and Thoreau: American Transcendentalism. Puritan writing submits the self to scripture and community, Naturalism denies that freedom, and Realism records ordinary social life." },
 
   { id: "EG029", domain: "literature", title: "Gothic habit", difficulty: "easy", tags: ["periods"], skillIds: ["literary-periods"],
     stem: "Gloom, a threatened interior, and psychological dread (Poe; later Gothic houses) most nearly signal—",
-    choices: ["Gothic atmosphere", "Enlightenment optimism and public reason", "British Romantic restorative nature lyric", "Realism’s ordinary probable social cause"],
-    answer: 0, explanation: "Mood and threatened space, not Enlightenment optimism, Romantic restoration, or Realist social cause." },
+    choices: ["Gothic", "Enlightenment satire", "Realism", "Transcendentalism"],
+    answer: 0, explanation: "Gloom, a threatened interior, and psychological dread are Gothic atmosphere (Poe, Shirley Jackson). Enlightenment satire is public and rational, Realism keeps to ordinary probable life, and Transcendentalism is hopeful about the self and nature." },
 
   { id: "EG030", domain: "literature", title: "Period trap", difficulty: "hard", tags: ["periods", "traps"], skillIds: ["literary-periods"],
     stem: "The weakest study habit for NES period items is—",
     choices: [
-      "learning each movement’s artistic problem and a public-domain example",
-      "memorizing spouses and exact birthdays instead of characteristic style",
-      "contrasting Romantic nature-self with Realist social cause",
-      "noticing when a passage is satire rather than sincere policy"
+      "learning each movement's characteristic concerns with a public-domain example",
+      "memorizing authors' birth dates and spouses",
+      "contrasting Romantic nature-feeling with Realist social detail",
+      "noticing when a passage is satire rather than sincere argument"
     ],
-    answer: 1, explanation: "The exam asks habits, not trivia lists. {{opt:EG030-0}}, {{opt:EG030-2}}, and {{opt:EG030-3}} are the useful moves." },
+    answer: 1, explanation: "Period items test style and concerns, not trivia. Birth dates and spouses do not help you identify a passage. The other three habits are exactly what the items reward." },
 
   { id: "EG031", domain: "reading", title: "Job posting — must vs prefer", difficulty: "hard", tags: ["technical", "workplace"], skillIds: ["technical-texts"],
     passage: "LIBRARY AIDE (part-time). Required: 16 years of age; ability to lift 20 lb; Saturday 9–1 availability. Preferred: Spanish; prior cash-register work. Apply by the 15th with a one-page availability grid. Incomplete grids will not be reviewed. The posting is not a contract; hiring depends on a background check.",
     stem: "A 17-year-old who can lift 20 lb, is free Saturdays, and submits a complete grid but has no Spanish and no register experience is—",
     choices: [
-      "automatically disqualified",
-      "eligible on required items; preferred items are not automatic rejects",
-      "already hired because the posting is a contract",
-      "required to speak Spanish by the word Required"
+      "ineligible, because Spanish appears in the posting's list of skills",
+      "eligible: every required item is met; preferred ones are optional",
+      "ineligible, because applicants must be 18 to handle cash",
+      "eligible only if a manager waives the Saturday requirement"
     ],
-    answer: 1, explanation: "Required vs preferred is the functional-text move. The posting says it is not a contract." },
+    answer: 1, explanation: "The applicant meets every Required item: age 16 or older, lifting 20 lb, Saturday availability, and a complete grid. Spanish and register work are only Preferred, so lacking them is not disqualifying. The posting sets the age at 16, not 18, and the applicant is already free on Saturdays." },
 
   { id: "EG032", domain: "reading", title: "Job posting — deadline", difficulty: "medium", tags: ["technical", "workplace"], skillIds: ["technical-texts"],
     passage: "LIBRARY AIDE (part-time). Required: 16 years of age; ability to lift 20 lb; Saturday 9–1 availability. Preferred: Spanish; prior cash-register work. Apply by the 15th with a one-page availability grid. Incomplete grids will not be reviewed. The posting is not a contract; hiring depends on a background check.",
     stem: "An otherwise complete application arriving on the 16th without a grid should be—",
     choices: [
-      "reviewed because preferred skills are strong",
-      "not reviewed: late and incomplete both fail stated gates",
-      "treated as a signed contract",
-      "held for review because Required items were met even though the grid is missing"
+      "reviewed, because all required personal qualifications are met",
+      "not reviewed: it is late and missing the required grid",
+      "reviewed if the preferred skills are strong",
+      "held until the grid arrives, since the deadline is only a guideline"
     ],
-    answer: 1, explanation: "By the 15th + incomplete grids will not be reviewed. Preferred skills do not reopen the gate." },
+    answer: 1, explanation: "The posting sets two gates: apply by the 15th, and incomplete grids will not be reviewed. This application fails both. Meeting the personal requirements or having preferred skills does not reopen either gate, and the posting gives no grace period." },
 
   { id: "EG033", domain: "reading", title: "Evacuation card — sequence", difficulty: "hard", tags: ["technical", "workplace"], skillIds: ["technical-texts"],
     passage: "IF YOU SMELL GAS: (1) Do not switch lights. (2) Leave the door open as you exit. (3) Call the utility from outside. (4) Do not re-enter until a utility tech says the line is clear. A text to a neighbor is not a substitute for step 3.",
     stem: "A resident who flips a light on to “see the stove,” then texts a neighbor from the kitchen, has—",
     choices: [
-      "followed the card in order",
-      "violated step 1 and substituted a text for the required outside call",
-      "completed step 4",
-      "satisfied step 3 by notifying any person, not the utility from outside"
+      "followed steps 1 through 3 in order",
+      "violated step 1 and replaced the outside call with a text",
+      "violated only step 4 by staying in the kitchen",
+      "satisfied step 3, since the neighbor can then call the utility for them"
     ],
-    answer: 1, explanation: "Lights are forbidden first; the call must be from outside to the utility, not a kitchen text." },
+    answer: 1, explanation: "Flipping a light breaks step 1. Step 3 requires calling the utility from outside, and the card says a text to a neighbor is not a substitute. Step 4 is about re-entering, which has not happened yet." },
 
   { id: "EG034", domain: "reading", title: "Benefits table — inference", difficulty: "hard", tags: ["graphics", "workplace"], skillIds: ["text-graphics", "technical-texts"],
     passage: "Plan     Monthly premium   Deductible   Specialist copay\nA        $0                $2,000       $80\nB        $120              $500         $40\nC        $40               $1,000       $40\nNote: Plan A is free only if you use the in-network clinic list. Out-of-network claims are denied.",
     stem: "A worker who needs frequent specialists and can pay $120/month would most reasonably compare—",
     choices: [
-      "only the $0 premium and ignore copays",
-      "Plan B’s higher premium against its lower deductible and copay, and still read the in-network note if considering A",
-      "Plan C as having a $0 premium",
-      "the table as proof that all claims are always paid"
+      "Plan A, because a $0 premium saves $1,440 a year",
+      "Plan B's higher premium against its lower deductible and copay",
+      "Plan C, because its premium and deductible are both the lowest",
+      "Plan A's $0 premium against its $80 copay, ignoring the network note"
     ],
-    answer: 1, explanation: "Graphics items punish reading one column. A’s $0 is conditional. C is $40, not $0. Denied out-of-network is in the note." },
+    answer: 1, explanation: "Frequent specialist visits make the deductible and copay matter, so the worker should weigh Plan B's $120 premium against its $500 deductible and $40 copay. Plan A's $0 premium comes with an $80 copay and only if the worker stays in network, and Plan C has neither the lowest premium nor the lowest deductible." },
 
   { id: "EG035", domain: "oral", title: "Parliamentary basics", difficulty: "medium", tags: ["discussion"], skillIds: ["group-discussion"],
     stem: "In a formal club meeting, a member who wants to end debate and vote should most properly—",
     choices: [
-      "move to table the motion indefinitely without a vote on the pending question",
-      "move to call the question (or the group’s equivalent close-debate motion) rather than talk over people",
-      "move to adjourn in order to skip the pending question without a vote",
-      "raise a point of personal privilege as a substitute for closing debate"
+      "move to table the motion",
+      "move the previous question (call the question)",
+      "move to adjourn",
+      "raise a point of order"
     ],
-    answer: 1, explanation: "Field 02 discussion items include basic parliamentary courtesy: a motion to close debate, not tabling, adjourning, or a privilege point as a substitute." },
+    answer: 1, explanation: "Moving the previous question (calling the question) is the motion that closes debate and brings the pending motion to a vote. Tabling sets the motion aside, adjourning ends the meeting, and a point of order flags a rules violation." },
 
   { id: "EG036", domain: "oral", title: "Evaluating a speaker", difficulty: "medium", tags: ["listening"], skillIds: ["listening-speaking", "speech-craft"],
     stem: "A speaker cites one unnamed “expert” and never defines the policy ask. The fairest evaluation is that the speech is weak in—",
-    choices: ["named evidence and a clear purpose", "volume and pacing as the main defect", "eye contact as the only missing skill", "complete sentences as the sole missing feature"],
-    answer: 0, explanation: "Analysis of a speech: claim, support, ask. Volume and grammar may be fine." },
+    choices: ["named evidence and a clear purpose", "delivery, since the speaker's pacing was uneven", "organization, since the speech had no preview", "audience analysis, since the speaker used jargon"],
+    answer: 0, explanation: "The stated problems are an unnamed expert (weak evidence) and an undefined ask (unclear purpose). Nothing in the description mentions pacing, a preview, or jargon, so those judgments go beyond the evidence." },
 
   { id: "EG037", domain: "oral", title: "Visual aid ethics", difficulty: "medium", tags: ["ethics"], skillIds: ["presentation-ethics", "media-analysis"],
     stem: "A student crops a photo to hide protest signs, then captions it “unanimous support.” The ethical problem is—",
-    choices: ["selection and caption that falsify the scene’s disagreement", "cropping for length while the caption still reports the disagreement", "fair use deleting all captions automatically", "naming the photographer while the crop and caption still hide dissent"],
-    answer: 0, explanation: "Crop + caption can manufacture consensus. Attribution or fair-use talk does not repair a falsified scene." },
+    choices: ["selection and caption that misrepresent the scene", "publishing protesters without their written consent", "failing to credit the photographer", "a caption too short to give context"],
+    answer: 0, explanation: "Cropping out the signs and captioning the scene unanimous support together manufacture a consensus that did not exist. Credit and consent matter in other cases, but they are not the problem here, and the caption is misleading, not merely short." },
 
   { id: "EG038", domain: "language", title: "MLA vs APA signal", difficulty: "medium", tags: ["research"], skillIds: ["research-citation"],
     stem: "A paper uses (Ruiz 42) after a quotation and a works-cited page of author-first entries. That pattern is—",
-    choices: ["MLA-style author-page citation", "APA-style author-year as the only legal form worldwide", "Chicago-style footnotes as the only pattern shown", "common knowledge that needs no source"],
-    answer: 0, explanation: "MLA: author page. APA typically uses year. NES asks you to recognize a consistent academic pattern, not to litigate every handbook." },
+    choices: ["MLA author-page citation", "APA author-date citation", "Chicago notes-bibliography citation", "a signal phrase with no parenthetical"],
+    answer: 0, explanation: "(Ruiz 42) gives author and page with no comma or year, and the works-cited page lists authors first: MLA. APA would include the year (Ruiz, 2021, p. 42), Chicago notes-bibliography uses footnotes, and this citation is parenthetical, not a signal phrase." },
 
   { id: "EG039", domain: "language", title: "Open vs closed question", difficulty: "easy", tags: ["research"], skillIds: ["research-citation"],
     stem: "Which is the better open-ended research question?",
     choices: [
       "Did it rain in Phoenix on 12 July 2024?",
-      "How did the 2024 monsoon alert system affect first-hour evacuation in two ridge neighborhoods, and what limited the data?",
-      "Is water wet?",
-      "Who is your favorite celebrity?"
+      "How did the 2024 monsoon alert system affect evacuation times in two ridge neighborhoods?",
+      "What is the history of weather in Arizona?",
+      "Should Phoenix spend more money on weather alerts?"
     ],
-    answer: 1, explanation: "Open, bounded, and researchable. {{opt:EG039-0}} and {{opt:EG039-2}} are closed or trivial; {{opt:EG039-3}} is preference." },
+    answer: 1, explanation: "A strong research question is open, focused, and answerable with evidence. The rain question is a yes/no fact check, the history question is too broad to research well, and the spending question asks for an opinion more than an investigation." },
 
   { id: "EG040", domain: "literature", title: "Haiku vs sonnet", difficulty: "easy", tags: ["poetry"], skillIds: ["poetry-forms"],
     stem: "A three-line image poem with a seasonal cut, historically 5-7-5 in Japanese count, is a—",
-    choices: ["haiku (or haiku-influenced form)", "Shakespearean sonnet", "villanelle", "epic invocation"],
-    answer: 0, explanation: "14-line sonnet, 19-line villanelle, muse-opening epic are other forms." }
+    choices: ["haiku", "tanka", "cinquain", "limerick"],
+    answer: 0, explanation: "Three lines, a seasonal image, and a 5-7-5 count in Japanese mark the haiku. A tanka adds two more lines (5-7-5-7-7), a cinquain has five lines, and a limerick has five rhymed comic lines." }
 ]);

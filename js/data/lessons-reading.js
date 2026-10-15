@@ -80,7 +80,7 @@
           "Treating any related word as a synonym. Antonyms oppose; homonyms collide in form; a near-synonym with the wrong charge will still be the wrong MCQ choice.",
           [
             check("Which word has the most negative connotation for someone who spends little money?", ["Thrifty", "Frugal", "Economical", "Stingy"], 3, "The first three can praise careful spending. Stingy adds meanness."),
-            check("In &ldquo;The angler reeled in a bass, then went home to practice bass guitar,&rdquo; bass and bass are:", ["antonyms", "synonyms with identical connotation", "homonyms with different denotations", "borrowings from two different modern slang terms"], 2, "Same spelling, unrelated meanings (a fish and a low-pitched instrument), and here even different pronunciations. That makes them homonyms (more precisely, homographs), not synonyms.")
+            check("In &ldquo;The angler reeled in a bass, then went home to practice bass guitar,&rdquo; bass and bass are:", ["antonyms", "synonyms with identical connotation", "homonyms with different denotations", "a word and its figurative extension"], 2, "Same spelling, unrelated meanings (a fish and a low-pitched instrument), and here even different pronunciations: homonyms (more precisely, homographs). They are not antonyms or synonyms, and the instrument sense did not grow figuratively out of the fish.")
           ]
         ),
         section(
@@ -117,7 +117,7 @@
           "Using the same reading ritual for every text. Skimming a warranty for headings is wise; skimming a sonnet for headings is not. Also, do not confuse a borrowing with a word that merely looks foreign.",
           [
             check("Which pair acquired new specialized meanings because of a scientific field rather than everyday technology?", ["Mouse and cloud", "Broadcast and screen", "Introvert and inhibition", "Sedan and coupe"], 2, "Psychology specialized introvert and inhibition. Mouse/cloud and broadcast/screen are technology senses; sedan/coupe are vehicle types."),
-            check("Before reading a dense textbook chapter on plate tectonics, the most useful move is to:", ["Memorize the glossary in isolation", "Preview headings, captions, and the end-of-section questions", "Write a theme statement as if the chapter were a short story", "Skip graphics so they do not bias the prose"], 1, "Before-reading preview of structure and graphics sets a purpose. Theme statements belong to literature; skipping graphics discards evidence.")
+            check("Before reading a dense textbook chapter on plate tectonics, the most useful move is to:", ["Memorize the glossary in isolation", "Preview headings, captions, and the end-of-section questions", "Read the chapter summary only and skip the body", "Skip graphics so they do not bias the prose"], 1, "Previewing headings, captions, and questions before reading sets a purpose. Memorizing a glossary in isolation, reading only the summary, and skipping graphics all throw away the chapter's structure.")
           ]
         )
       ]
@@ -162,7 +162,7 @@
           "Assuming any article with facts is a textbook, or that a webzine cannot be informational because it has voice. Voice does not automatically make a text persuasive.",
           [
             check("Which feature most clearly marks a textbook rather than a newspaper story?", ["A date line and quotations from witnesses", "Chapter objectives, worked examples, and review questions", "A one-sentence definition and a list of related entries", "A timestamp showing the page was updated this morning"], 1, "Objectives and review questions serve instruction. Date lines serve news; definitions serve encyclopedias; timestamps serve frequently updated web content."),
-            check("An informational webzine article is most unlike an encyclopedia entry in that it typically:", ["Contains no facts", "May use a magazine voice and be revised as events change", "Cannot include graphics", "Must open with a dictionary definition"], 1, "Both can inform. The webzine's voice and update cycle are the distinctive marks.")
+            check("An informational webzine article is most unlike an encyclopedia entry in that it typically:", ["Is written by experts while encyclopedias are not", "May use a magazine voice and be revised as events change", "Relies on graphics more than text", "Is organized alphabetically by topic"], 1, "Both can inform. The webzine's magazine voice and update cycle are its distinctive marks. Encyclopedias also use experts, either can use graphics, and alphabetical order belongs to the encyclopedia.")
           ]
         ),
         section(
@@ -236,7 +236,7 @@
           "Writing a summary that is true in the real world but untrue to the passage, or reading a graphic's picture instead of its scale and title.",
           [
             check("Passage: &ldquo;After the new lights were installed, nighttime crashes on the ramp fell from 12 to 7 in one year.&rdquo; Which summary is accurate?", ["Lights eliminate ramp crashes.", "In that year, nighttime ramp crashes declined after the lights were installed.", "Drivers became more skilled that year.", "The ramp is now the safest in the state."], 1, "Only the middle choice keeps the time window and does not invent a statewide ranking or a cause beyond what is stated."),
-            check("A line graph's vertical axis starts at 90, not 0, making a rise from 92 to 96 look steep. The most careful reading is that:", ["The increase is 4 units; the visual slope is exaggerated by the truncated axis", "The variable quadrupled", "Graphics cannot be compared with prose", "The title overrides the axis"], 0, "Read the numbers. A truncated axis is a display choice, not a larger increase.")
+            check("A line graph's vertical axis starts at 90, not 0, making a rise from 92 to 96 look steep. The most careful reading is that:", ["The increase is 4 units; the visual slope is exaggerated by the truncated axis", "The variable quadrupled", "The variable rose about 40 percent", "The values are flat, since 4 units is too small to matter"], 0, "Read the numbers: the rise is 4 units, about 4 percent. The steep look comes from the axis starting at 90. Quadrupling and a 40 percent jump misread the slope, and a 4-unit rise is still a real increase.")
           ]
         )
       ]
@@ -281,7 +281,7 @@
           "Calling every emotional text propaganda, or assuming an editorial cannot include facts. Form is the job plus the venue, not the presence or absence of feeling.",
           [
             check("Which text is best classified as an advertisement rather than an editorial?", ["A column arguing the city should fund night buses", "A pop-up promising 40% off if you click before midnight", "A flyer telling citizens to report corruption to a hotline", "A textbook chapter explaining how ballots are counted"], 1, "The pop-up sells a purchase with a time-limited offer. The column is editorial; the hotline flyer is civic persuasion/propaganda-adjacent; the chapter is informational."),
-            check("A persuasive paragraph's intended audience is most clearly revealed by:", ["The font size", "Who is told to act and what knowledge is assumed", "Whether a graph appears", "The number of syllables in the title"], 1, "Audience is a function of assumed knowledge and the call to action.")
+            check("A persuasive paragraph's intended audience is most clearly revealed by:", ["The topic of the paragraph", "Who is told to act and what knowledge is assumed", "The length of the paragraph", "The writer's own background"], 1, "Audience shows in who is asked to act and what the writer assumes readers already know. The topic, length, and writer's background can be the same for very different audiences.")
           ]
         ),
         section(
@@ -318,7 +318,7 @@
           "Calling every first-person sentence an opinion, or every number a proof. Also, treating a relevant example as sufficient for an absolute claim.",
           [
             check("Which sentence is an opinion rather than a checkable factual claim?", ["The ordinance was adopted on May 3.", "Turnout was 41% of registered voters.", "May 3 was the finest day in the town's history.", "The clerk posted the tally at 10:12 p.m."], 2, "<em>Finest</em> is a value judgment. Dates, percents, and clock times are checkable claims."),
-            check("An editorial claims a park is unsafe. It quotes two residents and shows no incident data. The evidence is:", ["Sufficient, because two is more than one", "Insufficient for a general safety claim; it is anecdotal", "Irrelevant, because residents cannot speak", "Proof that the park is safe"], 1, "Two stories can be relevant but do not cover a general claim about safety.")
+            check("An editorial claims a park is unsafe. It quotes two residents and shows no incident data. The evidence is:", ["Sufficient, because two is more than one", "Insufficient for a general safety claim; it is anecdotal", "Strong, because residents know the park best", "Biased, because residents always exaggerate"], 1, "Two stories can be relevant but cannot carry a general safety claim. Two is not enough, local knowledge does not replace incident data, and the problem is the amount of evidence, not an assumption that residents exaggerate.")
           ]
         ),
         section(
@@ -354,8 +354,8 @@
           { problem: "A pop-up shows a shivering puppy and &ldquo;They need you now.&rdquo; Name the dominant appeal.", hint: "No data, no expert&mdash;feeling and urgency." },
           "Labeling any mention of a person as ethos, or any number as logos even when the number is decorative. Also, confusing pathos with the reader's private mood; pathos is a strategy in the text.",
           [
-            check("Which excerpt relies primarily on ethos?", ["&ldquo;Crime doubled downtown; here are the police tables.&rdquo;", "&ldquo;Imagine your child's empty chair at dinner.&rdquo;", "&ldquo;I chaired the safety board for a decade; here is why I oppose the shortcut.&rdquo;", "&ldquo;Buy now, buy now, buy now.&rdquo;"], 2, "Chairing the board is a credibility move. Tables are logos; the empty chair is pathos; buy now is repetition."),
-            check("The sentence &ldquo;Representative government has completely collapsed and politics is only a game for the rich&rdquo; most clearly illustrates:", ["Careful qualification", "Exaggeration and sweeping generalization", "A definition context clue", "A technical warranty clause"], 1, "Absolute collapse and <em>only</em> are overclaims; this is the NES exaggeration pattern.")
+            check("Which excerpt relies primarily on ethos?", ["&ldquo;Crime doubled downtown; here are the police tables.&rdquo;", "&ldquo;Imagine your child's empty chair at dinner.&rdquo;", "&ldquo;I chaired the safety board for a decade; here is why I oppose the shortcut.&rdquo;", "&ldquo;Everyone on the council already supports the shortcut.&rdquo;"], 2, "Chairing the safety board is a credibility move: ethos. Police tables are logos, the empty chair is pathos, and everyone already supports it is a bandwagon appeal."),
+            check("The sentence &ldquo;Representative government has completely collapsed and politics is only a game for the rich&rdquo; most clearly illustrates:", ["Careful qualification", "Exaggeration and sweeping generalization", "A cause-and-effect claim", "Understatement"], 1, "<em>Completely collapsed</em> and <em>only</em> are absolute overclaims: exaggeration and sweeping generalization. The sentence is the opposite of qualified or understated, and it asserts a state rather than tracing a cause.")
           ]
         )
       ]
@@ -399,7 +399,7 @@
           { problem: "Warranty: &ldquo;Void if opened by anyone other than an authorized technician.&rdquo; The owner pries the case to clean a fan, then the device fails. Status?", hint: "An exclusion can void coverage even if the failure seems unrelated." },
           "Reading the bold promise (&ldquo;lifetime warranty&rdquo;) and skipping exclusions. Consumer rights are in the conditions, not the marketing banner.",
           [
-            check("A phone warranty covers manufacturing defects for one year but excludes drops. The phone's camera fails after nine months with no drop. The consumer should:", ["Assume no rights remain because the phone is used", "Request repair or replacement for a manufacturing defect within the year", "Ignore the warranty and buy a new phone as the only legal option", "Claim drop coverage because nine months is less than a year"], 1, "Time window is open and the exclusion (drops) does not apply to a camera defect."),
+            check("A phone warranty covers manufacturing defects for one year but excludes drops. The phone's camera fails after nine months with no drop. The consumer should:", ["Assume no rights remain because the phone is used", "Request repair or replacement for a manufacturing defect within the year", "Pay for the repair, since warranties exclude cameras", "Claim drop coverage because nine months is less than a year"], 1, "The one-year window is still open, and the only exclusion is drops. A camera failure with no drop is a covered manufacturing defect. Use does not void the warranty, nothing excludes cameras, and drop coverage does not apply when nothing was dropped."),
             check("Which clause most clearly limits a buyer's rights?", ["&ldquo;Keep your receipt.&rdquo;", "&ldquo;Coverage excludes damage from unauthorized modification.&rdquo;", "&ldquo;Authorized shops are listed online.&rdquo;", "&ldquo;The warranty begins on the purchase date.&rdquo;"], 1, "An exclusion removes situations from coverage. The others are procedures or start dates.")
           ]
         ),
@@ -437,8 +437,8 @@
           { problem: "Bus 12: last trip 10:45 p.m. except Sundays, when the last trip is 8:15 p.m. Can a rider board at 9:00 p.m. on Sunday?", hint: "Apply the Sunday exception, not the weekday last trip." },
           "Filling in a &ldquo;reasonable&rdquo; extra document or assuming weekend service matches weekdays. Functional reading is subtraction against the printed list.",
           [
-            check("A scholarship application requires a transcript, an essay, and one teacher recommendation. A student uploads a transcript, an essay, and a coach's letter. The packet is:", ["Complete, because a coach is a school adult", "Incomplete; it lacks a teacher recommendation", "Invalid because essays are optional in spirit", "Complete if the coach letter is longer than one page"], 1, "The requirement names a teacher. A coach does not substitute unless the text says so."),
-            check("A timetable footnote says &ldquo;no service July 4.&rdquo; The grid shows a 6:00 a.m. trip every Friday. July 4 is a Friday. The 6:00 a.m. trip:", ["Runs, because the grid is the main text", "Does not run; the holiday footnote overrides the grid", "Runs if the rider has a monthly pass", "Runs two hours late"], 1, "Exception notes control the grid on that date.")
+            check("A scholarship application requires a transcript, an essay, and one teacher recommendation. A student uploads a transcript, an essay, and a coach's letter. The packet is:", ["Complete, because a coach is a school adult", "Incomplete; it lacks a teacher recommendation", "Incomplete; it lacks a second recommendation", "Complete, because the essay can count as a recommendation"], 1, "The requirement names a teacher recommendation. A coach's letter does not substitute unless the text says so. Only one recommendation is required, and the essay is a separate requirement."),
+            check("A timetable footnote says &ldquo;no service July 4.&rdquo; The grid shows a 6:00 a.m. trip every Friday. July 4 is a Friday. The 6:00 a.m. trip:", ["Runs, because the grid is the main text", "Does not run; the holiday footnote overrides the grid", "Runs on a reduced holiday schedule", "Cannot be determined from the timetable"], 1, "The footnote is an exception that controls the grid on that date: no service July 4. The timetable never mentions a reduced schedule, and the footnote settles the question.")
           ]
         ),
         section(
@@ -472,8 +472,8 @@
           { problem: "A schematic shows a battery, a switch, and a lamp in one loop. The switch is drawn open. Will the lamp light?", hint: "An open switch breaks the circuit even if all parts are pictured." },
           "Treating a schematic as a realistic drawing, or following the flowchart path you wish were true. Symbols mean what the legend says.",
           [
-            check("On a campus map, a solid square means a staff-only door. A visitor sees a solid square beside the library's side entrance. The visitor should:", ["Enter there because libraries are public", "Use a different entrance; the legend marks that door staff-only", "Assume the legend applies only to parking", "Treat squares as water fountains"], 1, "The legend binds the symbol wherever it appears."),
-            check("A repair flowchart asks &ldquo;Is the device plugged in?&rdquo; before &ldquo;Replace the fuse.&rdquo; A technician who replaces the fuse first has:", ["Followed the schematic photographically", "Skipped a required decision branch", "Honored the warranty exclusion", "Read the timetable footnote"], 1, "Flowcharts require the questions in order; skipping a branch is the error the exam tests.")
+            check("On a campus map, a solid square means a staff-only door. A visitor sees a solid square beside the library's side entrance. The visitor should:", ["Enter there because libraries are public", "Use a different entrance; the legend marks that door staff-only", "Enter, because the square is beside the door, not on it", "Enter if the door is unlocked"], 1, "The legend marks that door staff-only wherever the symbol appears. Libraries being public, where the symbol sits, and an unlocked door do not change what the map says."),
+            check("A repair flowchart asks &ldquo;Is the device plugged in?&rdquo; before &ldquo;Replace the fuse.&rdquo; A technician who replaces the fuse first has:", ["Followed the flowchart, since the fuse is the likely fault", "Skipped a required decision branch", "Saved time without affecting the diagnosis", "Used the flowchart correctly, since any order works"], 1, "Flowcharts require the questions in order. Replacing the fuse first skips the plugged-in check, so a simple fix could be missed and a good fuse replaced.")
           ]
         )
       ]
@@ -518,7 +518,7 @@
           "Equating a statistic with proof, or discarding a good example because it is not a percentage. Sufficiency depends on the claim's size.",
           [
             check("For which claim is a single documented example sufficient?", ["Every rural clinic has closed.", "At least one rural clinic has closed this year.", "Rural health is thriving everywhere.", "No patient will ever drive more than ten minutes."], 1, "An existential claim (at least one) can be shown with one case. Universals cannot."),
-            check("An article argues a bridge is structurally unsound. Which evidence is most relevant?", ["A resident says the bridge looks ugly", "An engineer's inspection citing cracked supports and load ratings", "A photo of a sunset near the bridge", "Last year's tourism brochure"], 1, "Structural soundness needs engineering evidence, not aesthetics or promotion.")
+            check("An article argues a bridge is structurally unsound. Which evidence is most relevant?", ["A resident says the bridge looks ugly", "An engineer's inspection citing cracked supports and load ratings", "A news story quoting drivers who feel the bridge sway", "A city press release saying the bridge is safe"], 1, "Structural soundness needs engineering evidence: inspection findings and load ratings. Looks, drivers' impressions, and an unsupported press release do not measure the structure.")
           ]
         ),
         section(
@@ -556,8 +556,8 @@
           { problem: "An anonymous comment says a restaurant failed inspection. The county health dashboard, dated yesterday, shows no violation. How do you weigh them?", hint: "Named, dated, official method vs unsourced claim." },
           "Rejecting a source only because it has a point of view (everyone does) instead of asking about expertise, interest, and method. Also, treating .edu as automatically true.",
           [
-            check("Which source is most reliable for yesterday's high temperature in Phoenix?", ["A poem about heat", "The National Weather Service daily record", "A travel ad calling Phoenix &ldquo;always perfect&rdquo;", "An undated social post with no station named"], 1, "A meteorological record is dated, instrumental, and institutional. Ads and poems have other jobs."),
-            check("A pharmaceutical company funds a trial of its own drug and does not pre-register the method. The biggest credibility concern is:", ["The topic is scientific", "Conflict of interest plus an opaque method", "All numbers are opinions", "Only government authors can be believed"], 1, "Funding plus missing methods is the objectivity/reliability problem, not science as a subject.")
+            check("Which source is most reliable for yesterday's high temperature in Phoenix?", ["A news anchor's on-air estimate", "The National Weather Service daily record", "A travel ad calling Phoenix &ldquo;always perfect&rdquo;", "An undated social post with no station named"], 1, "A meteorological record is dated, instrumental, and institutional. An anchor's estimate, an ad, and an undated post with no station are weaker."),
+            check("A pharmaceutical company funds a trial of its own drug and does not pre-register the method. The biggest credibility concern is:", ["The study is too technical for general readers", "Conflict of interest plus an opaque method", "The results were published in a journal", "The drug is new"], 1, "Funding its own trial creates a conflict of interest, and skipping pre-registration hides the method. Technical difficulty, journal publication, and a drug's newness are not credibility problems.")
           ]
         ),
         section(
@@ -594,7 +594,7 @@
           "Summarizing what you think is true instead of what the author wrote, especially when you disagree.",
           [
             check("Passage: &ldquo;The council delayed the vote; members asked for a traffic study.&rdquo; Which summary is accurate?", ["The council passed the project unanimously.", "The vote was postponed pending more traffic information.", "Citizens have already approved the project.", "The council banned all studies."], 1, "Delay plus a requested study is all the original gives."),
-            check("A summary adds that the author &ldquo;secretly wants higher taxes&rdquo; though the passage never discusses taxes. This error is:", ["A faithful inference from tone alone", "Invention beyond the text", "A required NES paraphrase skill", "Objectivity in the source"], 1, "Motives and topics not in the passage cannot appear in an accurate summary.")
+            check("A summary adds that the author &ldquo;secretly wants higher taxes&rdquo; though the passage never discusses taxes. This error is:", ["A faithful inference from tone alone", "Invention beyond the text", "A paraphrase in the summarizer's own words", "A fair reading of the author's implied purpose"], 1, "Motives and topics not in the passage cannot appear in an accurate summary. Tone alone does not license a claim about taxes, and calling it paraphrase or implied purpose does not make an invention accurate.")
           ]
         )
       ]
@@ -638,7 +638,7 @@
           "Reading the picture's drama (a huge arrow, a tall bar) instead of the scale. Also, comparing two charts that use different units as if they were the same.",
           [
             check("A bar graph shows school A's test average at 82 and school B's at 80. The most supported conclusion is:", ["School A is a better school in every way", "School A's plotted average is 2 points higher than school B's", "School B cheated", "The difference must be due to class size"], 1, "Only the plotted averages are given. Quality, cheating, and class size are inventions."),
-            check("Why might an author present the same data as a table instead of a line graph?", ["Tables cannot show numbers", "A table makes exact lookup easier; a line graph emphasizes trend over time", "Line graphs are only for poetry", "Tables hide units by design"], 1, "Form follows job: lookup vs trend.")
+            check("Why might an author present the same data as a table instead of a line graph?", ["A table is more visually striking than a graph", "A table makes exact lookup easier; a line graph emphasizes trend over time", "A line graph cannot show more than one variable", "A table shows change over time more clearly"], 1, "Form follows job: tables support exact lookup, line graphs show trends. Tables are rarely more striking, line graphs can plot several variables, and trends show more clearly on a graph.")
           ]
         ),
         section(
@@ -673,7 +673,7 @@
           "Ignoring captions because the photo &ldquo;looks obvious,&rdquo; or trusting a heading that the data contradict.",
           [
             check("A footnote says amounts are in thousands. A table cell reads 12. The quantity is:", ["12", "12,000", "0.012", "12 million"], 1, "The footnote scales every cell."),
-            check("In a multimodal article, the most responsible way to resolve a clash between a chart and a sentence is to:", ["Always believe the sentence", "Always believe the largest picture", "Check whether they measure the same variable, time, and unit", "Average the two claims"], 2, "Alignment of variable and unit comes before picking a winner.")
+            check("In a multimodal article, the most responsible way to resolve a clash between a chart and a sentence is to:", ["Trust the chart, since data is more objective than prose", "Trust the sentence, since the author wrote it to explain the chart", "Check whether they measure the same variable, time, and unit", "Average the two claims"], 2, "Before picking a winner, check whether the chart and sentence measure the same variable, time span, and unit. Neither format is automatically more trustworthy, and averaging hides the conflict.")
           ]
         ),
         section(
@@ -710,8 +710,8 @@
           { problem: "A 3-D pie chart tilts so the &ldquo;our brand&rdquo; slice looks larger. The numbers say 22% vs a rival's 24%. What should a reader conclude?", hint: "Believe the numbers; the tilt is rhetoric." },
           "Trusting visual area or camera angle over labeled values. Also, using a flowchart as if later steps could override an earlier No.",
           [
-            check("A campaign poster crops a photo so a small crowd looks packed. The ethical reading problem is:", ["Photos cannot be used in persuasion", "Cropping can change the implied size of the event", "Crops always tell the truth better than wide shots", "Only flowcharts can mislead"], 1, "Framing is a rhetorical choice that can inflate turnout."),
-            check("You need to know which fuse to check after a &ldquo;no power&rdquo; symptom. The best graphic is:", ["A decorative product photo", "A decision flowchart plus a wiring schematic", "A pie chart of last year's sales", "An editorial cartoon"], 1, "Diagnosis is a branched procedure plus connections&mdash;flowchart and schematic.")
+            check("A campaign poster crops a photo so a small crowd looks packed. The ethical reading problem is:", ["The photo was not credited", "Cropping can change the implied size of the event", "The poster uses a photo instead of a chart", "The photo may be from a different event"], 1, "Framing a small crowd tightly makes it look packed: the crop changes what the image implies. Credit and format are not the problem described, and nothing suggests a different event."),
+            check("You need to know which fuse to check after a &ldquo;no power&rdquo; symptom. The best graphic is:", ["A labeled photo of the device", "A decision flowchart plus a wiring schematic", "A table of fuse ratings", "A bar graph of common failure causes"], 1, "Diagnosis is a branched procedure plus connections: a flowchart and a schematic. A photo shows appearance, a ratings table lists specs, and a failure graph shows frequencies, but none walks you from symptom to fuse.")
           ]
         )
       ]
