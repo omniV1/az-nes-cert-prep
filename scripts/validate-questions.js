@@ -167,8 +167,28 @@ function validateAll(data) {
   };
 }
 
+/**
+ * Answer-length tell: share of questions where the key is strictly the longest option.
+ * With four options, chance is about 25%; well above that, test-takers can game the bank.
+ */
+function lengthBias(problems, files) {
+  const rows = [];
+  for (const [file, list] of Object.entries(files)) {
+    const items = problems.filter(p => list.has(p.id));
+    if (items.length < 20) continue;
+    const longest = items.filter(p => {
+      const options = QuizCore.getOptions(p);
+      const key = options.find(o => o.isCorrect);
+      return key && options.every(o => o === key || String(o.text).length < String(key.text).length);
+    }).length;
+    rows.push({ file, items: items.length, share: longest / items.length });
+  }
+  return rows;
+}
+
 if (require.main === module) {
-  const { failures, counts } = validateAll(loadQuestionData());
+  const data = loadQuestionData();
+  const { failures, counts } = validateAll(data);
   console.log(`Checked ${counts.problems} bank problems, ${counts.lessonChecks} lesson checks, ${counts.exams} exams.`);
   if (!failures.length) {
     console.log("All questions valid.");
@@ -180,6 +200,11 @@ if (require.main === module) {
     }
     process.exitCode = 1;
   }
+  const flagged = lengthBias(data.problems, data.problemsByFile).filter(r => r.share > 0.45);
+  if (flagged.length) {
+    console.log("\nWarning: in these banks the key is often the longest option (chance is about 25%):");
+    for (const r of flagged) console.log(`  ${r.file}: ${Math.round(100 * r.share)}% of ${r.items}`);
+  }
 }
 
-module.exports = { findLetterReferences, letterReferenceMatches, problemContext, validateQuestion, validateAll };
+module.exports = { lengthBias, findLetterReferences, letterReferenceMatches, problemContext, validateQuestion, validateAll };
