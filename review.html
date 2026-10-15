@@ -12,6 +12,7 @@
       <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
+      <a href="study-guides.html">Guides</a>
       <a href="practice.html">Practice</a>
       <a href="exam.html">Exams</a>
       <a class="active" href="review.html">Review</a>
@@ -33,23 +34,38 @@
   <script>
     const due = Progress.getDueReviews();
     const queue = document.getElementById("queue");
+    function trackLabel(skillId) {
+      const track = ProgressEngine.trackForSkill(skillId);
+      return track === "english" ? "ELA 301" : track === "pedagogy" ? "APK 052" : "Math 304";
+    }
     if (!due.length) {
       queue.innerHTML = `<section class="card"><h2>Nothing due right now</h2>
         <p class="muted">Keep learning. Reviews will appear here when memory needs another retrieval.</p>
         <a class="btn btn-primary" href="learn.html">Continue the learning path</a></section>`;
     } else {
-      queue.innerHTML = due.map(item => {
-        const skill = SKILLS[item.skillId];
-        const lessonId = skill?.lessonIds?.[0];
-        return `<section class="card">
-          <div class="eyebrow">Due now · ${item.intervalDays}-day interval</div>
-          <h2>${skill?.title || item.skillId}</h2>
-          <p class="muted">Retrieve this skill without notes first. If you miss, return to the lesson explanation before trying another problem.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="practice.html?skill=${item.skillId}&status=todo">Practice this skill</a>
-            ${lessonId ? `<a class="btn btn-secondary" href="guide.html?id=${lessonId}">Review the lesson</a>` : ""}
-          </div>
-        </section>`;
+      const groups = { math: [], english: [], pedagogy: [] };
+      due.forEach(item => {
+        const track = ProgressEngine.trackForSkill(item.skillId);
+        (groups[track] || groups.math).push(item);
+      });
+      queue.innerHTML = ["math", "english", "pedagogy"].flatMap(track => {
+        const items = groups[track];
+        if (!items.length) return [];
+        const heading = `<h2 style="font-family:var(--font-display);margin:1rem 0 0.4rem">${track === "english" ? "English Language Arts" : track === "pedagogy" ? "APK Secondary" : "Mathematics"}</h2>`;
+        const cards = items.map(item => {
+          const skill = SKILLS[item.skillId];
+          const lessonId = skill?.lessonIds?.[0];
+          return `<section class="card">
+            <div class="eyebrow">Due now · ${trackLabel(item.skillId)} · ${item.intervalDays}-day interval</div>
+            <h2>${skill?.title || item.skillId}</h2>
+            <p class="muted">Retrieve this skill without notes first. If you miss, return to the lesson explanation before trying another problem.</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="practice.html?track=${track}&skill=${item.skillId}&status=todo">Practice this skill</a>
+              ${lessonId ? `<a class="btn btn-secondary" href="guide.html?id=${lessonId}">Review the lesson</a>` : ""}
+            </div>
+          </section>`;
+        }).join("");
+        return [heading + cards];
       }).join("");
     }
   </script>

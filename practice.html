@@ -15,11 +15,13 @@
       <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
+      <a href="study-guides.html">Guides</a>
       <a class="active" href="practice.html">Practice</a>
       <a href="exam.html">Exams</a>
       <a href="ace.html">Ace</a>
       <a href="notes.html">Notes</a>
       <a href="formulas.html">Formulas</a>
+      <a href="cards.html">Cards</a>
       <a href="traps.html">Traps</a>
       <a href="plan.html">Mastery Plan</a>
     </nav>
@@ -28,11 +30,17 @@
   <main class="wrap">
     <div class="eyebrow">NeetCode-style problem bank</div>
     <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Practice problems</h1>
-    <p class="muted">Filter by domain and difficulty. Solve → reveal explanation → mark progress automatically.</p>
+    <p class="muted" id="practice-hint">Filter by subject first, then domain. Math and English stay on separate tracks.</p>
 
     <div class="layout-split" style="margin-top:1rem">
       <section class="card">
         <div class="filters">
+          <select id="track">
+            <option value="all">All subjects</option>
+            <option value="math">Mathematics (304)</option>
+            <option value="english">English Language Arts (301)</option>
+            <option value="pedagogy">APK Secondary (052)</option>
+          </select>
           <select id="domain">
             <option value="all">All domains</option>
           </select>
@@ -48,6 +56,7 @@
           <select id="status">
             <option value="all">All statuses</option>
             <option value="todo">Not solved</option>
+            <option value="missed">Missed on last exam</option>
             <option value="solved">Solved</option>
           </select>
           <input id="q" type="search" placeholder="Search title or tag…" style="min-width:180px;flex:1" />
@@ -80,33 +89,49 @@
   <script src="js/data/problems-english-language.js"></script>
   <script src="js/data/problems-english-writing.js"></script>
   <script src="js/data/problems-english-oral.js"></script>
+  <script src="js/data/problems-exam-drill.js"></script>
+  <script src="js/data/problems-ela-longform.js"></script>
+  <script src="js/data/problems-ela-longform-b.js"></script>
+  <script src="js/data/problems-ela-longform-c.js"></script>
+  <script src="js/data/problems-ela-gaps.js"></script>
   <script src="js/data/problem-skills.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/progress-engine.js"></script>
   <script src="js/vault-sync.js"></script>
   <script>
     const domainSelect = document.getElementById("domain");
-    const domains = [...new Set(PROBLEMS.map(p => p.domain))];
-    domains.forEach(d => {
-      const opt = document.createElement("option");
-      opt.value = d;
-      opt.textContent = CURRICULUM.domains.find(x => x.id === d)?.title || d;
-      domainSelect.appendChild(opt);
-    });
     const skillSelect = document.getElementById("skill");
-    Object.entries(SKILLS)
-      .sort((a, b) => a[1].title.localeCompare(b[1].title))
-      .forEach(([skillId, skill]) => {
-        const opt = document.createElement("option");
-        opt.value = skillId;
-        opt.textContent = skill.title;
-        skillSelect.appendChild(opt);
-      });
+    const trackSelect = document.getElementById("track");
+    const lastRepair = Progress.load().lastExamRepair || {};
+
+    function fillDomainAndSkillOptions(track, selectedDomain, selectedSkill) {
+      const domains = CURRICULUM.domains.filter(d => track === "all" || (d.track || "math") === track);
+      domainSelect.innerHTML = `<option value="all">All domains</option>` + domains.map(d =>
+        `<option value="${d.id}">${d.title}</option>`
+      ).join("");
+      const skills = Object.entries(SKILLS).filter(([, skill]) =>
+        track === "all" || ProgressEngine.trackForDomain(skill.domain) === track
+      ).sort((a, b) => a[1].title.localeCompare(b[1].title));
+      skillSelect.innerHTML = `<option value="all">All skills</option>` + skills.map(([id, skill]) =>
+        `<option value="${id}">${skill.title}</option>`
+      ).join("");
+      if (selectedDomain && [...domainSelect.options].some(o => o.value === selectedDomain)) {
+        domainSelect.value = selectedDomain;
+      }
+      if (selectedSkill && [...skillSelect.options].some(o => o.value === selectedSkill)) {
+        skillSelect.value = selectedSkill;
+      }
+    }
 
     const params = new URLSearchParams(location.search);
-    if (params.get("domain")) domainSelect.value = params.get("domain");
-    if (params.get("skill")) skillSelect.value = params.get("skill");
-    if (params.get("status")) document.getElementById("status").value = params.get("status");
+    if (params.get("missed") === "1") {
+      trackSelect.value = lastRepair.track || "all";
+      document.getElementById("status").value = "missed";
+    } else {
+      if (params.get("track")) trackSelect.value = params.get("track");
+      if (params.get("status")) document.getElementById("status").value = params.get("status");
+    }
+    fillDomainAndSkillOptions(trackSelect.value, params.get("domain"), params.get("skill"));
 
     let activeId = params.get("id");
 
@@ -131,19 +156,24 @@
     }
 
     function filtered() {
+      const track = trackSelect.value;
       const d = domainSelect.value;
       const diff = document.getElementById("diff").value;
       const skill = skillSelect.value;
       const st = document.getElementById("status").value;
       const q = document.getElementById("q").value.trim().toLowerCase();
+      const missedIds = new Set(lastRepair.missedIds || []);
       return PROBLEMS.filter(p => {
+        const pTrack = ProgressEngine.trackForDomain(p.domain);
+        if (track !== "all" && pTrack !== track) return false;
         if (d !== "all" && p.domain !== d) return false;
         if (diff !== "all" && p.difficulty !== diff) return false;
         if (skill !== "all" && !(p.skillIds || []).includes(skill)) return false;
         const s = statusOf(p.id);
         if (st === "todo" && s === "solved") return false;
         if (st === "solved" && s !== "solved") return false;
-        if (q && !(p.title.toLowerCase().includes(q) || p.id.toLowerCase().includes(q) || p.tags.some(t => t.includes(q)))) return false;
+        if (st === "missed" && !missedIds.has(p.id)) return false;
+        if (q && !(p.title.toLowerCase().includes(q) || p.id.toLowerCase().includes(q) || (p.tags || []).some(t => t.includes(q)))) return false;
         return true;
       });
     }
@@ -156,7 +186,7 @@
           <td><span class="chip ${s === "solved" ? "done" : ""}">${s}</span></td>
           <td><a href="?id=${p.id}">${p.id}</a></td>
           <td>${p.title}</td>
-          <td>${p.domain}</td>
+          <td>${CURRICULUM.domains.find(x => x.id === p.domain)?.title || p.domain}</td>
           <td><span class="chip ${p.difficulty}">${p.difficulty}</span></td>
         </tr>`;
       }).join("") || `<tr><td colspan="5" class="muted">No problems match.</td></tr>`;
@@ -225,7 +255,9 @@
           if (idx === p.answer) ch.classList.add("correct");
           if (idx === i && !ok) ch.classList.add("incorrect");
         });
-        const repairLessonId = p.skillIds?.flatMap(skillId => SKILLS[skillId]?.lessonIds || [])[0];
+        const repairLessonId = (p.skillIds || [])
+          .filter(skillId => ProgressEngine.trackForSkill(skillId) === ProgressEngine.trackForDomain(p.domain))
+          .flatMap(skillId => SKILLS[skillId]?.lessonIds || [])[0];
         document.getElementById("result").innerHTML = ok
           ? `<p style="color:var(--easy);font-weight:600">Correct.</p><div class="explanation">${p.explanation}</div>`
           : `<p style="color:var(--hard);font-weight:600">Not quite. This skill has been scheduled for review.</p>
@@ -240,6 +272,10 @@
       };
     }
 
+    trackSelect.addEventListener("change", () => {
+      fillDomainAndSkillOptions(trackSelect.value, "all", "all");
+      renderRows();
+    });
     ["domain", "diff", "skill", "status", "q"].forEach(id => {
       document.getElementById(id).addEventListener("input", renderRows);
       document.getElementById(id).addEventListener("change", renderRows);

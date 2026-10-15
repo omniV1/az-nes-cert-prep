@@ -49,6 +49,7 @@ to the vault.
 | ELA half-length (75q / 90 min) + official-length (150q / 3h) forms | ELA booking gates |
 | Domain drills + Hard Gauntlets | Targeted repair for each subject |
 | Embedded official 304 / 301 / 052 profiles and sample items | Required calibration inside every exam lesson |
+| Embedded AEPA Field 02 (ELA) and Field 10 (Math) study guides | Retired Pearson workbooks mapped onto current NES lessons |
 | Embedded official frameworks | Exact free Pearson/NES blueprints |
 | Formula sheet + ELA reference | Math test-day sheet plus the literary/grammar terms ELA will not provide |
 | Trap guide | Stop losing cheap points in both subjects |
@@ -60,5 +61,9 @@ to the vault.
 - [ADE Certification](https://www.azed.gov/educator-certification)
 - [NES Mathematics framework](https://www.nestest.com/static/docs/NES_Framework_304.pdf)
 - [NES English Language Arts framework](https://www.nestest.com/static/docs/NES_Framework_301.pdf)
+- [AEPA Field 02 English study guide](https://www.aepa.nesinc.com/Content/Docs/AZ_Field02_StudyGuide.pdf) — retired; extra NES 301 practice
+- [AEPA Field 10 Mathematics study guide](https://www.aepa.nesinc.com/Content/Docs/AZ_Field10_StudyGuide.pdf) — retired; extra NES 304 practice
+
+Open `study-guides.html` for the objective-to-lesson map, or `exam.html` for timed Field 02 / Field 10 sessions that score Pearson’s published key while you read the official PDF. Live exam weights and sample-item style come from the NES frameworks and profiles, not the retired AEPA forms.
 
 Not affiliated with Pearson, NES, AEPA, or ADE.

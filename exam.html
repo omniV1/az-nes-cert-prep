@@ -15,11 +15,13 @@
       <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
+      <a href="study-guides.html">Guides</a>
       <a href="practice.html">Practice</a>
       <a class="active" href="exam.html">Exams</a>
       <a href="ace.html">Ace</a>
       <a href="notes.html">Notes</a>
       <a href="formulas.html">Formulas</a>
+      <a href="cards.html">Cards</a>
       <a href="traps.html">Traps</a>
       <a href="plan.html">Mastery Plan</a>
     </nav>
@@ -29,22 +31,10 @@
     <div id="lobby">
       <div class="eyebrow">HackerRank-style timed exams</div>
       <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Practice exams</h1>
-      <p class="muted">Timed. No hints mid-exam. Ace standard: <strong>≥85% on both official-length simulations</strong> for that subject before you book.</p>
+      <p class="muted">Timed. No hints mid-exam. Math ace gate: <strong>≥85% on both official-length math simulations</strong>. ELA: treat Passage sets A/B and a Field 02 <em>first</em> sitting as the real signal — a short-stem 90% does not mean NES 301 is ready. Phase tests and checkpoints draw a new mix each sitting (items, prompt type, choice order) so you cannot memorize the form. Do not keep retaking Field 02 after two sittings; the letters stick and the next test will be new passages.</p>
       <div id="exam-groups" style="margin-top:1rem"></div>
 
-      <details class="card official-calibration" style="margin-top:1.25rem">
-        <summary><strong>Embedded free Arizona mathematics practice workbook</strong></summary>
-        <p>This retired AEPA Field 10 guide predates NES 304, so it is supplemental rather than the current blueprint. Its selected-response practice questions remain useful after you complete the corresponding current lessons. Use the current embedded 304 profile in each lesson for final alignment.</p>
-        <iframe class="official-embed" src="https://www.aepa.nesinc.com/Content/Docs/AZ_Field10_StudyGuide.pdf" title="Free retired AEPA Field 10 mathematics study guide" loading="lazy"></iframe>
-        <p class="muted">If the PDF does not render, <a href="https://www.aepa.nesinc.com/Content/Docs/AZ_Field10_StudyGuide.pdf" target="_blank" rel="noopener">open the free official archive guide</a>.</p>
-      </details>
-
-      <details class="card official-calibration" style="margin-top:1.25rem">
-        <summary><strong>Embedded official NES English Language Arts 301 profile</strong></summary>
-        <p>Use this Pearson/NES profile for sample items aligned to the current 301 blueprint. Pair it with the required calibration inside each official ELA lesson.</p>
-        <iframe class="official-embed" src="https://www.aepa.nesinc.com/Content/Docs/NES_Profile_301.pdf" title="Official NES English Language Arts 301 profile" loading="lazy"></iframe>
-        <p class="muted">If the PDF does not render, <a href="https://www.aepa.nesinc.com/Content/Docs/NES_Profile_301.pdf" target="_blank" rel="noopener">open the official 301 profile</a>.</p>
-      </details>
+      <div id="official-guides"></div>
 
       <section class="card" style="margin-top:1.25rem">
         <h2>Constructed-response gym (APK 052)</h2>
@@ -67,8 +57,9 @@
         <div class="timer" id="timer">00:00:00</div>
         <button class="btn btn-secondary" id="submit-exam">Submit exam</button>
       </div>
-      <div class="layout-split">
-        <section class="card">
+      <div class="layout-split" id="exam-layout">
+        <iframe id="aepa-pdf" class="official-embed hidden" title="Official AEPA study guide"></iframe>
+        <section class="card" id="exam-main">
           <div id="qstem" class="problem-stem"></div>
           <div class="choices" id="qchoices"></div>
           <div class="cta-row">
@@ -76,7 +67,7 @@
             <button class="btn btn-primary" id="next">Next</button>
           </div>
         </section>
-        <aside class="card">
+        <aside class="card" id="exam-nav">
           <h3 style="margin-top:0">Navigator</h3>
           <div id="navgrid" class="grid" style="grid-template-columns:repeat(5,1fr);gap:0.35rem"></div>
           <p class="muted" style="font-size:0.85rem;margin-top:0.75rem">Answered questions highlight in teal. Flag nothing — treat blanks as wrong.</p>
@@ -114,13 +105,23 @@
   <script src="js/data/problems-english-language.js"></script>
   <script src="js/data/problems-english-writing.js"></script>
   <script src="js/data/problems-english-oral.js"></script>
+  <script src="js/data/problems-exam-drill.js"></script>
+  <script src="js/data/problems-ela-longform.js"></script>
+  <script src="js/data/problems-ela-longform-b.js"></script>
+  <script src="js/data/problems-ela-longform-c.js"></script>
+  <script src="js/data/problems-ela-gaps.js"></script>
+  <script src="js/data/flashcards.js"></script>
   <script src="js/data/problem-skills.js"></script>
   <script src="js/data/exams.js"></script>
+  <script src="js/data/field02-coach.js"></script>
+  <script src="js/data/study-guides.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/progress-engine.js"></script>
   <script src="js/vault-sync.js"></script>
   <script>
     const lobby = document.getElementById("lobby");
+    const officialGuides = document.getElementById("official-guides");
+    if (officialGuides) officialGuides.innerHTML = STUDY_GUIDES.examLobbyHtml();
     const runner = document.getElementById("runner");
     const results = document.getElementById("results");
     const crRunner = document.getElementById("cr-runner");
@@ -153,6 +154,13 @@
     }
 
     function examCount(e) {
+      if (e.aepaGuide && window.STUDY_GUIDES) {
+        const all = STUDY_GUIDES.itemsForGuide(e.aepaGuide);
+        const scored = all.filter(item => !item.removed).length;
+        return all.length === scored ? all.length : `${all.length} (${scored} scored)`;
+      }
+      if (e.build && e.build.mix) return e.build.count || ((e.build.mix.bankCount || 0) + (e.build.mix.cardCount || 0));
+      if (e.build && e.build.flashcardDecks) return e.build.count || 20;
       if (e.problemIds) return e.problemIds.length;
       if (e.build?.count) return e.build.count;
       return resolveExamItems(e).length;
@@ -162,10 +170,13 @@
       const groups = [
         { title: "NES Mathematics (304)", type: "math" },
         { title: "NES English Language Arts (301)", type: "english" },
+        { title: "ELA phase tests (new mix each sitting)", type: "english", group: "ela-phase" },
+        { title: "ELA checkpoint tests (every 6 phases)", type: "english", group: "ela-checkpoint" },
+        { title: "ELA term quizzes (word ↔ definition)", type: "english", group: "flashcards" },
         { title: "APK Secondary (052)", type: "pedagogy" }
       ];
       document.getElementById("exam-groups").innerHTML = groups.map(g => {
-        const exams = EXAMS.filter(e => e.type === g.type);
+        const exams = EXAMS.filter(e => e.type === g.type && (g.group ? e.group === g.group : !e.group));
         if (!exams.length) return "";
         return `<h2 style="font-family:var(--font-display);margin:1.25rem 0 0.6rem">${g.title}</h2>
           <div class="grid grid-2">${exams.map(e => `
@@ -175,7 +186,9 @@
           <div class="tag-row">
             <span class="chip">${examCount(e)} questions</span>
             <span class="chip">${e.minutes} min</span>
-            <span class="chip">${e.type}</span>
+            <span class="chip">${e.aepaGuide ? "official Pearson PDF" : e.build && e.build.clusters ? "new clusters each sitting" : e.build && e.build.mix ? "randomized mix" : e.group === "flashcards" ? "word ↔ definition" : e.type}</span>
+            ${examSittings(e.id) ? `<span class="chip">${examSittings(e.id)} sitting${examSittings(e.id) === 1 ? "" : "s"}</span>` : ""}
+            ${e.id === "aepa-field02" && examSittings(e.id) >= 2 ? `<span class="chip hard">retake = memorization</span>` : ""}
           </div>
           <div class="cta-row" style="margin-top:0.8rem">
             <button class="btn btn-accent" data-start="${e.id}">Start</button>
@@ -206,26 +219,73 @@
         : "No exams yet.";
     }
 
+    function examSittings(examId) {
+      return (Progress.load().exams || []).filter(e => e.id === examId).length;
+    }
+
+    function confirmBurnedForm(exam) {
+      const n = examSittings(exam.id);
+      if (exam.id === "aepa-field02" && n >= 2) {
+        return confirm(
+          "You have already submitted Field 02 " + n + " times.\n\n" +
+          "Another sitting mostly trains memory of these 78 Pearson letters. NES 301 will use different passages.\n\n" +
+          "OK = take it anyway as a calibration check.\n" +
+          "Cancel = go back. Review misses with the coach notes, then use the randomized cluster exam or passage sets A/B/C."
+        );
+      }
+      if ((exam.id === "ela-field-rigor" || exam.id === "ela-field-rigor-b" || exam.id === "ela-field-rigor-c") && n >= 2) {
+        return confirm(
+          "You have already submitted this original form " + n + " times. The passages do not change.\n\n" +
+          "OK = retake anyway.\n" +
+          "Cancel = repair misses by skill, or take the randomized cluster exam (new mix each sitting)."
+        );
+      }
+      return true;
+    }
+
     function startExam(examId) {
       const exam = EXAMS.find(e => e.id === examId);
       if (!exam) return;
+      if (exam.build && exam.build.flashcardDecks && !exam.build.mix) {
+        const decks = exam.build.flashcardDecks;
+        location.href = decks.length === 1
+          ? `cards.html?deck=${decks[0]}&mode=quiz`
+          : "cards.html?deck=mixed&mode=quiz";
+        return;
+      }
+      if (!confirmBurnedForm(exam)) return;
       const items = resolveExamItems(exam);
       if (!items.length) {
         alert("Could not build this exam — problem bank missing items.");
         return;
+      }
+      const pdf = document.getElementById("aepa-pdf");
+      const runnerEl = document.getElementById("runner");
+      if (exam.aepaGuide) {
+        runnerEl.classList.add("aepa-mode");
+        showOfficialPdf(exam.aepaGuide, items[0]?.pdfPage);
+      } else {
+        runnerEl.classList.remove("aepa-mode");
+        pdf.classList.add("hidden");
+        pdf.removeAttribute("src");
+        delete pdf.dataset.page;
       }
       session = {
         exam,
         items,
         answers: Array(items.length).fill(null),
         choiceOrders: items.map((item, index) =>
-          shuffledIndexes(item.choices.length, exam.id + ":" + index + ":" + item.id)
+          item.removed ? []
+            : item.source === "aepa"
+              ? item.choices.map((_, i) => i)
+              : shuffledIndexes(item.choices.length, (exam._sittingSeed || exam.id) + ":" + index + ":" + item.id)
         ),
         index: 0,
         remaining: exam.minutes * 60
       };
       lobby.classList.add("hidden");
       results.classList.add("hidden");
+      results.classList.remove("aepa-review");
       crRunner.classList.add("hidden");
       runner.classList.remove("hidden");
       document.getElementById("exam-title").textContent = exam.title;
@@ -242,13 +302,41 @@
       renderQuestion();
     }
 
+    function showOfficialPdf(guideId, page) {
+      const pdf = document.getElementById("aepa-pdf");
+      const guide = STUDY_GUIDES.guides[guideId];
+      if (!guide) return;
+      const pageNum = page || "";
+      if (pdf.dataset.page === String(pageNum) && pdf.dataset.guide === guideId) return;
+      pdf.dataset.guide = guideId;
+      pdf.dataset.page = String(pageNum);
+      pdf.classList.remove("hidden");
+      pdf.src = pageNum
+        ? `${guide.url}?p=${pageNum}#page=${pageNum}`
+        : guide.url;
+    }
+
     function renderQuestion() {
       const i = session.index;
       const p = session.items[i];
       const choiceOrder = session.choiceOrders[i];
-      document.getElementById("qpos").textContent = `Question ${i + 1} of ${session.items.length}`;
-      document.getElementById("qstem").innerHTML = (typeof stemHtml === "function" ? stemHtml(p) : `<div class="problem-stem">${p.stem}</div>`);
-      document.getElementById("qchoices").innerHTML = choiceOrder.map((originalIndex, displayIndex) => `
+      document.getElementById("qpos").textContent = p.source === "aepa"
+        ? `PDF question ${p.officialN} of ${session.items.length}${p.removed ? " · removed by Pearson" : ""}`
+        : `Question ${i + 1} of ${session.items.length}`;
+      if (p.source === "aepa") {
+        showOfficialPdf(p.guideId, p.pdfPage);
+        const guide = STUDY_GUIDES.guides[p.guideId];
+        document.getElementById("qstem").innerHTML = p.removed
+          ? `<p><strong>PDF question ${p.officialN}</strong> is marked <em>[TEST QUESTION REMOVED]</em> in the official guide. It is not scored. Use Next to go to question ${p.officialN + 1}.</p>
+             <p class="muted">Our numbers now match the printed PDF numbers. Pearson left 12 and 26 as placeholders instead of renumbering.</p>`
+          : `<p><strong>PDF question ${p.officialN}</strong> is open on the left${p.pdfPage ? ` (file page ${p.pdfPage})` : ""}. That printed number should match this one. Cover the answer key at the back. Pick the same letter as the PDF.</p>
+           <p class="muted">If the page does not jump, <a href="${guide.url}${p.pdfPage ? "#page=" + p.pdfPage : ""}" target="_blank" rel="noopener">open Field ${guide.field} page ${p.pdfPage || ""}</a>.</p>`;
+      } else {
+        document.getElementById("qstem").innerHTML = (typeof stemHtml === "function" ? stemHtml(p) : `<div class="problem-stem">${p.stem}</div>`);
+      }
+      document.getElementById("qchoices").innerHTML = p.removed
+        ? `<p class="muted">No A–D for this number.</p>`
+        : choiceOrder.map((originalIndex, displayIndex) => `
         <label class="choice ${session.answers[i] === originalIndex ? "selected" : ""}">
           <input type="radio" name="examans" value="${originalIndex}" ${session.answers[i] === originalIndex ? "checked" : ""} />
           <span><strong>${String.fromCharCode(65 + displayIndex)}.</strong> ${p.choices[originalIndex]}</span>
@@ -262,9 +350,11 @@
         };
       });
 
-      document.getElementById("navgrid").innerHTML = session.items.map((_, idx) => `
-        <button class="btn ${idx === i ? "btn-accent" : "btn-secondary"}" style="padding:0.4rem;border-radius:8px;${session.answers[idx] != null ? "outline:2px solid var(--accent)" : ""}" data-jump="${idx}">${idx + 1}</button>`
-      ).join("");
+      document.getElementById("navgrid").innerHTML = session.items.map((item, idx) => {
+        const label = item.officialN || (idx + 1);
+        const skipped = item.removed;
+        return `<button class="btn ${idx === i ? "btn-accent" : "btn-secondary"}" style="padding:0.4rem;border-radius:8px;${skipped ? "opacity:0.45;text-decoration:line-through;" : ""}${session.answers[idx] != null ? "outline:2px solid var(--accent)" : ""}" data-jump="${idx}" title="${skipped ? "Removed by Pearson" : ""}">${label}</button>`;
+      }).join("");
 
       document.querySelectorAll("[data-jump]").forEach(b => {
         b.onclick = () => { session.index = Number(b.dataset.jump); renderQuestion(); };
@@ -291,13 +381,19 @@
       const bySkill = {};
       const itemResults = [];
       items.forEach((p, i) => {
+        if (p.removed) return;
         const ok = answers[i] === p.answer;
         if (ok) correct++;
-        Progress.recordProblem(p.id, ok);
+        if (p.source === "aepa") {
+          Progress.recordAepaItem(p.guideId, p.officialN, answers[i] == null ? null : "ABCD"[answers[i]], ok);
+        } else {
+          Progress.recordProblem(p.id, ok);
+        }
         byDomain[p.domain] = byDomain[p.domain] || { correct: 0, total: 0 };
         byDomain[p.domain].total++;
         if (ok) byDomain[p.domain].correct++;
         (p.skillIds || []).forEach(skillId => {
+          if (ProgressEngine.trackForSkill(skillId) !== (exam.type === "english" ? "english" : exam.type === "pedagogy" ? "pedagogy" : "math")) return;
           bySkill[skillId] = bySkill[skillId] || { correct: 0, total: 0, pct: 0 };
           bySkill[skillId].total++;
           if (ok) bySkill[skillId].correct++;
@@ -307,54 +403,214 @@
       });
       Object.values(byDomain).forEach(v => { v.pct = Math.round(100 * v.correct / v.total); });
       Object.values(bySkill).forEach(v => { v.pct = Math.round(100 * v.correct / v.total); });
-      const percent = Math.round((correct / items.length) * 100);
+      const scoredTotal = items.filter(p => !p.removed).length;
+      const percent = Math.round((correct / scoredTotal) * 100);
       Progress.recordExam({
         id: exam.id,
         title: exam.title,
         type: exam.type,
         correct,
-        total: items.length,
+        total: scoredTotal,
         percent,
         byDomain,
-        bySkill
+        bySkill,
+        clusterIds: exam._clusterIds || undefined
       });
       if (exam.id === "math-diagnostic" || exam.id === "math-placement-short" ||
           exam.id === "ela-diagnostic" || exam.id === "ela-placement-short") {
-        Progress.savePlacement({ examId: exam.id, byDomain, bySkill, itemResults });
+        Progress.savePlacement({ examId: exam.id, track: exam.type, byDomain, bySkill, itemResults });
       }
-      const remedial = ProgressEngine.getRemedialPlan();
+      const repair = ProgressEngine.repairPlanFromExam({
+        type: exam.type,
+        byDomain,
+        bySkill,
+        itemResults
+      });
+      Progress.saveLastExamRepair({
+        examId: exam.id,
+        track: repair.track,
+        missedIds: repair.missedIds,
+        title: exam.title
+      });
+      if (exam.type === "english") {
+        const cardIds = new Set(["ela-periods-drill", "ela-terms-traps"]);
+        const timedIds = new Set(["ela-field-rigor", "ela-field-rigor-b", "ela-field-rigor-c", "ela-clusters", "ela-full-1", "ela-full-2", "ela-official-1", "ela-official-2", "ela-hard-gauntlet"]);
+        const isCards = !!(exam.build && exam.build.flashcardDecks && !exam.build.mix) || cardIds.has(exam.id);
+        if (isCards) Progress.markStudyLoop("cards");
+        else if (!exam.aepaGuide) Progress.markStudyLoop("passage");
+        if (timedIds.has(exam.id)) Progress.markStudyLoop("timed");
+        const autoTraps = [];
+        items.forEach((p, i) => {
+          if (p.removed || answers[i] === p.answer) return;
+          const trap = ProgressEngine.classifyElaTrap((p.coach && p.coach.skill) || p.trap);
+          if (trap) autoTraps.push({ trap, examId: exam.id, itemId: p.id });
+        });
+        if (autoTraps.length) Progress.addTrapLogs(autoTraps);
+      }
+      const newlyMastered = ProgressEngine.syncExamLessonMastery(repair.track);
+      const rigorNote = exam.id === "ela-clusters"
+        ? "This sitting assembled original passage clusters. Treat ≥80% as Pearson-style readiness only if most clusters were still new to you — not if you recognized the passages from A/B/C."
+        : exam.id === "ela-field-rigor" || exam.id === "ela-field-rigor-b" || exam.id === "ela-field-rigor-c"
+        ? "This form is an honest unofficial signal. Treat ≥70% as a start and ≥80% as approaching Pearson-style readiness — 85% on short-stem sims is not enough by itself. After two sittings, use the randomized cluster exam instead of grinding these letters."
+        : exam.id === "aepa-field02"
+          ? "Official Pearson items. This score outweighs our short-stem bank when you decide whether to book NES 301."
+          : exam.id === "aepa-field10"
+            ? "Official Pearson math items. Weight this more heavily than the unofficial math bank when you decide whether to book NES 304."
+          : percent >= 85
+            ? (exam.type === "english"
+              ? "ACE RANGE on this unofficial form — still confirm with Field 02 or the passage-set exam before you treat ELA as booked."
+              : "ACE RANGE — this is booking territory if both official-length mocks clear 85%.")
+            : percent >= 75 ? "Close. Repair weak domains, then retake a full mock."
+            : percent >= 65 ? "Foundation forming — not ace-ready. Back to Learn + domain drills."
+            : "Large gaps. Follow the learning path before another full mock.";
 
       runner.classList.add("hidden");
       results.classList.remove("hidden");
+      results.classList.toggle("aepa-review", !!exam.aepaGuide);
+      const firstMiss = items.find((p, i) => !p.removed && answers[i] !== p.answer);
+      const reviewPdfPage = firstMiss?.pdfPage || items.find(p => p.pdfPage)?.pdfPage;
+      const reviewGuide = exam.aepaGuide ? STUDY_GUIDES.guides[exam.aepaGuide] : null;
       results.innerHTML = `
+        ${reviewGuide ? `<iframe id="results-pdf" class="official-embed" title="Official AEPA study guide" src="${reviewGuide.url}${reviewPdfPage ? "?p=" + reviewPdfPage + "#page=" + reviewPdfPage : ""}"></iframe>` : ""}
         <section class="card">
           <div class="eyebrow">Results</div>
           <div class="score-big">${percent}%</div>
-          <p><strong>${correct}</strong> / ${items.length} correct · ${exam.title}</p>
-          <p class="muted">${percent >= 85 ? "ACE RANGE — this is booking territory if both mocks clear 85%." : percent >= 75 ? "Close. Repair weak domains, then retake a full mock." : percent >= 65 ? "Foundation forming — not ace-ready. Back to Learn + domain drills." : "Large gaps. Follow the learning path before another full mock."}</p>
-          <h3>By domain</h3>
-          <ul>${Object.entries(byDomain).map(([d, v]) => {
-            const pct = Math.round((v.correct / v.total) * 100);
-            return `<li><strong>${d}</strong>: ${v.correct}/${v.total} (${pct}%)</li>`;
+          <p><strong>${correct}</strong> / ${scoredTotal} correct · ${exam.title}</p>
+          <p class="muted">${rigorNote}</p>
+          ${newlyMastered.length ? `
+          <section class="card" style="margin:1rem 0;background:rgba(15,118,110,0.08)">
+            <h3 style="margin-top:0">Copied to the learning path</h3>
+            <p class="muted">Correct exam work just marked these lessons mastered on Learn. Misses stay open. Official NES sample-item checkboxes on Ace are still separate.</p>
+            <ul>${newlyMastered.map(L => `<li><a href="guide.html?id=${L.id}">${L.title}</a></li>`).join("")}</ul>
+            <a class="btn btn-secondary" href="learn.html#${repair.track === "english" ? "ela-foundation" : "foundation"}">Open Learn</a>
+          </section>` : `<p class="muted">No new Learn lessons unlocked from this sitting. A lesson masters when its exam skills are ≥85% with enough attempts and no skill on that lesson is failing.</p>`}
+          <h3>By domain — ${repair.trackLabel}</h3>
+          <ul>${repair.domainRows.map(d => {
+            return `<li><strong>${d.title}</strong>: ${d.correct}/${d.total} (${d.pct}%)</li>`;
           }).join("")}</ul>
-          <h3>Review</h3>
-          <div class="grid" style="gap:0.75rem">
+          <section class="card" style="margin:1rem 0;background:rgba(15,118,110,0.05)">
+            <h3 style="margin-top:0">Repair this subject only</h3>
+            <p class="muted">Math and English are separate tracks. These links stay inside <strong>${repair.trackLabel}</strong> and use misses from this exam.</p>
+            ${repair.weakDomains.length ? `
+              <h4>Weak domains</h4>
+              <div class="grid" style="gap:0.65rem">
+                ${repair.weakDomains.map(d => `
+                  <div style="border:1px solid var(--line);border-radius:12px;padding:0.75rem 0.9rem;background:#fff">
+                    <div style="display:flex;justify-content:space-between;gap:0.75rem;flex-wrap:wrap">
+                      <strong>${d.title}</strong>
+                      <span class="chip medium">${d.pct}%</span>
+                    </div>
+                    <div class="cta-row" style="margin-top:0.55rem">
+                      <a class="btn btn-secondary" href="practice.html?track=${repair.track}&domain=${d.id}&status=todo">Practice ${d.id}</a>
+                      ${d.drillId ? `<a class="btn btn-ghost" href="exam.html?exam=${d.drillId}">Domain drill</a>` : ""}
+                      ${d.firstLessonId ? `<a class="btn btn-ghost" href="guide.html?id=${d.firstLessonId}">Open lesson</a>` : ""}
+                    </div>
+                  </div>`).join("")}
+              </div>` : `<p>Every domain on this form was ≥85%. Drill missed items if any remain.</p>`}
+            ${repair.suggestedLessons.length ? `
+              <h4>Lessons for missed skills</h4>
+              <ul>${repair.suggestedLessons.map(L => `<li><a href="guide.html?id=${L.id}">${L.title}</a></li>`).join("")}</ul>` : ""}
+            <div class="cta-row" style="margin-top:0.85rem">
+              ${repair.missedIds.length ? `<a class="btn btn-accent" href="practice.html?track=${repair.track}&missed=1">Practice missed items (${repair.missedIds.length})</a>` : ""}
+              <a class="btn btn-secondary" href="practice.html?track=${repair.track}&status=todo">Unsolved ${repair.track === "english" ? "ELA" : repair.track} only</a>
+              <a class="btn btn-ghost" href="learn.html#${repair.track === "english" ? "ela-foundation" : "foundation"}">Open ${repair.track === "english" ? "ELA" : "math"} learn path</a>
+            </div>
+          </section>
+          <h3>${exam.aepaGuide ? "Answer key — your letter vs the official letter" : "Review"}</h3>
+          ${exam.aepaGuide ? `<p class="muted">Pearson’s published key is a letter plus an objective only. The “why” notes below are ours: they name the skill and why that letter wins so you can reuse the move on NES 301. We do not reprint Pearson’s stems. Use <strong>Show on PDF</strong> to jump the official question beside this note.</p>
+          <p><label><input type="checkbox" id="misses-only" checked /> Show misses only</label></p>` : ""}
+          <div class="grid" style="gap:0.75rem" id="review-list">
             ${items.map((p, i) => {
+              if (p.removed) {
+                return `<div class="review-item" data-miss="0" style="border:1px solid var(--line);border-radius:12px;padding:0.75rem 0.9rem;opacity:0.7">
+                  <div class="tag-row"><span class="chip">PDF ${p.officialN}</span><span class="chip">removed</span></div>
+                  <p class="muted" style="margin:0.35rem 0 0">Pearson placeholder. Not scored.</p>
+                </div>`;
+              }
               const ok = answers[i] === p.answer;
-              return `<div style="border:1px solid var(--line);border-radius:12px;padding:0.75rem 0.9rem">
-                <div class="tag-row"><span class="chip">${p.id}</span><span class="chip ${ok ? "done" : "hard"}">${ok ? "correct" : "missed"}</span></div>
-                <div style="margin:0.35rem 0">${typeof stemHtml === "function" ? stemHtml(p) : p.stem}</div>
-                <div class="muted">Your answer: ${answers[i] == null ? "—" : String.fromCharCode(65 + choiceOrders[i].indexOf(answers[i]))} · Key: ${String.fromCharCode(65 + choiceOrders[i].indexOf(p.answer))}</div>
-                <div class="explanation">${p.explanation}</div>
+              const chosenLetter = answers[i] == null ? "—" : String.fromCharCode(65 + choiceOrders[i].indexOf(answers[i]));
+              const keyLetter = String.fromCharCode(65 + choiceOrders[i].indexOf(p.answer));
+              const coach = p.coach;
+              const whyYours = coach && chosenLetter !== "—" && chosenLetter !== keyLetter ? coach[chosenLetter] : "";
+              const whyKey = coach ? coach[keyLetter] || coach.whyKey : "";
+              const reviewStem = p.source === "aepa"
+                ? `<p style="margin:0.35rem 0 0"><strong>PDF question ${p.officialN}</strong> · ${coach ? coach.skill : "objective " + (p.aepaObjective || "")}</p>`
+                : (typeof stemHtml === "function" ? stemHtml(p) : p.stem);
+              const lessonLinks = (p.lessonIds || []).map(id => `<a href="guide.html?id=${id}">${STUDY_GUIDES.lessonTitle(id)}</a>`).join(" · ");
+              const compare = `
+                <div class="grid grid-2" style="gap:0.65rem;margin:0.65rem 0">
+                  <div style="border:1px solid var(--line);border-radius:10px;padding:0.65rem 0.75rem;background:${ok ? "rgba(15,118,110,0.08)" : "rgba(185,28,28,0.06)"}">
+                    <div class="muted" style="font-size:0.78rem">Your answer</div>
+                    <div style="font-size:1.35rem;font-weight:700">${chosenLetter}</div>
+                    ${whyYours ? `<p style="margin:0.4rem 0 0">${whyYours}</p>` : (ok ? "<p class=\"muted\" style=\"margin:0.4rem 0 0\">Matches the published key.</p>" : "<p class=\"muted\" style=\"margin:0.4rem 0 0\">Blank. A blank is wrong.</p>")}
+                  </div>
+                  <div style="border:1px solid var(--line);border-radius:10px;padding:0.65rem 0.75rem;background:rgba(15,118,110,0.08)">
+                    <div class="muted" style="font-size:0.78rem">${p.source === "aepa" ? "Official key" : "Correct answer"}</div>
+                    <div style="font-size:1.35rem;font-weight:700">${keyLetter}</div>
+                    ${coach && coach.whyKey ? `<p style="margin:0.4rem 0 0">${coach.whyKey}</p>` : whyKey ? `<p style="margin:0.4rem 0 0">${whyKey}</p>` : ""}
+                  </div>
+                </div>`;
+              return `<div class="review-item" data-miss="${ok ? "0" : "1"}" style="border:1px solid var(--line);border-radius:12px;padding:0.75rem 0.9rem">
+                <div class="tag-row"><span class="chip">${p.source === "aepa" ? "PDF " + p.officialN : p.id}</span><span class="chip ${ok ? "done" : "hard"}">${ok ? "correct" : "missed"}</span>${coach ? `<span class="chip">${coach.skill}</span>` : ""}</div>
+                <div>${reviewStem}</div>
+                ${compare}
+                ${!coach ? `<div class="explanation">${p.explanation || ""}</div>` : `<p class="muted" style="margin:0">Pearson’s booklet does not explain items. This note is ours so you can reuse the move on a new passage.</p>`}
+                ${lessonLinks ? `<p class="muted">Drill this skill: ${lessonLinks}</p>` : ""}
+                ${p.source === "aepa" && p.pdfPage ? `<p><button class="btn btn-ghost" type="button" data-reopen="${p.pdfPage}">Show on PDF (page ${p.pdfPage})</button></p>` : ""}
               </div>`;
             }).join("")}
           </div>
           <div class="cta-row" style="margin-top:1rem">
+            ${exam.type === "english" ? `
+            <section class="card" style="margin:0 0 1rem;background:rgba(194,65,12,0.06);width:100%">
+              <h3 style="margin-top:0">Log the trap, not the question number</h3>
+              <p class="muted">Name what the miss actually was so tomorrow’s cards target the move. Field 02 misses are classified automatically when the coach note matches a trap type — still check any that were missed.</p>
+              <div class="grid" style="gap:0.35rem" id="trap-picks">
+                ${(ProgressEngine.ELA_TRAPS || []).map(t => `<label><input type="checkbox" value="${t.id}" /> ${t.label}</label>`).join("")}
+              </div>
+              <button class="btn btn-secondary" type="button" id="save-traps" style="margin-top:0.65rem">Save trap log</button>
+              <span class="muted" id="trap-saved"></span>
+              <p style="margin:0.75rem 0 0"><a href="index.html">Back to today’s loop</a></p>
+            </section>` : ""}
             <a class="btn btn-primary" href="exam.html">Back to exams</a>
-            <a class="btn btn-secondary" href="practice.html?status=todo">Drill unsolved</a>
-            ${remedial.suggestedLessons[0] ? `<a class="btn btn-accent" href="guide.html?id=${remedial.suggestedLessons[0]}">Repair weakest prerequisite</a>` : ""}
+            ${exam.type === "english" ? `<a class="btn btn-ghost" href="index.html">Today’s ELA loop</a>` : ""}
           </div>
         </section>`;
+      bindReviewUi(exam);
+    }
+
+    function bindReviewUi(exam) {
+      const missesOnly = document.getElementById("misses-only");
+      const applyMissFilter = () => {
+        document.querySelectorAll(".review-item").forEach(el => {
+          el.hidden = !!(missesOnly && missesOnly.checked && el.dataset.miss !== "1");
+        });
+      };
+      if (missesOnly) missesOnly.addEventListener("change", applyMissFilter);
+      applyMissFilter();
+      const saveTraps = document.getElementById("save-traps");
+      if (saveTraps) {
+        saveTraps.onclick = () => {
+          const picks = [...document.querySelectorAll("#trap-picks input:checked")].map(el => ({ trap: el.value, examId: exam.id }));
+          if (!picks.length) {
+            document.getElementById("trap-saved").textContent = " Pick at least one.";
+            return;
+          }
+          Progress.addTrapLogs(picks);
+          document.getElementById("trap-saved").textContent = " Saved. Dashboard Track A will drill the top trap.";
+        };
+      }
+      document.querySelectorAll("[data-reopen]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const page = Number(btn.dataset.reopen);
+          const frame = document.getElementById("results-pdf");
+          const guide = STUDY_GUIDES.guides[exam.aepaGuide];
+          if (frame && guide) {
+            frame.src = `${guide.url}?p=${page}#page=${page}`;
+            frame.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }
+        });
+      });
     }
 
     function startCR(id) {
@@ -362,6 +618,7 @@
       lobby.classList.add("hidden");
       runner.classList.add("hidden");
       results.classList.add("hidden");
+      results.classList.remove("aepa-review");
       crRunner.classList.remove("hidden");
       document.getElementById("cr-title").textContent = cr.title;
       document.getElementById("cr-prompt").textContent = cr.prompt;

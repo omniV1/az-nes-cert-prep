@@ -1,6 +1,6 @@
 /* Add skill and representation metadata without duplicating the problem bank. */
 (function tagProblems() {
-  const rules = [
+  const mathRules = [
     ["number-fluency", /integer|fraction|decimal|absolute value|signed number/],
     ["estimation", /estimat|plausib|approx|mental math/],
     ["percent-change", /percent|discount|markup|tax|interest/],
@@ -68,7 +68,10 @@
     ["binomial-normal", /binomial|normal distribution|z-score|empirical rule/],
     ["distributions", /probability distribution|expected value|binomial|normal distribution/],
     ["sequences-series", /sequence|series|arithmetic sequence|geometric sequence/],
-    ["matrices-sets", /matrix|set|union|intersection|venn/],
+    ["matrices-sets", /matrix|set|union|intersection|venn/]
+  ];
+
+  const englishRules = [
     ["parts-of-speech", /noun|verb|adjective|adverb|preposition|conjunction|pronoun|interjection|part of speech/],
     ["phrases-clauses", /independent clause|dependent clause|subordinate|phrase vs clause|relative clause/],
     ["punctuation-basics", /comma splice|semicolon|apostrophe|colon|dash|quotation mark/],
@@ -106,6 +109,9 @@
     ["presentation-ethics", /copyright|fair use|citation of media|presentation aid/]
   ];
 
+  const mathDomains = new Set(["foundation", "number", "algebra", "geometry", "trigcalc", "stats"]);
+  const englishDomains = new Set(["ela-foundation", "reading", "literature", "language", "writing", "oral"]);
+
   const domainFallback = {
     number: "problem-solving",
     algebra: "functions",
@@ -121,10 +127,35 @@
     oral: "listening-speaking"
   };
 
+  function rulesFor(domain) {
+    if (englishDomains.has(domain)) return englishRules;
+    if (mathDomains.has(domain)) return mathRules;
+    return [];
+  }
+
+  function skillTrack(skillId) {
+    const domainId = window.SKILLS?.[skillId]?.domain;
+    if (englishDomains.has(domainId)) return "english";
+    if (domainId === "pedagogy") return "pedagogy";
+    if (mathDomains.has(domainId) || domainId === "foundation") return "math";
+    return null;
+  }
+
+  function problemTrack(domain) {
+    if (englishDomains.has(domain)) return "english";
+    if (domain === "pedagogy") return "pedagogy";
+    if (mathDomains.has(domain)) return "math";
+    return "math";
+  }
+
   for (const problem of (window.PROBLEMS || [])) {
     const haystack = [problem.title, problem.stem, ...(problem.tags || [])].join(" ").toLowerCase();
-    const matches = rules.filter(([, pattern]) => pattern.test(haystack)).map(([skillId]) => skillId);
-    const combined = [...(problem.skillIds || []), ...matches];
+    const track = problemTrack(problem.domain);
+    const matches = rulesFor(problem.domain).filter(([, pattern]) => pattern.test(haystack)).map(([skillId]) => skillId);
+    const combined = [...(problem.skillIds || []), ...matches].filter(skillId => {
+      const skillT = skillTrack(skillId);
+      return !skillT || skillT === track;
+    });
     problem.skillIds = [...new Set(
       combined.length ? combined : [domainFallback[problem.domain]].filter(Boolean)
     )];

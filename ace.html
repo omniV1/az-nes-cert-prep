@@ -15,11 +15,13 @@
       <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
+      <a href="study-guides.html">Guides</a>
       <a href="practice.html">Practice</a>
       <a href="exam.html">Exams</a>
       <a class="active" href="ace.html">Ace</a>
       <a href="notes.html">Notes</a>
       <a href="formulas.html">Formulas</a>
+      <a href="cards.html">Cards</a>
       <a href="traps.html">Traps</a>
       <a href="plan.html">Plan</a>
     </nav>
@@ -53,7 +55,7 @@
 
     <section class="card" style="margin-top:1.25rem">
       <h2>English Language Arts 301</h2>
-      <p class="muted">Target ≥85% with ≥10 attempts in each ELA domain. Reading, literature, and writing modes are 23% each — treat them like boss fights. Oral/visual is only 12%, but those are cheap points.</p>
+      <p class="muted">Reading, literature, and writing are 23% each. The honest booking signal is a Field 02 <em>first</em> sitting plus original passage sets — not 85% on short-stem mocks. Oral/visual is only 12%, but those are cheap points.</p>
       <div id="ela-domains" class="grid" style="gap:0.75rem;margin-top:0.75rem"></div>
       <div class="grid grid-2" style="margin-top:1rem">
         <div>
@@ -67,6 +69,7 @@
       </div>
       <h3>ELA official-length log</h3>
       <div id="ela-mocks" class="muted"></div>
+      <div id="ela-honest" style="margin-top:1rem"></div>
     </section>
   </main>
 
@@ -82,12 +85,18 @@
   <script src="js/data/problems-english-language.js"></script>
   <script src="js/data/problems-english-writing.js"></script>
   <script src="js/data/problems-english-oral.js"></script>
+  <script src="js/data/problems-exam-drill.js"></script>
+  <script src="js/data/problems-ela-longform.js"></script>
+  <script src="js/data/problems-ela-longform-b.js"></script>
+  <script src="js/data/problems-ela-longform-c.js"></script>
+  <script src="js/data/problems-ela-gaps.js"></script>
   <script src="js/data/problem-skills.js"></script>
   <script src="js/data/exams.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/progress-engine.js"></script>
   <script src="js/vault-sync.js"></script>
   <script>
+    ProgressEngine.syncExamLessonMastery();
     const st = Progress.stats();
     const state = st.state;
 
@@ -169,12 +178,13 @@
       refFlag: "elaReferenceReviewedAt",
       trapsFlag: "elaTrapsReviewedAt"
     });
+    const loop = ProgressEngine.elaPasserLoop(state);
 
-    document.getElementById("verdict").innerHTML = (math.ready && ela.ready)
+    document.getElementById("verdict").innerHTML = (math.ready && loop.honestReady)
       ? `<h2 style="margin-top:0;color:var(--easy)">READY TO BOOK BOTH</h2>
-         <p>Both subject gates are green. Register at <a href="https://www.aepa.nesinc.com/" target="_blank" rel="noopener">aepa.nesinc.com</a>. Light review the morning of — not a cram.</p>`
+         <p>Math’s 85% sims are green and ELA’s honest passage-set gate is green. Register at <a href="https://www.aepa.nesinc.com/" target="_blank" rel="noopener">aepa.nesinc.com</a>. Light review the morning of — not a cram. Save Pearson’s NES 301 practice test for the last 10–14 days if you have not used it.</p>`
       : `<h2 style="margin-top:0;color:var(--copper)">NOT READY TO BOOK BOTH YET</h2>
-         <p class="muted" style="margin-bottom:0">Math: ${math.ready ? "ready" : "still red"}. English: ${ela.ready ? "ready" : "still red"}. Ace means ≥85% under time on both official-length forms for that subject.</p>`;
+         <p class="muted" style="margin-bottom:0">Math: ${math.ready ? "ready" : "still red"} (85% × two official-length sims). English: ${loop.honestReady ? "honest gate green" : "still red"} — do not book 301 on short-stem 85% alone.</p>`;
 
     document.getElementById("stats").innerHTML = `
       <div class="stat"><div class="label">Bank solved</div><div class="value">${st.solved}</div></div>
@@ -218,9 +228,11 @@
       { ok: ela.lessonsGate, text: `Master every official ELA lesson (${ela.lessonsDone}/${ela.lessonsTotal})` },
       { ok: ela.officialMaterialsGate, text: `Official 301 sample-item calibrations (${ela.officialCalibrationsDone}/${ela.officialLessons.length})` },
       { ok: ela.foundationGate, text: "Master or place out of ELA Foundation Bootcamp" },
-      { ok: ela.allDomainsHot, text: "≥85% accuracy with ≥10 attempts in every ELA domain" },
-      { ok: ela.gateA, text: "Official-length ELA Simulation A ≥ 85%" },
-      { ok: ela.gateB, text: "Official-length ELA Simulation B ≥ 85%" },
+      { ok: loop.formA.best >= 80 || loop.formB.best >= 80, text: `Original passage set ≥80% (A ${loop.formA.n ? loop.formA.best + "%" : "not taken"} · B ${loop.formB.n ? loop.formB.best + "%" : "not taken"})` },
+      { ok: loop.field02Burned ? (loop.formA.best >= 80 && loop.formB.best >= 80) : (loop.field02N >= 1 && loop.field02Best >= 70), text: loop.field02Burned ? `Field 02 burned (${loop.field02N} sittings) — both original forms ≥80% replace it` : `Field 02 first sitting mid-70s+ (best ${loop.field02N ? loop.field02Best + "%" : "not taken"})` },
+      { ok: ela.allDomainsHot, text: "≥85% accuracy with ≥10 attempts in every ELA domain (supporting)" },
+      { ok: ela.gateA, text: "Official-length ELA Simulation A ≥ 85% (supporting, not the booking signal)" },
+      { ok: ela.gateB, text: "Official-length ELA Simulation B ≥ 85% (supporting, not the booking signal)" },
       { ok: ela.reviewsGate, text: "Clear due ELA spaced-review skills" },
       { ok: ela.hardGate, text: `Solve ≥70% of hard ELA items (${ela.hardSolved}/${ela.hardPool.length})` },
       { ok: ela.refGate, text: "Review ELA reference sheet end-to-end once" },
@@ -234,6 +246,14 @@
       else if (!report.gateB) actions.push(`<a class="btn btn-accent" href="exam.html?exam=${cfg.simB}">Take Official-Length Simulation B</a>`);
       if (weak[0]) actions.push(`<a class="btn btn-secondary" href="practice.html?domain=${weak[0].id}&status=todo">Repair weakest: ${weak[0].id}</a>`);
       actions.push(`<a class="btn btn-secondary" href="exam.html?exam=${cfg.gauntlet}">Hard Gauntlet</a>`);
+      if (cfg.track === "english") {
+        actions.push(`<a class="btn btn-accent" href="exam.html?exam=ela-clusters">Randomized cluster exam</a>`);
+        actions.push(`<a class="btn btn-secondary" href="exam.html?exam=ela-field-rigor">Passage sets A</a>`);
+        actions.push(`<a class="btn btn-secondary" href="exam.html?exam=ela-field-rigor-b">Passage sets B</a>`);
+        actions.push(`<a class="btn btn-secondary" href="exam.html?exam=ela-field-rigor-c">Passage sets C</a>`);
+        actions.push(`<a class="btn btn-ghost" href="cards.html">Term cards</a>`);
+        actions.push(`<a class="btn btn-ghost" href="exam.html?exam=ela-periods-drill">Periods / fallacies</a>`);
+      }
       actions.push(`<a class="btn btn-ghost" href="formulas.html">${cfg.refLabel}</a>`);
       actions.push(`<a class="btn btn-ghost" href="traps.html">Trap guide</a>`);
       el.innerHTML = actions.join("");
@@ -242,7 +262,7 @@
       simA: "math-official-1", simB: "math-official-2", gauntlet: "math-hard-gauntlet", refLabel: "Formula sheet"
     });
     renderActions(document.getElementById("ela-actions"), ela, {
-      simA: "ela-official-1", simB: "ela-official-2", gauntlet: "ela-hard-gauntlet", refLabel: "ELA reference"
+      track: "english", simA: "ela-official-1", simB: "ela-official-2", gauntlet: "ela-hard-gauntlet", refLabel: "ELA reference"
     });
 
     function renderMocks(el, mocks, empty) {
@@ -252,6 +272,20 @@
     }
     renderMocks(document.getElementById("math-mocks"), math.mocks, "No official-length math simulations yet.");
     renderMocks(document.getElementById("ela-mocks"), ela.mocks, "No official-length ELA simulations yet.");
+
+    document.getElementById("ela-honest").innerHTML = `
+      <h3>Honest NES 301 signal</h3>
+      <ul>
+        <li>${loop.field02N ? (loop.field02Burned ? "⚠️" : "✅") : "⬜"} Field 02: ${loop.field02N ? `${loop.field02N} sitting${loop.field02N === 1 ? "" : "s"}, best ${loop.field02Best}%` : "not taken"} ${loop.field02Burned ? "— stop retaking; letters are memorized" : loop.field02Best >= 70 ? "— first-sitting mid-70s+ is the calibration" : loop.field02N ? "— still below mid-70s on Pearson items" : ""}</li>
+        <li>${loop.formA.best >= 80 ? "✅" : loop.formA.n ? "⚠️" : "⬜"} Passage set A: ${loop.formA.n ? `best ${loop.formA.best}% (${loop.formA.n} sitting${loop.formA.n === 1 ? "" : "s"})` : "not taken"}</li>
+        <li>${loop.formB.best >= 80 ? "✅" : loop.formB.n ? "⚠️" : "⬜"} Passage set B: ${loop.formB.n ? `best ${loop.formB.best}% (${loop.formB.n} sitting${loop.formB.n === 1 ? "" : "s"})` : "not taken"} — target ≥80% on an unseen form</li>
+        <li>${loop.formC && loop.formC.n ? (loop.formC.best >= 80 ? "✅" : "⚠️") : "⬜"} Passage set C: ${loop.formC && loop.formC.n ? `best ${loop.formC.best}% (${loop.formC.n} sitting${loop.formC.n === 1 ? "" : "s"})` : "not taken"} — third fixed form; stop after two sittings</li>
+        <li>${loop.clusters && loop.clusters.n ? (loop.clusters.best >= 80 ? "✅" : "⚠️") : "⬜"} Randomized cluster exam: ${loop.clusters && loop.clusters.n ? `best ${loop.clusters.best}% (${loop.clusters.n} sitting${loop.clusters.n === 1 ? "" : "s"})` : "not taken"} — weekly Pearson-style mix. Supporting, not a substitute for A and B. <a href="exam.html?exam=ela-clusters">Open cluster exam</a></li>
+        <li>${loop.honestReady ? "✅" : "⬜"} Ready-enough: ${loop.field02Burned ? "Field 02 burned — both original passage sets ≥80%" : "Field 02 first sitting in play and an original passage set ≥80%"}</li>
+      </ul>
+      <p class="muted">Pearson’s NES 301 practice test (free when you register) is one last unseen form. Use it in the final 10–14 days, then stop. <a href="https://www.nestest.com/prepare/301" target="_blank" rel="noopener">Official 301 prep</a></p>
+      <a class="btn btn-accent" href="index.html">Open today’s ELA loop</a>
+    `;
   </script>
 </body>
 </html>

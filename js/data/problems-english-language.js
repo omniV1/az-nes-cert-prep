@@ -3,7 +3,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"LG001", domain:"language", title:"Parallel Structure", difficulty:"easy", tags:["grammar"], skillIds:["grammar-usage"],
     stem:"Which sentence uses parallel structure?",
     choices:["The intern filed, stacking, and to label the folders.","The intern filed, stacked, and labeled the folders.","The intern filed, stacked, and labels the folders.","The intern to file, stacking, and labeled the folders."], answer:1,
-    explanation:"Parallelism keeps coordinated items in the same form: filed, stacked, labeled. Mixing infinitives, participles, and tensed verbs is a frequent usage trap." },
+    explanation:"Parallelism keeps coordinated items in the same form: filed, stacked, labeled. Mixing infinitives, participles, and tensed verbs is a frequent usage trap—each wrong choice is a real mixed-form error." },
 
   { id:"LG002", domain:"language", title:"Capitalization of Titles", difficulty:"easy", tags:["mechanics"], skillIds:["mechanics"],
     stem:"Which sentence capitalizes the book title correctly in standard academic style?",
@@ -12,18 +12,18 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"LG003", domain:"language", title:"Combine with a Subordinator", difficulty:"easy", tags:["sentences"], skillIds:["sentence-craft"],
     stem:"Which revision best combines these sentences without changing meaning?\nThe storm flooded the lot. The principal delayed the start of school.",
-    choices:["The storm flooded the lot, the principal delayed the start of school.","Because the storm flooded the lot, the principal delayed the start of school.","The storm flooded the lot the principal delayed the start of school.","Flooding, the principal delayed the lot."], answer:1,
-    explanation:"A subordinating conjunction shows cause. A is a comma splice; C is a fused sentence; D dangles (the principal is not flooding) and scrambles meaning." },
+    choices:["Flooding, the principal delayed the lot.","Because the storm flooded the lot, the principal delayed the start of school.","The storm flooded the lot the principal delayed the start of school.","The storm flooded the lot, the principal delayed the start of school."], answer:1,
+    explanation:"A subordinating conjunction shows cause. A dangles (the principal is not flooding) and scrambles meaning. C is a fused sentence; D is a comma splice." },
 
   { id:"LG004", domain:"language", title:"Topic Sentence Role", difficulty:"easy", tags:["structure"], skillIds:["essay-structure"],
     stem:"In a body paragraph, the topic sentence should usually—",
-    choices:["announce a new essay on an unrelated subject","state the paragraph's controlling idea","list the works-cited entries","apologize for the thesis"], answer:1,
-    explanation:"A topic sentence focuses the paragraph so evidence can support one idea. Citations belong in documentation; apologies weaken structure; a new subject needs a new paragraph." },
+    choices:["announce a new essay on an unrelated subject","state the paragraph's controlling idea","preview every source that will appear later in the paper","apologize for the thesis before offering evidence"], answer:1,
+    explanation:"A topic sentence focuses the paragraph so evidence can support one idea. A new subject needs a new paragraph. Source lists belong in documentation, not as the topic sentence. Apologies weaken structure." },
 
   { id:"LG005", domain:"language", title:"Prewriting Purpose", difficulty:"easy", tags:["process"], skillIds:["writing-process"],
     stem:"Clustering, listing, and freewriting are primarily used during—",
-    choices:["publishing the final copy","prewriting to generate ideas","copyediting commas only","designing the cover art"], answer:1,
-    explanation:"Those strategies invent content before drafting. Publishing and cover design come later; comma-only copyediting is a late mechanics pass." },
+    choices:["publishing the final copy","prewriting to generate ideas","copyediting commas after the draft is already organized","designing headers and page layout"], answer:1,
+    explanation:"Those strategies invent content before drafting. Publishing and layout come later; comma-only copyediting is a late mechanics pass, not idea generation." },
 
   { id:"LG006", domain:"language", title:"Plagiarism versus Paraphrase", difficulty:"medium", tags:["research"], skillIds:["research-citation"],
     stem:"A student copies a historian's three-sentence analysis, changes two adjectives, and omits a citation. This is best classified as—",
@@ -47,17 +47,17 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"LG010", domain:"language", title:"Thesis Placement", difficulty:"easy", tags:["structure"], skillIds:["essay-structure"],
     stem:"In a conventional academic essay, the thesis statement most often appears—",
-    choices:["only in the works-cited list","at the end of the introduction","as a caption under a photo with no argument","in a footnote the reader is told to skip"], answer:1,
+    choices:["only in the documentation list at the end","at the end of the introduction","as a caption under a photo with no argument","in a footnote the writer tells the reader to skip"], answer:1,
     explanation:"The introduction typically ends with the claim the body will prove. Documentation, captions, and hidden notes are not substitutes for a thesis." },
 
   { id:"LG011", domain:"language", title:"Revising versus Editing", difficulty:"easy", tags:["process"], skillIds:["writing-process"],
     stem:"A student reorganizes paragraphs and sharpens the thesis after a peer conference. This work is best called—",
-    choices:["revising for content and structure","copyediting spelling only","prewriting lists","publishing an ISBN assignment"], answer:0,
-    explanation:"Revision changes ideas, order, and development. Editing targets surface errors. Prewriting invents; publishing releases a finished text." },
+    choices:["revising for content and structure","copyediting spelling and commas only","prewriting lists of unused ideas","formatting the paper for submission"], answer:0,
+    explanation:"Revision changes ideas, order, and development. Editing targets surface errors. Prewriting invents; formatting prepares a finished text." },
 
   { id:"LG012", domain:"language", title:"Best Research Question", difficulty:"easy", tags:["research"], skillIds:["research-citation"],
     stem:"Which is the strongest research question for a short school paper?",
-    choices:["What is basketball?","How did Title IX change athletic opportunities for girls at U.S. public high schools between 1972 and 1990?","Why are sports cool?","Is winning good or bad forever?"], answer:1,
+    choices:["What is basketball, in general terms?","How did Title IX change athletic opportunities for girls at U.S. public high schools between 1972 and 1990?","Why are sports important to people?","Is winning good or bad in every sport, forever?"], answer:1,
     explanation:"A strong question is focused, researchable, and bounded in time and place. A is too broad. C and D are vague value questions without a workable scope." },
 
   { id:"LG013", domain:"language", title:"Fragment Repair", difficulty:"medium", tags:["grammar"], skillIds:["grammar-usage"],
@@ -77,12 +77,12 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"LG016", domain:"language", title:"Conclusion Function", difficulty:"medium", tags:["structure"], skillIds:["essay-structure"],
     stem:"The most effective conclusion to an analytical essay typically—",
-    choices:["repeats the thesis word-for-word and stops","synthesizes the argument and answers 'so what?' without a brand-new claim","introduces three unread sources","apologizes for having a thesis"], answer:1,
+    choices:["repeats the thesis word-for-word and stops","synthesizes the argument and answers 'so what?' without a brand-new claim","introduces three unread sources that the body never used","apologizes for having taken a position"], answer:1,
     explanation:"A conclusion should feel earned: restate with development and implication, not a clone, a new research dump, or an apology." },
 
   { id:"LG017", domain:"language", title:"Audience while Drafting", difficulty:"medium", tags:["process"], skillIds:["writing-process"],
     stem:"During drafting, a writer should most often keep in mind—",
-    choices:["the assigned audience and purpose","only the font size","whether the paper can avoid having a point","the need to hide sources"], answer:0,
+    choices:["the assigned audience and purpose","only the required font and margin size","whether the paper can avoid taking a position","the need to hide borrowed ideas until the end"], answer:0,
     explanation:"Purpose and audience control diction, evidence, and tone. Font is formatting; avoiding a point and hiding sources are not process goals." },
 
   { id:"LG018", domain:"language", title:"Common Knowledge", difficulty:"medium", tags:["research"], skillIds:["research-citation"],
@@ -107,13 +107,13 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"LG022", domain:"language", title:"Body Paragraph Unity", difficulty:"medium", tags:["structure"], skillIds:["essay-structure"],
     stem:"A body paragraph on library Saturday hours suddenly describes the author's favorite novel for eight sentences. The main structural problem is—",
-    choices:["too much unity","a break in unity (off-topic development)","a missing font change","correct MLA headers"], answer:1,
+    choices:["too much unity, because every sentence must repeat the hours claim","a break in unity (off-topic development)","a missing change of font to mark the novel summary","correct documentation headers in the wrong paragraph"], answer:1,
     explanation:"Unity means every sentence advances the paragraph's controlling idea. Favorite-novel plot is a tangent. Font and headers are formatting, not paragraph logic." },
 
   { id:"LG023", domain:"language", title:"Peer Review Focus", difficulty:"medium", tags:["process"], skillIds:["writing-process"],
     stem:"On an early draft, a peer reviewer should first comment on—",
-    choices:["whether the thesis and organization are clear","the color of the staple","whether every comma matches a handbook page before ideas exist","hiding the assignment prompt"], answer:0,
-    explanation:"Higher-order concerns (claim, structure, evidence) come before surface editing. Staples and premature comma hunts waste the revision window." },
+    choices:["whether the thesis and organization are clear","whether the staple color matches school colors","whether every comma matches a handbook page before ideas exist","whether the assignment prompt can be ignored"], answer:0,
+    explanation:"Higher-order concerns (claim, structure, evidence) come before surface editing. Formatting trivia and premature comma hunts waste the revision window." },
 
   { id:"LG024", domain:"language", title:"Paraphrase that Cites", difficulty:"medium", tags:["research"], skillIds:["research-citation"],
     stem:"Which is an acceptable paraphrase?",
@@ -137,18 +137,18 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"LG028", domain:"language", title:"Introduction Hook versus Thesis", difficulty:"easy", tags:["structure"], skillIds:["essay-structure"],
     stem:"An essay on later school start times opens with a startling sleep statistic and ends the first paragraph with a claim that the district should shift first bell to 8:30. The statistic functions as—",
-    choices:["the works-cited page","a hook; the 8:30 claim is the thesis","a conclusion","a counterargument concession"], answer:1,
+    choices:["the documentation page for the sleep statistic","a hook; the 8:30 claim is the thesis","a conclusion that should have closed the essay","a counterargument concession to opponents of later starts"], answer:1,
     explanation:"Openers may hook with data; the thesis is the arguable policy claim that organizes the essay. The statistic is not documentation, a closing, or a concession." },
 
   { id:"LG029", domain:"language", title:"Proofreading Last", difficulty:"hard", tags:["process"], skillIds:["writing-process"],
     stem:"Why do many process models put proofreading last?",
-    choices:["Because ideas never change","Because earlier revisions would force writers to re-edit sentences they may later cut or rewrite","Because spelling does not matter","Because teachers forbid drafts"], answer:1,
-    explanation:"Surface editing too early is wasted if paragraphs are deleted. Ideas do change (that is the point of revision). Spelling matters at the end; drafts are expected." },
+    choices:["Because ideas never change after the first draft","Because earlier revisions would force writers to re-edit sentences they may later cut or rewrite","Because spelling and punctuation do not affect readers","Because teachers forbid more than one draft"], answer:1,
+    explanation:"Surface editing too early is wasted if paragraphs are deleted. Ideas do change (that is the point of revision). Mechanics matter at the end; drafts are expected." },
 
   { id:"LG030", domain:"language", title:"Primary Source Choice", difficulty:"hard", tags:["research"], skillIds:["research-citation"],
     stem:"For a paper on 1852 mill conditions, which source is primary?",
-    choices:["A 2021 textbook overview","A mill worker's 1852 letter","A 1990 documentary voice-over","An encyclopedia timeline"], answer:1,
-    explanation:"Primary sources come from the time and participants. Later textbooks, films, and encyclopedias are secondary syntheses." },
+    choices:["A 2021 textbook overview of mill reform","A mill worker's 1852 letter","A 1990 documentary voice-over summarizing 1852 conditions","An encyclopedia timeline that lists 1852 laws"], answer:1,
+    explanation:"Primary sources come from the time and participants. Later textbooks, films, and encyclopedias remain secondary even when they discuss 1852." },
 
   { id:"LG031", domain:"language", title:"Mood of Verb", difficulty:"hard", tags:["grammar"], skillIds:["grammar-usage"],
     stem:"In the sentence If I were the principal, I would delay the bell, were is in the—",
@@ -162,17 +162,17 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"LG033", domain:"language", title:"Coherence with Given-New", difficulty:"hard", tags:["sentences"], skillIds:["sentence-craft"],
     stem:"Which second sentence creates the most coherent given-new flow?\nThe committee released a 40-page report.",
-    choices:["Basketball is a sport.","The report recommends later start times for first period.","Meanwhile, volcanoes.","The committee released a 40-page report."], answer:1,
+    choices:["Basketball participation rose the same year.","The report recommends later start times for first period.","Meanwhile, a different committee studied volcanoes.","The committee released a 40-page report."], answer:1,
     explanation:"Coherence often repeats a given idea (report) and adds new information (the recommendation). A and C are unrelated. D is an unhelpful exact repeat." },
 
   { id:"LG034", domain:"language", title:"Counterclaim Paragraph", difficulty:"hard", tags:["structure"], skillIds:["essay-structure"],
     stem:"In a persuasive essay, a paragraph that fairly states an opposing view and then answers it is best called—",
-    choices:["a counterargument (or concession-rebuttal) section","the works-cited only","a hook with no claim","plagiarism"], answer:0,
-    explanation:"Strong arguments host and rebut opposition. That is not documentation, an opener, or theft." },
+    choices:["a counterargument (or concession-rebuttal) section","the documentation list with no argument","a hook that never states a claim","plagiarism of the opposing view"], answer:0,
+    explanation:"Strong arguments host and rebut opposition. That is not documentation, an opener, or theft—stating a view in order to answer it is legitimate." },
 
   { id:"LG035", domain:"language", title:"Assignment Analysis", difficulty:"hard", tags:["process"], skillIds:["writing-process"],
     stem:"Before choosing a thesis, a writer should first—",
-    choices:["ignore the prompt and write a diary entry","analyze the prompt's purpose, audience, and required genre","pick a font named after a city","cite sources that do not exist"], answer:1,
+    choices:["ignore the prompt and write a diary entry on the same topic","analyze the prompt's purpose, audience, and required genre","choose a decorative font before deciding the claim","cite sources that sound plausible but do not exist"], answer:1,
     explanation:"Task analysis prevents off-mode writing (narrative when analysis is required). Invented sources are academic dishonesty; font and diary moves dodge the assignment." },
 
   { id:"LG036", domain:"language", title:"MLA In-Text Citation", difficulty:"hard", tags:["research"], skillIds:["research-citation"],
@@ -192,11 +192,11 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"LG039", domain:"language", title:"Too-Broad Question", difficulty:"easy", tags:["research"], skillIds:["research-citation"],
     stem:"Why is What is the history of the world? a weak research question for a five-page paper?",
-    choices:["It is too broad to investigate with a defined method and sources","It is too narrow because it names one date","It is a perfect yes/no question","It already contains a works-cited list"], answer:0,
+    choices:["It is too broad to investigate with a defined method and sources","It is too narrow because it names one date","It is a perfect yes/no question for five pages","It already contains a documentation list the writer can copy"], answer:0,
     explanation:"Scope must match length. World history cannot be handled in five pages. It is not narrow, not yes/no, and not a bibliography." },
 
   { id:"LG040", domain:"language", title:"Quotation versus Paraphrase Choice", difficulty:"easy", tags:["research"], skillIds:["research-citation"],
     stem:"A writer should quote rather than paraphrase when—",
-    choices:["the source's exact wording is itself the evidence (a striking phrase or literary line)","every sentence in the paper must be quoted","paraphrase is always plagiarism","citations are never allowed"], answer:0,
+    choices:["the source's exact wording is itself the evidence (a striking phrase or literary line)","every sentence in the paper must be quoted to avoid paraphrase","paraphrase is always plagiarism, even with a citation","citations are never allowed once a quotation appears"], answer:0,
     explanation:"Quote distinctive language; paraphrase ordinary information (and still cite). Not every sentence should be a quote. Paraphrase with citation is legitimate; citations are required for sourced ideas." }
 ]);

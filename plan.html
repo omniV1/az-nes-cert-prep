@@ -15,11 +15,13 @@
       <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
+      <a href="study-guides.html">Guides</a>
       <a href="practice.html">Practice</a>
       <a href="exam.html">Exams</a>
       <a href="ace.html">Ace</a>
       <a href="notes.html">Notes</a>
       <a href="formulas.html">Formulas</a>
+      <a href="cards.html">Cards</a>
       <a href="traps.html">Traps</a>
       <a class="active" href="plan.html">Mastery Plan</a>
     </nav>
@@ -31,6 +33,24 @@
     <p class="muted">Two independent 16-phase tracks. A phase is not a deadline: repeat it until the mastery gate is green, then advance. You can study both in parallel from the dashboard.</p>
 
     <section class="card">
+      <h2>ELA weekly loop (what passers actually do)</h2>
+      <p class="muted">NES 301 scores application on new passages plus cheap-point knowledge. Retaking Field 02 trains letter memory. Split the work.</p>
+      <ol>
+        <li><strong>Track A · cards (20–30 min, most days)</strong> — Quizlet Learn: flip cards, then multiple choice until a term sticks, then type it. Misses fall back to multiple choice until 100% written. Prompt type (term, definition, or usage sentence) changes so the quiz is not a fixed form. <a href="cards.html">Open cards</a> · <a href="cards.html?deck=mixed&mode=quiz">mixed quiz to 100%</a>.</li>
+        <li><strong>Track B · new passage (60–90 min, 4–5 days)</strong> — a <em>randomized cluster exam</em> assembled from original passages, not Field 02. Log the trap type, not the question number. Then drill that move on a different cluster. <a href="exam.html?exam=ela-clusters">Cluster exam</a> · <a href="exam.html?exam=ela-field-rigor-c">Form C</a> · <a href="exam.html?exam=ela-field-rigor-b">Form B</a> · <a href="exam.html?exam=ela-field-rigor">Form A</a>.</li>
+        <li><strong>Track C · one timed original form per week</strong> — Form A, Form B, or a hard-first official-length mock. Not Field 02 after two sittings.</li>
+        <li><strong>Phase tests · mixed application + terms</strong> — every ELA phase has a timed test that samples the bank and the matching flashcard decks. Item subset, question type, and choice order are new each sitting, so letter memory does not help. After phases 6, 12, and 16, take the checkpoint that covers everything in that block.</li>
+      </ol>
+      <div class="callout" style="background:rgba(15,118,110,0.08);border:1px solid rgba(15,118,110,0.2);border-radius:12px;padding:0.9rem 1rem">
+        <strong>ELA booking signal:</strong> mid-70s+ on a first Field 02 sitting <em>and</em> ≥80% on an original passage set. 85% on short-stem mocks is not enough. Save Pearson’s NES 301 practice test (free at registration) for the last 10–14 days. Math still uses the 85% × two official-length sims gate.
+      </div>
+      <div class="cta-row" style="margin-top:0.85rem">
+        <a class="btn btn-accent" href="index.html">Open today’s loop</a>
+        <a class="btn btn-ghost" href="https://www.nestest.com/prepare/301" target="_blank" rel="noopener">Official NES 301 prep</a>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:1.25rem">
       <h2>Weekly rhythm (Khan + NeetCode hybrid)</h2>
       <ol>
         <li><strong>Learn (40%)</strong> — 2–4 lesson guides until you can teach the idea out loud.</li>
@@ -38,7 +58,7 @@
         <li><strong>Exam pressure (20%)</strong> — Timed block or constructed response every week from Week 2 on.</li>
       </ol>
       <div class="callout" style="background:rgba(15,118,110,0.08);border:1px solid rgba(15,118,110,0.2);border-radius:12px;padding:0.9rem 1rem">
-        <strong>Booking gate:</strong> Book a subject exam only after every prerequisite for that track is mastered, spaced reviews are current, and two official-length simulations score at least 85%.
+        <strong>Booking gate:</strong> Math: ≥85% on two official-length simulations. ELA: original passage set ≥80%, plus a Field 02 first sitting in the mid-70s — or both original forms ≥80% if Field 02 is already burned.
       </div>
     </section>
 
@@ -65,6 +85,7 @@
       <article class="card">
         <h2>External supplements</h2>
         <ul>
+          <li><a href="study-guides.html">AEPA Field 02 (English) and Field 10 (Math)</a> — retired Pearson study guides mapped onto current NES 301 / 304 lessons.</li>
           <li><a href="https://www.khanacademy.org/math" target="_blank" rel="noopener">Khan Academy Math</a> — free video reps for any weak math lesson.</li>
           <li><a href="https://www.khanacademy.org/humanities" target="_blank" rel="noopener">Khan Academy Humanities</a> — grammar, reading, and rhetoric refreshers.</li>
           <li><a href="https://owl.purdue.edu/" target="_blank" rel="noopener">Purdue OWL</a> — citation, process, and mechanics.</li>
@@ -76,7 +97,7 @@
         <ul>
           <li>Domain drills: ≥85% before leaving a domain.</li>
           <li>Half-length forms: ≥85% before official-length simulation.</li>
-          <li>150-question simulations: math 5 hours ≥85% twice; ELA 3 hours ≥85% twice.</li>
+          <li>150-question simulations: math 5 hours ≥85% twice. ELA: treat passage-set ≥80% plus a Field 02 first sitting in the mid-70s as the honest gate — not 85% on short stems.</li>
           <li>APK MCQ: ≥80% + two timed CR drafts scored against PEEL.</li>
         </ul>
       </article>
@@ -95,7 +116,12 @@
   <script src="js/storage.js"></script>
   <script src="js/vault-sync.js"></script>
   <script>
-    function weekCards(weeks, extras) {
+    function btns(item, cls) {
+      if (!item) return "";
+      const list = Array.isArray(item) ? item : [item];
+      return list.map(x => `<a class="btn ${cls}" href="${x.href}">${x.label}</a>`).join("");
+    }
+    function weekCards(weeks) {
       return weeks.map(w => `
       <article class="week-card">
         <h4>Phase ${w.week}: ${w.title}</h4>
@@ -105,21 +131,17 @@
           ${w.domains.map(d => `<span class="chip">${d || "mixed"}</span>`).join("")}
         </div>
         <div class="cta-row" style="margin-top:0.65rem">
-          ${extras(w)}
-          <a class="btn btn-ghost" href="learn.html">Open learn</a>
+          ${btns(w.test || w.drill, "btn-accent")}
+          ${w.test ? btns(w.drill, "btn-secondary") : ""}
+          ${btns(w.checkpoint, "btn-primary")}
+          ${btns(w.cards, "btn-secondary")}
+          ${btns(w.quiz, "btn-secondary")}
+          <a class="btn btn-ghost" href="learn.html#${w.domains[0]}">Open learn</a>
         </div>
       </article>`).join("");
     }
-    document.getElementById("weeks").innerHTML = weekCards(CURRICULUM.weeks, w => `
-          ${w.week === 1 ? `<a class="btn btn-accent" href="exam.html?exam=math-placement-short">Foundation placement</a>` : ""}
-          ${w.week === 15 ? `<a class="btn btn-accent" href="exam.html?exam=math-full-1">Half-length mock</a>` : ""}
-          ${w.week === 16 ? `<a class="btn btn-accent" href="exam.html?exam=math-official-1">Official-length simulation</a>` : ""}
-    `);
-    document.getElementById("ela-weeks").innerHTML = weekCards(CURRICULUM.englishWeeks || [], w => `
-          ${w.week === 1 ? `<a class="btn btn-accent" href="exam.html?exam=ela-placement-short">ELA placement</a>` : ""}
-          ${w.week === 15 ? `<a class="btn btn-accent" href="exam.html?exam=ela-full-1">Half-length mock</a>` : ""}
-          ${w.week === 16 ? `<a class="btn btn-accent" href="exam.html?exam=ela-official-1">Official-length simulation</a>` : ""}
-    `);
+    document.getElementById("weeks").innerHTML = weekCards(CURRICULUM.weeks);
+    document.getElementById("ela-weeks").innerHTML = weekCards(CURRICULUM.englishWeeks || []);
 
     document.getElementById("reset").onclick = () => {
       if (confirm("Reset all progress on this device?")) {

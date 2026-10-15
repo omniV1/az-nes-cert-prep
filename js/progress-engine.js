@@ -5,6 +5,23 @@ window.ProgressEngine = (() => {
   const MATH_TRACK_DOMAINS = ["foundation", ...OFFICIAL_MATH_DOMAINS];
   const ENGLISH_TRACK_DOMAINS = ["ela-foundation", ...OFFICIAL_ENGLISH_DOMAINS];
 
+  function trackForDomain(domainId) {
+    const domain = (window.CURRICULUM?.domains || []).find(d => d.id === domainId);
+    if (domain?.track) return domain.track;
+    if (OFFICIAL_ENGLISH_DOMAINS.includes(domainId) || domainId === "ela-foundation") return "english";
+    if (domainId === "pedagogy") return "pedagogy";
+    return "math";
+  }
+
+  function trackForSkill(skillId) {
+    const skill = window.SKILLS?.[skillId];
+    return trackForDomain(skill?.domain);
+  }
+
+  function skillBelongsToTrack(skillId, track) {
+    return trackForSkill(skillId) === track;
+  }
+
   function allLessons() {
     return (window.CURRICULUM?.domains || []).flatMap(domain =>
       domain.lessons.map(lesson => ({
@@ -33,11 +50,53 @@ window.ProgressEngine = (() => {
   }
 
   function placementWaivesLesson(lesson, state) {
-    if (!state.placement?.bySkill || !lesson?.skills?.length) return false;
+    const track = lesson.track || "math";
+    const placement = state.placementByTrack?.[track] || (track === "math" ? state.placement : null);
+    if (!placement?.bySkill || !lesson?.skills?.length) return false;
     return lesson.skills.every(skillId => {
-      const result = state.placement.bySkill[skillId];
+      const result = placement.bySkill[skillId];
       return result && result.total >= 2 && result.pct >= 85;
     });
+  }
+
+  function examHistoryForSkill(skillId, state) {
+    const rec = state.skillProgress?.[skillId] || {};
+    const hist = (rec.history || []).filter(entry => String(entry.source || "").startsWith("exam:"));
+    const total = hist.length;
+    const correct = hist.filter(entry => entry.correct).length;
+    return {
+      total,
+      correct,
+      pct: total ? Math.round(100 * correct / total) : 0
+    };
+  }
+
+  function examWaivesLesson(lesson, state) {
+    if (!lesson?.skills?.length) return false;
+    const perSkill = lesson.skills.map(skillId => examHistoryForSkill(skillId, state));
+    if (perSkill.every(stat => stat.total >= 2 && stat.pct >= 85)) return true;
+    const combined = perSkill.reduce((acc, stat) => ({
+      total: acc.total + stat.total,
+      correct: acc.correct + stat.correct
+    }), { total: 0, correct: 0 });
+    const overall = combined.total ? combined.correct / combined.total : 0;
+    const noFailingSkill = perSkill.every(stat => stat.total < 2 || stat.pct >= 70);
+    return combined.total >= 3 && overall >= 0.85 && noFailingSkill;
+  }
+
+  function syncExamLessonMastery(track) {
+    const state = window.Progress?.load?.() || {};
+    const newly = [];
+    for (const lesson of allLessons()) {
+      if (track && lesson.track !== track) continue;
+      if (!examWaivesLesson(lesson, state)) continue;
+      const already = state.lessonsDone?.[lesson.id] || state.lessonMastery?.[lesson.id]?.masteredAt;
+      if (already) continue;
+      const at = new Date().toISOString();
+      window.Progress.setLessonMastery(lesson.id, { masteredAt: at, source: "exam" });
+      newly.push(lesson);
+    }
+    return newly;
   }
 
   function lessonMasteryStatus(lessonId, stateArg) {
@@ -48,10 +107,13 @@ window.ProgressEngine = (() => {
       !!state.officialResources?.[`lesson:${lessonId}`];
 
     if ((state.lessonsDone?.[lessonId] || state.lessonMastery?.[lessonId]?.masteredAt) && officialComplete) {
-      return { mastered: true, source: "completed" };
+      return { mastered: true, source: state.lessonMastery?.[lessonId]?.source || "completed" };
     }
     if (placementWaivesLesson(lesson, state)) {
       return { mastered: true, source: "placement" };
+    }
+    if (examWaivesLesson(lesson, state)) {
+      return { mastered: true, source: "exam" };
     }
 
     const checks = lessonCheckTotals(lessonId, state);
@@ -126,11 +188,9 @@ window.ProgressEngine = (() => {
     const state = stateArg || window.Progress.load();
     const weakSkills = [];
     for (const [skillId, skill] of Object.entries(window.SKILLS || {})) {
-      if (track) {
-        const domain = (window.CURRICULUM?.domains || []).find(d => d.id === skill.domain);
-        if ((domain?.track || "math") !== track) continue;
-      }
-      const placement = state.placement?.bySkill?.[skillId];
+      if (track && trackForSkill(skillId) !== track) continue;
+      const placement = (track && state.placementByTrack?.[track]?.bySkill?.[skillId])
+        || state.placement?.bySkill?.[skillId];
       const progress = state.skillProgress?.[skillId];
       const total = progress ? progress.attempts : (placement?.total || 0);
       const correct = progress ? progress.correct : (placement?.correct || 0);
@@ -140,6 +200,7 @@ window.ProgressEngine = (() => {
           skillId,
           title: skill.title,
           domain: skill.domain,
+          track: trackForSkill(skillId),
           pct,
           lessonIds: skill.lessonIds || []
         });
@@ -152,20 +213,92 @@ window.ProgressEngine = (() => {
     };
   }
 
+  const DOMAIN_DRILLS = {
+    number: "math-number-block",
+    algebra: "math-algebra-block",
+    geometry: "math-geometry-block",
+    trigcalc: "math-trigcalc-block",
+    stats: "math-stats-block",
+    reading: "ela-reading-block",
+    literature: "ela-literature-block",
+    language: "ela-language-block",
+    writing: "ela-writing-block",
+    oral: "ela-oral-block"
+  };
+
+  function repairPlanFromExam({ type, byDomain, bySkill, itemResults }) {
+    const track = type === "english" ? "english" : type === "pedagogy" ? "pedagogy" : "math";
+    const trackLabel = track === "english"
+      ? "English Language Arts (301)"
+      : track === "pedagogy"
+        ? "APK Secondary (052)"
+        : "Mathematics (304)";
+    const domainRows = Object.entries(byDomain || {}).map(([id, stats]) => {
+      const domain = (window.CURRICULUM?.domains || []).find(d => d.id === id);
+      const pct = stats.total ? Math.round(100 * stats.correct / stats.total) : 0;
+      return {
+        id,
+        title: domain?.title || id,
+        track: trackForDomain(id),
+        correct: stats.correct,
+        total: stats.total,
+        pct,
+        drillId: DOMAIN_DRILLS[id] || null,
+        firstLessonId: domain?.lessons?.[0]?.id || null
+      };
+    }).filter(row => row.track === track || !type)
+      .sort((a, b) => a.pct - b.pct);
+    const weakDomains = domainRows.filter(row => row.pct < 85);
+
+    const skillMisses = {};
+    (itemResults || []).filter(item => !item.correct).forEach(item => {
+      (item.skillIds || []).forEach(skillId => {
+        if (!skillBelongsToTrack(skillId, track)) return;
+        const skill = window.SKILLS?.[skillId];
+        skillMisses[skillId] = skillMisses[skillId] || {
+          skillId,
+          title: skill?.title || skillId,
+          domain: skill?.domain,
+          missed: 0,
+          lessonIds: skill?.lessonIds || []
+        };
+        skillMisses[skillId].missed++;
+      });
+    });
+    const weakSkills = Object.values(skillMisses).sort((a, b) => b.missed - a.missed);
+    const suggestedLessons = [...new Set(weakSkills.flatMap(skill => skill.lessonIds))]
+      .map(id => lessonById(id))
+      .filter(lesson => lesson && lesson.track === track)
+      .slice(0, 6);
+
+    return {
+      track,
+      trackLabel,
+      domainRows,
+      weakDomains,
+      weakSkills,
+      suggestedLessons,
+      missedIds: (itemResults || [])
+        .filter(item => !item.correct && !String(item.problemId || "").startsWith("AEPA-"))
+        .map(item => item.problemId)
+    };
+  }
+
   function mockSequenceFor(track) {
     if (track === "english") {
       return [
-        { examId: "ela-full-1", title: "Half-Length ELA Mock A" },
-        { examId: "ela-full-2", title: "Half-Length ELA Mock B" },
-        { examId: "ela-official-1", title: "Official-Length ELA Simulation A" },
-        { examId: "ela-official-2", title: "Official-Length ELA Simulation B" }
+        { examId: "ela-field-rigor", title: "ELA passage sets Form A", target: 80 },
+        { examId: "ela-field-rigor-b", title: "ELA passage sets Form B", target: 80 },
+        { examId: "ela-clusters", title: "ELA Pearson-style cluster exam", target: 80 },
+        { examId: "ela-official-1", title: "Official-Length ELA Simulation A", target: 85 },
+        { examId: "ela-official-2", title: "Official-Length ELA Simulation B", target: 85 }
       ];
     }
     return [
-      { examId: "math-full-1", title: "Half-Length Math Mock A" },
-      { examId: "math-full-2", title: "Half-Length Math Mock B" },
-      { examId: "math-official-1", title: "Official-Length Math Simulation A" },
-      { examId: "math-official-2", title: "Official-Length Math Simulation B" }
+      { examId: "math-full-1", title: "Half-Length Math Mock A", target: 85 },
+      { examId: "math-full-2", title: "Half-Length Math Mock B", target: 85 },
+      { examId: "math-official-1", title: "Official-Length Math Simulation A", target: 85 },
+      { examId: "math-official-2", title: "Official-Length Math Simulation B", target: 85 }
     ];
   }
 
@@ -174,9 +307,7 @@ window.ProgressEngine = (() => {
     const track = opts.track || null;
     const due = window.Progress.getDueReviews().filter(item => {
       if (!track) return true;
-      const skill = window.SKILLS?.[item.skillId];
-      const domain = (window.CURRICULUM?.domains || []).find(d => d.id === skill?.domain);
-      return (domain?.track || "math") === track;
+      return trackForSkill(item.skillId) === track;
     });
     if (due.length) {
       const skill = window.SKILLS?.[due[0].skillId];
@@ -206,10 +337,135 @@ window.ProgressEngine = (() => {
       const best = examId => (state.exams || [])
         .filter(exam => exam.id === examId)
         .reduce((score, exam) => Math.max(score, exam.percent || 0), 0);
-      const nextMock = mockSequenceFor(currentTrack).find(mock => best(mock.examId) < 85);
+      const nextMock = mockSequenceFor(currentTrack).find(mock => best(mock.examId) < (mock.target || 85));
       if (nextMock) return { type: "mock", track: currentTrack, ...nextMock };
     }
     return { type: "maintenance", title: "Maintain mastery with mixed review" };
+  }
+
+  const ELA_TRAPS = [
+    { id: "overclaim", label: "Overclaim (always / proved / safest)" },
+    { id: "wrong-speaker", label: "Wrong speaker (appendix vs main, mask vs author)" },
+    { id: "adjacent-term", label: "Adjacent literary term (simile/metaphor, verbal/dramatic irony)" },
+    { id: "true-detail", label: "True detail that is not the main idea" },
+    { id: "tone", label: "Tone / mood mix-up" },
+    { id: "fact-opinion", label: "Fact vs opinion / inference the passage does not license" },
+    { id: "grammar", label: "Named grammar error vs a different real error" },
+    { id: "skipped-passage", label: "Guessed without reading the passage" }
+  ];
+
+  function trapLabel(id) {
+    return (ELA_TRAPS.find(t => t.id === id) || {}).label || id;
+  }
+
+  function classifyElaTrap(text) {
+    const raw = String(text || "").trim();
+    if (ELA_TRAPS.some(t => t.id === raw)) return raw;
+    const s = raw.toLowerCase();
+    if (/overclaim|do not overclaim|always|proved|safest|whole excerpt|not one image/.test(s)) return "overclaim";
+    if (/speaker|appendix|mask vs|stage manager|soliloquy vs aside|who is accountable/.test(s)) return "wrong-speaker";
+    if (/simile|metaphor|irony|literary term|name the form|genre of|device|figurative|soliloquy|aside vs/.test(s)) return "adjacent-term";
+    if (/specific detail|true detail|not the main|literal reading|not one stanza|not the most literal/.test(s)) return "true-detail";
+    if (/\btone\b|\bmood\b/.test(s)) return "tone";
+    if (/fact vs opinion|inference|licenses|does not license/.test(s)) return "fact-opinion";
+    if (/grammar|parallelism|comma|agreement|modifier|named grammar/.test(s)) return "grammar";
+    if (/without reading|skipped|guessed/.test(s)) return "skipped-passage";
+    return null;
+  }
+
+  function examBest(state, examId) {
+    return (state.exams || [])
+      .filter(exam => exam.id === examId)
+      .reduce((score, exam) => Math.max(score, exam.percent || 0), 0);
+  }
+
+  function examCount(state, examId) {
+    return (state.exams || []).filter(exam => exam.id === examId).length;
+  }
+
+  function daysSince(iso) {
+    if (!iso) return 99;
+    return Math.floor((Date.now() - new Date(iso).getTime()) / 86400000);
+  }
+
+  function elaPasserLoop(stateArg) {
+    const state = stateArg || window.Progress.load();
+    const today = window.Progress.studyLoopToday();
+    const field02N = examCount(state, "aepa-field02");
+    const field02Best = examBest(state, "aepa-field02");
+    const formA = { n: examCount(state, "ela-field-rigor"), best: examBest(state, "ela-field-rigor") };
+    const formB = { n: examCount(state, "ela-field-rigor-b"), best: examBest(state, "ela-field-rigor-b") };
+    const formC = { n: examCount(state, "ela-field-rigor-c"), best: examBest(state, "ela-field-rigor-c") };
+    const clusters = { n: examCount(state, "ela-clusters"), best: examBest(state, "ela-clusters") };
+    const traps = ((window.Progress.trapCounts && window.Progress.trapCounts()) || [])
+      .map(t => ({ ...t, label: trapLabel(t.trap) }));
+    const topTrap = traps[0];
+
+    const trapDeck = {
+      grammar: "cards.html?deck=grammar-usage",
+      "adjacent-term": "cards.html?deck=literature-terms",
+      tone: "cards.html?deck=literature-terms",
+      overclaim: "cards.html?deck=informational",
+      "fact-opinion": "cards.html?deck=informational",
+      "true-detail": "cards.html?deck=reading-process",
+      "wrong-speaker": "cards.html?deck=literature-terms",
+      "skipped-passage": "cards.html?deck=reading-process"
+    };
+    const cardsHref = topTrap
+      ? (trapDeck[topTrap.trap] || "cards.html")
+      : "cards.html";
+    const cardsLabel = topTrap
+      ? `Cards: drill “${topTrap.label}” (${topTrap.n} logged)`
+      : "Cards: word ↔ definition (20–30 min)";
+
+    let passageExam = "ela-field-rigor-b";
+    let passageWhy = "New passages, same Field 02 moves.";
+    if (formA.n === 0) {
+      passageExam = "ela-field-rigor";
+      passageWhy = "You have not sat original Form A yet. One full calibration form, then switch to randomized clusters.";
+    } else if (formB.n === 0) {
+      passageExam = "ela-clusters";
+      passageWhy = "Form A is started. Weekly work is a new cluster mix — not Field 02. Sit Form B once when you want a second fixed calibration.";
+    } else {
+      passageExam = "ela-clusters";
+      passageWhy = "Random original clusters (A/B/C bank). This sitting will not match the last letter key.";
+    }
+
+    const timedDue = daysSince(today.lastTimedAt) >= 6;
+    let timedExam = "ela-clusters";
+    if (formA.n === 0) timedExam = "ela-field-rigor";
+    else if (formB.n === 0) timedExam = "ela-field-rigor-b";
+    else if (examBest(state, "ela-official-1") < 70 && examCount(state, "ela-official-1") >= 1) timedExam = "ela-official-1";
+    else timedExam = "ela-clusters";
+
+    return {
+      today,
+      field02N,
+      field02Best,
+      formA,
+      formB,
+      formC,
+      clusters,
+      traps,
+      topTrap,
+      cards: { href: cardsHref, label: cardsLabel, done: today.cards },
+      passage: {
+        href: passageExam ? `exam.html?exam=${passageExam}` : "practice.html?track=english&missed=1",
+        examId: passageExam,
+        why: passageWhy,
+        done: today.passage
+      },
+      timed: {
+        due: timedDue,
+        href: `exam.html?exam=${timedExam}`,
+        examId: timedExam,
+        daysSince: daysSince(today.lastTimedAt)
+      },
+      field02Burned: field02N >= 2,
+      honestReady: field02N >= 2
+        ? (formA.best >= 80 && formB.best >= 80)
+        : (field02N >= 1 && field02Best >= 70 && (formA.best >= 80 || formB.best >= 80))
+    };
   }
 
   function officialMathDomains() {
@@ -233,11 +489,21 @@ window.ProgressEngine = (() => {
     lessonById,
     lessonCheckTotals,
     lessonMasteryStatus,
+    examWaivesLesson,
+    examHistoryForSkill,
+    syncExamLessonMastery,
     missingPrerequisites,
     lessonGateStatus,
     skillMasteryStatus,
     getRemedialPlan,
+    repairPlanFromExam,
+    trackForDomain,
+    trackForSkill,
     recommendedNext,
+    elaPasserLoop,
+    ELA_TRAPS,
+    classifyElaTrap,
+    trapLabel,
     officialMathDomains,
     officialEnglishDomains,
     mathTrackDomains,

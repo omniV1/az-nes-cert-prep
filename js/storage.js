@@ -22,6 +22,8 @@ window.Progress = (() => {
       problems: {},
       exams: [],
       placement: null,
+      placementByTrack: {},
+      lastExamRepair: null,
       skillProgress: {},
       reviewQueue: [],
       reviewFlags: {
@@ -31,6 +33,9 @@ window.Progress = (() => {
         elaTrapsReviewedAt: null
       },
       officialResources: {},
+      aepaItems: {},
+      trapLog: [],
+      studyLoop: { days: {}, lastTimedAt: null },
       gates: {
         strictPrereqs: true,
         placementComplete: false,
@@ -75,6 +80,10 @@ window.Progress = (() => {
       elaTrapsReviewedAt: null
     }, s.reviewFlags || {});
     s.officialResources = s.officialResources || {};
+    s.aepaItems = s.aepaItems || {};
+    s.trapLog = Array.isArray(s.trapLog) ? s.trapLog : [];
+    s.studyLoop = Object.assign({ days: {}, lastTimedAt: null }, s.studyLoop || {});
+    s.studyLoop.days = s.studyLoop.days || {};
     s.gates = Object.assign({
       strictPrereqs: true,
       placementComplete: false,
@@ -83,6 +92,8 @@ window.Progress = (() => {
     }, s.gates || {});
     s.gates.bypassLessons = s.gates.bypassLessons || {};
     s.placement = s.placement || null;
+    s.placementByTrack = s.placementByTrack || {};
+    s.lastExamRepair = s.lastExamRepair || null;
     s.startedAt = s.startedAt || new Date().toISOString();
 
     // Preserve previous completion while deriving v2 lesson mastery.
@@ -242,6 +253,18 @@ window.Progress = (() => {
 
   function savePlacement(result) {
     const s = load();
+    const track = result.track || (String(result.examId || "").startsWith("ela") ? "english" : "math");
+    const prevTrack = s.placementByTrack[track] || {};
+    const trackPlacement = {
+      ...prevTrack,
+      ...result,
+      track,
+      bySkill: Object.assign({}, prevTrack.bySkill || {}, result.bySkill || {}),
+      byDomain: Object.assign({}, prevTrack.byDomain || {}, result.byDomain || {}),
+      examIds: [...new Set([...(prevTrack.examIds || []), result.examId].filter(Boolean))],
+      at: new Date().toISOString()
+    };
+    s.placementByTrack[track] = trackPlacement;
     const prev = s.placement || {};
     s.placement = {
       ...prev,
@@ -254,6 +277,70 @@ window.Progress = (() => {
     s.gates.placementComplete = true;
     save(s);
     return s.placement;
+  }
+
+  function saveLastExamRepair(payload) {
+    const s = load();
+    s.lastExamRepair = Object.assign({}, payload, { at: new Date().toISOString() });
+    save(s);
+    return s.lastExamRepair;
+  }
+
+  function todayKey(d) {
+    const dt = d ? new Date(d) : new Date();
+    return dt.getFullYear() + "-" + String(dt.getMonth() + 1).padStart(2, "0") + "-" + String(dt.getDate()).padStart(2, "0");
+  }
+
+  function markStudyLoop(kind) {
+    const s = load();
+    s.studyLoop = s.studyLoop || { days: {}, lastTimedAt: null };
+    s.studyLoop.days = s.studyLoop.days || {};
+    const day = todayKey();
+    s.studyLoop.days[day] = s.studyLoop.days[day] || { cards: false, passage: false };
+    if (kind === "cards") s.studyLoop.days[day].cards = true;
+    if (kind === "passage") s.studyLoop.days[day].passage = true;
+    if (kind === "timed") s.studyLoop.lastTimedAt = new Date().toISOString();
+    save(s);
+    return s.studyLoop;
+  }
+
+  function studyLoopToday() {
+    const s = load();
+    const day = (s.studyLoop && s.studyLoop.days && s.studyLoop.days[todayKey()]) || {};
+    return {
+      cards: !!day.cards,
+      passage: !!day.passage,
+      lastTimedAt: s.studyLoop?.lastTimedAt || null
+    };
+  }
+
+  function addTrapLogs(entries) {
+    const s = load();
+    s.trapLog = s.trapLog || [];
+    const at = new Date().toISOString();
+    (entries || []).forEach(entry => {
+      if (!entry || !entry.trap) return;
+      s.trapLog.unshift({
+        trap: String(entry.trap),
+        examId: entry.examId || null,
+        itemId: entry.itemId || null,
+        at
+      });
+    });
+    s.trapLog = s.trapLog.slice(0, 200);
+    save(s);
+    return s.trapLog;
+  }
+
+  function trapCounts() {
+    const s = load();
+    const counts = {};
+    (s.trapLog || []).forEach(row => {
+      counts[row.trap] = (counts[row.trap] || 0) + 1;
+    });
+    return Object.entries(counts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([trap, n]) => ({ trap, n }));
   }
 
   function setGate(name, value) {
@@ -317,6 +404,18 @@ window.Progress = (() => {
     return s;
   }
 
+  function recordAepaItem(guideId, n, chosen, correct) {
+    const s = load();
+    s.aepaItems = s.aepaItems || {};
+    s.aepaItems[`${guideId}:${n}`] = {
+      chosen,
+      correct: !!correct,
+      at: new Date().toISOString()
+    };
+    save(s);
+    return s.aepaItems;
+  }
+
   function recordExam(result) {
     const s = load();
     s.exams.unshift({ ...result, at: new Date().toISOString() });
@@ -357,8 +456,8 @@ window.Progress = (() => {
   return {
     load, save, markLesson, recordProblem, recordLessonCheck, saveLessonCheck,
     getLessonProgress, clearLessonProgress, setLessonMastery,
-    recordSkillAttempt, scheduleReview, getDueReviews, savePlacement,
-    setGate, setReviewFlag, setOfficialResource, bypassLesson, recordExam, stats, reset, defaultState,
-    migrateState, exportData, importData
+    recordSkillAttempt, scheduleReview, getDueReviews, savePlacement, saveLastExamRepair,
+    setGate, setReviewFlag, setOfficialResource, bypassLesson, recordExam, recordAepaItem, stats, reset, defaultState,
+    migrateState, exportData, importData, markStudyLoop, studyLoopToday, addTrapLogs, trapCounts, todayKey
   };
 })();
