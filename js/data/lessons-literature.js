@@ -325,7 +325,7 @@
         section(
           "Paradox, symbolism, irony, allusion",
           "These figures work at the level of idea and cultural memory, not only a local comparison.",
-          "A paradox is an apparent contradiction that holds a truth (Keats: &ldquo;Beauty is truth, truth beauty&rdquo;). A symbol is a concrete thing that stably points beyond itself in the work (a white whale, a raven). Irony is a split between appearance and reality: verbal (saying the opposite), situational (outcome reverses expectation), dramatic (audience knows more than a character). An allusion is a brief pointer to another text, myth, or history that the reader is expected to import. Theme is not a figure of speech; do not pick &ldquo;theme&rdquo; on a which-device item.",
+          "A paradox is an apparent contradiction that holds a truth (Wordsworth: &ldquo;The Child is father of the Man&rdquo;). A symbol is a concrete thing that stably points beyond itself in the work (a white whale, a raven). Irony is a split between appearance and reality: verbal (saying the opposite), situational (outcome reverses expectation), dramatic (audience knows more than a character). An allusion is a brief pointer to another text, myth, or history that the reader is expected to import. Theme is not a figure of speech; do not pick &ldquo;theme&rdquo; on a which-device item.",
           `Contradiction that is wise &rarr; paradox<br>
           Thing that means more, repeatedly &rarr; symbol<br>
           Gap between said/meant or expected/what happens &rarr; irony<br>
@@ -355,7 +355,7 @@
           { problem: "A fire station burns down while the crew is at a false alarm. Irony type?", hint: "Outcome reverses the institution's purpose = situational irony." },
           "Calling every sad ending ironic, or every image a symbol. A symbol recurs or is positioned to mean; a one-off description may only be imagery.",
           [
-            check("Keats's &ldquo;Beauty is truth, truth beauty&rdquo; is best labeled:", ["A timetable", "Paradox", "Synecdoche", "Blank verse only"], 1, "Each term is equated with its opposite in a compressed claim&mdash;paradox. It may appear in an ode; the figure is still paradox."),
+            check("Wordsworth's &ldquo;The Child is father of the Man&rdquo; is best labeled:", ["A timetable", "Paradox", "Synecdoche", "Blank verse only"], 1, "A child cannot literally father an adult, yet the line holds a truth: childhood experience shapes the grown person. An apparent contradiction that resolves into insight is a paradox."),
             check("A novel names a tempting offer &ldquo;this apple in the garden.&rdquo; The device is:", ["Allusion to Genesis", "Iambic pentameter", "A warranty clause", "Free verse"], 0, "Apple + garden imports Eden. That is allusion, not meter.")
           ]
         )

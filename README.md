@@ -49,6 +49,7 @@ to the vault.
 | ELA half-length (75q / 90 min) + official-length (150q / 3h) forms | ELA booking gates |
 | Domain drills + Hard Gauntlets | Targeted repair for each subject |
 | Embedded official 304 / 301 / 052 profiles and sample items | Required calibration inside every exam lesson |
+| Embedded AEPA Field 02 (ELA) and Field 10 (Math) study guides | Retired Pearson workbooks mapped onto current NES lessons |
 | Embedded official frameworks | Exact free Pearson/NES blueprints |
 | Formula sheet + ELA reference | Math test-day sheet plus the literary/grammar terms ELA will not provide |
 | Trap guide | Stop losing cheap points in both subjects |
@@ -60,7 +61,8 @@ Answer choices are shuffled, so explanations must never name a choice by letter
 or position ("B is a comma splice", "the last choice"). Either describe the
 option's content, or reference it with `{{opt:<optionId>}}`, which renders as the
 letter that option actually had on screen. Legacy option IDs are
-`<problemId>-<sourceIndex>` (e.g. `LG002-1` is the second entry in `choices`).
+`<problemId>-<sourceIndex>` (e.g. `LF055-1` is the second entry in `choices`).
+Write "Source A" / "Source B" in full when a passage pairs lettered sources.
 
 ```
 npm run validate   # every bank: exactly one correct option, no hardcoded letters
@@ -73,5 +75,9 @@ npm test           # unit tests + Chromium exam-review test (needs playwright)
 - [ADE Certification](https://www.azed.gov/educator-certification)
 - [NES Mathematics framework](https://www.nestest.com/static/docs/NES_Framework_304.pdf)
 - [NES English Language Arts framework](https://www.nestest.com/static/docs/NES_Framework_301.pdf)
+- [AEPA Field 02 English study guide](https://www.aepa.nesinc.com/Content/Docs/AZ_Field02_StudyGuide.pdf) — retired; extra NES 301 practice
+- [AEPA Field 10 Mathematics study guide](https://www.aepa.nesinc.com/Content/Docs/AZ_Field10_StudyGuide.pdf) — retired; extra NES 304 practice
+
+Open `study-guides.html` for the objective-to-lesson map, or `exam.html` for timed Field 02 / Field 10 sessions that score Pearson’s published key while you read the official PDF. Live exam weights and sample-item style come from the NES frameworks and profiles, not the retired AEPA forms.
 
 Not affiliated with Pearson, NES, AEPA, or ADE.

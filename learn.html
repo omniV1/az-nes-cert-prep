@@ -15,11 +15,13 @@
       <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a class="active" href="learn.html">Learn</a>
+      <a href="study-guides.html">Guides</a>
       <a href="practice.html">Practice</a>
       <a href="exam.html">Exams</a>
       <a href="ace.html">Ace</a>
       <a href="notes.html">Notes</a>
       <a href="formulas.html">Formulas</a>
+      <a href="cards.html">Cards</a>
       <a href="traps.html">Traps</a>
       <a href="plan.html">Mastery Plan</a>
     </nav>
@@ -28,7 +30,7 @@
   <main class="wrap">
     <div class="eyebrow">Khan-style learning path</div>
     <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">From never-seen-it to exam-ready</h1>
-    <p class="muted">Two independent tracks. Math: foundations → five NT304 domains. English: grammar/reading foundations → five NT301 domains. Lessons follow prerequisites. A missed check must be corrected before you advance. Algebra is 24% of math; reading, literature, and writing modes are 23% each of ELA.</p>
+    <p class="muted">Two independent tracks. Math: foundations → five NT304 domains. English: grammar/reading foundations → five NT301 domains. Lessons follow prerequisites. A missed check must be corrected before you advance. Strong exam scores on a lesson’s skills mark that lesson mastered here automatically — you do not have to redo the guide checks to get credit.</p>
 
     <details class="card official-calibration" style="margin-top:1.25rem">
       <summary><strong>Embedded official NES Mathematics 304 framework</strong> — verify the math path</summary>
@@ -44,6 +46,20 @@
       <p class="muted">If the PDF does not render, <a href="https://www.nestest.com/static/docs/NES_Framework_301.pdf" target="_blank" rel="noopener">open the official ELA framework</a>.</p>
     </details>
 
+    <details class="card official-calibration" style="margin-top:1rem">
+      <summary><strong>Retired AEPA Field 02 English study guide</strong> — extra official ELA practice</summary>
+      <p>Pearson still publishes this retired English guide and says it can help NES 301 prep. Work the mapped Field 02 objectives after the matching lesson. NES 301 is multiple-choice only — skip the old written assignment. Full map: <a href="study-guides.html#field02">study-guides.html</a>.</p>
+      <iframe class="official-embed" src="https://www.aepa.nesinc.com/Content/Docs/AZ_Field02_StudyGuide.pdf" title="AEPA Field 02 English study guide" loading="lazy"></iframe>
+      <p class="muted">If the PDF does not render, <a href="https://www.aepa.nesinc.com/Content/Docs/AZ_Field02_StudyGuide.pdf" target="_blank" rel="noopener">open Field 02</a>.</p>
+    </details>
+
+    <details class="card official-calibration" style="margin-top:1rem">
+      <summary><strong>Retired AEPA Field 10 Mathematics study guide</strong> — extra official math practice</summary>
+      <p>Same idea for math: Field 10 overlaps NES 304 content but is not the live blueprint. Algebra is 24% on NES 304, not 18% as on Field 10. Full map: <a href="study-guides.html#field10">study-guides.html</a>.</p>
+      <iframe class="official-embed" src="https://www.aepa.nesinc.com/Content/Docs/AZ_Field10_StudyGuide.pdf" title="AEPA Field 10 Mathematics study guide" loading="lazy"></iframe>
+      <p class="muted">If the PDF does not render, <a href="https://www.aepa.nesinc.com/Content/Docs/AZ_Field10_StudyGuide.pdf" target="_blank" rel="noopener">open Field 10</a>.</p>
+    </details>
+
     <div id="path" class="grid" style="gap:1.25rem;margin-top:1.25rem"></div>
   </main>
 
@@ -55,8 +71,15 @@
   <script src="js/progress-engine.js"></script>
   <script src="js/vault-sync.js"></script>
   <script>
+    ProgressEngine.syncExamLessonMastery();
     const state = Progress.load();
     const lessonProg = state.lessonProgress || {};
+    function masteryChip(mastery) {
+      if (!mastery.mastered) return null;
+      if (mastery.source === "exam") return '<span class="chip done">Mastered via exam</span>';
+      if (mastery.source === "placement") return '<span class="chip done">Placed out</span>';
+      return '<span class="chip done">Mastered</span>';
+    }
     const trackLabel = { math: "NES Mathematics (304)", english: "NES English Language Arts (301)", pedagogy: "APK Secondary (052)" };
     const tracks = ["math", "english", "pedagogy"];
     document.getElementById("path").innerHTML = tracks.map(track => {
@@ -80,7 +103,7 @@
               const mastery = ProgressEngine.lessonMasteryStatus(L.id, state);
               const gate = ProgressEngine.lessonGateStatus(L.id, state);
               let statusChip;
-              if (mastery.mastered) statusChip = '<span class="chip done">Mastered</span>';
+              if (mastery.mastered) statusChip = masteryChip(mastery);
               else if (gate.locked) statusChip = '<span class="chip hard">Locked</span>';
               else if (lp && lp.total > 0) statusChip = '<span class="chip">' + lp.total + ' checks saved</span>';
               else statusChip = '<span class="chip">Open</span>';

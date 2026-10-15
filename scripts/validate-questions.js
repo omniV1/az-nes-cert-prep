@@ -6,6 +6,7 @@
    - it does not have exactly one correct option
    - option IDs are missing/duplicated, or option text is empty/duplicated
    - an explanation uses an {{opt:id}} token that is not one of its options
+   - two passages share one passageSet name (they would merge into one cluster)
    - an explanation hardcodes a letter/position reference ("B is a comma
      splice", "Choice C", "option 2", "the last distractor") that breaks
      once options are shuffled. Use {{opt:<optionId>}} or describe the
@@ -18,26 +19,39 @@ const { loadQuestionData } = require("./load-question-data.js");
 const STANDALONE_LETTER = /(?<![\p{L}\p{N}'’$\\^_|∩∪=+\-−/])([A-E])(?![\p{L}\p{N}'’(|∩∪=²³_])/gu;
 const POSITIONAL = [
   /\b(?:[Oo]ptions?|[Cc]hoices?|[Aa]nswers?)\s+(?:\(?[A-E]\)?|[1-5]|one|two|three|four|five)(?![\p{L}\p{N}])/gu,
-  /\b(?:first|second|third|fourth|last|final)\s+(?:option|choice|answer|distractor)s?\b/gi
+  /\b(?:first|second|third|fourth|last)\s+(?:option|choice|answer|distractor)s?\b/gi
 ];
 
+/** Blank out tokens, tags, and entities with same-length spaces so match indexes map back to the source text. */
 function plain(text) {
+  const blank = m => " ".repeat(m.length);
   return String(text || "")
-    .replace(QuizCore.OPTION_TOKEN, " ")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/&[a-z]+;/gi, " ");
+    .replace(QuizCore.OPTION_TOKEN, blank)
+    .replace(/<[^>]+>/g, blank)
+    .replace(/&[a-z]+;/gi, blank);
 }
 
-/** Letters that the question itself uses as labels ("Type B", "set A", "+ C", "(A) the teacher…"). */
+/**
+ * Letters that the question itself uses as labels ("Type B", "Source A", "+ C", "(A) the teacher…").
+ * A sentence-initial "A" followed by a lowercase word ("A sapling…") is the article, not a label.
+ */
 function contentLabels(contextText) {
-  return new Set(plain(contextText).match(/(?<![\p{L}\p{N}'’])[A-E](?![\p{L}\p{N}'’])/gu) || []);
+  const text = plain(contextText);
+  const labels = new Set();
+  for (const m of text.matchAll(/(?<![\p{L}\p{N}'’])[A-E](?![\p{L}\p{N}'’])/gu)) {
+    const article = m[0] === "A" &&
+      /(?:^|[.!?:;"“”]\s*|\n\s*)$/.test(text.slice(0, m.index)) &&
+      /^\s+[a-z0-9]/.test(text.slice(m.index + 1));
+    if (!article) labels.add(m[0]);
+  }
+  return labels;
 }
 
 function looksLikeLetterReferenceToA(text, index) {
   const after = text.slice(index + 1);
   const before = text.slice(0, index);
-  if (/^\s*(?:[,;:.)]|(?:and|or|is|are|was|through)\b|[–-]\s*[B-E]\b)/.test(after)) return true;
-  if (/(?:\(|\b(?:in|as in|than|like)\s)$/.test(before)) return true;
+  if (/^\s*(?:[,;:.)]|(?:and|or|is|are|was|has|had|does|did|would|will|can|could|may|might|must|should)\b|[–-]\s*[B-E]\b)/.test(after)) return true;
+  if (/(?:\(|\b(?:in|as in|than|like|and|or)\s|,\s)$/.test(before)) return true;
   // "A omits…", "A under-capitalizes…": letter followed by a third-person verb, not a noun
   const next = (after.match(/^\s+([a-z][a-z-]*)/) || [])[1];
   if (!next) return false;
@@ -45,6 +59,15 @@ function looksLikeLetterReferenceToA(text, index) {
   if (parts.length > 2) return false; // compound noun such as "ban-the-fables policy"
   const word = parts.pop();
   return word.length > 3 && /s$/.test(word) && !/(?:ss|us|is|ies|ics|ous|ess|ness|sis|lens|news|series)$/.test(word);
+}
+
+/** Standalone choice letters in an explanation, as { letter, index } into the original text. */
+function letterReferenceMatches(explanation, contextText) {
+  const text = plain(explanation);
+  const labels = contentLabels(contextText);
+  return [...text.matchAll(STANDALONE_LETTER)]
+    .filter(m => !labels.has(m[1]) && (m[1] !== "A" || looksLikeLetterReferenceToA(text, m.index)))
+    .map(m => ({ letter: m[1], index: m.index }));
 }
 
 /** Return hardcoded letter/position references found in an explanation. */
@@ -58,11 +81,8 @@ function findLetterReferences(explanation, contextText) {
       if (!letter || !labels.has(letter)) hits.push(m[0].trim());
     }
   }
-  for (const m of text.matchAll(STANDALONE_LETTER)) {
-    const letter = m[1];
-    if (labels.has(letter)) continue;
-    if (letter === "A" && !looksLikeLetterReferenceToA(text, m.index)) continue;
-    hits.push(text.slice(Math.max(0, m.index - 12), m.index + 14).replace(/\s+/g, " ").trim());
+  for (const { index } of letterReferenceMatches(explanation, contextText)) {
+    hits.push(text.slice(Math.max(0, index - 12), index + 14).replace(/\s+/g, " ").trim());
   }
   return [...new Set(hits)];
 }
@@ -124,6 +144,15 @@ function validateAll(data) {
     seen.set(p.id, p);
     if (errors.length) failures.push({ label: `problem ${p.id}`, errors });
   }
+  const passageSets = new Map();
+  for (const p of data.problems) {
+    if (!p.passageSet) continue;
+    const first = passageSets.get(p.passageSet);
+    if (!first) passageSets.set(p.passageSet, p);
+    else if (first.passage !== p.passage) {
+      failures.push({ label: `problem ${p.id}`, errors: [`passageSet "${p.passageSet}" is already used by ${first.id} with a different passage; pick a unique name`] });
+    }
+  }
   for (const c of lessonChecks(data.lessons)) {
     const errors = validateQuestion(c.question, c.context);
     if (errors.length) failures.push({ label: c.label, errors });
@@ -153,4 +182,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { findLetterReferences, validateQuestion, validateAll };
+module.exports = { findLetterReferences, letterReferenceMatches, problemContext, validateQuestion, validateAll };

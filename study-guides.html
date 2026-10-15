@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Official Study Guides — AZ NES Cert Prep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
+      <a href="index.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a class="active" href="study-guides.html">Guides</a>
+      <a href="practice.html">Practice</a>
+      <a href="exam.html">Exams</a>
+      <a href="ace.html">Ace</a>
+      <a href="notes.html">Notes</a>
+      <a href="formulas.html">Formulas</a>
+      <a href="cards.html">Cards</a>
+      <a href="traps.html">Traps</a>
+      <a href="plan.html">Mastery Plan</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="eyebrow">Pearson / Arizona archive PDFs</div>
+    <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Follow Field 02 and Field 10 to pass NES</h1>
+    <p class="muted">
+      Arizona replaced AEPA English (Field 02) and Mathematics (Field 10) with NES 301 and NES 304.
+      Pearson still publishes both study guides and says they remain useful because the old objectives overlap the current tests.
+      This page maps every retired objective onto a current lesson so you can work the official PDFs in exam order.
+    </p>
+
+    <section class="card" style="margin-top:1.25rem">
+      <h2>Take the official items as private interactive exams</h2>
+      <p>This app stays on your machine. Pearson still owns the question text, including licensed poems and passages, so those stay in Pearson’s PDF. You read the item there, answer A–D here, and we score the published key and map misses to NES lessons.</p>
+      <div class="cta-row">
+        <a class="btn btn-accent" href="exam.html?exam=aepa-field02">Field 02 English exam (78 items)</a>
+        <a class="btn btn-accent" href="exam.html?exam=aepa-field10">Field 10 Math exam (80 items)</a>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:1.25rem">
+      <h2>What is official vs what is ours</h2>
+      <ul>
+        <li><strong>Live blueprint:</strong> NES Framework 301 / 304 and NES Profile 301 / 304. Lesson calibration uses these.</li>
+        <li><strong>Extra official practice:</strong>
+          <a href="https://www.aepa.nesinc.com/Content/Docs/AZ_Field02_StudyGuide.pdf" target="_blank" rel="noopener">AZ Field 02 English</a>
+          and
+          <a href="https://www.aepa.nesinc.com/Content/Docs/AZ_Field10_StudyGuide.pdf" target="_blank" rel="noopener">AZ Field 10 Mathematics</a>
+          — free Pearson PDFs, used interactively through the exams above.</li>
+        <li><strong>This app:</strong> original lessons and original MCQs aligned to the current NES competencies.</li>
+      </ul>
+      <h3>How to use a Field guide item</h3>
+      <ol>
+        <li>Finish the mapped lesson (and its NES profile sample) first.</li>
+        <li>Start the Field 02 or Field 10 interactive exam. Find that question number in the PDF. Cover the answer key at the back.</li>
+        <li>Choose A–D here using the same letters as the PDF.</li>
+        <li>If you miss it, reopen the mapped lesson and drill that domain — do not skip ahead.</li>
+        <li>Skip Field 02 / Field 10 written or constructed-response tasks for 301 / 304. Those exams are multiple-choice. Written tasks belong to APK 052.</li>
+      </ol>
+    </section>
+
+    <div id="guides"></div>
+  </main>
+
+  <footer class="footer">Unofficial study tool. Not affiliated with Pearson, NES, AEPA, or ADE.</footer>
+
+  <script src="js/data/curriculum.js"></script>
+  <script src="js/data/study-guides.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/vault-sync.js"></script>
+  <script>
+    const state = Progress.load();
+    const resources = state.officialResources || {};
+
+    function lessonLinks(ids) {
+      return ids.map(id => {
+        const title = STUDY_GUIDES.lessonTitle(id);
+        return `<a href="guide.html?id=${id}">${title}</a>`;
+      }).join("<br>");
+    }
+
+    function weightChips(guide) {
+      return guide.weights.map(w => `<span class="chip">${w.subarea} ${w.pct}</span>`).join("");
+    }
+
+    document.getElementById("guides").innerHTML = [STUDY_GUIDES.field02, STUDY_GUIDES.field10].map(guide => {
+      const current = STUDY_GUIDES.current[guide.track];
+      const done = guide.objectives.filter(o => resources[STUDY_GUIDES.resourceKey(guide.id, o.id)]).length;
+      return `
+        <section class="card official-calibration" id="${guide.id}" style="margin-top:1.25rem">
+          <div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline">
+            <h2 style="margin:0">${guide.title}</h2>
+            <span class="chip">${done}/${guide.objectives.length} objectives practiced</span>
+          </div>
+          <p>${guide.formatNote}</p>
+          <p class="muted">Replaced by <strong>${guide.replacedBy}</strong>. Current blueprint:
+            <a href="${current.framework}" target="_blank" rel="noopener">framework</a> ·
+            <a href="${current.profile}" target="_blank" rel="noopener">profile / sample items</a>.
+          </p>
+          <div class="tag-row">${weightChips(guide)}</div>
+          <div class="cta-row" style="margin:0.75rem 0">
+            <a class="btn btn-accent" href="exam.html?exam=aepa-${guide.id}">Take Field ${guide.field} as an interactive exam</a>
+          </div>
+          <iframe class="official-embed" src="${guide.url}" title="${guide.title}" loading="lazy"></iframe>
+          <p class="muted">If the PDF does not render, <a href="${guide.url}" target="_blank" rel="noopener">open Field ${guide.field} in a new tab</a>.</p>
+          <div class="table-wrap">
+            <table class="problems">
+              <thead>
+                <tr>
+                  <th>Done</th>
+                  <th>Field ${guide.field}</th>
+                  <th>What to practice</th>
+                  <th>Current NES</th>
+                  <th>Official items</th>
+                  <th>Lesson</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${guide.objectives.map(o => {
+                  const key = STUDY_GUIDES.resourceKey(guide.id, o.id);
+                  const checked = resources[key] ? "checked" : "";
+                  const qNums = STUDY_GUIDES.formatItemList(STUDY_GUIDES.itemsForObjective(guide.id, o.id));
+                  return `<tr>
+                    <td><input type="checkbox" data-resource="${key}" ${checked} aria-label="Mark ${o.id} practiced" /></td>
+                    <td><strong>${o.id}</strong></td>
+                    <td>${o.title}<div class="muted" style="font-size:0.85rem">${o.summary}</div></td>
+                    <td>${o.nesCompetencies.join(", ")}</td>
+                    <td>${qNums ? `Q ${qNums}` : "—"}</td>
+                    <td>${lessonLinks(o.lessonIds)}</td>
+                  </tr>`;
+                }).join("")}
+              </tbody>
+            </table>
+          </div>
+        </section>`;
+    }).join("");
+
+    document.querySelectorAll("input[data-resource]").forEach(box => {
+      box.addEventListener("change", () => {
+        Progress.setOfficialResource(box.dataset.resource, box.checked);
+      });
+    });
+  </script>
+</body>
+</html>

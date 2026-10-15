@@ -15,11 +15,13 @@
       <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
+      <a href="study-guides.html">Guides</a>
       <a href="practice.html">Practice</a>
       <a href="exam.html">Exams</a>
       <a href="ace.html">Ace</a>
       <a href="notes.html">Notes</a>
       <a class="active" href="formulas.html">Formulas</a>
+      <a href="cards.html">Cards</a>
       <a href="traps.html">Traps</a>
       <a href="plan.html">Plan</a>
     </nav>
@@ -172,15 +174,36 @@ Revise = ideas/organization; edit = sentences; proofread = mechanics</div>
       </section>
       <section class="card lesson-content">
         <h2>Periods (characteristics, not trivia)</h2>
-        <div class="formula">Romanticism: emotion, nature, individual
-Realism: ordinary life, social detail
-Modernism: fragmentation, experiment
-Harlem Renaissance: Black art, identity, jazz-age cities
-Transcendentalism: intuition, self-reliance
-Enlightenment: reason, satire, social order
-Oral tradition: fable teaches a moral via animals</div>
+        <div class="formula">Classical epic: muse, wanderer, in medias res (Homer)
+Medieval romance: quest, courtly test, marvels
+Renaissance tragedy: blank verse, aside, fall (Shakespeare)
+Enlightenment: reason, satire, social contract (Paine, Swift, Pope)
+Romanticism: nature, memory, solitary self (Wordsworth)
+Realism: money, class, probable social cause (Austen → Eliot/Twain)
+Naturalism: determinism, industry, chance
+Gothic: dread, threatened interiors (Poe)
+Transcendentalism: intuition, self-reliance (Emerson/Thoreau)
+Modernism: fragment, broken time, experiment
+Harlem Renaissance: Black modern art; vernacular + high form
+Oral tradition: portable moral; fable / myth / legend are not synonyms
+Trap: dates and spouses lose to “what artistic problem is this solving?”</div>
+      </section>
+      <section class="card lesson-content">
+        <h2>Fallacies (name the move)</h2>
+        <div class="formula">Ad hominem: attack the person, not the data
+Straw man: distort, then refute the distortion
+False dilemma: only two boxes when more exist
+Hasty generalization: n=1 treated as a law
+Post hoc: after this, therefore because of this
+Bandwagon: popularity as proof
+Slippery slope: small step → invented catastrophe
+False analogy: compared things do not match where it matters
+Circular: the claim restated as its own warrant
+Red herring: distract from the asked issue
+False authority: fame in one field used in another</div>
       </section>
     </div>
+    <p class="muted" style="margin-top:1rem">Quizlet-style term/definition: <a href="cards.html">open cards</a>. Timed period chart: <a href="exam.html?exam=ela-periods-drill">ELA periods drill</a>. Pearson-style passages: <a href="exam.html?exam=ela-clusters">randomized cluster exam</a> · <a href="exam.html?exam=ela-field-rigor-c">Form C</a>.</p>
   </main>
   <script src="js/storage.js"></script>
   <script src="js/vault-sync.js"></script>
@@ -192,7 +215,8 @@ Oral tradition: fable teaches a moral via animals</div>
     };
     document.getElementById("mark-ela").onclick = () => {
       Progress.setReviewFlag("elaReference");
-      alert("ELA reference marked. Ace tracker updated.");
+      Progress.markStudyLoop("cards");
+      alert("ELA reference marked. Cards session logged.");
       location.href = "ace.html";
     };
   </script>

@@ -15,11 +15,13 @@
       <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a class="active" href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
+      <a href="study-guides.html">Guides</a>
       <a href="practice.html">Practice</a>
       <a href="exam.html">Exams</a>
       <a href="ace.html">Ace</a>
       <a href="notes.html">Notes</a>
       <a href="formulas.html">Formulas</a>
+      <a href="cards.html">Cards</a>
       <a href="traps.html">Traps</a>
       <a href="plan.html">Mastery Plan</a>
     </nav>
@@ -32,11 +34,13 @@
         <h1>Ace both subject exams.</h1>
         <p>
           Dual-track prep for NES Mathematics (304) and NES English Language Arts (301), plus APK Secondary (052).
-          Each subject has its own foundation bootcamp, official-domain lessons, problem bank, and 85% booking gates.
+          Each subject has its own foundation bootcamp, official-domain lessons, and problem bank.
+          Math books at 85% on two official-length sims. ELA books when original passage sets hit ≥80% — not a short-stem 90%.
           Official ELA format: approximately 150 questions in 3 hours. Official math format: approximately 150 questions in 5 hours.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="ace.html">Open Ace tracker</a>
+          <a class="btn btn-primary" href="#ela-loop">Today’s ELA loop</a>
+          <a class="btn btn-secondary" href="ace.html">Open Ace tracker</a>
           <a class="btn btn-secondary" href="exam.html?exam=math-placement-short">Math placement</a>
           <a class="btn btn-secondary" href="exam.html?exam=ela-placement-short">ELA placement</a>
           <a class="btn btn-ghost" href="practice.html">Problem bank</a>
@@ -45,6 +49,13 @@
     </section>
 
     <section class="stat-row" id="stats"></section>
+
+    <section class="card" id="ela-loop-card" style="margin-top:1.25rem;background:rgba(15,118,110,0.06)">
+      <div class="eyebrow">NES 301 loop (what actually transfers)</div>
+      <h2 style="margin-top:0">Today’s ELA session</h2>
+      <p class="muted">Two sports: cheap-point cards, then a <em>new</em> passage. One timed original form per week. Field 02 is a calibration, not homework.</p>
+      <div id="ela-loop"></div>
+    </section>
 
     <section class="grid grid-2" style="margin-top:1.25rem">
       <article class="card">
@@ -71,9 +82,21 @@
       </article>
     </section>
 
+    <section class="card" style="margin-top:1.25rem">
+      <h2>Official Arizona study guides</h2>
+      <p class="muted">Pearson still publishes the retired AEPA English and Math workbooks and says they remain useful for NES. Follow them after the current NES lesson — not instead of it.</p>
+      <ul>
+        <li><a href="https://www.aepa.nesinc.com/Content/Docs/AZ_Field02_StudyGuide.pdf" target="_blank" rel="noopener">Field 02 English</a> — extra NES 301 practice (skip the old written assignment).</li>
+        <li><a href="https://www.aepa.nesinc.com/Content/Docs/AZ_Field10_StudyGuide.pdf" target="_blank" rel="noopener">Field 10 Mathematics</a> — extra NES 304 practice (skip constructed response).</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-secondary" href="study-guides.html">Open the objective-to-lesson map</a>
+      </div>
+    </section>
+
     <section style="margin-top:1.5rem">
       <h2 style="font-family:var(--font-display);letter-spacing:-0.02em">Content domains</h2>
-      <p class="muted">Aligned to the official NES Mathematics (304) and English Language Arts (301) frameworks.</p>
+      <p class="muted">Aligned to the official NES Mathematics (304) and English Language Arts (301) frameworks, plus retired AEPA Field 02 / Field 10 practice mapped onto those lessons.</p>
       <div class="domain-list" id="domains"></div>
     </section>
 
@@ -104,10 +127,17 @@
   <script src="js/data/problems-english-language.js"></script>
   <script src="js/data/problems-english-writing.js"></script>
   <script src="js/data/problems-english-oral.js"></script>
+  <script src="js/data/problems-exam-drill.js"></script>
+  <script src="js/data/problems-ela-longform.js"></script>
+  <script src="js/data/problems-ela-longform-b.js"></script>
+  <script src="js/data/problems-ela-longform-c.js"></script>
+  <script src="js/data/problems-ela-longform-d.js"></script>
+  <script src="js/data/problems-ela-gaps.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/progress-engine.js"></script>
   <script src="js/vault-sync.js"></script>
   <script>
+    ProgressEngine.syncExamLessonMastery();
     const st = Progress.stats();
     document.getElementById("stats").innerHTML = `
       <div class="stat"><div class="label">Lessons done</div><div class="value">${st.lessons}/${st.totalLessons}</div></div>
@@ -139,6 +169,33 @@
         <div class="muted">→</div>
       </a>`).join("")}
     `).join("");
+
+    const loop = ProgressEngine.elaPasserLoop(st.state);
+    const trapLine = loop.traps.length
+      ? `<p class="muted">Logged traps: ${loop.traps.slice(0, 4).map(t => `${t.label} (${t.n})`).join(" · ")}</p>`
+      : `<p class="muted">No trap log yet. After a sitting, name the miss type — not the question number.</p>`;
+    document.getElementById("ela-loop").innerHTML = `
+      ${loop.field02Burned ? `<p><span class="chip hard">Field 02 burned (${loop.field02N} sittings, best ${loop.field02Best}%)</span> Do not retake it today.</p>` : loop.field02N ? `<p><span class="chip">Field 02 best ${loop.field02Best}% · ${loop.field02N} sitting${loop.field02N === 1 ? "" : "s"}</span></p>` : ""}
+      <div class="grid" style="gap:0.75rem;margin-top:0.75rem">
+        <div style="border:1px solid var(--line);border-radius:12px;padding:0.85rem 1rem;background:#fff">
+          <div class="tag-row"><span class="chip">${loop.cards.done ? "done today" : "Track A · 20–30 min"}</span></div>
+          <p style="margin:0.4rem 0 0.65rem"><strong>${loop.cards.label}</strong></p>
+          <a class="btn ${loop.cards.done ? "btn-ghost" : "btn-secondary"}" href="${loop.cards.href}">${loop.cards.done ? "Open cards again" : "Start cards"}</a>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:12px;padding:0.85rem 1rem;background:#fff">
+          <div class="tag-row"><span class="chip">${loop.passage.done ? "done today" : "Track B · 60–90 min"}</span></div>
+          <p style="margin:0.4rem 0 0.65rem"><strong>New passage / miss repair.</strong> ${loop.passage.why}</p>
+          <a class="btn ${loop.passage.done ? "btn-ghost" : "btn-accent"}" href="${loop.passage.href}">${loop.passage.examId ? "Open passage set" : "Practice missed items"}</a>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:12px;padding:0.85rem 1rem;background:#fff">
+          <div class="tag-row"><span class="chip">${loop.timed.due ? "Track C · this week" : "timed form logged"}</span></div>
+          <p style="margin:0.4rem 0 0.65rem"><strong>One timed original form per week.</strong> ${loop.timed.due ? `Due (last one ${loop.timed.daysSince === 99 ? "never" : loop.timed.daysSince + "d ago"}).` : "Already logged this week."} Not Field 02.</p>
+          <a class="btn ${loop.timed.due ? "btn-secondary" : "btn-ghost"}" href="${loop.timed.href}">${loop.timed.due ? "Start weekly timed form" : "Optional extra timed"}</a>
+        </div>
+      </div>
+      ${trapLine}
+      <p class="muted" style="margin-bottom:0">Pearson’s NES 301 practice test (free when you register) is the last calibration — use it once in the final 10–14 days. <a href="https://www.nestest.com/prepare/301" target="_blank" rel="noopener">Official 301 prep</a></p>
+    `;
 
     function renderMove(nextMove, recEl, ctaEl, heading) {
       if (nextMove.type === "review") {

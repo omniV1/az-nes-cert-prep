@@ -15,11 +15,13 @@
       <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a class="active" href="learn.html">Learn</a>
+      <a href="study-guides.html">Guides</a>
       <a href="practice.html">Practice</a>
       <a href="exam.html">Exams</a>
       <a href="ace.html">Ace</a>
       <a href="notes.html">Notes</a>
       <a href="formulas.html">Formulas</a>
+      <a href="cards.html">Cards</a>
       <a href="traps.html">Traps</a>
       <a href="plan.html">Mastery Plan</a>
     </nav>
@@ -74,6 +76,13 @@
   <script src="js/data/problems-english-language.js"></script>
   <script src="js/data/problems-english-writing.js"></script>
   <script src="js/data/problems-english-oral.js"></script>
+  <script src="js/data/problems-exam-drill.js"></script>
+  <script src="js/data/problems-ela-longform.js"></script>
+  <script src="js/data/problems-ela-longform-b.js"></script>
+  <script src="js/data/problems-ela-longform-c.js"></script>
+  <script src="js/data/problems-ela-longform-d.js"></script>
+  <script src="js/data/problems-ela-gaps.js"></script>
+  <script src="js/data/study-guides.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/progress-engine.js"></script>
   <script src="js/vault-sync.js"></script>
@@ -299,7 +308,7 @@
             checksHtml +
           "</div>"
         );
-      }).join("") + officialCalibrationHtml();
+      }).join("") + officialCalibrationHtml() + (window.STUDY_GUIDES ? STUDY_GUIDES.lessonPracticeHtml(id, Progress.load()) : "");
 
       document.querySelectorAll(".qc-submit").forEach(btn => {
         if (btn.dataset.stage !== "done") {
@@ -320,6 +329,15 @@
           if (mark) mark.textContent = mastery.mastered ? "Mastered" : "Mark lesson mastered";
         });
       }
+
+      document.querySelectorAll("input[id^='aepa-lesson-']").forEach(box => {
+        box.addEventListener("change", () => {
+          const guideId = box.dataset.guide;
+          STUDY_GUIDES.forLesson(id)
+            .filter(obj => obj.guideId === guideId)
+            .forEach(obj => Progress.setOfficialResource(STUDY_GUIDES.resourceKey(guideId, obj.id), box.checked));
+        });
+      });
 
       // Restore score from saved progress
       score.correct = savedProgress.correct || 0;
@@ -494,6 +512,12 @@
     } else {
       document.title = lesson.title + " - AZ NES Cert Prep";
       const totalChecks = lesson.sections.reduce((n, s) => n + normalizeChecks(s).length, 0);
+      const examMastery = ProgressEngine.lessonMasteryStatus(id);
+      const examBanner = examMastery.source === "exam"
+        ? '<p class="muted" style="margin:0.75rem 0 0">This lesson is already <strong>mastered via exam</strong> — enough correct test items on its skills. You can still work the checks for review; they are not required to keep the credit.</p>'
+        : examMastery.source === "placement"
+          ? '<p class="muted" style="margin:0.75rem 0 0">This lesson is <strong>placed out</strong> from a diagnostic. Checks are optional review.</p>'
+          : "";
       document.getElementById("meta").innerHTML =
         '<div class="eyebrow">' + metaLesson.domainTitle + "</div>" +
         '<h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin:0">' + lesson.title + "</h1>" +
@@ -502,7 +526,8 @@
           '<span class="chip">' + metaLesson.level + "</span>" +
           '<span class="chip">' + metaLesson.competencies + "</span>" +
           '<span class="chip">' + lesson.sections.length + " sections - " + totalChecks + " quick checks</span>" +
-        "</div>";
+          (examMastery.source === "exam" ? '<span class="chip done">Mastered via exam</span>' : "") +
+        "</div>" + examBanner;
 
       renderLesson();
 

@@ -53,6 +53,11 @@
     return getOptions(problem).find(o => o.isCorrect) || null;
   }
 
+  /** Letter an option had in the authored (unshuffled) list, e.g. for notes keyed A–D. */
+  function sourceLetter(problem, optionId) {
+    return letterAt(getOptions(problem).findIndex(o => o.id === optionId));
+  }
+
   function hash(value) {
     let h = 2166136261;
     for (const ch of value) {
@@ -97,30 +102,40 @@
   function buildAttemptItem(problem, optionOrder, chosenOptionId) {
     const chosen = chosenOptionId == null || chosenOptionId === "" ? null : String(chosenOptionId);
     const key = correctOption(problem);
+    const chosenOption = chosen == null ? null : findOption(problem, chosen);
     const item = {
       problemId: problem.id,
       optionOrder: optionOrder.slice(),
       chosenOptionId: chosen,
-      correctOptionId: key ? key.id : null
+      correctOptionId: key ? key.id : null,
+      // Text snapshots keep the review readable for items rebuilt each sitting (flashcards).
+      chosenText: chosenOption ? chosenOption.text : null,
+      correctText: key ? key.text : null
     };
     item.correct = grade(problem, chosen).correct;
     return item;
   }
 
-  /** Everything the review screen needs, derived only from a saved attempt item. */
+  /**
+   * Everything the review screen needs, derived only from a saved attempt item.
+   * `problem` may be null (e.g. a flashcard item regenerated each sitting); the
+   * item's stored IDs, order, and text snapshots are then enough.
+   */
   function describeAttemptItem(problem, item) {
     const blank = item.chosenOptionId == null;
-    const chosen = blank ? null : findOption(problem, item.chosenOptionId);
-    const key = item.correctOptionId != null ? findOption(problem, item.correctOptionId) : correctOption(problem);
+    const chosen = blank || !problem ? null : findOption(problem, item.chosenOptionId);
+    const key = !problem ? null
+      : item.correctOptionId != null ? findOption(problem, item.correctOptionId) : correctOption(problem);
+    const keyId = key ? key.id : item.correctOptionId;
     return {
       blank,
-      correct: !blank && !!(chosen && chosen.isCorrect),
+      correct: !blank && (chosen ? chosen.isCorrect : item.chosenOptionId === keyId),
       yourLetter: blank ? null : letterFor(item.optionOrder, item.chosenOptionId),
-      yourText: chosen ? chosen.text : null,
+      yourText: blank ? null : chosen ? chosen.text : item.chosenText || null,
       yourExplanation: chosen ? renderExplanation(chosen.explanation, item.optionOrder) : "",
-      keyLetter: key ? letterFor(item.optionOrder, key.id) : null,
-      keyText: key ? key.text : null,
-      explanation: renderExplanation(problem.explanation, item.optionOrder)
+      keyLetter: keyId != null ? letterFor(item.optionOrder, keyId) : null,
+      keyText: key ? key.text : item.correctText || null,
+      explanation: problem ? renderExplanation(problem.explanation, item.optionOrder) : ""
     };
   }
 
@@ -130,6 +145,7 @@
     getOptions,
     findOption,
     correctOption,
+    sourceLetter,
     shuffleOptionIds,
     letterAt,
     letterFor,

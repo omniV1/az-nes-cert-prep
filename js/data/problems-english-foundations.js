@@ -27,13 +27,13 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"EF006", domain:"ela-foundation", title:"Context Clue Meaning", difficulty:"easy", tags:["vocabulary"], skillIds:["vocab-context"],
     stem:"In the sentence below, the word arid most nearly means—\n\nThe arid plain produced almost no grass after three rainless months.",
-    choices:["mountainous","crowded","dry","fertile"], answer:2,
-    explanation:"Rainless months and almost no grass signal dryness. Mountainous and crowded are unsupported by context. Fertile is the opposite of what the details describe." },
+    choices:["mountainous, because a plain can still be high ground","crowded, because three months without rain draw people in","dry","fertile, because plains are usually good farmland"], answer:2,
+    explanation:"Rainless months and almost no grass signal dryness. Mountainous and crowded are unsupported by context. Fertile is a real association with plains that this sentence contradicts." },
 
   { id:"EF007", domain:"ela-foundation", title:"Previewing a Chapter", difficulty:"easy", tags:["reading-process"], skillIds:["reading-process"],
     stem:"Before reading a dense chapter, a student skims headings, bold terms, and the first sentence of each section. This strategy is best described as—",
     choices:["summarizing","previewing","evaluating sources","paraphrasing"], answer:1,
-    explanation:"Previewing surveys text features to set a purpose before close reading. Summarizing and paraphrasing restated content after (or during) reading. Evaluating sources is a credibility task, not a first look at structure." },
+    explanation:"Previewing surveys text features to set a purpose before close reading. Summarizing and paraphrasing restate content after (or during) reading. Evaluating sources is a credibility task, not a first look at structure." },
 
   { id:"EF008", domain:"ela-foundation", title:"Setting Defined", difficulty:"easy", tags:["literary-elements"], skillIds:["literary-elements-intro"],
     stem:"In a story, the time and place of the action are called the—",
@@ -77,7 +77,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"EF016", domain:"ela-foundation", title:"Annotating to Monitor", difficulty:"medium", tags:["reading-process"], skillIds:["reading-process"],
     stem:"A student writes questions in the margin while reading and then checks whether the next section answers them. This habit primarily supports—",
-    choices:["decoding unfamiliar letters","monitoring comprehension","memorizing the author's biography","avoiding rereading"], answer:1,
+    choices:["decoding unfamiliar letters in the next heading","monitoring comprehension","memorizing the author's biography from the preface","avoiding rereading once a question is written"], answer:1,
     explanation:"Generating and checking questions is a metacognitive way to monitor whether meaning is coming through. It is not phonics, not biography work, and an unanswered question often prompts rereading rather than avoiding it." },
 
   { id:"EF017", domain:"ela-foundation", title:"Types of Conflict", difficulty:"medium", tags:["literary-elements"], skillIds:["literary-elements-intro"],
@@ -87,7 +87,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"EF018", domain:"ela-foundation", title:"Ethos in an Advertisement", difficulty:"medium", tags:["rhetoric"], skillIds:["rhetoric-intro"],
     stem:"A dentist advertisement reads, 'As a board-certified pediatric dentist with 20 years of practice, I recommend fluoride varnish.' The appeal is primarily—",
-    choices:["logos, because it cites a statistic about cavities","pathos, because it tries to frighten parents","ethos, because it stresses the speaker's credentials","kairos, because it names a holiday deadline"], answer:2,
+    choices:["logos, because it cites a statistic about cavities later in the campaign","pathos, because it tries to frighten parents about enamel","ethos, because it stresses the speaker's credentials","kairos, because 'recommend' implies a once-a-year deadline"], answer:2,
     explanation:"Ethos relies on credibility and character. The ad highlights certification and experience. It does not offer cavity data (logos) or fear (pathos), and no timing deadline (kairos) appears." },
 
   { id:"EF019", domain:"ela-foundation", title:"Gerund as Subject", difficulty:"hard", tags:["grammar"], skillIds:["parts-of-speech"],
@@ -117,12 +117,12 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"EF024", domain:"ela-foundation", title:"Latin Root -ject-", difficulty:"hard", tags:["vocabulary"], skillIds:["vocab-context"],
     stem:"The root -ject- (as in eject, reject, and projectile) most nearly means—",
-    choices:["write","throw","hear","lead"], answer:1,
+    choices:["write, as in inscribe or scripture","throw","hear, as in audible","lead, as in conduct"], answer:1,
     explanation:"Latin jacere / ject- means throw. Eject = throw out; reject = throw back; projectile = something thrown forward. Script- is write, aud- is hear, and duc- is lead." },
 
   { id:"EF025", domain:"ela-foundation", title:"Fix-Up Strategies", difficulty:"hard", tags:["reading-process"], skillIds:["reading-process"],
     stem:"A reader realizes a paragraph no longer makes sense, rereads the prior section, and adjusts a prediction. This is an example of—",
-    choices:["skimming for main idea only","a fix-up (repair) strategy","reading every word at one speed","ignoring text features"], answer:1,
+    choices:["skimming for main idea only and then moving on","a fix-up (repair) strategy","reading every word at one speed regardless of confusion","ignoring text features that might have clarified the paragraph"], answer:1,
     explanation:"Noticing a breakdown, rereading, and revising a prediction are classic fix-up strategies. Skimming and a single speed would not repair confusion. Ignoring headings and captions would remove useful cues." },
 
   { id:"EF026", domain:"ela-foundation", title:"Limited Narrator", difficulty:"hard", tags:["literary-elements"], skillIds:["literary-elements-intro"],
@@ -132,7 +132,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"EF027", domain:"ela-foundation", title:"Pathos without Evidence", difficulty:"hard", tags:["rhetoric"], skillIds:["rhetoric-intro"],
     stem:"A campaign mailer shows a crying child beside the sentence 'If you cared about families, you would vote yes,' with no data. The dominant appeal is—",
-    choices:["logos, because voting is a logical civic duty","ethos, because the mailer names a university","pathos, because it uses emotion and guilt in place of evidence","a concession to the opposing view"], answer:2,
+    choices:["logos, because voting is always a logical civic duty","ethos, because the mailer names a university the child attends","pathos, because it uses emotion and guilt in place of evidence","a concession to the opposing view that families already vote yes"], answer:2,
     explanation:"Pathos targets emotion. Guilt (if you cared) plus an image of distress, without evidence, is emotional pressure. Logos would use data; ethos would build credibility; a concession would acknowledge the other side." },
 
   { id:"EF028", domain:"ela-foundation", title:"Pronoun-Antecedent Agreement", difficulty:"medium", tags:["agreement"], skillIds:["agreement-usage"],
@@ -147,6 +147,6 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"EF030", domain:"ela-foundation", title:"Logos with Data", difficulty:"medium", tags:["rhetoric"], skillIds:["rhetoric-intro"],
     stem:"Which sentence relies primarily on logos?",
-    choices:["Join us—your neighbors already believe in this park.","As your pediatrician, I urge you to vaccinate on schedule.","City data show a 22 percent drop in crashes after the new crosswalk.","Imagine your child's empty chair at dinner."], answer:2,
+    choices:["Join us—your neighbors already believe in this park.","As your pediatrician, I urge you to vaccinate on schedule.","City data show a 22 percent drop in crashes after the new crosswalk.","Imagine your child's empty chair at dinner if the crosswalk is delayed."], answer:2,
     explanation:"Logos uses reasons and measurable evidence. {{opt:EF030-0}} is bandwagon pressure, {{opt:EF030-1}} is ethos (credentials), and {{opt:EF030-3}} is pathos (an imagined loss)." }
 ]);

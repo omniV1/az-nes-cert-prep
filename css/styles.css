@@ -408,6 +408,11 @@ table.problems a:hover {
   color: var(--ink);
 }
 
+.field input.quiz-wrong-input {
+  border-color: var(--fail);
+  background: #fff1f2;
+}
+
 .field {
   display: grid;
   gap: 0.35rem;
@@ -433,6 +438,41 @@ table.problems a:hover {
   }
 }
 
+#runner.aepa-mode .layout-split {
+  grid-template-columns: minmax(0, 1.35fr) 340px;
+  grid-template-areas:
+    "pdf main"
+    "pdf nav";
+}
+
+#runner.aepa-mode #aepa-pdf {
+  grid-area: pdf;
+  display: block;
+  min-height: calc(100vh - 7.5rem);
+  margin: 0;
+}
+
+#runner.aepa-mode #exam-main {
+  grid-area: main;
+}
+
+#runner.aepa-mode #exam-nav {
+  grid-area: nav;
+}
+
+@media (max-width: 900px) {
+  #runner.aepa-mode .layout-split {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "pdf"
+      "main"
+      "nav";
+  }
+  #runner.aepa-mode #aepa-pdf {
+    min-height: 55vh;
+  }
+}
+
 .problem-stem {
   font-size: 1.05rem;
   white-space: pre-wrap;
@@ -448,6 +488,8 @@ table.problems a:hover {
   margin: 0 0 1rem;
   color: var(--ink);
   white-space: pre-wrap;
+  max-height: 28rem;
+  overflow-y: auto;
 }
 
 .choices {
@@ -465,6 +507,11 @@ table.problems a:hover {
   border-radius: 12px;
   cursor: pointer;
   background: #fff;
+}
+
+button.choice:disabled {
+  cursor: default;
+  opacity: 1;
 }
 
 .choice:hover {
@@ -579,6 +626,35 @@ table.problems a:hover {
   border: 1px solid var(--line);
   border-radius: 12px;
   background: #fff;
+}
+
+#aepa-pdf.official-embed {
+  min-height: 420px;
+  margin-bottom: 1rem;
+}
+
+#results.aepa-review {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+#results-pdf.official-embed {
+  position: sticky;
+  top: 1rem;
+  min-height: calc(100vh - 2rem);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  #results.aepa-review {
+    grid-template-columns: 1fr;
+  }
+  #results-pdf.official-embed {
+    position: static;
+    min-height: 50vh;
+  }
 }
 
 .official-confirm {
@@ -899,4 +975,112 @@ table.problems a:hover {
   border-radius: 10px;
   box-shadow: var(--shadow);
   z-index: 50;
+}
+
+.flip-card {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  min-height: 320px;
+  perspective: 1200px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.flip-inner {
+  display: block;
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  transition: transform 0.45s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card.is-flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.flip-back-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 36rem;
+}
+
+.card-example {
+  display: block;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.card-example::before {
+  content: "In use · ";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.quiz-verdict {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  letter-spacing: -0.03em;
+  margin: 0.85rem 0 0.35rem;
+}
+
+.quiz-verdict.passed { color: var(--easy); }
+.quiz-verdict.failed { color: var(--fail); }
+
+.choice.quiz-correct {
+  border-color: var(--easy);
+  background: rgba(21, 128, 61, 0.1);
+}
+
+.quiz-hint-mask {
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.35rem 0 0.85rem;
+}
+
+.choice.quiz-eliminated {
+  opacity: 0.38;
+  text-decoration: line-through;
+  pointer-events: none;
 }

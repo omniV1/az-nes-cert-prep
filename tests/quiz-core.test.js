@@ -137,7 +137,37 @@ test("a saved attempt reviews identically after reload, even if the live shuffle
   QuizCore.shuffleOptionIds(p, "some-other-session");
   const after = QuizCore.describeAttemptItem(p, JSON.parse(saved));
   assert.deepEqual(after, before);
-  assert.equal(after.yourText, "Buffelgrass should be banned statewide this year.");
+  assert.equal(after.yourText, QuizCore.findOption(p, "RD002-0").text);
+});
+
+test("flashcard-style items regenerated each sitting still review from the saved snapshot", () => {
+  const p = { id: "FC-x", choices: ["right def", "wrong def", "other def"], answer: 0, explanation: "x" };
+  const item = roundTrip(QuizCore.buildAttemptItem(p, ["FC-x-2", "FC-x-0", "FC-x-1"], "FC-x-1"));
+  const r = QuizCore.describeAttemptItem(null, item); // the item is no longer in any bank
+  assert.equal(r.blank, false);
+  assert.equal(r.correct, false);
+  assert.equal(r.yourLetter, "C");
+  assert.equal(r.yourText, "wrong def");
+  assert.equal(r.keyLetter, "B");
+  assert.equal(r.keyText, "right def");
+});
+
+test("reported examples: LF055, LF036, LF054 explanations follow the shuffled key", () => {
+  const cases = {
+    LF055: { keyId: "LF055-1", phrase: id => `${id} recasts the idea in new syntax` },
+    LF036: { wrongId: "LF036-3", phrase: id => `${id} mismatches person/were` },
+    LF054: { wrongId: "LF054-2", phrase: id => `${id} keeps the vagueness the stem asks to fix` }
+  };
+  for (const [pid, c] of Object.entries(cases)) {
+    const p = byId(pid);
+    const order = reshuffledOrder(p);
+    const r = QuizCore.describeAttemptItem(p, QuizCore.buildAttemptItem(p, order, null));
+    const target = c.keyId || c.wrongId;
+    assert.ok(r.explanation.includes(c.phrase(QuizCore.letterFor(order, target))), pid);
+    if (c.keyId) assert.equal(r.keyLetter, QuizCore.letterFor(order, c.keyId), pid);
+    // A distractor's description never lands on the key's letter.
+    if (c.wrongId) assert.ok(!r.explanation.includes(c.phrase(r.keyLetter)), pid);
+  }
 });
 
 test("every explanation token renders to the letter its option was shown at", () => {

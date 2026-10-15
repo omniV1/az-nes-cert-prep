@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cards — AZ NES Cert Prep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
+      <a href="index.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a href="study-guides.html">Guides</a>
+      <a href="practice.html">Practice</a>
+      <a href="exam.html">Exams</a>
+      <a href="ace.html">Ace</a>
+      <a href="notes.html">Notes</a>
+      <a href="formulas.html">Formulas</a>
+      <a class="active" href="cards.html">Cards</a>
+      <a href="traps.html">Traps</a>
+      <a href="plan.html">Mastery Plan</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="eyebrow">Quizlet-style cheap points</div>
+    <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Term cards</h1>
+    <p class="muted">Flip cards to learn the term. Quizlet Learn: you will see a term in multiple choice a few times before it asks you to type it. Close spelling counts. A miss drops it back to multiple choice. Passed means every term is typed, not just clicked.</p>
+
+    <div id="deck-lobby"></div>
+
+    <div id="study" class="hidden">
+      <div class="tag-row" style="margin-bottom:0.75rem">
+        <span class="chip" id="study-meta"></span>
+        <span class="chip" id="study-progress"></span>
+      </div>
+      <button type="button" class="flip-card" id="flip" aria-label="Flip card">
+        <span class="flip-inner" id="flip-inner">
+          <span class="flip-face flip-front"><span id="card-front"></span></span>
+          <span class="flip-face flip-back"><span class="flip-back-inner">
+            <span id="card-back"></span>
+            <span class="card-example" id="card-example"></span>
+          </span></span>
+        </span>
+      </button>
+      <p class="muted" style="text-align:center">Click the card or press Space to flip. Arrow keys move. J = knew it, K = missed.</p>
+      <div class="cta-row" style="justify-content:center">
+        <button class="btn btn-ghost" type="button" id="prev-card">Previous</button>
+        <button class="btn btn-secondary" type="button" id="miss">Missed</button>
+        <button class="btn btn-accent" type="button" id="knew">Knew it</button>
+        <button class="btn btn-ghost" type="button" id="next-card">Next</button>
+      </div>
+      <div class="cta-row" style="justify-content:center;margin-top:0.5rem">
+        <a class="btn btn-primary" id="quiz-link" href="cards.html">Quiz this deck</a>
+        <button class="btn btn-ghost" type="button" id="shuffle">Shuffle</button>
+        <a class="btn btn-ghost" href="cards.html">All decks</a>
+      </div>
+    </div>
+
+    <div id="quiz" class="hidden">
+      <div class="tag-row" style="margin-bottom:0.75rem">
+        <span class="chip" id="quiz-meta"></span>
+        <span class="chip" id="quiz-kind"></span>
+        <span class="chip" id="quiz-mastered"></span>
+      </div>
+      <div class="progress" style="margin-bottom:1rem"><span id="quiz-bar" style="width:0%"></span></div>
+      <section class="card">
+        <p id="quiz-prompt" class="problem-stem" style="margin-top:0"></p>
+        <blockquote class="passage hidden" id="quiz-passage"></blockquote>
+        <p class="card-example hidden" id="quiz-example"></p>
+        <p class="quiz-hint-mask hidden" id="quiz-hint-mask"></p>
+        <div class="choices" id="quiz-choices"></div>
+        <div id="quiz-write" class="hidden">
+          <div class="field">
+            <label for="quiz-input">Type the term (close spelling counts)</label>
+            <input id="quiz-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" />
+          </div>
+          <div class="cta-row" style="margin-top:0.65rem">
+            <button class="btn btn-accent" type="button" id="quiz-check">Check</button>
+            <button class="btn btn-secondary" type="button" id="quiz-hint-write">Hint</button>
+            <button class="btn btn-ghost" type="button" id="quiz-idk">Don’t know</button>
+          </div>
+        </div>
+        <p class="quiz-verdict hidden" id="quiz-verdict"></p>
+        <p class="muted hidden" id="quiz-explain"></p>
+        <div class="cta-row" style="margin-top:0.85rem">
+          <button class="btn btn-secondary hidden" type="button" id="quiz-hint-mc">Hint</button>
+          <button class="btn btn-accent hidden" type="button" id="quiz-next">Continue</button>
+          <button class="btn btn-ghost" type="button" id="quiz-stop">Stop quiz</button>
+        </div>
+      </section>
+    </div>
+
+    <div id="done" class="card hidden" style="margin-top:1.25rem"></div>
+  </main>
+
+  <script src="js/data/flashcards.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/vault-sync.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const deckId = params.get("deck");
+    const mode = params.get("mode");
+    const lobby = document.getElementById("deck-lobby");
+    const study = document.getElementById("study");
+    const quizEl = document.getElementById("quiz");
+    const doneEl = document.getElementById("done");
+
+    function quizHref(id) {
+      return id === "mixed" ? "cards.html?deck=mixed&mode=quiz" : `cards.html?deck=${id}&mode=quiz`;
+    }
+
+    function renderLobby() {
+      lobby.innerHTML = `<div class="grid grid-2" style="margin-top:1rem">${FLASHCARDS.decks.map(d => `
+        <article class="card">
+          <h3 style="margin-top:0">${d.title}</h3>
+          <p class="muted">${d.blurb}</p>
+          <div class="tag-row">
+            <span class="chip">${d.cards.length} cards</span>
+            <span class="chip">${d.aepa}</span>
+            <span class="chip">${d.nes}</span>
+          </div>
+          <div class="cta-row" style="margin-top:0.75rem">
+            <a class="btn btn-accent" href="cards.html?deck=${d.id}">Study cards</a>
+            <a class="btn btn-secondary" href="${quizHref(d.id)}">Quiz to 100%</a>
+          </div>
+        </article>`).join("")}
+        <article class="card" style="grid-column:1/-1;background:rgba(15,118,110,0.06)">
+          <h3 style="margin-top:0">Mixed cheap-point quiz</h3>
+          <p class="muted">Every term from all six decks. Multiple choice until you have a grasp, then type the term. Misses fall back to multiple choice until 100% written.</p>
+          <a class="btn btn-primary" href="${quizHref("mixed")}">Quiz mixed to 100%</a>
+        </article>
+      </div>`;
+    }
+
+    function shuffleInPlace(list) {
+      const copy = list.slice();
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function startQuiz(pool, title, logId) {
+      lobby.classList.add("hidden");
+      study.classList.add("hidden");
+      doneEl.classList.add("hidden");
+      quizEl.classList.remove("hidden");
+
+      const MC_BEFORE_WRITE = 3;
+      const hits = {};
+      const stage = {};
+      pool.forEach(card => {
+        stage[card.term] = "mc";
+        hits[card.term] = 0;
+      });
+      let queue = shuffleInPlace(pool);
+      let mastered = 0;
+      const total = pool.length;
+      let current = null;
+      let locked = false;
+      let seedN = 0;
+
+      const verdict = document.getElementById("quiz-verdict");
+      const explain = document.getElementById("quiz-explain");
+      const exampleEl = document.getElementById("quiz-example");
+      const nextBtn = document.getElementById("quiz-next");
+      const choicesEl = document.getElementById("quiz-choices");
+      const writeEl = document.getElementById("quiz-write");
+      const input = document.getElementById("quiz-input");
+      const hintMask = document.getElementById("quiz-hint-mask");
+      const hintWrite = document.getElementById("quiz-hint-write");
+      const hintMc = document.getElementById("quiz-hint-mc");
+      let hintCount = 0;
+
+      function updateMeta() {
+        const stillMc = queue.filter(card => stage[card.term] === "mc").length;
+        const cardHits = current ? (hits[current.term] || 0) : 0;
+        document.getElementById("quiz-meta").textContent = title;
+        document.getElementById("quiz-kind").textContent = current && current.mode === "write"
+          ? "Written — type the term"
+          : `Multiple choice (${cardHits}/${MC_BEFORE_WRITE} to unlock typed)`;
+        document.getElementById("quiz-mastered").textContent = mastered + " / " + total + " written-mastered · " + stillMc + " still MC";
+        document.getElementById("quiz-bar").style.width = Math.round(100 * mastered / total) + "%";
+      }
+
+      function showEnd(passed) {
+        quizEl.classList.add("hidden");
+        doneEl.classList.remove("hidden");
+        if (passed) {
+          Progress.markStudyLoop("cards");
+          Progress.recordExam({
+            id: logId,
+            title: title + " — term quiz",
+            type: "english",
+            correct: total,
+            total,
+            percent: 100
+          });
+          doneEl.innerHTML = `
+            <p class="quiz-verdict passed" style="margin-top:0">Passed</p>
+            <p>100% — every term typed correctly. Cards session logged.</p>
+            <div class="cta-row">
+              <a class="btn btn-accent" href="${quizHref(deckId || "mixed")}">Quiz again</a>
+              <a class="btn btn-ghost" href="cards.html">Other decks</a>
+            </div>`;
+        } else {
+          const pct = total ? Math.round(100 * mastered / total) : 0;
+          doneEl.innerHTML = `
+            <p class="quiz-verdict failed" style="margin-top:0">Failed</p>
+            <p>${mastered} / ${total} written-mastered (${pct}%). Finish the written round to pass.</p>
+            <div class="cta-row">
+              <a class="btn btn-accent" href="${quizHref(deckId || "mixed")}">Resume quiz</a>
+              <a class="btn btn-ghost" href="cards.html">Other decks</a>
+            </div>`;
+        }
+      }
+
+      function showExample(text) {
+        if (text) {
+          exampleEl.textContent = text;
+          exampleEl.classList.remove("hidden");
+        } else {
+          exampleEl.textContent = "";
+          exampleEl.classList.add("hidden");
+        }
+      }
+
+      function letterCount(term) {
+        return (String(term).match(/[A-Za-z0-9]/g) || []).length;
+      }
+
+      function hintPattern(term, revealed) {
+        let used = 0;
+        return [...String(term)].map(ch => {
+          if (!/[A-Za-z0-9]/.test(ch)) return ch;
+          used += 1;
+          return used <= revealed ? ch : "_";
+        }).join("");
+      }
+
+      function giveHint() {
+        if (locked || !current) return;
+        if (current.mode === "write") {
+          const totalLetters = letterCount(current.term);
+          if (hintCount >= totalLetters) return;
+          hintCount += 1;
+          hintMask.textContent = hintPattern(current.term, hintCount);
+          hintMask.classList.remove("hidden");
+          if (hintCount >= totalLetters) hintWrite.disabled = true;
+          input.focus();
+          return;
+        }
+        const wrong = [...choicesEl.querySelectorAll("[data-choice]")].filter(btn =>
+          Number(btn.dataset.choice) !== current.answer && !btn.classList.contains("quiz-eliminated")
+        );
+        if (wrong.length <= 1) {
+          hintMc.disabled = true;
+          return;
+        }
+        const pick = wrong[Math.floor(Math.random() * wrong.length)];
+        pick.classList.add("quiz-eliminated");
+        pick.disabled = true;
+        if (wrong.length - 1 <= 1) hintMc.disabled = true;
+      }
+
+      function requeue(card) {
+        queue.push(card);
+      }
+
+      function afterGrade(ok) {
+        const card = current.card;
+        queue.shift();
+        if (current.mode === "mc") {
+          if (ok) {
+            hits[card.term] = (hits[card.term] || 0) + 1;
+            if (hits[card.term] >= MC_BEFORE_WRITE) stage[card.term] = "write";
+          } else {
+            hits[card.term] = Math.max(0, (hits[card.term] || 0) - 1);
+          }
+          requeue(card);
+        } else if (ok) {
+          stage[card.term] = "done";
+          mastered += 1;
+        } else {
+          stage[card.term] = "mc";
+          hits[card.term] = Math.max(1, MC_BEFORE_WRITE - 1);
+          requeue(card);
+        }
+        updateMeta();
+        nextBtn.classList.remove("hidden");
+        nextBtn.textContent = queue.length ? "Continue" : "See result";
+        nextBtn.focus();
+      }
+
+      function grade(ok) {
+        if (locked) return;
+        locked = true;
+        input.disabled = true;
+        verdict.textContent = ok ? "Passed" : "Failed";
+        verdict.className = "quiz-verdict " + (ok ? "passed" : "failed");
+        verdict.classList.remove("hidden");
+        explain.textContent = current.term + ": " + current.definition;
+        explain.classList.remove("hidden");
+        hintWrite.disabled = true;
+        hintMc.classList.add("hidden");
+        afterGrade(ok);
+      }
+
+      function ask() {
+        if (!queue.length) {
+          showEnd(true);
+          return;
+        }
+        locked = false;
+        seedN += 1;
+        const card = queue[0];
+        const mode = stage[card.term] === "write" ? "write" : "mc";
+        current = FLASHCARDS.quizPrompt(card, pool, title + ":" + card.term + ":" + seedN, mode);
+        current.card = card;
+        updateMeta();
+        document.getElementById("quiz-prompt").textContent = current.prompt;
+        const passage = document.getElementById("quiz-passage");
+        if (current.passage) {
+          passage.textContent = current.passage;
+          passage.classList.remove("hidden");
+        } else {
+          passage.textContent = "";
+          passage.classList.add("hidden");
+        }
+        showExample(current.example);
+        hintCount = 0;
+        hintMask.textContent = "";
+        hintMask.classList.add("hidden");
+        hintWrite.disabled = false;
+        hintMc.disabled = false;
+        verdict.classList.add("hidden");
+        explain.classList.add("hidden");
+        nextBtn.classList.add("hidden");
+        input.value = "";
+        input.disabled = false;
+        input.classList.remove("quiz-wrong-input");
+        if (current.mode === "write") {
+          choicesEl.innerHTML = "";
+          writeEl.classList.remove("hidden");
+          hintMc.classList.add("hidden");
+          input.focus();
+        } else {
+          writeEl.classList.add("hidden");
+          hintMc.classList.remove("hidden");
+          choicesEl.innerHTML = current.choices.map((choice, i) => `
+            <button type="button" class="choice" data-choice="${i}">
+              <span><strong>${String.fromCharCode(65 + i)}.</strong> ${choice}</span>
+            </button>`).join("");
+          document.querySelectorAll("#quiz-choices [data-choice]").forEach(btn => {
+            btn.onclick = () => pickMc(Number(btn.dataset.choice));
+          });
+        }
+      }
+
+      function pickMc(index) {
+        if (locked || current.mode !== "mc") return;
+        const ok = index === current.answer;
+        document.querySelectorAll("#quiz-choices [data-choice]").forEach(btn => {
+          const i = Number(btn.dataset.choice);
+          if (i === current.answer) btn.classList.add("quiz-correct");
+          if (i === index && !ok) btn.classList.add("quiz-wrong");
+          btn.disabled = true;
+        });
+        grade(ok);
+      }
+
+      function checkWrite(gaveUp) {
+        if (locked || current.mode !== "write") return;
+        const ok = !gaveUp && FLASHCARDS.answersMatch(input.value, current.term, current.definition);
+        if (!ok && input.value.trim()) input.classList.add("quiz-wrong-input");
+        else input.classList.remove("quiz-wrong-input");
+        grade(ok);
+      }
+
+      document.getElementById("quiz-next").onclick = ask;
+      document.getElementById("quiz-stop").onclick = () => showEnd(false);
+      document.getElementById("quiz-check").onclick = () => checkWrite(false);
+      document.getElementById("quiz-idk").onclick = () => checkWrite(true);
+      hintWrite.onclick = giveHint;
+      hintMc.onclick = giveHint;
+      input.addEventListener("keydown", e => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          if (locked) ask();
+          else checkWrite(false);
+        }
+      });
+      document.addEventListener("keydown", e => {
+        if (quizEl.classList.contains("hidden")) return;
+        if (e.target === input) return;
+        if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+        if (!locked && current && current.mode === "mc" && ["1", "2", "3", "4", "a", "b", "c", "d", "A", "B", "C", "D"].includes(e.key)) {
+          const map = { a: 0, b: 1, c: 2, d: 3, A: 0, B: 1, C: 2, D: 3, 1: 0, 2: 1, 3: 2, 4: 3 };
+          pickMc(map[e.key]);
+        }
+        if (locked && (e.code === "Space" || e.key === "Enter")) {
+          e.preventDefault();
+          ask();
+        }
+      });
+      ask();
+    }
+
+    function startStudy(deck) {
+      lobby.classList.add("hidden");
+      study.classList.remove("hidden");
+      let order = deck.cards.map((_, i) => i);
+      let index = 0;
+      let flipped = false;
+      const marks = {};
+
+      function currentCard() {
+        return deck.cards[order[index]];
+      }
+
+      function render() {
+        const card = currentCard();
+        flipped = false;
+        document.getElementById("flip").classList.remove("is-flipped");
+        document.getElementById("card-front").textContent = card.term;
+        document.getElementById("card-back").textContent = card.definition;
+        document.getElementById("card-example").textContent = card.example || "";
+        document.getElementById("study-meta").textContent = deck.title;
+        document.getElementById("study-progress").textContent = (index + 1) + " / " + order.length;
+        document.getElementById("quiz-link").href = quizHref(deck.id);
+      }
+
+      function flip() {
+        flipped = !flipped;
+        document.getElementById("flip").classList.toggle("is-flipped", flipped);
+      }
+
+      function go(delta) {
+        index = (index + delta + order.length) % order.length;
+        render();
+      }
+
+      function mark(knew) {
+        marks[currentCard().term] = knew;
+        if (Object.keys(marks).length >= order.length) {
+          const missed = order.map(i => deck.cards[i]).filter(c => marks[c.term] === false);
+          doneEl.classList.remove("hidden");
+          doneEl.innerHTML = missed.length
+            ? `<p class="quiz-verdict failed" style="margin-top:0">Failed</p>
+               <p>Knew ${order.length - missed.length} / ${order.length}. Quiz the misses until you pass at 100%.</p>
+               <p class="muted">Missed: ${missed.map(c => c.term).join(", ")}</p>
+               <div class="cta-row">
+                 <a class="btn btn-accent" href="${quizHref(deck.id)}">Quiz to 100%</a>
+                 <a class="btn btn-ghost" href="cards.html">Other decks</a>
+               </div>`
+            : `<p class="quiz-verdict passed" style="margin-top:0">Passed</p>
+               <p>Knew every card. Still take the quiz — it recycles misses until 100%.</p>
+               <div class="cta-row">
+                 <a class="btn btn-accent" href="${quizHref(deck.id)}">Quiz to 100%</a>
+                 <a class="btn btn-ghost" href="cards.html">Other decks</a>
+               </div>`;
+          doneEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+        go(1);
+      }
+
+      document.getElementById("flip").onclick = flip;
+      document.getElementById("prev-card").onclick = () => go(-1);
+      document.getElementById("next-card").onclick = () => go(1);
+      document.getElementById("knew").onclick = () => mark(true);
+      document.getElementById("miss").onclick = () => mark(false);
+      document.getElementById("shuffle").onclick = () => {
+        order = shuffleInPlace(order);
+        index = 0;
+        render();
+      };
+      document.addEventListener("keydown", e => {
+        if (!study.classList.contains("hidden") && quizEl.classList.contains("hidden")) {
+          if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+          if (e.code === "Space") { e.preventDefault(); flip(); }
+          if (e.key === "ArrowRight") go(1);
+          if (e.key === "ArrowLeft") go(-1);
+          if (e.key === "j" || e.key === "J") mark(true);
+          if (e.key === "k" || e.key === "K") mark(false);
+        }
+      });
+      render();
+    }
+
+    if (mode === "quiz") {
+      if (deckId === "mixed") {
+        startQuiz(FLASHCARDS.cardsFor(FLASHCARDS.decks.map(d => d.id)), "Mixed ELA terms", "ela-cards-mixed");
+      } else {
+        const deck = FLASHCARDS.deckById(deckId);
+        if (!deck) lobby.innerHTML = `<p>Unknown deck. <a href="cards.html">Back to decks</a>.</p>`;
+        else startQuiz(deck.cards.map(c => ({ ...c, deckId: deck.id, domain: deck.domain })), deck.title, "ela-cards-" + deck.id);
+      }
+    } else if (!deckId) {
+      renderLobby();
+    } else {
+      const deck = FLASHCARDS.deckById(deckId);
+      if (!deck) lobby.innerHTML = `<p>Unknown deck. <a href="cards.html">Back to decks</a>.</p>`;
+      else startStudy(deck);
+    }
+  </script>
+</body>
+</html>

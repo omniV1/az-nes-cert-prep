@@ -15,11 +15,13 @@
       <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
+      <a href="study-guides.html">Guides</a>
       <a href="practice.html">Practice</a>
       <a href="exam.html">Exams</a>
       <a href="ace.html">Ace</a>
       <a href="notes.html">Notes</a>
       <a href="formulas.html">Formulas</a>
+      <a href="cards.html">Cards</a>
       <a class="active" href="traps.html">Traps</a>
       <a href="plan.html">Plan</a>
     </nav>
@@ -35,6 +37,8 @@
       <button class="btn btn-secondary" id="mark-ela">Mark ELA traps reviewed</button>
       <a class="btn btn-ghost" href="ace.html">Back to Ace tracker</a>
     </div>
+
+    <section class="card" id="my-traps" style="margin-top:1rem;display:none"></section>
 
     <div class="grid" style="gap:1rem;margin-top:1.25rem">
       <article class="card">
@@ -123,6 +127,7 @@
           <li><strong>Revise vs edit vs proofread</strong> — ideas/organization, then sentences, then mechanics.</li>
           <li><strong>Yes/no research questions</strong> — NES wants open-ended, researchable questions.</li>
           <li><strong>Uncited paraphrase</strong> — changing words without citation is still plagiarism.</li>
+          <li><strong>Fallacy names</strong> — straw man, false dilemma, post hoc, and ad hominem are cheap points if you can label them in a student draft.</li>
         </ul>
       </article>
       <article class="card">
@@ -137,8 +142,17 @@
     </div>
   </main>
   <script src="js/storage.js"></script>
+  <script src="js/progress-engine.js"></script>
   <script src="js/vault-sync.js"></script>
   <script>
+    const counts = Progress.trapCounts();
+    if (counts.length) {
+      const el = document.getElementById("my-traps");
+      el.style.display = "";
+      el.innerHTML = `<h2 style="margin-top:0">Your trap log</h2>
+        <ul>${counts.map(t => `<li>${ProgressEngine.trapLabel(t.trap)} — ${t.n}</li>`).join("")}</ul>
+        <p class="muted" style="margin-bottom:0">Track A on the dashboard drills the top one. Log more after each sitting — not by question number.</p>`;
+    }
     document.getElementById("mark").onclick = () => {
       Progress.setReviewFlag("traps");
       alert("Math traps marked. Ace tracker updated.");
@@ -146,7 +160,8 @@
     };
     document.getElementById("mark-ela").onclick = () => {
       Progress.setReviewFlag("elaTraps");
-      alert("ELA traps marked. Ace tracker updated.");
+      Progress.markStudyLoop("cards");
+      alert("ELA traps marked. Cards session logged.");
       location.href = "ace.html";
     };
   </script>
