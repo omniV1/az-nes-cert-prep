@@ -6,6 +6,7 @@
    - it does not have exactly one correct option
    - option IDs are missing/duplicated, or option text is empty/duplicated
    - an explanation uses an {{opt:id}} token that is not one of its options
+   - two passages share one passageSet name (they would merge into one cluster)
    - an explanation hardcodes a letter/position reference ("B is a comma
      splice", "Choice C", "option 2", "the last distractor") that breaks
      once options are shuffled. Use {{opt:<optionId>}} or describe the
@@ -142,6 +143,15 @@ function validateAll(data) {
     if (seen.has(p.id)) errors.push("duplicate problem id");
     seen.set(p.id, p);
     if (errors.length) failures.push({ label: `problem ${p.id}`, errors });
+  }
+  const passageSets = new Map();
+  for (const p of data.problems) {
+    if (!p.passageSet) continue;
+    const first = passageSets.get(p.passageSet);
+    if (!first) passageSets.set(p.passageSet, p);
+    else if (first.passage !== p.passage) {
+      failures.push({ label: `problem ${p.id}`, errors: [`passageSet "${p.passageSet}" is already used by ${first.id} with a different passage; pick a unique name`] });
+    }
   }
   for (const c of lessonChecks(data.lessons)) {
     const errors = validateQuestion(c.question, c.context);

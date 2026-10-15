@@ -50,3 +50,9 @@ test("rejects questions without exactly one correct option or with dangling toke
   const badToken = { id: "T", explanation: "{{opt:T-9}} is wrong.", choices: ["1", "2"], answer: 0 };
   assert.match(validateQuestion(badToken, "").join(), /T-9.*not an option/);
 });
+
+test("rejects two different passages sharing one passageSet name", () => {
+  const mk = (id, passage) => ({ id, passage, passageSet: "water", stem: "?", choices: ["x", "y"], answer: 0, explanation: "e" });
+  const { failures } = validateAll({ problems: [mk("Q1", "rates"), mk("Q2", "treatment")], lessons: {}, exams: [] });
+  assert.match(failures.flatMap(f => f.errors).join("\n"), /passageSet "water" is already used by Q1/);
+});
