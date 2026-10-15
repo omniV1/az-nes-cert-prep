@@ -444,7 +444,7 @@ Etymology is evidence, not a verdict. A word’s history can suggest a meaning, 
       explanation: "Transfer a known root to a new word: astro/aster (star) appears in disaster, asterisk, and astronomy." },
 
     { id: "LF209", domain: "reading", title: "Word histories — diminutive ending", difficulty: "hard", tags: ["vocabulary", "longform"], skillIds: ["word-origins", "vocab-strategies"], passageSet: "words", passage: P.words,
-      stem: "According to the passage, the ending shared by musculus and molecule signals—",
+      stem: "According to the passage, the Latin ending in musculus, whose sense survives in molecule, signals—",
       options: [
         o("LF209-small", "smallness",
           "The passage calls it a diminutive: little mouse, little mass.", true),

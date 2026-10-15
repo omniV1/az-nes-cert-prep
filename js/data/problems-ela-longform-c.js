@@ -270,11 +270,11 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
       stem: "Which criticism of the author’s evidence is fairest?",
       choices: [
         "Sunday hold-share is treated as if it already proved that a one-year pilot at two branches will succeed.",
-        "The author uses Sunday’s share of weekly holds as a reason the day is doing work, while still proposing a pilot rather than declaring the question closed.",
+        "The 18 percent holds figure shows Sunday is used, but not that those patrons could not pick up holds on another day — the very shift the author faults critics for assuming without evidence.",
         "Gate counts are denied outright, so the lower Sunday traffic figure cannot be checked.",
         "The author presents the user survey as already finished and favorable."
       ], answer: 1,
-      explanation: "Fair reading: holds data motivate keeping the window; the pilot is still the test. {{opt:LF133-0}} overstates. Gate counts are granted. The survey is proposed, not completed." },
+      explanation: "A fair criticism names a real gap the author leaves open: Sunday pickups prove Sunday use, not that those patrons have no other day, which is exactly what the pilot would need to show. {{opt:LF133-0}} misstates the argument (the pilot is a test, not a claimed success). Gate counts are granted, not denied. The survey is proposed, not completed." },
 
     { id: "LF134", domain: "reading", title: "Pool rules — apply", difficulty: "hard", tags: ["technical", "longform"], skillIds: ["technical-texts"], passageSet: "pool", passage: P.pool,
       stem: "A member wants to use metal-edged paddles in lane 2 during open swim. Staff should—",

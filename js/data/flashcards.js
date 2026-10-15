@@ -204,7 +204,7 @@ window.FLASHCARDS = (() => {
         { term: "Personification", definition: "Human traits given to something nonhuman.", example: "The wind worried the screen door all night." },
         { term: "Metonymy", definition: "A related name stands in (the Crown for the monarch).", example: "The White House declined to comment — building for administration." },
         { term: "Synecdoche", definition: "A part stands for the whole (all hands on deck).", example: "We need more boots on the trail — boots for hikers." },
-        { term: "Apostrophe (device)", definition: "Direct address to someone absent or to an abstraction.", example: "O Death, be not proud — Death is addressed as if it could hear." },
+        { term: "Apostrophe (device)", definition: "Direct address to someone absent or to an abstraction.", example: "Death, be not proud — Donne addresses Death as if it could hear." },
         { term: "Hyperbole", definition: "Deliberate exaggeration.", example: "I’ve told you a thousand times to lock the gate." },
         { term: "Understatement", definition: "Deliberate downplaying for effect.", example: "After the roof came off, she said, ‘It’s a bit breezy.’" },
         { term: "Paradox", definition: "An apparent contradiction that points to a truth.", example: "The more he explained, the less anyone understood." },
@@ -280,6 +280,49 @@ window.FLASHCARDS = (() => {
     }
   ];
 
+  // Terms whose definitions or examples overlap enough that one can pass for the other.
+  // They are never offered as each other's distractors, so a question cannot have two right answers.
+  const CONFUSABLE_GROUPS = [
+    ["Main idea", "Thesis", "Claim", "General statement"],
+    ["Supporting detail", "Specific detail"],
+    ["Summarizing", "Accurate summary"],
+    ["Context clue", "Synonym clue", "Antonym clue", "Example clue", "Inference clue", "Appositive definition"],
+    ["Appositive definition", "Appositive"],
+    ["Metacognition", "Clarifying", "Questioning the text", "Rereading", "Close reading"],
+    ["Reading rate", "Skimming"],
+    ["Diction", "Register", "Register (speech)"],
+    ["Expository organization", "Expository writing"],
+    ["Chronological order", "Procedure"],
+    ["Technical / functional text", "Warranty"],
+    ["Author’s purpose", "Purpose of a speech"],
+    ["Fact", "Relevant evidence"],
+    ["Sufficient evidence", "Hasty generalization", "Overclaim"],
+    ["Caption", "Caption vs image"],
+    ["Testimonial (ad)", "False authority"],
+    ["Parallelism", "Parallel structure"],
+    ["Run-on", "Comma splice"],
+    ["Dependent clause", "Fragment"],
+    ["Restrictive clause", "Nonrestrictive clause", "That vs which"],
+    ["It's vs its", "Homophone error", "Possessive apostrophe"],
+    ["Metonymy", "Synecdoche"],
+    ["Apostrophe (device)", "Personification"],
+    ["Verbal irony", "Understatement"],
+    ["Epic", "In medias res"],
+    ["Blank verse", "Iambic pentameter"]
+  ];
+
+  // "Tone (literary)" and "Tone (informational)" share a base term, as do "Register" and "Register (speech)".
+  const baseTerm = term => term.replace(/\s*\([^)]*\)\s*$/, "").trim().toLowerCase();
+
+  function confusable(a, b) {
+    if (a === b || baseTerm(a) === baseTerm(b)) return true;
+    return CONFUSABLE_GROUPS.some(group => group.includes(a) && group.includes(b));
+  }
+
+  function distractorCandidates(pool, card) {
+    return pool.filter(c => !confusable(c.term, card.term));
+  }
+
   function deckById(id) {
     return decks.find(d => d.id === id) || null;
   }
@@ -311,7 +354,7 @@ window.FLASHCARDS = (() => {
     const ordered = shuffle(pool.map((_, i) => i), seed + ":order").map(i => pool[i]);
     const take = ordered.slice(0, Math.min(n, ordered.length));
     return take.map((card, index) => {
-      const others = pool.filter(c => c.term !== card.term);
+      const others = distractorCandidates(pool, card);
       const distractorPool = shuffle(others, seed + ":d:" + card.term + ":" + index).slice(0, 3);
       const usage = card.example ? ` In use: ${card.example}` : "";
       const styles = card.example ? 3 : 2;
@@ -373,7 +416,7 @@ window.FLASHCARDS = (() => {
         answer: card.term
       };
     }
-    const others = pool.filter(c => c.term !== card.term);
+    const others = distractorCandidates(pool, card);
     const distractors = shuffle(others, seed + ":d").slice(0, 3);
     const styles = card.example ? 3 : 2;
     const style = hashMod(seed, styles);
@@ -491,5 +534,5 @@ window.FLASHCARDS = (() => {
     return rows[a.length];
   }
 
-  return { decks, deckById, cardsFor, examItems, quizPrompt, answersMatch };
+  return { decks, deckById, cardsFor, examItems, quizPrompt, answersMatch, confusable, CONFUSABLE_GROUPS };
 })();

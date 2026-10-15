@@ -33,7 +33,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"EF007", domain:"ela-foundation", title:"Previewing a Chapter", difficulty:"easy", tags:["reading-process"], skillIds:["reading-process"],
     stem:"Before reading a dense chapter, a student skims headings, bold terms, and the first sentence of each section. This strategy is best described as—",
     choices:["summarizing","previewing","evaluating sources","paraphrasing"], answer:1,
-    explanation:"Previewing surveys text features to set a purpose before close reading. Summarizing and paraphrasing restated content after (or during) reading. Evaluating sources is a credibility task, not a first look at structure." },
+    explanation:"Previewing surveys text features to set a purpose before close reading. Summarizing and paraphrasing restate content after (or during) reading. Evaluating sources is a credibility task, not a first look at structure." },
 
   { id:"EF008", domain:"ela-foundation", title:"Setting Defined", difficulty:"easy", tags:["literary-elements"], skillIds:["literary-elements-intro"],
     stem:"In a story, the time and place of the action are called the—",

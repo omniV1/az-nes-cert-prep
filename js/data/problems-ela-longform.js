@@ -135,9 +135,13 @@ Some residents say cooling centers treat a symptom and ignore tree canopy. That 
 
 I interviewed one volunteer, who said “we turned people away and I hated it.” I also read a 2024 city memo that listed 11 days over 110°F last July. If the council wants fewer ambulance calls, they should keep the gym open and plant the trees. Anything less is theater.`,
 
-    thoreau: `The greater part of what my neighbors call good I believe in my soul to be bad, and if I repent of anything, it is very likely to be my good behavior. What demon possessed me that I behaved so well? You may say the wisest thing you can, old man,—you who have lived seventy years, not without honor of a kind,—I hear an irresistible voice which invites me away from all that. One generation abandons the enterprises of another like stranded vessels.
+    thoreau: `From Henry David Thoreau, Walden (1854), the chapter “Economy”:
+
+The greater part of what my neighbors call good I believe in my soul to be bad, and if I repent of anything, it is very likely to be my good behavior. What demon possessed me that I behaved so well? You may say the wisest thing you can, old man,—you who have lived seventy years, not without honor of a kind,—I hear an irresistible voice which invites me away from all that. One generation abandons the enterprises of another like stranded vessels.
 
 I think that we may safely trust a good deal more than we do. We may waive just so much care of ourselves as we honestly bestow elsewhere. Nature is as well adapted to our weakness as to our strength. The incessant anxiety and strain of some is a well-nigh incurable form of disease. We are made to exaggerate the importance of what work we do; and yet how much is not done by us! or, what if we had been taken sick? How vigilant we are! determined not to live by faith if we can avoid it; all the day long on the alert, at night we unwillingly say our prayers and commit ourselves to uncertainties.
+
+[From a later chapter, “Where I Lived, and What I Lived For”:]
 
 We are determined to be starved before we are hungry. Men say that a stitch in time saves nine, and so they take a thousand stitches to-day to save nine to-morrow.`,
 
@@ -204,7 +208,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
       explanation: "The close asks the council to choose between speed and durability rather than treat them as one choice. {{opt:LF004-0}} is an earlier split the briefing will not endorse. {{opt:LF004-1}} turns a peer finding into a mandate. {{opt:LF004-3}} contradicts the different-instruments warning." },
 
     { id: "LF005", domain: "reading", title: "Heat briefing — fact vs opinion", difficulty: "hard", tags: ["evidence", "longform"], skillIds: ["evidence-credibility"], passageSet: "heat", passage: P.heat,
-      stem: "Which sentence from the briefing is a value judgment rather than a report of measured or procedural fact?",
+      stem: "Which sentence from the briefing reports an evaluative opinion rather than a measured or procedural fact?",
       choices: [
         "The mean sidewalk temperature on unshaded blocks was 118°F.",
         "Readings were taken between 2:00 and 4:00 p.m.",

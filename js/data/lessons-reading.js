@@ -80,7 +80,7 @@
           "Treating any related word as a synonym. Antonyms oppose; homonyms collide in form; a near-synonym with the wrong charge will still be the wrong MCQ choice.",
           [
             check("Which word has the most negative connotation for someone who spends little money?", ["Thrifty", "Frugal", "Economical", "Stingy"], 3, "The first three can praise careful spending. Stingy adds meanness."),
-            check("In &ldquo;The bass was too loud, so she switched from bass guitar to piano,&rdquo; bass and bass are:", ["antonyms", "synonyms with identical connotation", "homonyms with different denotations", "borrowings from two different modern slang terms"], 2, "Same spelling, two meanings (low frequency sound vs the instrument). That is a homonym pair, not a synonym pair.")
+            check("In &ldquo;The angler reeled in a bass, then went home to practice bass guitar,&rdquo; bass and bass are:", ["antonyms", "synonyms with identical connotation", "homonyms with different denotations", "borrowings from two different modern slang terms"], 2, "Same spelling, unrelated meanings (a fish and a low-pitched instrument), and here even different pronunciations. That makes them homonyms (more precisely, homographs), not synonyms.")
           ]
         ),
         section(

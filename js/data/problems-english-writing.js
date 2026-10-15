@@ -77,7 +77,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"WR016", domain:"writing", title:"Close Reading Sentence", difficulty:"medium", tags:["analytical"], skillIds:["analytical-writing"],
     stem:"Which sentence does close-reading work rather than biography?",
-    choices:["Poe had a difficult life, so the raven is sad.","The refrain 'nevermore' turns a single word into a drumbeat of finality at the end of each stanza.","Ravens are birds, which explains the speaker's fear.","I liked this poem more than his other work."], answer:1,
+    choices:["Poe had a difficult life, so the raven is sad.","The refrain 'nevermore' turns a single word into a drumbeat of finality, closing stanza after stanza.","Ravens are birds, which explains the speaker's fear.","I liked this poem more than his other work."], answer:1,
     explanation:"Close reading explains how a device (refrain) produces an effect. Biography-as-shortcut, zoology, and preference are not analysis of craft." },
 
   { id:"WR017", domain:"writing", title:"Irrelevant Evidence", difficulty:"medium", tags:["thesis"], skillIds:["thesis-support"],
@@ -172,7 +172,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
 
   { id:"WR035", domain:"writing", title:"Integrated Quote", difficulty:"hard", tags:["thesis"], skillIds:["thesis-support"],
     stem:"Which sentence best integrates a quotation?",
-    choices:["Douglass writes, 'a band of successful robbers,' recasting enslavers as thieves of persons.","Douglass uses the word robbers without showing whose sentence it is.","Quote: a band of successful robbers.","He said enslavers were criminals, which is close enough."], answer:0,
+    choices:["Douglass calls his enslavers 'a band of successful robbers,' recasting them as thieves of persons.","Douglass uses the word robbers without showing whose sentence it is.","Quote: a band of successful robbers.","He said enslavers were criminals, which is close enough."], answer:0,
     explanation:"Integration weaves the quoted words into a grammatical sentence and explains their work. A dropped word, an unintegrated quote, and a vague paraphrase do not support a thesis." },
 
   { id:"WR036", domain:"writing", title:"Second-Person in Instructions", difficulty:"easy", tags:["style"], skillIds:["style-audience"],

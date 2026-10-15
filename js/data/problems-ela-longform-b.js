@@ -738,7 +738,7 @@ You've fallen cold and dead.`
         "synonyms for “within baseline,” applied to the two downstream laterals",
         "a paraphrase of staff’s request for one more sample after the next inch of rain"
       ], answer: 1,
-      explanation: "Guilt and pathos, not methods. B does not restated baseline, mixed results, or the extra-sample ask." },
+      explanation: "Guilt and pathos, not methods. B does not restate baseline, mixed results, or the extra-sample ask." },
 
     { id: "LF109", domain: "reading", title: "Canals pair — synthesis", difficulty: "hard", tags: ["paired", "longform"], skillIds: ["informational-texts", "evidence-credibility"], passageSet: "canals", passage: P.canalsA + "\n\n" + P.canalsB,
       stem: "Which sentence fairly synthesizes both sources?",
