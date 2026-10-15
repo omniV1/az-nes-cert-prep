@@ -1,0 +1,12 @@
+{
+  "name": "az-nes-cert-prep",
+  "private": true,
+  "description": "Static browser app; package.json only provides test and validation scripts.",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "validate": "node scripts/validate-questions.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  }
+}

@@ -244,7 +244,7 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
         "move all Sunday staff to Monday evening, which the author treats as already proven to capture Sunday users",
         "treat a quiet Sunday gate count as a complete theory of who the library serves"
       ], answer: 1,
-      explanation: "Keep Sundays at Central and West, publish, then decide. Lower Sunday traffic is granted, not the thesis. Monday staffing is a constraint to manage, not a proven substitute. D is the position the author attacks." },
+      explanation: "Keep Sundays at Central and West, publish, then decide. Lower Sunday traffic is granted, not the thesis. Monday staffing is a constraint to manage, not a proven substitute. {{opt:LF130-3}} is the position the author attacks." },
 
     { id: "LF131", domain: "reading", title: "Sunday hours — concession", difficulty: "hard", tags: ["persuasive", "longform"], skillIds: ["persuasive-texts"], passageSet: "hours", passage: P.hours,
       stem: "“Staffing is a real constraint, not an insult” functions primarily as—",
@@ -264,7 +264,7 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
         "A two-branch pilot will split the system, so the survey should not be run.",
         "Quiet afternoons already prove the building is wasted, which is why the author cites gate counts as the thesis."
       ], answer: 0,
-      explanation: "Who can attend is the point of keeping the window. B is the critics’ assumption the author denies. C is a trustee worry the author answers with a pilot. D reverses thesis and conceded number." },
+      explanation: "Who can attend is the point of keeping the window. {{opt:LF132-1}} is the critics’ assumption the author denies. {{opt:LF132-2}} is a trustee worry the author answers with a pilot. {{opt:LF132-3}} reverses thesis and conceded number." },
 
     { id: "LF133", domain: "reading", title: "Sunday hours — evidence", difficulty: "hard", tags: ["evidence", "longform"], skillIds: ["evidence-credibility"], passageSet: "hours", passage: P.hours,
       stem: "Which criticism of the author’s evidence is fairest?",
@@ -274,7 +274,7 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
         "Gate counts are denied outright, so the lower Sunday traffic figure cannot be checked.",
         "The author presents the user survey as already finished and favorable."
       ], answer: 1,
-      explanation: "Fair reading: holds data motivate keeping the window; the pilot is still the test. A overstates. Gate counts are granted. The survey is proposed, not completed." },
+      explanation: "Fair reading: holds data motivate keeping the window; the pilot is still the test. {{opt:LF133-0}} overstates. Gate counts are granted. The survey is proposed, not completed." },
 
     { id: "LF134", domain: "reading", title: "Pool rules — apply", difficulty: "hard", tags: ["technical", "longform"], skillIds: ["technical-texts"], passageSet: "pool", passage: P.pool,
       stem: "A member wants to use metal-edged paddles in lane 2 during open swim. Staff should—",
@@ -614,7 +614,7 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
         "is unsigned and therefore free of the utility’s institutional bias",
         "already concludes the rate starved lawns, which matches the paper’s thesis"
       ], answer: 1,
-      explanation: "Limits and methods beat loaded rhetoric. A has the 1,200-meter sample, not B. Unsigned is a weakness. D is B’s claim, which A will not headline." },
+      explanation: "Limits and methods beat loaded rhetoric. {{opt:LF167-0}} reverses who has the 1,200-meter sample: Source A has it, not Source B. Unsigned is a weakness. {{opt:LF167-3}} is Source B’s claim, which Source A will not headline." },
 
     { id: "LF168", domain: "reading", title: "Water pair — misuse", difficulty: "hard", tags: ["paired", "longform"], skillIds: ["evidence-credibility", "research-citation"], passageSet: "water", passage: P.water,
       stem: "“Staff proved every quiet sprinkler is a crime against childhood” misuses the sources because—",
@@ -674,7 +674,7 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
         "treats “sports will die” as the brief’s thesis, which is what Ruiz asked Noor to restate",
         "agrees with Priya that a sleep slogan is enough and the brief is extra"
       ], answer: 1,
-      explanation: "Different claims can both be discussed. River does not settle lighting. C describes Hale. D is Priya." },
+      explanation: "Different claims can both be discussed. River does not settle lighting. {{opt:LF173-2}} describes Hale. {{opt:LF173-3}} is Priya." },
 
     { id: "LF174", domain: "oral", title: "Board — purpose", difficulty: "hard", tags: ["speech", "longform"], skillIds: ["speech-craft", "group-discussion"], passageSet: "board", passage: P.board,
       stem: "Ruiz’s purpose in this stretch is to—",

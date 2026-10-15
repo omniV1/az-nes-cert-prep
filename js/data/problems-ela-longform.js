@@ -171,7 +171,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "Because one appendix camp wants a shade ordinance, the briefing endorses that ordinance as the official recommendation.",
         "Peer-city studies found that engineered shade works faster at first, so the authors treat those reports as a controlled experiment the council must follow."
       ], answer: 0,
-      explanation: "The through-line is a limited corridor finding plus a refusal to convert it into one policy. B overclaims the true 7°F paint result. C turns a split appendix into an endorsement the briefing withholds. D upgrades an “illustrative” comparison into a controlled mandate." },
+      explanation: "The through-line is a limited corridor finding plus a refusal to convert it into one policy. {{opt:LF001-1}} overclaims the true 7°F paint result. {{opt:LF001-2}} turns a split appendix into an endorsement the briefing withholds. {{opt:LF001-3}} upgrades an “illustrative” comparison into a controlled mandate." },
 
     { id: "LF002", domain: "reading", title: "Heat briefing — too-broad summary", difficulty: "hard", tags: ["informational", "longform"], skillIds: ["informational-texts"], passageSet: "heat", passage: P.heat,
       stem: "A student writes this summary: “Trees always cool cities, so every block should be forced to plant them immediately.” The summary is weak primarily because it—",
@@ -181,7 +181,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "treats the sapling caution as if staff had already guaranteed a 19-degree gap within five years",
         "assumes the sensor network already covers the whole city, which the briefing states as fact"
       ], answer: 1,
-      explanation: "Field-style summary items punish upgrading one corridor’s hedged finding into “always” and “every block.” A is not the defect: a number is not the controlling idea. C and D are other real misreads, but they are not what this summary does—and D reverses the briefing’s coverage limit." },
+      explanation: "Field-style summary items punish upgrading one corridor’s hedged finding into “always” and “every block.” {{opt:LF002-0}} is not the defect: a number is not the controlling idea. {{opt:LF002-2}} and {{opt:LF002-3}} are other real misreads, but they are not what this summary does—and {{opt:LF002-3}} reverses the briefing’s coverage limit." },
 
     { id: "LF003", domain: "reading", title: "Heat briefing — vocab in context", difficulty: "hard", tags: ["vocabulary", "longform"], skillIds: ["vocab-strategies"], passageSet: "heat", passage: P.heat,
       stem: "In the sentence “the comparison is illustrative, not a controlled experiment,” illustrative most nearly means—",
@@ -191,7 +191,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "a claim that the peer reports used identical instruments and street widths",
         "evidence that saplings will reproduce the 19-degree gap within five years"
       ], answer: 1,
-      explanation: "The contrast with controlled experiment is the clue: the peer comparison can show a pattern worth noticing, not causal proof. A invents a legal duty. C is what the authors say the comparison is not. D borrows a different caution from earlier in the briefing." },
+      explanation: "The contrast with controlled experiment is the clue: the peer comparison can show a pattern worth noticing, not causal proof. {{opt:LF003-0}} invents a legal duty. {{opt:LF003-2}} is what the authors say the comparison is not. {{opt:LF003-3}} borrows a different caution from earlier in the briefing." },
 
     { id: "LF004", domain: "reading", title: "Heat briefing — author’s purpose", difficulty: "hard", tags: ["informational", "longform"], skillIds: ["informational-texts"], passageSet: "heat", passage: P.heat,
       stem: "The primary purpose of the final paragraph is to—",
@@ -201,7 +201,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "distinguish a fast partial fix from a slower lasting one so the council stops treating them as identical",
         "establish that the peer studies used the same instruments and street widths, making the comparison a controlled experiment"
       ], answer: 2,
-      explanation: "The close asks the council to choose between speed and durability rather than treat them as one choice. A is an earlier split the briefing will not endorse. B turns a peer finding into a mandate. D contradicts the different-instruments warning." },
+      explanation: "The close asks the council to choose between speed and durability rather than treat them as one choice. {{opt:LF004-0}} is an earlier split the briefing will not endorse. {{opt:LF004-1}} turns a peer finding into a mandate. {{opt:LF004-3}} contradicts the different-instruments warning." },
 
     { id: "LF005", domain: "reading", title: "Heat briefing — fact vs opinion", difficulty: "hard", tags: ["evidence", "longform"], skillIds: ["evidence-credibility"], passageSet: "heat", passage: P.heat,
       stem: "Which sentence from the briefing is a value judgment rather than a report of measured or procedural fact?",
@@ -211,7 +211,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "The other group calls the ordinance a tax on small shops and argues that portable misters are cheaper.",
         "Staff therefore refuse to promise that planting saplings will reproduce the 19-degree gap within five years."
       ], answer: 2,
-      explanation: "C reports others’ evaluative framing (tax, cheaper) rather than a sensor result. A and B are measurements/methods. D is a stated limit on what staff will claim, not a taste judgment by the narrator." },
+      explanation: "{{opt:LF005-2}} reports others’ evaluative framing (tax, cheaper) rather than a sensor result. {{opt:LF005-0}} and {{opt:LF005-1}} are measurements/methods. {{opt:LF005-3}} is a stated limit on what staff will claim, not a taste judgment by the narrator." },
 
     { id: "LF006", domain: "reading", title: "Start-time editorial — claim", difficulty: "hard", tags: ["persuasive", "longform"], skillIds: ["persuasive-texts"], passageSet: "start", passage: P.start,
       stem: "The author’s primary claim is that the board should—",
@@ -221,7 +221,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "adopt District 14’s athletic conference so the 9 percent tardy drop will transfer automatically",
         "treat the transportation spreadsheet as proof that 7:10 a.m. already maximizes learning"
       ], answer: 1,
-      explanation: "The opening and the closing pilot both urge 8:15 plus evaluation. Sports and jobs are constraints to manage, not cancel. District 14 is local evidence, not a conference takeover. D is the critics’ unproven position." },
+      explanation: "The opening and the closing pilot both urge 8:15 plus evaluation. Sports and jobs are constraints to manage, not cancel. District 14 is local evidence, not a conference takeover. {{opt:LF006-3}} is the critics’ unproven position." },
 
     { id: "LF007", domain: "reading", title: "Start-time editorial — counterargument", difficulty: "hard", tags: ["persuasive", "longform"], skillIds: ["persuasive-texts"], passageSet: "start", passage: P.start,
       stem: "The sentence “Those are real constraints, not insults” functions primarily as—",
@@ -241,7 +241,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "District 14’s small study is already decisive, despite a different athletic conference.",
         "First-period absences running 11 percent higher already complete the local proof, so a two-campus pilot is unnecessary."
       ], answer: 0,
-      explanation: "Biology plus local attendance data support a schedule change only if later sleep opportunity can translate into alertness. B treats a pairing strategy as a vanished problem. C overstates the author’s caution that District 14 was small and different. D treats existing clinic/attendance gaps as if the proposed test had already been run." },
+      explanation: "Biology plus local attendance data support a schedule change only if later sleep opportunity can translate into alertness. {{opt:LF008-1}} treats a pairing strategy as a vanished problem. {{opt:LF008-2}} overstates the author’s caution that District 14 was small and different. {{opt:LF008-3}} treats existing clinic/attendance gaps as if the proposed test had already been run." },
 
     { id: "LF009", domain: "reading", title: "Start-time editorial — evidence quality", difficulty: "hard", tags: ["evidence", "longform"], skillIds: ["evidence-credibility"], passageSet: "start", passage: P.start,
       stem: "Which criticism of the author’s evidence is fairest?",
@@ -251,7 +251,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "Pediatric research is treated as if it were only a transportation spreadsheet, reversing the author’s own contrast.",
         "The author presents the two-campus pilot as already finished and successful rather than as a test still to run."
       ], answer: 1,
-      explanation: "Fair evaluation names a real limit the author already half-admits. A misreads current cost data as proof of the proposed bell. C reverses the author’s contrast between biology and bus routing. D is false: the pilot is proposed, not completed." },
+      explanation: "Fair evaluation names a real limit the author already half-admits. {{opt:LF009-0}} misreads current cost data as proof of the proposed bell. {{opt:LF009-2}} reverses the author’s contrast between biology and bus routing. {{opt:LF009-3}} is false: the pilot is proposed, not completed." },
 
     { id: "LF010", domain: "reading", title: "Lab checkout — apply a rule", difficulty: "hard", tags: ["technical", "longform"], skillIds: ["technical-texts"], passageSet: "lab", passage: P.lab,
       stem: "A chemistry student with a current safety contract wants to take home an opened bottle labeled with a red diamond for a weekend project. According to the policy, the teacher should—",
@@ -271,7 +271,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "grant it if the kit is left on the front counter after 3:05, because closing time is a separate rule",
         "deny the extension but treat the match as resetting the three-late-returns clock in section 3"
       ], answer: 1,
-      explanation: "Section 7 excludes sports and says after-due-date email does not create an extension. A reverses the documented-absence list. C misapplies the closing rule (items may not be left on the counter). D invents a sports exception to the late-return count." },
+      explanation: "Section 7 excludes sports and says after-due-date email does not create an extension. {{opt:LF011-0}} reverses the documented-absence list. {{opt:LF011-2}} misapplies the closing rule (items may not be left on the counter). {{opt:LF011-3}} invents a sports exception to the late-return count." },
 
     { id: "LF012", domain: "reading", title: "Lab checkout — inference", difficulty: "hard", tags: ["technical", "longform"], skillIds: ["technical-texts"], passageSet: "lab", passage: P.lab,
       stem: "The policy most clearly implies that the school’s first concern in checkout is—",
@@ -291,7 +291,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "cancel the three-late-returns suspension in section 3 when two students share a kit",
         "replace the signed safety contract in section 1 as the test of eligibility"
       ], answer: 1,
-      explanation: "The line blocks using section 4’s partner log as a workaround for section 2. A reverses that block. C and D pull in other sections the sentence does not rewrite." },
+      explanation: "The line blocks using section 4’s partner log as a workaround for section 2. {{opt:LF013-0}} reverses that block. {{opt:LF013-2}} and {{opt:LF013-3}} pull in other sections the sentence does not rewrite." },
 
     { id: "LF014", domain: "literature", title: "Douglass — figurative bread", difficulty: "hard", tags: ["figurative", "longform"], skillIds: ["figurative-language"], passageSet: "douglass", passage: P.douglass,
       stem: "When Douglass calls the boys’ lessons “that more valuable bread of knowledge,” he is primarily using—",
@@ -311,7 +311,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "indignant only at the boys, whom he refuses to thank even as a testimonial",
         "endorsing the law that makes teaching slaves to read an “unpardonable offence”"
       ], answer: 0,
-      explanation: "He wants to thank them (gratitude) but prudence forbids because the culture criminalizes the teaching (bitter irony in “this Christian country”). B drops the bitterness. C reverses his affection. D takes the offense as his own view." },
+      explanation: "He wants to thank them (gratitude) but prudence forbids because the culture criminalizes the teaching (bitter irony in “this Christian country”). {{opt:LF015-1}} drops the bitterness. {{opt:LF015-2}} reverses his affection. {{opt:LF015-3}} takes the offense as his own view." },
 
     { id: "LF016", domain: "literature", title: "Douglass — purpose", difficulty: "hard", tags: ["context", "longform"], skillIds: ["literature-context", "prose-drama-analysis"], passageSet: "douglass", passage: P.douglass,
       stem: "A chief purpose of this excerpt in Douglass’s narrative is to—",
@@ -341,7 +341,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "When a society forbids knowledge, the hunger for it can turn ordinary errands and friendships into resistance.",
         "childhood friendship"
       ], answer: 2,
-      explanation: "A theme is a complete insight. A, B, and D are topics. C accounts for the covert lessons, the bread exchange, and the forbidden names." },
+      explanation: "A theme is a complete insight. {{opt:LF018-0}}, {{opt:LF018-1}}, and {{opt:LF018-3}} are topics. {{opt:LF018-2}} accounts for the covert lessons, the bread exchange, and the forbidden names." },
 
     { id: "LF019", domain: "literature", title: "Austen — irony", difficulty: "hard", tags: ["irony", "longform"], skillIds: ["figurative-language", "prose-drama-analysis"], passageSet: "austen", passage: P.austen,
       stem: "The opening sentence is ironic primarily because—",
@@ -491,7 +491,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "a geometric survey of the cemetery plot the living have come to dedicate",
         "a modest portion, the opposite of “full,” meaning the dead gave only part of what they had"
       ], answer: 1,
-      explanation: "Full measure of devotion = the complete extent of commitment, i.e., their lives. Musical and surveying senses ignore “devotion.” D inverts “full.”" },
+      explanation: "Full measure of devotion = the complete extent of commitment, i.e., their lives. Musical and surveying senses ignore “devotion.” {{opt:LF033-3}} inverts “full.”" },
 
     { id: "LF034", domain: "reading", title: "Gettysburg — implied argument", difficulty: "hard", tags: ["persuasive", "longform"], skillIds: ["persuasive-texts", "literature-context"], passageSet: "lincoln", passage: P.lincoln,
       stem: "The speech most strongly implies that the war’s justification depends on—",
@@ -511,7 +511,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "I also read a 2024 city memo that listed 11 days over 110°F last July.",
         "If the council wants fewer ambulance calls, they should keep the gym open and plant the trees."
       ], answer: 1,
-      explanation: "Two independent clauses joined by a comma alone. A is simple. C is one clause plus a relative. D is complex with a comma after a dependent opener, which is legal." },
+      explanation: "Two independent clauses joined by a comma alone. {{opt:LF035-0}} is simple. {{opt:LF035-2}} is one clause plus a relative. {{opt:LF035-3}} is complex with a comma after a dependent opener, which is legal." },
 
     { id: "LF036", domain: "language", title: "Student draft — agreement", difficulty: "hard", tags: ["usage", "longform"], skillIds: ["grammar-usage", "agreement-usage"], passageSet: "essay", passage: P.essay,
       stem: "Which revision best corrects the agreement error in “people who was waiting outside”?",
@@ -521,7 +521,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "people who waits outside",
         "a person who were waiting outside"
       ], answer: 0,
-      explanation: "Who refers to people (plural), so were. B and C are singular verbs. D mismatches person/were." },
+      explanation: "Who refers to people (plural), so were. {{opt:LF036-1}} and {{opt:LF036-2}} are singular verbs. {{opt:LF036-3}} mismatches person/were." },
 
     { id: "LF037", domain: "language", title: "Student draft — dangling modifier", difficulty: "hard", tags: ["usage", "longform"], skillIds: ["grammar-usage", "agreement-usage"], passageSet: "essay", passage: P.essay,
       stem: "“Walking into the gym, the sign-in sheet was already full” is weak because—",
@@ -541,7 +541,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "Although a center keeps people alive, trees are irrelevant.",
         "Because a center keeps people alive, the city should delay trees until the gym is no longer needed."
       ], answer: 0,
-      explanation: "A preserves both timescales with a clear contrast. B is a run-on. C and D alter the claim: the draft says the city can fund both, not that trees are irrelevant or must wait." },
+      explanation: "{{opt:LF038-0}} preserves both timescales with a clear contrast. {{opt:LF038-1}} is a run-on. {{opt:LF038-2}} and {{opt:LF038-3}} alter the claim: the draft says the city can fund both, not that trees are irrelevant or must wait." },
 
     { id: "LF039", domain: "language", title: "Student draft — quotation and citation", difficulty: "hard", tags: ["research", "longform"], skillIds: ["research-citation"], passageSet: "essay", passage: P.essay,
       stem: "The draft’s use of the volunteer’s words is weakest as research practice because it—",
@@ -561,7 +561,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "Readers should trust less, because the excerpt’s “incurable form of disease” proves that neighbors’ “good” is already healthy caution.",
         "The excerpt’s purpose is to praise taking a thousand stitches today, which Thoreau offers as wisdom rather than as anxious waste."
       ], answer: 1,
-      explanation: "B names devices and an arguable claim. A is a fact, not an interpretation. C and D reverse Thoreau’s critique: he distrusts anxious “good” and treats the extra stitches as the disease, not the cure." },
+      explanation: "{{opt:LF040-1}} names devices and an arguable claim. {{opt:LF040-0}} is a fact, not an interpretation. {{opt:LF040-2}} and {{opt:LF040-3}} reverse Thoreau’s critique: he distrusts anxious “good” and treats the extra stitches as the disease, not the cure." },
 
     { id: "LF041", domain: "writing", title: "Thoreau — best support", difficulty: "hard", tags: ["analytical", "longform"], skillIds: ["analytical-writing"], passageSet: "thoreau", passage: P.thoreau,
       stem: "Which sentence from the excerpt best supports the claim that Thoreau treats over-caution as a kind of illness?",
@@ -571,7 +571,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "You may say the wisest thing you can, old man.",
         "Men say that a stitch in time saves nine, and so they take a thousand stitches to-day to save nine to-morrow."
       ], answer: 1,
-      explanation: "B states the disease metaphor directly. A is a generation image. C addresses an elder. D supports wasted labor and is close, but it does not name illness." },
+      explanation: "{{opt:LF041-1}} states the disease metaphor directly. {{opt:LF041-0}} is a generation image. {{opt:LF041-2}} addresses an elder. {{opt:LF041-3}} supports wasted labor and is close, but it does not name illness." },
 
     { id: "LF042", domain: "writing", title: "Thoreau — audience and style", difficulty: "hard", tags: ["style", "longform"], skillIds: ["style-audience", "expository-writing"], passageSet: "thoreau", passage: P.thoreau,
       stem: "If a student rewrote the excerpt as a school-board memo demanding a policy vote this week, the main stylistic problem would be—",
@@ -581,7 +581,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "aphorisms about trust are already the evidence a civic memo requires, because “disease” is a measurable policy outcome",
         "rewriting as a memo would fail mainly because Thoreau’s sentences are too short to count as professional prose"
       ], answer: 0,
-      explanation: "Mode and audience control form. Walden’s sentences meditate; a board memo needs a request and checkable grounds. B invents civic specifics the excerpt lacks. C treats metaphor as data. D makes word-length the issue." },
+      explanation: "Mode and audience control form. Walden’s sentences meditate; a board memo needs a request and checkable grounds. {{opt:LF042-1}} invents civic specifics the excerpt lacks. {{opt:LF042-2}} treats metaphor as data. {{opt:LF042-3}} makes word-length the issue." },
 
     { id: "LF043", domain: "writing", title: "Thoreau — organization", difficulty: "hard", tags: ["structure", "longform"], skillIds: ["essay-structure", "expository-writing"], passageSet: "thoreau", passage: P.thoreau,
       stem: "The excerpt’s organization is best described as—",
@@ -621,7 +621,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "calls for a building freeze, which is a clearer recommendation than a follow-up sample",
         "is unsigned, so it cannot be biased by a city department"
       ], answer: 1,
-      explanation: "Limits, methods, and caution raise credibility. A and C describe Source B’s rhetoric and freeze demand. D treats Source B’s anonymity as neutrality; unsigned is a weakness, and Source A is a staff memo." },
+      explanation: "Limits, methods, and caution raise credibility. {{opt:LF046-0}} and {{opt:LF046-2}} describe Source B’s rhetoric and freeze demand. {{opt:LF046-3}} treats Source B’s anonymity as neutrality; unsigned is a weakness, and Source A is a staff memo." },
 
     { id: "LF047", domain: "reading", title: "Two sources — misuse", difficulty: "hard", tags: ["evidence", "longform"], skillIds: ["evidence-credibility", "research-citation"], passageSet: "sources", passage: P.sources,
       stem: "A student writes, “Staff proved new construction poisons every wash.” That sentence is a misuse of Source A because—",
@@ -701,7 +701,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "The board should move the bell, but the essay need not say which campuses, how long to pilot, or what data to publish.",
         "District 14’s different athletic conference makes any local evidence unusable, so a two-campus pilot cannot be justified."
       ], answer: 1,
-      explanation: "A strong persuasive thesis is specific, arguable, and previewable. A is still a slogan. C keeps the vagueness the stem asks to fix. D overcloses inquiry; the editorial treats District 14 as limited evidence, not as a bar to a pilot." },
+      explanation: "A strong persuasive thesis is specific, arguable, and previewable. {{opt:LF054-0}} is still a slogan. {{opt:LF054-2}} keeps the vagueness the stem asks to fix. {{opt:LF054-3}} overcloses inquiry; the editorial treats District 14 as limited evidence, not as a bar to a pilot." },
 
     { id: "LF055", domain: "language", title: "Heat briefing — best paraphrase", difficulty: "hard", tags: ["research", "longform"], skillIds: ["research-citation", "informational-texts"], passageSet: "heat", passage: P.heat,
       stem: "Which sentence is an acceptable paraphrase of the sapling caution rather than plagiarism or distortion?",
@@ -711,7 +711,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "Saplings immediately recreate an exact 19-degree drop on every block.",
         "Staff refuse to promise a five-year match, which means the briefing rejects the finding that mature canopy is cooler than unshaded blocks."
       ], answer: 1,
-      explanation: "B recasts the idea in new syntax and keeps the limit. A is unquoted copying. C overclaims. D turns a caution about saplings into a denial of the mature-canopy result." },
+      explanation: "{{opt:LF055-1}} recasts the idea in new syntax and keeps the limit. {{opt:LF055-0}} is unquoted copying. {{opt:LF055-2}} overclaims. {{opt:LF055-3}} turns a caution about saplings into a denial of the mature-canopy result." },
 
     { id: "LF056", domain: "writing", title: "Student draft — mode", difficulty: "hard", tags: ["modes", "longform"], skillIds: ["persuasive-writing", "expository-writing"], passageSet: "essay", passage: P.essay,
       stem: "The draft’s dominant mode is—",

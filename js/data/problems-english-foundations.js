@@ -18,7 +18,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"EF004", domain:"ela-foundation", title:"It's versus Its", difficulty:"easy", tags:["punctuation"], skillIds:["punctuation-basics"],
     stem:"Which sentence uses an apostrophe correctly?",
     choices:["Its time to revise the outline.","The dog chased it's tail.","The class of 26 lost it's rubric.","It's time to revise the outline."], answer:3,
-    explanation:"It's means it is or it has. Its is the possessive pronoun and never takes an apostrophe. A omits the needed contraction; B and C treat possessive its as if it were a contraction." },
+    explanation:"It's means it is or it has. Its is the possessive pronoun and never takes an apostrophe. {{opt:EF004-0}} omits the needed contraction; {{opt:EF004-1}} and {{opt:EF004-2}} treat possessive its as if it were a contraction." },
 
   { id:"EF005", domain:"ela-foundation", title:"Subject-Verb Agreement", difficulty:"easy", tags:["agreement"], skillIds:["agreement-usage"],
     stem:"Which sentence shows correct subject-verb agreement?",
@@ -53,7 +53,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"EF011", domain:"ela-foundation", title:"Complex Sentence", difficulty:"medium", tags:["sentences"], skillIds:["sentence-anatomy"],
     stem:"Which sentence is complex?",
     choices:["The bell rang, and the hallway filled.","The bell rang.","When the bell rang, the hallway filled.","Ring the bell."], answer:2,
-    explanation:"A complex sentence joins one independent clause to at least one dependent clause. When the bell rang is dependent. A is compound (two independents joined by and). B is simple. D is an imperative simple sentence." },
+    explanation:"A complex sentence joins one independent clause to at least one dependent clause. When the bell rang is dependent. {{opt:EF011-0}} is compound (two independents joined by and). {{opt:EF011-1}} is simple. {{opt:EF011-3}} is an imperative simple sentence." },
 
   { id:"EF012", domain:"ela-foundation", title:"Prepositional Phrase", difficulty:"medium", tags:["phrases"], skillIds:["phrases-clauses"],
     stem:"In the sentence After the debate, the judges conferred, the words After the debate form a—",
@@ -63,12 +63,12 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"EF013", domain:"ela-foundation", title:"Comma Splice", difficulty:"medium", tags:["punctuation"], skillIds:["punctuation-basics"],
     stem:"Which sentence contains a comma splice?",
     choices:["The rain stopped, so the game resumed.","The rain stopped; the game resumed.","The rain stopped, the game resumed.","After the rain stopped, the game resumed."], answer:2,
-    explanation:"A comma splice joins two independent clauses with only a comma. Fix it with a period, a semicolon, or a coordinating conjunction (as in A). B uses a semicolon correctly. D opens with a dependent clause, which a comma may follow." },
+    explanation:"A comma splice joins two independent clauses with only a comma. Fix it with a period, a semicolon, or a coordinating conjunction (as in {{opt:EF013-0}}). {{opt:EF013-1}} uses a semicolon correctly. {{opt:EF013-3}} opens with a dependent clause, which a comma may follow." },
 
   { id:"EF014", domain:"ela-foundation", title:"Who or Whom", difficulty:"medium", tags:["pronouns"], skillIds:["agreement-usage"],
     stem:"Choose the sentence that uses who or whom correctly.",
     choices:["Whom wrote the dissent?","The intern who we hired starts Monday.","To whom did you address the memo?","The speaker whom opened the forum is a chemist."], answer:2,
-    explanation:"Whom is the object form; here it is the object of the preposition to. Who is the subject form, so A and D are reversed. In B the pronoun is the object of hired, so the test key is whom we hired." },
+    explanation:"Whom is the object form; here it is the object of the preposition to. Who is the subject form, so {{opt:EF014-0}} and {{opt:EF014-3}} are reversed. In {{opt:EF014-1}} the pronoun is the object of hired, so the test key is whom we hired." },
 
   { id:"EF015", domain:"ela-foundation", title:"Denotation and Connotation", difficulty:"medium", tags:["vocabulary"], skillIds:["vocab-context"],
     stem:"The words slender, skinny, and scrawny can all denote 'thin.' The best explanation of how they differ is that they—",
@@ -98,22 +98,22 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"EF020", domain:"ela-foundation", title:"Compound-Complex Sentence", difficulty:"hard", tags:["sentences"], skillIds:["sentence-anatomy"],
     stem:"Which sentence is compound-complex?",
     choices:["I filed the form after I proofread it.","I filed the form, and I mailed the copy.","After I proofread it, I filed the form, and I mailed the copy.","Filing the form, I mailed the copy."], answer:2,
-    explanation:"Compound-complex has at least two independent clauses and at least one dependent clause. After I proofread it is dependent; I filed the form and I mailed the copy are independent. A is complex, B is compound, and D is simple with a participial phrase." },
+    explanation:"Compound-complex has at least two independent clauses and at least one dependent clause. After I proofread it is dependent; I filed the form and I mailed the copy are independent. {{opt:EF020-0}} is complex, {{opt:EF020-1}} is compound, and {{opt:EF020-3}} is simple with a participial phrase." },
 
   { id:"EF021", domain:"ela-foundation", title:"Restrictive versus Nonrestrictive", difficulty:"hard", tags:["clauses"], skillIds:["phrases-clauses"],
     stem:"Which sentence uses a nonrestrictive clause that is correctly punctuated?",
     choices:["The novel that I reread is on the shelf.","The novel, that I reread, is on the shelf.","My copy of Pride and Prejudice which is torn needs tape.","My copy of Pride and Prejudice, which is torn, needs tape."], answer:3,
-    explanation:"A nonrestrictive clause adds extra information and takes commas; which is the usual relative pronoun. That introduces essential (restrictive) clauses and is not set off by commas, so A is correctly restrictive while B is not. C needs commas around the extra which-clause." },
+    explanation:"A nonrestrictive clause adds extra information and takes commas; which is the usual relative pronoun. That introduces essential (restrictive) clauses and is not set off by commas, so {{opt:EF021-0}} is correctly restrictive while {{opt:EF021-1}} is not. {{opt:EF021-2}} needs commas around the extra which-clause." },
 
   { id:"EF022", domain:"ela-foundation", title:"Colon before a List", difficulty:"hard", tags:["punctuation"], skillIds:["punctuation-basics"],
     stem:"Which sentence uses a colon correctly?",
     choices:["She packed: a laptop a charger and a notebook.","She packed three items: a laptop, a charger, and a notebook.","She packed a laptop: a charger, and a notebook.","She: packed a laptop, a charger, and a notebook."], answer:1,
-    explanation:"A colon may introduce a list only after an independent clause. She packed three items can stand alone. A places the colon after a verb with no complete clause; C and D split the clause incorrectly." },
+    explanation:"A colon may introduce a list only after an independent clause. She packed three items can stand alone. {{opt:EF022-0}} places the colon after a verb with no complete clause; {{opt:EF022-2}} and {{opt:EF022-3}} split the clause incorrectly." },
 
   { id:"EF023", domain:"ela-foundation", title:"Dangling Modifier", difficulty:"hard", tags:["modifiers"], skillIds:["agreement-usage"],
     stem:"Which sentence contains a dangling modifier?",
     choices:["Walking to class, Maya reviewed her notes.","Walking to class, the notes were reviewed by Maya.","Maya reviewed her notes while walking to class.","After walking to class, Maya reviewed her notes."], answer:1,
-    explanation:"A participial opener must modify the noun that immediately follows. In B, notes appears to be walking. A and D attach the walking to Maya. C uses a clear adverb clause with Maya as subject." },
+    explanation:"A participial opener must modify the noun that immediately follows. In {{opt:EF023-1}}, notes appears to be walking. {{opt:EF023-0}} and {{opt:EF023-3}} attach the walking to Maya. {{opt:EF023-2}} uses a clear adverb clause with Maya as subject." },
 
   { id:"EF024", domain:"ela-foundation", title:"Latin Root -ject-", difficulty:"hard", tags:["vocabulary"], skillIds:["vocab-context"],
     stem:"The root -ject- (as in eject, reject, and projectile) most nearly means—",
@@ -138,15 +138,15 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"EF028", domain:"ela-foundation", title:"Pronoun-Antecedent Agreement", difficulty:"medium", tags:["agreement"], skillIds:["agreement-usage"],
     stem:"Which sentence has correct pronoun-antecedent agreement on a traditional usage test?",
     choices:["Each of the singers forgot their music stand.","Each of the singers forgot his or her music stand.","Each of the singers forgot they music stand.","Each of the singers forgot them music stand."], answer:1,
-    explanation:"Each is singular, so a singular pronoun is the conventional test key. Their is a common informal (and increasingly accepted) choice, but NES-style items still flag it when a singular option is offered. C and D are ungrammatical." },
+    explanation:"Each is singular, so a singular pronoun is the conventional test key. Their is a common informal (and increasingly accepted) choice, but NES-style items still flag it when a singular option is offered. {{opt:EF028-2}} and {{opt:EF028-3}} are ungrammatical." },
 
   { id:"EF029", domain:"ela-foundation", title:"Comma with Coordinating Conjunction", difficulty:"easy", tags:["punctuation"], skillIds:["punctuation-basics"],
     stem:"Which sentence correctly punctuates a compound sentence?",
     choices:["The lights dimmed but the film continued.","The lights dimmed, but the film continued.","The lights dimmed, the film continued.","The lights, dimmed but the film continued."], answer:1,
-    explanation:"When a coordinating conjunction (but) joins two independent clauses, place a comma before it. A omits the comma. C is a comma splice. D misplaces the comma inside the first clause." },
+    explanation:"When a coordinating conjunction (but) joins two independent clauses, place a comma before it. {{opt:EF029-0}} omits the comma. {{opt:EF029-2}} is a comma splice. {{opt:EF029-3}} misplaces the comma inside the first clause." },
 
   { id:"EF030", domain:"ela-foundation", title:"Logos with Data", difficulty:"medium", tags:["rhetoric"], skillIds:["rhetoric-intro"],
     stem:"Which sentence relies primarily on logos?",
     choices:["Join us—your neighbors already believe in this park.","As your pediatrician, I urge you to vaccinate on schedule.","City data show a 22 percent drop in crashes after the new crosswalk.","Imagine your child's empty chair at dinner if the crosswalk is delayed."], answer:2,
-    explanation:"Logos uses reasons and measurable evidence. A is bandwagon pressure, B is ethos (credentials), and D is pathos (an imagined loss)." }
+    explanation:"Logos uses reasons and measurable evidence. {{opt:EF030-0}} is bandwagon pressure, {{opt:EF030-1}} is ethos (credentials), and {{opt:EF030-3}} is pathos (an imagined loss)." }
 ]);

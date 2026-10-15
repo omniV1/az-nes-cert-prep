@@ -228,7 +228,7 @@ You've fallen cold and dead.`
         "The note’s controlling purpose is to adopt the volunteer appendix and issue a late order for River flats.",
         "Because peer counties found that alert opt-in predicted leaving, this table can be read as the same controlled finding."
       ], answer: 0,
-      explanation: "The through-line is qualified data plus refusals (not a risk ranking; beds ≠ safety; peer studies not interchangeable). B is the table’s tempting overread. C is the appendix the main note will not adopt. D upgrades “suggestive” into a controlled replicate." },
+      explanation: "The through-line is qualified data plus refusals (not a risk ranking; beds ≠ safety; peer studies not interchangeable). {{opt:LF057-1}} is the table’s tempting overread. {{opt:LF057-2}} is the appendix the main note will not adopt. {{opt:LF057-3}} upgrades “suggestive” into a controlled replicate." },
 
     { id: "LF058", domain: "reading", title: "Smoke note — table inference", difficulty: "hard", tags: ["graphics", "longform"], skillIds: ["text-graphics"], passageSet: "smoke", passage: P.smoke,
       stem: "Which inference is actually supported by the table plus the authors’ warnings?",
@@ -238,7 +238,7 @@ You've fallen cold and dead.`
         "River flats had the least exposure after 8:00 p.m., because it logged the lowest peak and received no order.",
         "School canyon’s 44% bed use, compared with North ridge’s 61%, proves canyon residents were safer rather than simply less present in shelters."
       ], answer: 1,
-      explanation: "The table shows 185 vs a missing fairgrounds value. The prose forbids reading beds, orders, or a pre-shift peak as a safety ranking. A treats a dash plus beds as a hidden maximum. C ignores the wind-shift warning. D is the beds-used overread the note blocks." },
+      explanation: "The table shows 185 vs a missing fairgrounds value. The prose forbids reading beds, orders, or a pre-shift peak as a safety ranking. {{opt:LF058-0}} treats a dash plus beds as a hidden maximum. {{opt:LF058-2}} ignores the wind-shift warning. {{opt:LF058-3}} is the beds-used overread the note blocks." },
 
     { id: "LF059", domain: "reading", title: "Smoke note — general vs specific", difficulty: "hard", tags: ["informational", "longform"], skillIds: ["informational-texts"], passageSet: "smoke", passage: P.smoke,
       stem: "A student summarizes: “Air quality always predicts who evacuates first.” The summary fails because it—",
@@ -248,7 +248,7 @@ You've fallen cold and dead.`
         "treats the volunteer appendix as if staff had already issued the third River flats order",
         "assumes the fairgrounds sensor was included in the means"
       ], answer: 1,
-      explanation: "Field-style summary items punish upgrading “suggestive” into “always.” A is not the defect: a number is not the controlling idea. C and D are other real misreads, but they are not what this summary does." },
+      explanation: "Field-style summary items punish upgrading “suggestive” into “always.” {{opt:LF059-0}} is not the defect: a number is not the controlling idea. {{opt:LF059-2}} and {{opt:LF059-3}} are other real misreads, but they are not what this summary does." },
 
     { id: "LF060", domain: "reading", title: "Smoke note — fact vs claim", difficulty: "hard", tags: ["evidence", "longform"], skillIds: ["evidence-credibility"], passageSet: "smoke", passage: P.smoke,
       stem: "Which sentence is a volunteer’s policy claim rather than a reported measurement, method limit, or staff recommendation?",
@@ -258,7 +258,7 @@ You've fallen cold and dead.`
         "The county should have issued a third order for River flats by 7:00 p.m.",
         "Hourly files, not only peaks, should be posted within 72 hours."
       ], answer: 2,
-      explanation: "C is the appendix argument the main note will not adopt. A and B are measurements/methods. D is staff’s own limited recommendation—still a “should,” but not the volunteer’s extra order. The trap is treating every “should” as the same speaker." },
+      explanation: "{{opt:LF060-2}} is the appendix argument the main note will not adopt. {{opt:LF060-0}} and {{opt:LF060-1}} are measurements/methods. {{opt:LF060-3}} is staff’s own limited recommendation—still a “should,” but not the volunteer’s extra order. The trap is treating every “should” as the same speaker." },
 
     { id: "LF061", domain: "reading", title: "Smoke note — vocab", difficulty: "hard", tags: ["vocabulary", "longform"], skillIds: ["vocab-strategies"], passageSet: "smoke", passage: P.smoke,
       stem: "In “the comparison is suggestive, not interchangeable,” interchangeable most nearly means—",
@@ -268,7 +268,7 @@ You've fallen cold and dead.`
         "equally valid as a ranking of the four sites in this table",
         "binding on this county because peer notes used text alerts"
       ], answer: 1,
-      explanation: "The contrast with suggestive plus the different-vendor warning is the clue: you may not swap the studies in as if they were one design. A is what “suggestive” already allows. C misapplies the word to this table’s sites. D invents a legal duty." },
+      explanation: "The contrast with suggestive plus the different-vendor warning is the clue: you may not swap the studies in as if they were one design. {{opt:LF061-0}} is what “suggestive” already allows. {{opt:LF061-2}} misapplies the word to this table’s sites. {{opt:LF061-3}} invents a legal duty." },
 
     { id: "LF062", domain: "reading", title: "Lunch editorial — claim", difficulty: "hard", tags: ["persuasive", "longform"], skillIds: ["persuasive-texts"], passageSet: "lunch", passage: P.lunch,
       stem: "The author’s primary claim is that the board should—",
@@ -298,7 +298,7 @@ You've fallen cold and dead.`
         "Afternoon clinic visits on pizza Fridays are caused by the missing vegetable, not by other Friday differences.",
         "A donated dessert can stand in for the protein minimum when it is labeled a community partnership."
       ], answer: 0,
-      explanation: "Without that rule/value link, preference and waste would win. B is a hoped-for outcome, not a required premise. C is a causal claim the author refuses. D is the vendor view the essay rejects." },
+      explanation: "Without that rule/value link, preference and waste would win. {{opt:LF064-1}} is a hoped-for outcome, not a required premise. {{opt:LF064-2}} is a causal claim the author refuses. {{opt:LF064-3}} is the vendor view the essay rejects." },
 
     { id: "LF065", domain: "reading", title: "Lunch editorial — loaded language", difficulty: "hard", tags: ["rhetoric", "longform"], skillIds: ["rhetorical-appeals"], passageSet: "lunch", passage: P.lunch,
       stem: "“Do not let a logo on a box rewrite the menu” functions primarily as—",
@@ -328,7 +328,7 @@ You've fallen cold and dead.`
         "applies at the section-4 printed rate rather than the then-current advertised rate",
         "is replaced by converting the tenancy to month-to-month without a written renewal"
       ], answer: 1,
-      explanation: "Section 8 carves military orders out of the fee. The month-6 buyout is a different path, not a barrier to the military exception. C confuses which rate the buyout uses. D is the holdover rule, not early termination." },
+      explanation: "Section 8 carves military orders out of the fee. The month-6 buyout is a different path, not a barrier to the military exception. {{opt:LF067-2}} confuses which rate the buyout uses. {{opt:LF067-3}} is the holdover rule, not early termination." },
 
     { id: "LF068", domain: "reading", title: "Lease — notice rule", difficulty: "hard", tags: ["technical", "longform"], skillIds: ["technical-texts"], passageSet: "lease", passage: P.lease,
       stem: "The resident drops a written complaint in the office box at 6:30 p.m. Saturday. For the lease’s timing, that notice counts—",
@@ -368,7 +368,7 @@ You've fallen cold and dead.`
         "establish that Equiano already understood shipboard custom before he asked any questions",
         "prove that the brothers sold in different lots were later reunited in the West Indies"
       ], answer: 1,
-      explanation: "Unused fish tossed back while captives beg is moral evidence that “increase[s] the astonishment…at the manners of the whites.” A confuses this episode with the earlier throwing-overboard. C is the opposite of his questioning. D is not in the excerpt." },
+      explanation: "Unused fish tossed back while captives beg is moral evidence that “increase[s] the astonishment…at the manners of the whites.” {{opt:LF071-0}} confuses this episode with the earlier throwing-overboard. {{opt:LF071-2}} is the opposite of his questioning. {{opt:LF071-3}} is not in the excerpt." },
 
     { id: "LF072", domain: "literature", title: "Equiano — irony", difficulty: "hard", tags: ["irony", "longform"], skillIds: ["figurative-language", "literature-context"], passageSet: "equiano", passage: P.equiano,
       stem: "Calling the captors “nominal Christians” is ironic because—",
@@ -378,7 +378,7 @@ You've fallen cold and dead.`
         "the sailors have already answered his questions with the Golden Rule",
         "he uses “nominal” to mean that they are Christians in practice but not in name"
       ], answer: 0,
-      explanation: "Nominal = in name. He juxtaposes “Do unto all men” with the sale and the throwings-overboard. B is false: the address follows the brothers’ sale. C reverses who quotes the Rule. D inverts the meaning of nominal." },
+      explanation: "Nominal = in name. He juxtaposes “Do unto all men” with the sale and the throwings-overboard. {{opt:LF072-1}} is false: the address follows the brothers’ sale. {{opt:LF072-2}} reverses who quotes the Rule. {{opt:LF072-3}} inverts the meaning of nominal." },
 
     { id: "LF073", domain: "literature", title: "Equiano — inference", difficulty: "hard", tags: ["narrative", "longform"], skillIds: ["prose-drama-analysis"], passageSet: "equiano", passage: P.equiano,
       stem: "The excerpt most strongly supports the inference that Equiano—",
@@ -458,7 +458,7 @@ You've fallen cold and dead.`
         "concede that the Lupercal refusal was ambition, then change the subject to friendship",
         "end the refutation, because he has just promised not to disprove what Brutus spoke"
       ], answer: 1,
-      explanation: "Rhetorical questions plus examples do the refutation while he still says he will not “disprove” Brutus. A treats the question as sincere inquiry. C reverses the implied answer. D mistakes the disclaimer for a stop." },
+      explanation: "Rhetorical questions plus examples do the refutation while he still says he will not “disprove” Brutus. {{opt:LF080-0}} treats the question as sincere inquiry. {{opt:LF080-2}} reverses the implied answer. {{opt:LF080-3}} mistakes the disclaimer for a stop." },
 
     { id: "LF081", domain: "literature", title: "Caesar — audience knowledge", difficulty: "hard", tags: ["drama", "longform"], skillIds: ["prose-drama-analysis"], passageSet: "caesar", passage: P.caesar,
       stem: "The scene creates dramatic irony because—",
@@ -468,7 +468,7 @@ You've fallen cold and dead.`
         "Antony does not know Caesar is dead, while the crowd does",
         "the Lupercal crown scene is news to the audience but familiar to the crowd"
       ], answer: 0,
-      explanation: "We know more than the wavering crowd about the conspiracy and Antony’s aims. Caesar’s body is present; the Lupercal refusal is prior action the crowd “all did see.” B overstates the crowd’s knowledge at this point in the speech." },
+      explanation: "We know more than the wavering crowd about the conspiracy and Antony’s aims. Caesar’s body is present; the Lupercal refusal is prior action the crowd “all did see.” {{opt:LF081-1}} overstates the crowd’s knowledge at this point in the speech." },
 
     { id: "LF082", domain: "literature", title: "Caesar — purpose", difficulty: "hard", tags: ["drama", "longform"], skillIds: ["prose-drama-analysis", "speech-craft"], passageSet: "caesar", passage: P.caesar,
       stem: "Antony’s stated purpose (“to bury Caesar, not to praise him”) is best read as—",
@@ -478,7 +478,7 @@ You've fallen cold and dead.`
         "proof he accepts Brutus’s charge of ambition and will not contest it",
         "a request that the crowd dismiss the funeral and spare Brutus further debate"
       ], answer: 1,
-      explanation: "The disclaimer is strategy. He lists friendship, ransoms, tears, refused crown—praise that prosecutes. C and A treat the opening as sincere self-limitation." },
+      explanation: "The disclaimer is strategy. He lists friendship, ransoms, tears, refused crown—praise that prosecutes. {{opt:LF082-2}} and {{opt:LF082-0}} treat the opening as sincere self-limitation." },
 
     { id: "LF083", domain: "reading", title: "Paine — analogy", difficulty: "hard", tags: ["rhetoric", "longform"], skillIds: ["rhetorical-appeals", "persuasive-texts"], passageSet: "paine", passage: P.paine,
       stem: "“Government, like dress, is the badge of lost innocence” is primarily—",
@@ -518,7 +518,7 @@ You've fallen cold and dead.`
         "illegally, because conscience has already supplied a lawgiver",
         "tentatively, in the same spirit as choosing the lesser of two evils"
       ], answer: 1,
-      explanation: "He presents the security test as a forced inference. Prudence chooses the lesser evil; “unanswerably” is the stronger claim that the criterion then follows. C misreads conscience as already sufficient." },
+      explanation: "He presents the security test as a forced inference. Prudence chooses the lesser evil; “unanswerably” is the stronger claim that the criterion then follows. {{opt:LF086-2}} misreads conscience as already sufficient." },
 
     { id: "LF087", domain: "literature", title: "Swift — satire", difficulty: "hard", tags: ["satire", "longform"], skillIds: ["prose-drama-analysis", "literary-periods"], passageSet: "swift", passage: P.swift,
       stem: "The title and the promise of a “fair, cheap, and easy method” prepare the reader for—",
@@ -528,7 +528,7 @@ You've fallen cold and dead.`
         "a Romantic lyric in which poverty becomes a source of private consolation",
         "an Enlightenment treatise that will reject usefulness as a standard for public policy"
       ], answer: 1,
-      explanation: "Modest + humble + statue for a preserver is the setup of ironic proposal. The famous “method” is cannibalism of children—the excerpt stops before the explicit proposal, but the satiric machinery is already visible. D is tempting but backwards: the persona worships cheap usefulness." },
+      explanation: "Modest + humble + statue for a preserver is the setup of ironic proposal. The famous “method” is cannibalism of children—the excerpt stops before the explicit proposal, but the satiric machinery is already visible. {{opt:LF087-3}} is tempting but backwards: the persona worships cheap usefulness." },
 
     { id: "LF088", domain: "literature", title: "Swift — tone", difficulty: "hard", tags: ["tone", "longform"], skillIds: ["narrative-elements"], passageSet: "swift", passage: P.swift,
       stem: "The tone of the opening is best described as—",
@@ -548,7 +548,7 @@ You've fallen cold and dead.`
         "shown that the opening’s melancholy is incompatible with satire",
         "proven that Augustan satire cannot criticize a real public"
       ], answer: 0,
-      explanation: "Satire uses a mask. The target is English/Irish policy and callous “usefulness.” Melancholy is part of the mask, not a disproof of satire. B takes the persona’s vanity as the author’s." },
+      explanation: "Satire uses a mask. The target is English/Irish policy and callous “usefulness.” Melancholy is part of the mask, not a disproof of satire. {{opt:LF089-1}} takes the persona’s vanity as the author’s." },
 
     { id: "LF090", domain: "literature", title: "Swift — period", difficulty: "hard", tags: ["periods", "longform"], skillIds: ["literary-periods"], passageSet: "swift", passage: P.swift,
       stem: "A Modest Proposal is most at home in which movement’s toolkit?",
@@ -598,7 +598,7 @@ You've fallen cold and dead.`
         "linking climate and attendance before the table appears",
         "quoting Mr. Hale, whose comment is anecdotal rather than a dashboard figure"
       ], answer: 1,
-      explanation: "Common-knowledge swagger plus a single-month rise does not establish cause. The later paragraph actually admits that. A is incomplete citation, not the fatal move. C is a thesis that could still be tested. D is in paragraph 2, not paragraph 1." },
+      explanation: "Common-knowledge swagger plus a single-month rise does not establish cause. The later paragraph actually admits that. {{opt:LF094-0}} is incomplete citation, not the fatal move. {{opt:LF094-2}} is a thesis that could still be tested. {{opt:LF094-3}} is in paragraph 2, not paragraph 1." },
 
     { id: "LF095", domain: "language", title: "Research draft — dangling modifier", difficulty: "hard", tags: ["usage", "longform"], skillIds: ["grammar-usage", "agreement-usage"], passageSet: "research", passage: P.research,
       stem: "“Walking to campus, the attendance letters were already in the mail” is weak because—",
@@ -618,7 +618,7 @@ You've fallen cold and dead.`
         "Mr. Hale whom coaches the track team,",
         "Mr. Hale, who coach the track team"
       ], answer: 0,
-      explanation: "Who = Hale (singular) → coaches; nonrestrictive appositive takes commas. B keeps the verb error. C uses object whom with a verb. D adds commas but leaves coach." },
+      explanation: "Who = Hale (singular) → coaches; nonrestrictive appositive takes commas. {{opt:LF096-1}} keeps the verb error. {{opt:LF096-2}} uses object whom with a verb. {{opt:LF096-3}} adds commas but leaves coach." },
 
     { id: "LF097", domain: "language", title: "Research draft — plagiarism", difficulty: "hard", tags: ["research", "longform"], skillIds: ["research-citation"], passageSet: "research", passage: P.research,
       stem: "Changing reduce to reduces on a copied blog sentence is—",
@@ -638,7 +638,7 @@ You've fallen cold and dead.`
         "Until then, claiming that “heat is the reason” is bigger than the table.",
         "Walking to campus, the attendance letters were already in the mail."
       ], answer: 1,
-      explanation: "Two independents joined by a comma only. A and C are single clauses. D is a dangler, a different error—tempting if you treat every broken sentence as a splice." },
+      explanation: "Two independents joined by a comma only. {{opt:LF098-0}} and {{opt:LF098-2}} are single clauses. {{opt:LF098-3}} is a dangler, a different error—tempting if you treat every broken sentence as a splice." },
 
     { id: "LF099", domain: "writing", title: "Fallacy draft — ad hominem", difficulty: "hard", tags: ["fallacies", "longform"], skillIds: ["persuasive-writing", "rhetorical-appeals"], passageSet: "fallacy", passage: P.fallacy,
       stem: "“Dr. Kim…once taught in another state, so her numbers cannot be trusted” is primarily—",
@@ -648,7 +648,7 @@ You've fallen cold and dead.`
         "a concession that cost deserves an answer before the bell moves",
         "an appeal to authority that treats Kim as the field’s consensus"
       ], answer: 1,
-      explanation: "Prior workplace is not a refutation of numbers. A would require comparing the figures. C is what a good revision might do; this sentence does the opposite. D would be trusting Kim, not dismissing her." },
+      explanation: "Prior workplace is not a refutation of numbers. {{opt:LF099-0}} would require comparing the figures. {{opt:LF099-2}} is what a good revision might do; this sentence does the opposite. {{opt:LF099-3}} would be trusting Kim, not dismissing her." },
 
     { id: "LF100", domain: "writing", title: "Fallacy draft — false dilemma", difficulty: "hard", tags: ["fallacies", "longform"], skillIds: ["persuasive-writing"], passageSet: "fallacy", passage: P.fallacy,
       stem: "“Either we start at 8:30 or we admit we hate teenagers” is—",
@@ -658,7 +658,7 @@ You've fallen cold and dead.`
         "a slippery-slope claim that 8:30 will become ever-later starts",
         "a hasty generalization from the cousin’s one late start"
       ], answer: 1,
-      explanation: "Only two extreme boxes. The draft’s own last paragraph even keeps a pilot. C and D name other fallacies that appear nearby, which is the Field 02 trap: right family, wrong label." },
+      explanation: "Only two extreme boxes. The draft’s own last paragraph even keeps a pilot. {{opt:LF100-2}} and {{opt:LF100-3}} name other fallacies that appear nearby, which is the Field 02 trap: right family, wrong label." },
 
     { id: "LF101", domain: "writing", title: "Fallacy draft — hasty generalization", difficulty: "hard", tags: ["fallacies", "longform"], skillIds: ["persuasive-writing", "evidence-credibility"], passageSet: "fallacy", passage: P.fallacy,
       stem: "The cousin’s one late start “proves the science” is weak because it—",
@@ -668,7 +668,7 @@ You've fallen cold and dead.`
         "forces a choice between 8:30 and hatred of teenagers",
         "predicts the worst graduation rate in the country’s history from one policy"
       ], answer: 1,
-      explanation: "n = 1 feeling is not a literature review. A, C, and D are real faults in the same draft (ad hominem, false dilemma, apocalyptic overclaim) but not this sentence’s fault." },
+      explanation: "n = 1 feeling is not a literature review. {{opt:LF101-0}}, {{opt:LF101-2}}, and {{opt:LF101-3}} are real faults in the same draft (ad hominem, false dilemma, apocalyptic overclaim) but not this sentence’s fault." },
 
     { id: "LF102", domain: "writing", title: "Fallacy draft — salvage", difficulty: "hard", tags: ["revision", "longform"], skillIds: ["persuasive-writing", "thesis-support"], passageSet: "fallacy", passage: P.fallacy,
       stem: "Which sentence is the best keeper if the student revises for a school-board audience?",
@@ -688,7 +688,7 @@ You've fallen cold and dead.`
         "Looking back, the morning had been ordinary: a plastic bottle, a lizard, a dare.",
         "I feel scared then I was calm."
       ], answer: 1,
-      explanation: "Specific sensory action beats empty openers and a feeling summary. C is a strong later frame, not the strongest opening beat. (Tense is still messy; the stem asks for the strongest lead, not a perfect sentence.)" },
+      explanation: "Specific sensory action beats empty openers and a feeling summary. {{opt:LF103-2}} is a strong later frame, not the strongest opening beat. (Tense is still messy; the stem asks for the strongest lead, not a perfect sentence.)" },
 
     { id: "LF104", domain: "writing", title: "Narrative draft — tense", difficulty: "hard", tags: ["narrative", "longform"], skillIds: ["narrative-writing", "grammar-usage"], passageSet: "narrative", passage: P.narrative,
       stem: "The most consistent revision of the flood sentence keeps one time frame. Which is best?",
@@ -698,7 +698,7 @@ You've fallen cold and dead.`
         "The wall of brown water hits the culvert while I was still on the catwalk, and the sound is a freight train.",
         "The wall of brown water had hit the culvert while I am still on the catwalk, and the sound will be a freight train."
       ], answer: 0,
-      explanation: "Past + past. B is the draft’s mixed tense. C and D shuffle present, past, past perfect, and future." },
+      explanation: "Past + past. {{opt:LF104-1}} is the draft’s mixed tense. {{opt:LF104-2}} and {{opt:LF104-3}} shuffle present, past, past perfect, and future." },
 
     { id: "LF105", domain: "writing", title: "Narrative draft — structure", difficulty: "hard", tags: ["narrative", "longform"], skillIds: ["narrative-writing", "essay-structure"], passageSet: "narrative", passage: P.narrative,
       stem: "“Looking back, the morning had been ordinary…” is best understood as—",
@@ -718,7 +718,7 @@ You've fallen cold and dead.`
         "is unsigned and therefore free of the city’s institutional bias",
         "already concludes that new basins caused the two clean readings, which is the paper’s thesis"
       ], answer: 1,
-      explanation: "Limits and methods beat loaded unsigned rhetoric. A reverses who has the small sample. Unsigned is a weakness, not neutrality. D is exactly the causal claim A refuses." },
+      explanation: "Limits and methods beat loaded unsigned rhetoric. {{opt:LF106-0}} reverses who has the small sample. Unsigned is a weakness, not neutrality. {{opt:LF106-3}} is exactly the causal claim Source A refuses." },
 
     { id: "LF107", domain: "reading", title: "Canals pair — misuse", difficulty: "hard", tags: ["paired", "longform"], skillIds: ["evidence-credibility", "research-citation"], passageSet: "canals", passage: P.canalsA + "\n\n" + P.canalsB,
       stem: "“Staff proved every new house destroys the aquifer” misuses the sources because—",
@@ -748,7 +748,7 @@ You've fallen cold and dead.`
         "Source B is an unsigned rant, so it should be omitted from any synthesis that mentions the storm.",
         "Staff and the flyer differ only in tone; they report the same causal conclusion about builders."
       ], answer: 0,
-      explanation: "A keeps each genre honest. B is false on both points A warns about. C confuses “less usable” with “unmentionable.” D treats tone as the only gap." },
+      explanation: "{{opt:LF109-0}} keeps each genre honest. {{opt:LF109-1}} is false on both points Source A warns about. {{opt:LF109-2}} confuses “less usable” with “unmentionable.” {{opt:LF109-3}} treats tone as the only gap." },
 
     { id: "LF110", domain: "reading", title: "Paine vs Declaration — shared premise", difficulty: "hard", tags: ["paired", "longform"], skillIds: ["persuasive-texts", "literature-context"], passageSet: "pair-liberty", passage: P.paine + "\n\n" + P.declaration,
       stem: "Both passages most clearly share the premise that government is legitimate when it—",
@@ -768,7 +768,7 @@ You've fallen cold and dead.`
         "treats government as a necessary evil, while Paine treats it as a natural blessing like society",
         "forbids judging governments, while Paine offers a test of expense and benefit"
       ], answer: 1,
-      explanation: "Rights language vs necessary-evil / dress analogy. The Declaration’s equality clause is famous; it does not forbid judging governments. C reverses which text calls government an evil." },
+      explanation: "Rights language vs necessary-evil / dress analogy. The Declaration’s equality clause is famous; it does not forbid judging governments. {{opt:LF111-2}} reverses which text calls government an evil." },
 
     { id: "LF112", domain: "reading", title: "Paine vs Declaration — purpose", difficulty: "hard", tags: ["paired", "longform"], skillIds: ["rhetorical-appeals"], passageSet: "pair-liberty", passage: P.paine + "\n\n" + P.declaration,
       stem: "Both texts are best classified as—",
@@ -808,7 +808,7 @@ You've fallen cold and dead.`
         "Keisha’s bag contradicts osmosis, so the mass data should be discarded.",
         "Darker bag means water left, which is why Jared’s model is the one to copy."
       ], answer: 1,
-      explanation: "She writes both rules and tells Keisha not to discard mass. A and C throw out mass because color is dramatic. D is Jared’s misconception." },
+      explanation: "She writes both rules and tells Keisha not to discard mass. {{opt:LF115-0}} and {{opt:LF115-2}} throw out mass because color is dramatic. {{opt:LF115-3}} is Jared’s misconception." },
 
     { id: "LF116", domain: "oral", title: "Lecture — clarifying question", difficulty: "hard", tags: ["listening", "longform"], skillIds: ["listening-speaking", "group-discussion"], passageSet: "lecture", passage: P.lecture,
       stem: "Jared’s question is useful because it—",
@@ -858,7 +858,7 @@ You've fallen cold and dead.`
         "treats gratitude as the main tone and danger as a footnote, which is what the teacher asked Noor to do",
         "agrees with Priya that the moral conclusion is enough and the scene is extra"
       ], answer: 1,
-      explanation: "Both/and beats a single-note “they were nice.” River does not deny niceness. C describes Mateo, not River. D is Priya." },
+      explanation: "Both/and beats a single-note “they were nice.” River does not deny niceness. {{opt:LF120-2}} describes Mateo, not River. {{opt:LF120-3}} is Priya." },
 
     { id: "LF121", domain: "oral", title: "Seminar — teacher purpose", difficulty: "hard", tags: ["discussion", "longform"], skillIds: ["group-discussion"], passageSet: "seminar", passage: P.seminar,
       stem: "The opening request for a one-sentence restatement is meant to—",

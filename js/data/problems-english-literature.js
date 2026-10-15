@@ -91,7 +91,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"LT016", domain:"literature", title:"Simile versus Metaphor", difficulty:"easy", tags:["figurative"], skillIds:["figurative-language"],
     stem:"Which line contains a simile?",
     choices:["Hope is the thing with feathers.","My love is like a red, red rose.","The curtain of night fell.","Death stopped his carriage."], answer:1,
-    explanation:"A simile uses like or as. A is a metaphor (Dickinson-style), C is a metaphor, D is personification. (The rose line is the traditional Burns example; the skill is the like marker.)" },
+    explanation:"A simile uses like or as. {{opt:LT016-0}} is a metaphor (Dickinson-style), {{opt:LT016-2}} is a metaphor, {{opt:LT016-3}} is personification. (The rose line is the traditional Burns example; the skill is the like marker.)" },
 
   { id:"LT017", domain:"literature", title:"Tone in Douglass", difficulty:"medium", tags:["narrative"], skillIds:["narrative-elements"],
     passage:"From Frederick Douglass, Narrative of the Life of Frederick Douglass:\n\nThe more I read, the more I was led to abhor and detest my enslavers. I could regard them in no other light than a band of successful robbers, who had left their homes, and gone to Africa, and stolen us from our homes, and in a strange land reduced us to slavery. I loathed them as being the meanest as well as the most wicked of men. As I read and contemplated the subject, behold! that very discontentment which Master Hugh had predicted would follow my learning to read had already come, to torment and sting my soul to unutterable anguish. As I writhed under it, I would at times feel that learning to read had been a curse rather than a blessing.",

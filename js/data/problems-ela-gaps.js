@@ -164,7 +164,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
       "contrasting Romantic nature-self with Realist social cause",
       "noticing when a passage is satire rather than sincere policy"
     ],
-    answer: 1, explanation: "The exam asks habits, not trivia lists. A, C, and D are the useful moves." },
+    answer: 1, explanation: "The exam asks habits, not trivia lists. {{opt:EG030-0}}, {{opt:EG030-2}}, and {{opt:EG030-3}} are the useful moves." },
 
   { id: "EG031", domain: "reading", title: "Job posting — must vs prefer", difficulty: "hard", tags: ["technical", "workplace"], skillIds: ["technical-texts"],
     passage: "LIBRARY AIDE (part-time). Required: 16 years of age; ability to lift 20 lb; Saturday 9–1 availability. Preferred: Spanish; prior cash-register work. Apply by the 15th with a one-page availability grid. Incomplete grids will not be reviewed. The posting is not a contract; hiring depends on a background check.",
@@ -243,7 +243,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
       "Is water wet?",
       "Who is your favorite celebrity?"
     ],
-    answer: 1, explanation: "Open, bounded, and researchable. A and C are closed or trivial; D is preference." },
+    answer: 1, explanation: "Open, bounded, and researchable. {{opt:EG039-0}} and {{opt:EG039-2}} are closed or trivial; {{opt:EG039-3}} is preference." },
 
   { id: "EG040", domain: "literature", title: "Haiku vs sonnet", difficulty: "easy", tags: ["poetry"], skillIds: ["poetry-forms"],
     stem: "A three-line image poem with a seasonal cut, historically 5-7-5 in Japanese count, is a—",

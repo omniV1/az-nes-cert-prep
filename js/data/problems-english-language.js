@@ -8,12 +8,12 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"LG002", domain:"language", title:"Capitalization of Titles", difficulty:"easy", tags:["mechanics"], skillIds:["mechanics"],
     stem:"Which sentence capitalizes the book title correctly in standard academic style?",
     choices:["She reread pride and prejudice.","She reread Pride And Prejudice.","She reread Pride and Prejudice.","She reread PRIDE and prejudice."], answer:2,
-    explanation:"Title case capitalizes principal words; a short coordinating conjunction such as and stays lowercase unless it begins or ends the title. A under-capitalizes; B capitalizes and; D is inconsistent." },
+    explanation:"Title case capitalizes principal words; a short coordinating conjunction such as and stays lowercase unless it begins or ends the title. {{opt:LG002-0}} under-capitalizes; {{opt:LG002-1}} capitalizes and; {{opt:LG002-3}} is inconsistent." },
 
   { id:"LG003", domain:"language", title:"Combine with a Subordinator", difficulty:"easy", tags:["sentences"], skillIds:["sentence-craft"],
     stem:"Which revision best combines these sentences without changing meaning?\nThe storm flooded the lot. The principal delayed the start of school.",
     choices:["Flooding, the principal delayed the lot.","Because the storm flooded the lot, the principal delayed the start of school.","The storm flooded the lot the principal delayed the start of school.","The storm flooded the lot, the principal delayed the start of school."], answer:1,
-    explanation:"A subordinating conjunction shows cause. A dangles (the principal is not flooding) and scrambles meaning. C is a fused sentence; D is a comma splice." },
+    explanation:"A subordinating conjunction shows cause. {{opt:LG003-0}} dangles (the principal is not flooding) and scrambles meaning. {{opt:LG003-2}} is a fused sentence; {{opt:LG003-3}} is a comma splice." },
 
   { id:"LG004", domain:"language", title:"Topic Sentence Role", difficulty:"easy", tags:["structure"], skillIds:["essay-structure"],
     stem:"In a body paragraph, the topic sentence should usually—",
@@ -43,7 +43,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"LG009", domain:"language", title:"Cut Wordiness", difficulty:"medium", tags:["sentences"], skillIds:["sentence-craft"],
     stem:"Which revision is the most concise without losing meaning?\nDue to the fact that the bell had already rung, the student was late.",
     choices:["Due to the fact that the bell, having already rung, the student was late.","Because the bell had already rung, the student was late.","The student was late due to the fact of the bell which had already rung in the fact.","Late, the bell had already rung the student."], answer:1,
-    explanation:"Due to the fact that is a wordy substitute for because. A and C add clutter. D is illogical (the bell did not ring the student)." },
+    explanation:"Due to the fact that is a wordy substitute for because. {{opt:LG009-0}} and {{opt:LG009-2}} add clutter. {{opt:LG009-3}} is illogical (the bell did not ring the student)." },
 
   { id:"LG010", domain:"language", title:"Thesis Placement", difficulty:"easy", tags:["structure"], skillIds:["essay-structure"],
     stem:"In a conventional academic essay, the thesis statement most often appears—",
@@ -58,17 +58,17 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"LG012", domain:"language", title:"Best Research Question", difficulty:"easy", tags:["research"], skillIds:["research-citation"],
     stem:"Which is the strongest research question for a short school paper?",
     choices:["What is basketball, in general terms?","How did Title IX change athletic opportunities for girls at U.S. public high schools between 1972 and 1990?","Why are sports important to people?","Is winning good or bad in every sport, forever?"], answer:1,
-    explanation:"A strong question is focused, researchable, and bounded in time and place. A is too broad. C and D are vague value questions without a workable scope." },
+    explanation:"A strong question is focused, researchable, and bounded in time and place. {{opt:LG012-0}} is too broad. {{opt:LG012-2}} and {{opt:LG012-3}} are vague value questions without a workable scope." },
 
   { id:"LG013", domain:"language", title:"Fragment Repair", difficulty:"medium", tags:["grammar"], skillIds:["grammar-usage"],
     stem:"Which choice correctly repairs the fragment?\nAlthough the draft was unfinished.",
     choices:["Although the draft was unfinished, the writer submitted it for feedback.","Although the draft was unfinished.","Although the draft. Was unfinished.","Although, the draft was unfinished, and."], answer:0,
-    explanation:"Although opens a dependent clause that must attach to an independent clause. B remains a fragment. C splits further. D adds a stray comma and a hanging and." },
+    explanation:"Although opens a dependent clause that must attach to an independent clause. {{opt:LG013-1}} remains a fragment. {{opt:LG013-2}} splits further. {{opt:LG013-3}} adds a stray comma and a hanging and." },
 
   { id:"LG014", domain:"language", title:"Comma in a Series", difficulty:"medium", tags:["mechanics"], skillIds:["mechanics"],
     stem:"Which sentence punctuates the series most clearly?",
     choices:["We packed pencils notebooks and erasers.","We packed pencils, notebooks, and erasers.","We packed, pencils notebooks and, erasers.","We packed pencils notebooks, and, erasers."], answer:1,
-    explanation:"Commas separate items in a series. The serial comma before and prevents misreading. A omits commas; C and D scatter them." },
+    explanation:"Commas separate items in a series. The serial comma before and prevents misreading. {{opt:LG014-0}} omits commas; {{opt:LG014-2}} and {{opt:LG014-3}} scatter them." },
 
   { id:"LG015", domain:"language", title:"Contrast Transition", difficulty:"medium", tags:["sentences"], skillIds:["sentence-craft"],
     stem:"Which transition best shows contrast?\nThe first trial failed. _____, the second trial produced a clear result.",
@@ -93,17 +93,17 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"LG019", domain:"language", title:"Literary Present Tense", difficulty:"medium", tags:["grammar"], skillIds:["grammar-usage"],
     stem:"Which sentence maintains consistent literary-present tense?",
     choices:["In the novel, Elizabeth refuses Darcy, and then she accepted him.","In the novel, Elizabeth refuses Darcy and later accepts him.","In the novel, Elizabeth will refuse Darcy and accepted him.","In the novel, Elizabeth refuse Darcy and accepts him."], answer:1,
-    explanation:"Literary analysis conventionally uses present tense for plot: refuses... accepts. A shifts to past. C mixes future and past. D fails agreement (Elizabeth refuse)." },
+    explanation:"Literary analysis conventionally uses present tense for plot: refuses... accepts. {{opt:LG019-0}} shifts to past. {{opt:LG019-2}} mixes future and past. {{opt:LG019-3}} fails agreement (Elizabeth refuse)." },
 
   { id:"LG020", domain:"language", title:"American Quotation Marks", difficulty:"medium", tags:["mechanics"], skillIds:["mechanics"],
     stem:"Which sentence punctuates the quotation correctly in American academic style?",
     choices:["He called the policy \"reckless\".","He called the policy \"reckless.\"","He called the policy \"reckless\".?","He called the policy reckless.\""], answer:1,
-    explanation:"In American usage, periods go inside closing quotation marks. A places the period outside. C adds a stray question mark. D has an unmatched quotation mark." },
+    explanation:"In American usage, periods go inside closing quotation marks. {{opt:LG020-0}} places the period outside. {{opt:LG020-2}} adds a stray question mark. {{opt:LG020-3}} has an unmatched quotation mark." },
 
   { id:"LG021", domain:"language", title:"Emphasis through Subordination", difficulty:"medium", tags:["sentences"], skillIds:["sentence-craft"],
     stem:"A writer wants the council's vote—not the weather—to be the main idea. Which sentence is best?",
     choices:["After the council approved the park, the rain stopped.","After the rain stopped, the council approved the park.","The rain stopped, the council approved the park.","Rain stopping the council approved."], answer:1,
-    explanation:"The independent clause carries emphasis. B makes the vote independent and the rain subordinate. A emphasizes the rain. C is a comma splice. D is a fragment/scramble." },
+    explanation:"The independent clause carries emphasis. {{opt:LG021-1}} makes the vote independent and the rain subordinate. {{opt:LG021-0}} emphasizes the rain. {{opt:LG021-2}} is a comma splice. {{opt:LG021-3}} is a fragment/scramble." },
 
   { id:"LG022", domain:"language", title:"Body Paragraph Unity", difficulty:"medium", tags:["structure"], skillIds:["essay-structure"],
     stem:"A body paragraph on library Saturday hours suddenly describes the author's favorite novel for eight sentences. The main structural problem is—",
@@ -123,7 +123,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"LG025", domain:"language", title:"Active versus Passive", difficulty:"easy", tags:["grammar"], skillIds:["grammar-usage"],
     stem:"Which revision is the best active-voice version of The ballots were counted by the clerks?",
     choices:["The ballots were being counted.","The clerks counted the ballots.","The ballots counted the clerks.","Counted by the clerks were."], answer:1,
-    explanation:"Active voice: subject performs the verb (clerks counted). A stays passive. C reverses meaning. D is a fragment." },
+    explanation:"Active voice: subject performs the verb (clerks counted). {{opt:LG025-0}} stays passive. {{opt:LG025-2}} reverses meaning. {{opt:LG025-3}} is a fragment." },
 
   { id:"LG026", domain:"language", title:"Hyphen in Compound Modifier", difficulty:"hard", tags:["mechanics"], skillIds:["mechanics"],
     stem:"Which sentence hyphenates the compound modifier correctly?",
@@ -133,7 +133,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"LG027", domain:"language", title:"Dangling Modifier Revision", difficulty:"hard", tags:["sentences"], skillIds:["sentence-craft"],
     stem:"Which revision best corrects this sentence?\nWalking into the gym, the banners were impressive.",
     choices:["Walking into the gym, the banners were impressive.","Walking into the gym, we found the banners impressive.","The banners walking into the gym were impressive.","Walking, into the gym the banners were impressive."], answer:1,
-    explanation:"The participle must modify the noun that follows. We (not banners) walked in. A keeps the dangler. C makes banners walk. D mispunctuates without fixing logic." },
+    explanation:"The participle must modify the noun that follows. We (not banners) walked in. {{opt:LG027-0}} keeps the dangler. {{opt:LG027-2}} makes banners walk. {{opt:LG027-3}} mispunctuates without fixing logic." },
 
   { id:"LG028", domain:"language", title:"Introduction Hook versus Thesis", difficulty:"easy", tags:["structure"], skillIds:["essay-structure"],
     stem:"An essay on later school start times opens with a startling sleep statistic and ends the first paragraph with a claim that the district should shift first bell to 8:30. The statistic functions as—",
@@ -158,12 +158,12 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"LG032", domain:"language", title:"Semicolon with However", difficulty:"hard", tags:["mechanics"], skillIds:["mechanics"],
     stem:"Which sentence punctuates the conjunctive adverb correctly?",
     choices:["The draft was late, however the teacher still commented.","The draft was late; however, the teacher still commented.","The draft was late however; the teacher still commented.","The draft was late; however the teacher, still commented."], answer:1,
-    explanation:"Join two independent clauses with a semicolon before however and a comma after it. A is a comma splice. C misplaces the semicolon. D inserts a needless comma after teacher." },
+    explanation:"Join two independent clauses with a semicolon before however and a comma after it. {{opt:LG032-0}} is a comma splice. {{opt:LG032-2}} misplaces the semicolon. {{opt:LG032-3}} inserts a needless comma after teacher." },
 
   { id:"LG033", domain:"language", title:"Coherence with Given-New", difficulty:"hard", tags:["sentences"], skillIds:["sentence-craft"],
     stem:"Which second sentence creates the most coherent given-new flow?\nThe committee released a 40-page report.",
     choices:["Basketball participation rose the same year.","The report recommends later start times for first period.","Meanwhile, a different committee studied volcanoes.","The committee released a 40-page report."], answer:1,
-    explanation:"Coherence often repeats a given idea (report) and adds new information (the recommendation). A and C are unrelated. D is an unhelpful exact repeat." },
+    explanation:"Coherence often repeats a given idea (report) and adds new information (the recommendation). {{opt:LG033-0}} and {{opt:LG033-2}} are unrelated. {{opt:LG033-3}} is an unhelpful exact repeat." },
 
   { id:"LG034", domain:"language", title:"Counterclaim Paragraph", difficulty:"hard", tags:["structure"], skillIds:["essay-structure"],
     stem:"In a persuasive essay, a paragraph that fairly states an opposing view and then answers it is best called—",
@@ -183,12 +183,12 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"LG037", domain:"language", title:"Faulty Comparison", difficulty:"hard", tags:["grammar"], skillIds:["grammar-usage"],
     stem:"Which sentence avoids a faulty comparison?",
     choices:["Maya's essay is stronger than Jordan.","Maya's essay is stronger than Jordan's.","Maya's essay is stronger.","Maya's essay is more stronger than Jordan's essay."], answer:1,
-    explanation:"Compare essay to essay (Jordan's), not essay to person. A is the classic incomplete comparison. C has no second term. D doubles the comparative (more stronger)." },
+    explanation:"Compare essay to essay (Jordan's), not essay to person. {{opt:LG037-0}} is the classic incomplete comparison. {{opt:LG037-2}} has no second term. {{opt:LG037-3}} doubles the comparative (more stronger)." },
 
   { id:"LG038", domain:"language", title:"Sentence Combining Appositive", difficulty:"hard", tags:["sentences"], skillIds:["sentence-craft"],
     stem:"Which combination most smoothly uses an appositive?\nMs. Chen is the debate coach. Ms. Chen posted the topic.",
     choices:["Ms. Chen posted the topic, Ms. Chen is the debate coach.","Ms. Chen, the debate coach, posted the topic.","Ms. Chen the debate coach posted, the topic.","Posted the topic Ms. Chen the debate coach."], answer:1,
-    explanation:"An appositive renames a noun and is set off with commas when nonrestrictive. A is a comma splice. C and D omit needed punctuation and scramble order." },
+    explanation:"An appositive renames a noun and is set off with commas when nonrestrictive. {{opt:LG038-0}} is a comma splice. {{opt:LG038-2}} and {{opt:LG038-3}} omit needed punctuation and scramble order." },
 
   { id:"LG039", domain:"language", title:"Too-Broad Question", difficulty:"easy", tags:["research"], skillIds:["research-citation"],
     stem:"Why is What is the history of the world? a weak research question for a five-page paper?",

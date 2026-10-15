@@ -105,7 +105,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"S029", domain:"stats", title:"Conditional probability denominator", difficulty:"medium", tags:["probability","traps"], skillIds:["conditional-probability"],
     stem:"P(A)=0.4, P(B)=0.5, P(A∩B)=0.2. Then P(A|B) equals—",
     choices:["0.2/0.4=0.5","0.2/0.5=0.4","0.4×0.5=0.2","0.4+0.5−0.2=0.7"],
-    answer:1, explanation:"P(A|B)=P(A∩B)/P(B)=0.2/0.5=0.4. Dividing by P(A) is the trap. The last choice is P(A∪B)." },
+    answer:1, explanation:"P(A|B)=P(A∩B)/P(B)=0.2/0.5=0.4. Dividing by P(A) is the trap. Adding and subtracting (0.4+0.5−0.2) gives P(A∪B)." },
 
   /* ===== ELA — terms as NES-style items ===== */
   { id:"LT051", domain:"literature", title:"Metonymy versus synecdoche", difficulty:"medium", tags:["figurative","traps"], skillIds:["figurative-language"],
@@ -184,7 +184,7 @@ window.PROBLEMS = (window.PROBLEMS || []).concat([
   { id:"LG044", domain:"language", title:"Dangling modifier", difficulty:"medium", tags:["usage","traps"], skillIds:["grammar-usage"],
     stem:"Which sentence has a dangling opener?",
     choices:["Walking into the lab, Maya noticed the spill.","Walking into the lab, the spill was noticed.","Maya noticed the spill when she walked into the lab.","After walking into the lab, Maya noticed the spill."],
-    answer:1, explanation:"The implied subject of walking must be the grammatical subject. In B, the spill is not walking." },
+    answer:1, explanation:"The implied subject of walking must be the grammatical subject. In {{opt:LG044-1}}, the spill is not walking." },
   { id:"LG045", domain:"language", title:"Agreement with true subject", difficulty:"easy", tags:["usage","traps"], skillIds:["agreement-usage"],
     stem:"Choose the verb that agrees: “The stack of essays ___ on the desk.”",
     choices:["are","is","were","have"],

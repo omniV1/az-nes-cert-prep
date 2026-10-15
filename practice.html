@@ -95,6 +95,7 @@
   <script src="js/data/problems-ela-longform-c.js"></script>
   <script src="js/data/problems-ela-gaps.js"></script>
   <script src="js/data/problem-skills.js"></script>
+  <script src="js/quiz-core.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/progress-engine.js"></script>
   <script src="js/vault-sync.js"></script>
@@ -134,19 +135,6 @@
     fillDomainAndSkillOptions(trackSelect.value, params.get("domain"), params.get("skill"));
 
     let activeId = params.get("id");
-
-    function shuffledIndexes(length, key) {
-      const hash = value => {
-        let h = 2166136261;
-        for (const ch of value) {
-          h ^= ch.charCodeAt(0);
-          h = Math.imul(h, 16777619);
-        }
-        return h >>> 0;
-      };
-      return Array.from({ length }, (_, i) => i)
-        .sort((a, b) => hash(key + ":" + a) - hash(key + ":" + b));
-    }
 
     function statusOf(id) {
       const p = Progress.load().problems[id];
@@ -208,7 +196,8 @@
         panel.innerHTML = `<p class="muted">Select a problem to begin.</p>`;
         return;
       }
-      const choiceOrder = shuffledIndexes(p.choices.length, p.id);
+      const optionOrder = QuizCore.shuffleOptionIds(p, p.id);
+      const explanation = QuizCore.renderExplanation(p.explanation, optionOrder);
       panel.innerHTML = `
         <div class="tag-row" style="margin-bottom:0.5rem">
           <span class="chip">${p.id}</span>
@@ -219,10 +208,10 @@
         <h2 style="margin-top:0">${p.title}</h2>
         ${typeof stemHtml === "function" ? stemHtml(p) : `<div class="problem-stem">${p.stem}</div>`}
         <div class="choices" id="choices">
-          ${choiceOrder.map((originalIndex, displayIndex) => `
-            <label class="choice" data-i="${originalIndex}">
-              <input type="radio" name="ans" value="${originalIndex}" />
-              <span><strong>${String.fromCharCode(65 + displayIndex)}.</strong> ${p.choices[originalIndex]}</span>
+          ${optionOrder.map((optionId, displayIndex) => `
+            <label class="choice" data-id="${optionId}">
+              <input type="radio" name="ans" value="${optionId}" />
+              <span><strong>${QuizCore.letterAt(displayIndex)}.</strong> ${QuizCore.findOption(p, optionId).text}</span>
             </label>`).join("")}
         </div>
         <div class="cta-row">
@@ -245,30 +234,31 @@
           document.getElementById("result").innerHTML = `<p class="muted">Pick an option first.</p>`;
           return;
         }
-        const i = Number(selected.value);
-        const ok = i === p.answer;
+        const chosenId = selected.value;
+        const ok = QuizCore.grade(p, chosenId).correct;
+        const keyId = QuizCore.correctOption(p).id;
         Progress.recordProblem(p.id, ok);
         (p.skillIds || []).forEach(skillId => Progress.recordSkillAttempt(skillId, ok, "practice:" + p.id));
         choices.forEach(ch => {
-          const idx = Number(ch.dataset.i);
+          const optionId = ch.dataset.id;
           ch.classList.remove("correct", "incorrect");
-          if (idx === p.answer) ch.classList.add("correct");
-          if (idx === i && !ok) ch.classList.add("incorrect");
+          if (optionId === keyId) ch.classList.add("correct");
+          if (optionId === chosenId && !ok) ch.classList.add("incorrect");
         });
         const repairLessonId = (p.skillIds || [])
           .filter(skillId => ProgressEngine.trackForSkill(skillId) === ProgressEngine.trackForDomain(p.domain))
           .flatMap(skillId => SKILLS[skillId]?.lessonIds || [])[0];
         document.getElementById("result").innerHTML = ok
-          ? `<p style="color:var(--easy);font-weight:600">Correct.</p><div class="explanation">${p.explanation}</div>`
+          ? `<p style="color:var(--easy);font-weight:600">Correct.</p><div class="explanation">${explanation}</div>`
           : `<p style="color:var(--hard);font-weight:600">Not quite. This skill has been scheduled for review.</p>
-             <div class="explanation">${p.explanation}</div>
+             <div class="explanation">${explanation}</div>
              ${repairLessonId ? `<p><a class="btn btn-secondary" href="guide.html?id=${repairLessonId}">Repair the underlying lesson</a></p>` : ""}`;
         renderRows();
       };
 
       document.getElementById("reveal").onclick = () => {
-        const displayAnswer = choiceOrder.indexOf(p.answer);
-        document.getElementById("result").innerHTML = `<div class="explanation"><strong>Explanation:</strong> ${p.explanation}<br/><br/>Answer: <strong>${String.fromCharCode(65 + displayAnswer)}</strong></div>`;
+        const displayAnswer = QuizCore.letterFor(optionOrder, QuizCore.correctOption(p).id);
+        document.getElementById("result").innerHTML = `<div class="explanation"><strong>Explanation:</strong> ${explanation}<br/><br/>Answer: <strong>${displayAnswer}</strong></div>`;
       };
     }
 

@@ -115,6 +115,7 @@
   <script src="js/data/exams.js"></script>
   <script src="js/data/field02-coach.js"></script>
   <script src="js/data/study-guides.js"></script>
+  <script src="js/quiz-core.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/progress-engine.js"></script>
   <script src="js/vault-sync.js"></script>
@@ -128,19 +129,6 @@
 
     let session = null;
     let tick = null;
-
-    function shuffledIndexes(length, key) {
-      const hash = value => {
-        let h = 2166136261;
-        for (const ch of value) {
-          h ^= ch.charCodeAt(0);
-          h = Math.imul(h, 16777619);
-        }
-        return h >>> 0;
-      };
-      return Array.from({ length }, (_, i) => i)
-        .sort((a, b) => hash(key + ":" + a) - hash(key + ":" + b));
-    }
 
     function fmt(sec) {
       const h = Math.floor(sec / 3600);
@@ -273,12 +261,13 @@
       session = {
         exam,
         items,
+        // answers[i] is the chosen option ID (null = blank), never a display letter or index
         answers: Array(items.length).fill(null),
-        choiceOrders: items.map((item, index) =>
+        optionOrders: items.map((item, index) =>
           item.removed ? []
             : item.source === "aepa"
-              ? item.choices.map((_, i) => i)
-              : shuffledIndexes(item.choices.length, (exam._sittingSeed || exam.id) + ":" + index + ":" + item.id)
+              ? QuizCore.getOptions(item).map(o => o.id)
+              : QuizCore.shuffleOptionIds(item, (exam._sittingSeed || exam.id) + ":" + index + ":" + item.id)
         ),
         index: 0,
         remaining: exam.minutes * 60
@@ -319,7 +308,7 @@
     function renderQuestion() {
       const i = session.index;
       const p = session.items[i];
-      const choiceOrder = session.choiceOrders[i];
+      const optionOrder = session.optionOrders[i];
       document.getElementById("qpos").textContent = p.source === "aepa"
         ? `PDF question ${p.officialN} of ${session.items.length}${p.removed ? " · removed by Pearson" : ""}`
         : `Question ${i + 1} of ${session.items.length}`;
@@ -336,16 +325,15 @@
       }
       document.getElementById("qchoices").innerHTML = p.removed
         ? `<p class="muted">No A–D for this number.</p>`
-        : choiceOrder.map((originalIndex, displayIndex) => `
-        <label class="choice ${session.answers[i] === originalIndex ? "selected" : ""}">
-          <input type="radio" name="examans" value="${originalIndex}" ${session.answers[i] === originalIndex ? "checked" : ""} />
-          <span><strong>${String.fromCharCode(65 + displayIndex)}.</strong> ${p.choices[originalIndex]}</span>
+        : optionOrder.map((optionId, displayIndex) => `
+        <label class="choice ${session.answers[i] === optionId ? "selected" : ""}">
+          <input type="radio" name="examans" value="${optionId}" ${session.answers[i] === optionId ? "checked" : ""} />
+          <span><strong>${QuizCore.letterAt(displayIndex)}.</strong> ${QuizCore.findOption(p, optionId).text}</span>
         </label>`).join("");
 
       document.querySelectorAll("#qchoices .choice").forEach(ch => {
         ch.onclick = () => {
-          const val = Number(ch.querySelector("input").value);
-          session.answers[i] = val;
+          session.answers[i] = ch.querySelector("input").value;
           renderQuestion();
         };
       });
@@ -375,17 +363,20 @@
 
     function finishExam() {
       clearInterval(tick);
-      const { exam, items, answers, choiceOrders } = session;
+      const { exam, items, answers, optionOrders } = session;
+      // Record every submission (right, wrong, or blank) before grading from that record.
+      const attemptItems = items.map((p, i) =>
+        p.removed ? null : QuizCore.buildAttemptItem(p, optionOrders[i], answers[i]));
       let correct = 0;
       const byDomain = {};
       const bySkill = {};
       const itemResults = [];
       items.forEach((p, i) => {
         if (p.removed) return;
-        const ok = answers[i] === p.answer;
+        const ok = attemptItems[i].correct;
         if (ok) correct++;
         if (p.source === "aepa") {
-          Progress.recordAepaItem(p.guideId, p.officialN, answers[i] == null ? null : "ABCD"[answers[i]], ok);
+          Progress.recordAepaItem(p.guideId, p.officialN, answers[i] == null ? null : QuizCore.sourceLetter(p, answers[i]), ok);
         } else {
           Progress.recordProblem(p.id, ok);
         }
@@ -399,7 +390,7 @@
           if (ok) bySkill[skillId].correct++;
           Progress.recordSkillAttempt(skillId, ok, "exam:" + exam.id);
         });
-        itemResults.push({ problemId: p.id, correct: ok, chosen: answers[i], skillIds: p.skillIds || [] });
+        itemResults.push({ problemId: p.id, correct: ok, chosenOptionId: attemptItems[i].chosenOptionId, skillIds: p.skillIds || [] });
       });
       Object.values(byDomain).forEach(v => { v.pct = Math.round(100 * v.correct / v.total); });
       Object.values(bySkill).forEach(v => { v.pct = Math.round(100 * v.correct / v.total); });
@@ -414,7 +405,8 @@
         percent,
         byDomain,
         bySkill,
-        clusterIds: exam._clusterIds || undefined
+        clusterIds: exam._clusterIds || undefined,
+        items: attemptItems.filter(Boolean)
       });
       if (exam.id === "math-diagnostic" || exam.id === "math-placement-short" ||
           exam.id === "ela-diagnostic" || exam.id === "ela-placement-short") {
@@ -441,7 +433,7 @@
         if (timedIds.has(exam.id)) Progress.markStudyLoop("timed");
         const autoTraps = [];
         items.forEach((p, i) => {
-          if (p.removed || answers[i] === p.answer) return;
+          if (p.removed || attemptItems[i].correct) return;
           const trap = ProgressEngine.classifyElaTrap((p.coach && p.coach.skill) || p.trap);
           if (trap) autoTraps.push({ trap, examId: exam.id, itemId: p.id });
         });
@@ -467,7 +459,7 @@
       runner.classList.add("hidden");
       results.classList.remove("hidden");
       results.classList.toggle("aepa-review", !!exam.aepaGuide);
-      const firstMiss = items.find((p, i) => !p.removed && answers[i] !== p.answer);
+      const firstMiss = items.find((p, i) => !p.removed && !attemptItems[i].correct);
       const reviewPdfPage = firstMiss?.pdfPage || items.find(p => p.pdfPage)?.pdfPage;
       const reviewGuide = exam.aepaGuide ? STUDY_GUIDES.guides[exam.aepaGuide] : null;
       results.innerHTML = `
@@ -527,12 +519,18 @@
                   <p class="muted" style="margin:0.35rem 0 0">Pearson placeholder. Not scored.</p>
                 </div>`;
               }
-              const ok = answers[i] === p.answer;
-              const chosenLetter = answers[i] == null ? "—" : String.fromCharCode(65 + choiceOrders[i].indexOf(answers[i]));
-              const keyLetter = String.fromCharCode(65 + choiceOrders[i].indexOf(p.answer));
+              const r = QuizCore.describeAttemptItem(p, attemptItems[i]);
+              const ok = r.correct;
+              const chosenLetter = r.blank ? "—" : r.yourLetter;
+              const keyLetter = r.keyLetter;
               const coach = p.coach;
-              const whyYours = coach && chosenLetter !== "—" && chosenLetter !== keyLetter ? coach[chosenLetter] : "";
-              const whyKey = coach ? coach[keyLetter] || coach.whyKey : "";
+              // Coach notes are keyed by the authored letter, not the shuffled display letter.
+              const whyYours = coach && !r.blank && !ok ? coach[QuizCore.sourceLetter(p, attemptItems[i].chosenOptionId)] : r.yourExplanation;
+              const whyKey = coach ? coach[QuizCore.sourceLetter(p, attemptItems[i].correctOptionId)] || coach.whyKey : "";
+              const yoursNote = whyYours ? whyYours
+                : r.blank ? "Blank. A blank is wrong."
+                : ok ? "Matches the published key."
+                : r.yourText || "Does not match the published key.";
               const reviewStem = p.source === "aepa"
                 ? `<p style="margin:0.35rem 0 0"><strong>PDF question ${p.officialN}</strong> · ${coach ? coach.skill : "objective " + (p.aepaObjective || "")}</p>`
                 : (typeof stemHtml === "function" ? stemHtml(p) : p.stem);
@@ -542,19 +540,19 @@
                   <div style="border:1px solid var(--line);border-radius:10px;padding:0.65rem 0.75rem;background:${ok ? "rgba(15,118,110,0.08)" : "rgba(185,28,28,0.06)"}">
                     <div class="muted" style="font-size:0.78rem">Your answer</div>
                     <div style="font-size:1.35rem;font-weight:700">${chosenLetter}</div>
-                    ${whyYours ? `<p style="margin:0.4rem 0 0">${whyYours}</p>` : (ok ? "<p class=\"muted\" style=\"margin:0.4rem 0 0\">Matches the published key.</p>" : "<p class=\"muted\" style=\"margin:0.4rem 0 0\">Blank. A blank is wrong.</p>")}
+                    <p ${whyYours || (!r.blank && !ok && r.yourText) ? "" : "class=\"muted\" "}style="margin:0.4rem 0 0">${yoursNote}</p>
                   </div>
                   <div style="border:1px solid var(--line);border-radius:10px;padding:0.65rem 0.75rem;background:rgba(15,118,110,0.08)">
                     <div class="muted" style="font-size:0.78rem">${p.source === "aepa" ? "Official key" : "Correct answer"}</div>
                     <div style="font-size:1.35rem;font-weight:700">${keyLetter}</div>
-                    ${coach && coach.whyKey ? `<p style="margin:0.4rem 0 0">${coach.whyKey}</p>` : whyKey ? `<p style="margin:0.4rem 0 0">${whyKey}</p>` : ""}
+                    ${coach && coach.whyKey ? `<p style="margin:0.4rem 0 0">${coach.whyKey}</p>` : whyKey ? `<p style="margin:0.4rem 0 0">${whyKey}</p>` : r.keyText ? `<p style="margin:0.4rem 0 0">${r.keyText}</p>` : ""}
                   </div>
                 </div>`;
               return `<div class="review-item" data-miss="${ok ? "0" : "1"}" style="border:1px solid var(--line);border-radius:12px;padding:0.75rem 0.9rem">
                 <div class="tag-row"><span class="chip">${p.source === "aepa" ? "PDF " + p.officialN : p.id}</span><span class="chip ${ok ? "done" : "hard"}">${ok ? "correct" : "missed"}</span>${coach ? `<span class="chip">${coach.skill}</span>` : ""}</div>
                 <div>${reviewStem}</div>
                 ${compare}
-                ${!coach ? `<div class="explanation">${p.explanation || ""}</div>` : `<p class="muted" style="margin:0">Pearson’s booklet does not explain items. This note is ours so you can reuse the move on a new passage.</p>`}
+                ${!coach ? `<div class="explanation">${r.explanation}</div>` : `<p class="muted" style="margin:0">Pearson’s booklet does not explain items. This note is ours so you can reuse the move on a new passage.</p>`}
                 ${lessonLinks ? `<p class="muted">Drill this skill: ${lessonLinks}</p>` : ""}
                 ${p.source === "aepa" && p.pdfPage ? `<p><button class="btn btn-ghost" type="button" data-reopen="${p.pdfPage}">Show on PDF (page ${p.pdfPage})</button></p>` : ""}
               </div>`;
