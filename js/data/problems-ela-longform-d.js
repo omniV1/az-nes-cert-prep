@@ -39,7 +39,7 @@ John is practical in the extreme. He has no patience with faith, an intense horr
 
 John is a physician, and perhaps—(I would not say it to a living soul, of course, but this is dead paper and a great relief to my mind)—perhaps that is one reason I do not get well faster.
 
-You see he does not believe I am sick!
+You see, he does not believe I am sick!
 
 And what can one do?
 
