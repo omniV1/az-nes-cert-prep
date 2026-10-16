@@ -35,7 +35,8 @@ function loadQuestionData(root = ROOT) {
     problemsByFile,
     lessons: window.LESSONS || {},
     exams: window.EXAMS || [],
-    resolveExamItems: window.resolveExamItems
+    resolveExamItems: window.resolveExamItems,
+    window
   };
 }
 

@@ -378,7 +378,7 @@ window.EXAMS = [
     title: "ELA Pearson-style cluster exam (new mix each sitting)",
     type: "english",
     minutes: 80,
-    description: "The weekly Field 02 analog that does not burn a letter key: 12 original passage clusters drawn from Forms A/B/C (informational, editorial, technical, literature, revision, paired sources, oral/visual) plus a short cheap-point block. Cluster choice prefers passages you did not just sit. Item order stays grouped by passage; choices reshuffle. Target ≥80% on a sitting whose clusters are still mostly new.",
+    description: "The weekly Field 02 analog that does not burn a letter key: 12 original passage clusters drawn from Forms A–E (informational, editorial, technical, literature, revision, paired sources, oral/visual) plus a short cheap-point block. Each sitting uses at most one passage per template (for example, one sensor-data briefing or one memo-versus-flyer pair) and prefers templates you have not sat in your last three cluster exams. Item order stays grouped by passage; choices reshuffle. Target ≥80% on a sitting whose clusters are still mostly new.",
     build: {
       count: 56,
       clusters: true,
@@ -930,18 +930,44 @@ function longformClusters(bank) {
   return [...map.values()].map(c => ({ ...c, kind: classifyCluster(c) }));
 }
 
-function recentClusterIds() {
+/* Passage sets written from the same template: same structure and question
+   pattern with different numbers or topics. A sitting takes at most one per
+   family, and recency is tracked by family so a template does not return the
+   next day under a new name. Sets not listed are their own family. */
+const CLUSTER_FAMILIES = {
+  "data-briefing": ["heat", "smoke", "dust"],
+  "memo-vs-flyer": ["sources", "canals", "water"],
+  "board-editorial": ["start", "lunch", "hours"],
+  "rules-document": ["lab", "pool", "lease"],
+  "error-draft": ["essay", "research", "revise"],
+  "pictograph": ["poster", "ebooks"],
+  "paine": ["paine", "pair-liberty"]
+};
+window.CLUSTER_FAMILIES = CLUSTER_FAMILIES;
+const CLUSTER_FAMILY_OF = Object.fromEntries(
+  Object.entries(CLUSTER_FAMILIES).flatMap(([family, sets]) => sets.map(set => [set, family]))
+);
+
+function clusterFamily(passageSet) {
+  return CLUSTER_FAMILY_OF[passageSet] || passageSet;
+}
+
+/* Family -> recency penalty from the last 3 cluster sittings (newest = 3). */
+function recentClusterFamilies() {
+  const penalty = new Map();
   try {
-    const exams = (window.Progress && Progress.load && Progress.load().exams) || [];
-    return new Set(
-      exams
-        .filter(e => e.id === "ela-clusters" && Array.isArray(e.clusterIds))
-        .slice(0, 3)
-        .flatMap(e => e.clusterIds)
-    );
+    const exams = (window.Progress && window.Progress.load && window.Progress.load().exams) || [];
+    exams
+      .filter(e => e.id === "ela-clusters" && Array.isArray(e.clusterIds))
+      .slice(0, 3)
+      .forEach((e, age) => e.clusterIds.forEach(id => {
+        const family = clusterFamily(id);
+        penalty.set(family, Math.max(penalty.get(family) || 0, 3 - age));
+      }));
   } catch (err) {
-    return new Set();
+    // No saved progress: every family is fresh.
   }
+  return penalty;
 }
 
 function buildClusterSitting(exam) {
@@ -951,10 +977,10 @@ function buildClusterSitting(exam) {
   const cheapCount = spec.cheapCount || 8;
   const bank = window.PROBLEMS || [];
   const clusters = longformClusters(bank);
-  const recent = recentClusterIds();
+  const recent = recentClusterFamilies();
   const ranked = clusters.slice().sort((a, b) => {
-    const ra = recent.has(a.id) ? 1 : 0;
-    const rb = recent.has(b.id) ? 1 : 0;
+    const ra = recent.get(clusterFamily(a.id)) || 0;
+    const rb = recent.get(clusterFamily(b.id)) || 0;
     if (ra !== rb) return ra - rb;
     return examHash(seed + ":" + a.id) - examHash(seed + ":" + b.id);
   });
@@ -969,23 +995,32 @@ function buildClusterSitting(exam) {
     oral: 2
   };
   const selected = [];
-  const used = new Set();
+  const usedFamilies = new Set();
+  const take = c => {
+    usedFamilies.add(clusterFamily(c.id));
+    selected.push(c);
+  };
+  // A quota never reuses a template from the latest sitting; older ones are allowed.
+  const quotaOk = c => (recent.get(clusterFamily(c.id)) || 0) < 3;
   const takeKind = (kind, n) => {
     let got = 0;
     for (const c of ranked) {
       if (got >= n) break;
-      if (used.has(c.id) || c.kind !== kind) continue;
-      used.add(c.id);
-      selected.push(c);
+      if (usedFamilies.has(clusterFamily(c.id)) || c.kind !== kind || !quotaOk(c)) continue;
+      take(c);
       got += 1;
     }
   };
-  Object.entries(quotas).forEach(([kind, n]) => takeKind(kind, n));
+  // Fill the kinds with the fewest eligible templates first, so a template shared
+  // across kinds (Paine is both persuasive and paired) goes where it is needed.
+  const eligible = kind => new Set(ranked.filter(c => c.kind === kind && quotaOk(c)).map(c => clusterFamily(c.id))).size;
+  Object.entries(quotas)
+    .sort((a, b) => eligible(a[0]) - eligible(b[0]))
+    .forEach(([kind, n]) => takeKind(kind, n));
   for (const c of ranked) {
     if (selected.length >= clusterCount) break;
-    if (used.has(c.id)) continue;
-    used.add(c.id);
-    selected.push(c);
+    if (usedFamilies.has(clusterFamily(c.id))) continue;
+    take(c);
   }
   exam._clusterIds = selected.map(c => c.id);
   const passageItems = selected.flatMap(c => c.items);
