@@ -378,7 +378,7 @@ window.EXAMS = [
     title: "ELA Pearson-style cluster exam (new mix each sitting)",
     type: "english",
     minutes: 80,
-    description: "The weekly Field 02 analog that does not burn a letter key: 12 original passage clusters drawn from Forms A–E (informational, editorial, technical, literature, revision, paired sources, oral/visual) plus a short cheap-point block. Each sitting uses at most one passage per template (for example, one sensor-data briefing or one memo-versus-flyer pair) and prefers templates you have not sat in your last three cluster exams. Item order stays grouped by passage; choices reshuffle. Target ≥80% on a sitting whose clusters are still mostly new.",
+    description: "The weekly Field 02 analog that does not burn a letter key: 12 original passage clusters drawn from Forms A–F (informational, editorial, technical, literature, revision, paired sources, oral/visual) plus a short cheap-point block. Each sitting uses at most one passage per template (for example, one sensor-data briefing or one memo-versus-flyer pair) and prefers templates you have not sat in your last three cluster exams. Item order stays grouped by passage; choices reshuffle. Target ≥80% on a sitting whose clusters are still mostly new.",
     build: {
       count: 56,
       clusters: true,
