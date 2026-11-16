@@ -42,10 +42,10 @@ The hard, passage-based ELA questions live in six files. All use IDs `LF###`.
 | B | `js/data/problems-ela-longform-b.js` | LF057–LF124 | legacy |
 | C | `js/data/problems-ela-longform-c.js` | LF125–LF182 | legacy |
 | D | `js/data/problems-ela-longform-d.js` | LF283–LF312 | option objects |
-| E | `js/data/problems-ela-longform-e.js` | LF213–LF252 | option objects |
+| E | `js/data/problems-ela-longform-e.js` | LF313–LF352 | option objects |
 | F | `js/data/problems-ela-longform-f.js` | LF268–LF282 | option objects |
 
-The next free ID is LF313. LF183–LF212 (the first Form D) and LF253–LF267 (the first Form F) are retired; never reuse a retired ID, because saved attempts and mastery records still point at it. Forms D and F have been rebuilt to the anti-testwiseness rules below; Forms A, B, C, and E have not. Use Form D or F as the model for new work.
+The next free ID is LF353. LF183–LF212 (the first Form D), LF213–LF252 (the first Form E), and LF253–LF267 (the first Form F) are retired; never reuse a retired ID, because saved attempts and mastery records still point at it. Forms D, E, and F have been rebuilt to the anti-testwiseness rules below; Forms A, B, and C have not. Use Form D, E, or F as the model for new work.
 
 ### The five pages that load question data
 
@@ -273,7 +273,7 @@ Test suites:
 | `tests/quiz-core.test.js` | Option IDs, shuffling, grading, saved attempts |
 | `tests/validate-questions.test.js` | The validator's rules |
 | `tests/length-bias.test.js` | Answer-length limits on the passage forms |
-| `tests/testwiseness.test.js` | Rebuilt forms (D, F): no absolute words, no option-only reasons, no repeated key ideas |
+| `tests/testwiseness.test.js` | Rebuilt forms (D, E, F): no absolute words, no option-only reasons, no repeated key ideas |
 | `tests/audit.test.js` | The audit export hides passages and keys; shuffles and scoring are correct |
 | `tests/clusters.test.js` | Template families in the cluster exam |
 | `tests/flashcards.test.js` | No flashcard question with two correct answers |
