@@ -7,8 +7,15 @@ const { loadQuestionData } = require("../scripts/load-question-data.js");
 
 const data = loadQuestionData();
 const forms = Object.entries(data.problemsByFile).filter(([file]) => /problems-ela-longform/.test(file));
-// 0 = the key is the longest option, 1 = second-longest, and so on.
-const rank = p => p.choices.filter(c => c.length > p.choices[p.answer].length).length;
+// 0 = the key is the longest option, 1 = second-longest, and so on. Questions whose options are all
+// within three characters of each other ("Sentence 4", "10 mL", "in the 1700s") carry no length cue
+// and get no rank.
+const FLAT_SPREAD = 3;
+const rank = p => {
+  const lengths = p.choices.map(c => c.length);
+  if (Math.max(...lengths) - Math.min(...lengths) <= FLAT_SPREAD) return null;
+  return lengths.filter(n => n > lengths[p.answer]).length;
+};
 
 test("no passage cluster keys the longest or second-longest option more than 30% of the time", () => {
   for (const [file, ids] of forms) {

@@ -41,11 +41,11 @@ The hard, passage-based ELA questions live in six files. All use IDs `LF###`.
 | A | `js/data/problems-ela-longform.js` | LF001–LF056 | legacy |
 | B | `js/data/problems-ela-longform-b.js` | LF057–LF124 | legacy |
 | C | `js/data/problems-ela-longform-c.js` | LF125–LF182 | legacy |
-| D | `js/data/problems-ela-longform-d.js` | LF183–LF212 | option objects |
+| D | `js/data/problems-ela-longform-d.js` | LF283–LF312 | option objects |
 | E | `js/data/problems-ela-longform-e.js` | LF213–LF252 | option objects |
 | F | `js/data/problems-ela-longform-f.js` | LF268–LF282 | option objects |
 
-The next free ID is LF283. LF253–LF267 were the first version of Form F and are retired; never reuse a retired ID, because saved attempts and mastery records still point at it. Use Form F as the model for new work.
+The next free ID is LF313. LF183–LF212 (the first Form D) and LF253–LF267 (the first Form F) are retired; never reuse a retired ID, because saved attempts and mastery records still point at it. Forms D and F have been rebuilt to the anti-testwiseness rules below; Forms A, B, C, and E have not. Use Form D or F as the model for new work.
 
 ### The five pages that load question data
 
@@ -183,13 +183,14 @@ These came from problems found in this repo. Treat them as requirements for any 
 - Make the gap real. A correct answer one character shorter than a wrong one passes the test and fixes nothing.
 - Change lengths by tightening the correct answer or by giving a wrong answer the specifics a real misreading would cite. Do not pad.
 - Leave alone questions whose options are quoted from the passage or fixed by the format (topic words against a theme sentence, rhyme-scheme letters). Balance the rest of the cluster around them.
+- A question whose options are all within three characters of each other ("Sentence 4", "10 mL", "in the 1700s") has no length cue. The test gives it no rank.
 
 ### Anti-testwiseness rules
 
-A passage question must not be answerable from the stem and options alone. The first version of Form F met every other rule in this file, and an independent reader who never saw the passages still predicted all 15 answers. These three rules come from that audit.
+A passage question must not be answerable from the stem and options alone. The first version of Form F met every other rule in this file, and an independent reader who never saw the passages still predicted all 15 answers. The first Form D did no better: 30 of 30. These three rules come from those audits.
 
 1. **No qualification asymmetry.** All four options of a question make the same kind of statement at the same level of certainty.
-   - Do not put absolute or extreme words (always, never, nothing, must, every, proves, guarantees, impossible) in wrong answers. `tests/testwiseness.test.js` rejects them in Form F.
+   - Do not put absolute or extreme words (always, never, nothing, must, every, proves, guarantees, impossible) in wrong answers. `tests/testwiseness.test.js` rejects them in the rebuilt forms.
    - Do not give the correct answer the only hedge ("may," "could," "not necessarily," "does not by itself"), the only precise number, or the only two-part claim.
    - Do not attach a "because…" clause to some options and not others. A reason attached to a wrong answer is usually what gives it away.
    - Prefer options that differ in a checkable fact (which group, which number, which source, which heading) over options that differ in how reasonable they sound.
@@ -202,6 +203,8 @@ A passage question must not be answerable from the stem and options alone. The f
    - Use fictional products, places, and figures when real-world facts would otherwise settle the question.
    - A vocabulary-in-context question must turn on which sense the passage uses, with the other senses as real options. If the quoted phrase explains itself, write a different question.
    - Do not let the stem's wording match the correct option's wording ("is it allowed?" → "Do not use").
+   - "Which revision is best?" and "which thesis is strongest?" are answerable blind, because the good sentence looks good. Ask instead what the draft itself does: which numbered sentence is off-purpose, repeats a step, or gets a fact wrong; where a given sentence belongs.
+   - Literature cannot be changed to depart from the textbook case. Ask about what specific lines say (who, what, how much, in what order), with wrong answers drawn from other lines of the same excerpt, and avoid questions that knowledge of the author or period would settle. A language-model reader may know a famous text by heart, so its blind score on a literature cluster overstates what a human could guess.
 
 **The check.** Before opening a PR for new or rewritten passage questions, print the stems and options with no passages, keys, or explanations, and have a reader who has not seen the passages predict the answers with a confidence level for each. Chance is 25%. Treat any answer predicted with high confidence as a defect and fix the question, even if the prediction happens to be wrong. The author of the questions cannot run this check on their own work. Neither can a reader who has seen an earlier version of the same passages or the notes describing the revision: the second Form F audit was run by the reader who had audited the first, who then knew the passages' facts from the old options and scored 9 of 10 on the two unchanged passages against 2 of 5 on the new one. Use a fresh reader each time a passage is reused.
 
@@ -270,7 +273,7 @@ Test suites:
 | `tests/quiz-core.test.js` | Option IDs, shuffling, grading, saved attempts |
 | `tests/validate-questions.test.js` | The validator's rules |
 | `tests/length-bias.test.js` | Answer-length limits on the passage forms |
-| `tests/testwiseness.test.js` | No absolute words in Form F options; parallel numeric options |
+| `tests/testwiseness.test.js` | Rebuilt forms (D, F): no absolute words, no option-only reasons, no repeated key ideas |
 | `tests/audit.test.js` | The audit export hides passages and keys; shuffles and scoring are correct |
 | `tests/clusters.test.js` | Template families in the cluster exam |
 | `tests/flashcards.test.js` | No flashcard question with two correct answers |
