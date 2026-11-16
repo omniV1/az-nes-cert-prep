@@ -559,10 +559,16 @@
         geometry: "03 Geometry",
         trigcalc: "04 Trig and Calculus",
         stats: "05 Stats Probability Discrete",
+        "ela-foundation": "10 ELA Foundation",
+        reading: "11 ELA Reading",
+        literature: "12 ELA Literature",
+        language: "13 ELA Language Research",
+        writing: "14 ELA Writing Modes",
+        oral: "15 ELA Oral Visual",
         pedagogy: "06 Pedagogy APK"
       };
       document.getElementById("obsidian-hint").innerHTML =
-        "Obsidian: <code>G:\\Therapy\\educator exams\\Lessons\\" + folderMap[metaLesson.domainId] + "\\" + id + " ...</code> - <a href=\"notes.html\">Notes hub</a>";
+        "Obsidian: <code>Lessons\\" + folderMap[metaLesson.domainId] + "\\" + id + " ...</code> - <a href=\"notes.html\">Notes hub</a>";
       document.getElementById("related").innerHTML =
         "<h3>Practice these next</h3><ul>" +
         related.map(p => '<li><a href="practice.html?id=' + p.id + '">' + p.id + " - " + p.title + '</a> <span class="chip ' + p.difficulty + '">' + p.difficulty + "</span></li>").join("") +
