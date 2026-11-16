@@ -116,7 +116,7 @@ Year    Students enrolled   Chronically absent
 2023    6,200               15%
 2024    6,000               13%
 
-Note: Until 2022 the state counted a student as chronically absent after 18 or more missed days. Since 2022 it counts a student who misses 10% or more of the days that student was enrolled. So that the years can be compared, staff recalculated the earlier years, and every rate in this table uses the current definition except one. The daily records for 2020 were lost in a server failure, so the 2020 rate (*) is the figure reported that year under the earlier definition. Under the earlier definition, the 2021 rate was 12%.
+Note: Until 2022 the state counted a student as chronically absent after 18 or more missed days. Since 2022 it counts a student who misses 8% or more of the days that student was enrolled. So that the years can be compared, staff recalculated the earlier years, and every rate in this table uses the current definition except one. The daily records for 2020 were lost in a server failure, so the 2020 rate (*) is the figure reported that year under the earlier definition. Under the earlier definition, the 2021 rate was 12%.
 
 At the board meeting, one trustee said, “Chronic absence doubled from 2020 to 2021.” The superintendent replied, “Chronic absence has fallen every year since 2021.”`,
 
@@ -549,16 +549,16 @@ The assembly is back to Friday morning. Please disregard what I sent yesterday a
       "A rate needs its own year’s enrollment. Both numbers change from row to row."),
 
     item("LF346", "reading", "Absence brief — the current rule", ["informational"], ["informational-texts"], "absence",
-      "Under the definition now in use, a student enrolled for 120 days counts as chronically absent after missing how many days?",
-      [o("LF346-10", "10 days",
-          "The rule is 10 percent of days enrolled, not 10 days."),
+      "Under the definition now in use, a student enrolled for 150 days counts as chronically absent after missing how many days?",
+      [o("LF346-8", "8 days",
+          "The rule is 8 percent of days enrolled, not 8 days."),
        o("LF346-12", "12 days",
-          "10% of 120 days enrolled is 12 days.", true),
+          "8% of 150 days enrolled is 12 days.", true),
+       o("LF346-15", "15 days",
+          "Fifteen days would be 10% of 150. This state’s rule is 8%."),
        o("LF346-18", "18 days",
-          "Eighteen days was the earlier definition."),
-       o("LF346-20", "20 days",
-          "Twenty days would be about 17% of 120.")],
-      "The current definition is a share of the days a student was enrolled, so the number of days depends on the student."),
+          "Eighteen days was the earlier definition.")],
+      "The current definition is a share of the days a student was enrolled, so the number of days depends on the student. Use the share this brief gives."),
 
     item("LF347", "reading", "Absence brief — a fair comparison", ["informational", "evidence"], ["evidence-credibility", "informational-texts", "persuasive-texts"], "absence",
       "Which two figures compare 2020 with 2021 under a single definition?",
