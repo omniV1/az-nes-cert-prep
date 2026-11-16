@@ -21,13 +21,13 @@
 (function () {
   const P = {
     garden: `SOURCE 1 — “Why Every School Garden Needs Drip,” by Dale Ferris, on the blog of FlowRight Supply (no date given)
-Drip irrigation cuts water use by up to 70 percent and doubles harvests. Teachers tell us students love the hands-off system. Order a starter kit today and watch your garden thrive.
+In a bench test at our shop, one starter kit used up to 70 percent less water than a hose. Drip also doubles harvests. Teachers tell us students love the hands-off system. Order a starter kit today and watch your garden thrive.
 
 SOURCE 2 — Saguaro County Cooperative Extension, Bulletin 41 (2024), no author listed
 In a two-season trial at six school gardens, beds watered by drip lines used 38 percent less water than beds watered by hand with hoses, as measured by inline meters. Tomato yields did not differ by more than 5 percent between the two methods. The trial did not test lettuce or herbs, and two gardens lost three weeks of data when their meters were vandalized. The bulletin recommends drip lines for fruiting crops in beds larger than 4 by 8 feet and cautions that smaller beds may not repay the installation cost within three years.
 
 STUDENT NOTECARD
-Drip lines use up to 70 percent less water than hand watering (Saguaro County, 2024).
+Drip lines use 38 percent less water than hand watering (Ferris, FlowRight Supply).
 
 STUDENT DRAFT SENTENCE
 A two-season trial at six school gardens found that drip lines cut water use by 38 percent and raised tomato yields.`,
@@ -35,10 +35,10 @@ A two-season trial at six school gardens found that drip lines cut water use by 
     ebooks: `A district communications office drafted the poster and slide plan below for a family night about library e-books.
 
 POSTER DRAFT
-The headline reads “E-BOOKS ON THE RISE.” Beneath it, two book icons compare checkouts: one labeled “2023: 4,100” and one labeled “2024: 8,200.” The two icons are the same width, and the 2024 icon is drawn three times as tall as the 2023 icon. A footnote reads: “Print checkouts fell from 61,000 to 58,500 over the same period.” The lower half of the poster is a photograph of students holding tablets. A staff member took it at last year’s family night, so the district owns the picture, but the office has no signed release from the families of the students shown.
+The headline reads “E-BOOKS ON THE RISE.” Beneath it, two book icons compare checkouts: one labeled “2023: 4,100” and one labeled “2024: 8,200.” The two icons are the same width, and the 2024 icon is drawn three times as tall as the 2023 icon. A footnote reads: “Print checkouts fell from 61,000 to 56,000 over the same period.” The lower half of the poster is a photograph of students holding tablets. A staff member took it at last year’s family night, so the district owns the picture, but the office has no signed release from the families of the students shown.
 
 SLIDE PLAN
-Slide 3 lists three steps for borrowing an e-book. Slide 4 displays all 312 words of the board’s lending policy while the presenter sums it up in two sentences. Slide 5 shows a 14-row table of branch-by-branch figures. Slide 6 is a 40-word thank-you that the presenter will read aloud word for word. The recorded version of the talk will have captions. Large-print copies of the policy will be available at the door. A sign-language interpreter will attend the live event only if a family asks for one by the Friday before.`,
+Slide 3 lists three steps for borrowing an e-book. Slide 4 displays all 312 words of the board’s lending policy while the presenter sums it up in two sentences. Slide 5 shows a 14-row table of branch-by-branch figures. Slide 6 is a 40-word thank-you that the presenter will read aloud word for word. A sign-language interpreter will attend the live event. Large-print copies of the policy will be available at the door. The recorded version of the talk will be captioned only if a family asks for captions by the Friday after.`,
 
     bookpath: `A student wrote the draft below for an assignment titled “Explain a process most people at our school never see.”
 
@@ -100,25 +100,25 @@ The mill’s ledgers survive, and people who read them make one mistake more tha
     item("LF283", "language", "Drip sources — stated method", ["research"], ["research-citation", "evidence-credibility"], "garden",
       "Which source says how its water figures were measured?",
       [o("LF283-s1", "Source 1 only",
-          "Source 1 gives a figure, “up to 70 percent,” with no account of how it was reached."),
+          "Source 1 names a bench test, but Source 2 also names its method: inline meters."),
        o("LF283-s2", "Source 2 only",
-          "Source 2 says the water was “measured by inline meters”; Source 1 names no method.", true),
+          "Source 2 names inline meters, but Source 1 also says where its figure came from: a bench test of one kit at the shop."),
        o("LF283-both", "both sources",
-          "Only Source 2 describes a measurement."),
+          "Source 1 cites “a bench test at our shop” of one kit; Source 2’s figures were “measured by inline meters.”", true),
        o("LF283-neither", "neither source",
-          "Source 2 names inline meters.")],
-      "Before weighing two sources, check which one tells you how it knows."),
+          "Each source names a method: a shop bench test in Source 1, inline meters in Source 2.")],
+      "Naming a method is not the same as having a sound one. First find what each source says it did; then weigh one kit in a shop against six gardens over two seasons."),
 
     item("LF284", "language", "Drip sources — the notecard", ["research"], ["research-citation"], "garden",
       "The figure on the student’s notecard—",
       [o("LF284-s1-s1", "comes from Source 1 and is credited to Source 1",
-          "The figure is Source 1’s, but the notecard credits Saguaro County, which is Source 2."),
+          "The credit names Source 1’s author, but 38 percent is Source 2’s figure. Source 1 says “up to 70 percent.”"),
        o("LF284-s1-s2", "comes from Source 1 but is credited to Source 2",
-          "“Up to 70 percent” is the blog’s figure; the notecard’s citation names Saguaro County, 2024.", true),
+          "This reverses both the figure’s origin and the credit."),
        o("LF284-s2-s2", "comes from Source 2 and is credited to Source 2",
-          "Source 2’s figure is 38 percent, not 70."),
+          "The figure is Source 2’s, but the notecard credits Ferris and FlowRight Supply, which is Source 1."),
        o("LF284-s2-s1", "comes from Source 2 but is credited to Source 1",
-          "This reverses both the figure’s origin and the credit.")],
+          "“38 percent less water” is the bulletin’s finding; the notecard’s citation names Ferris of FlowRight Supply, the blog.", true)],
       "A citation must point to the source the fact actually came from. Check the number against each source."),
 
     item("LF285", "language", "Drip sources — the draft sentence", ["research"], ["research-citation"], "garden",
@@ -172,12 +172,12 @@ The mill’s ledgers survive, and people who read them make one mistake more tha
 
     item("LF289", "oral", "E-book poster — the footnote", ["media"], ["media-analysis"], "ebooks",
       "Counting print and e-books together, checkouts from 2023 to 2024—",
-      [o("LF289-fell2500", "fell by about 2,500",
+      [o("LF289-fell5000", "fell by about 5,000",
           "That is the drop in print alone."),
        o("LF289-fell900", "fell by about 900",
-          "The total rose: 65,100 to 66,700."),
-       o("LF289-rose1600", "rose by about 1,600",
-          "4,100 + 61,000 = 65,100; 8,200 + 58,500 = 66,700; the difference is 1,600.", true),
+          "4,100 + 61,000 = 65,100; 8,200 + 56,000 = 64,200; the difference is a drop of 900.", true),
+       o("LF289-rose900", "rose by about 900",
+          "The size is right but the direction is not: the total went from 65,100 down to 64,200."),
        o("LF289-rose4100", "rose by about 4,100",
           "That is the rise in e-books alone.")],
       "A headline figure and a footnote figure often need to be added before either means much."),
@@ -209,9 +209,9 @@ The mill’s ledgers survive, and people who read them make one mistake more tha
     item("LF292", "oral", "E-book slides — on request", ["media"], ["presentation-ethics"], "ebooks",
       "According to the plan, which of these is provided only if a family asks for it?",
       [o("LF292-captions", "captions on the recorded version of the talk",
-          "The plan says the recorded version will have captions."),
+          "The recording “will be captioned only if a family asks for captions by the Friday after.”", true),
        o("LF292-interpreter", "a sign-language interpreter at the live event",
-          "An interpreter attends “only if a family asks for one by the Friday before.”", true),
+          "The plan says an interpreter will attend, with no condition attached."),
        o("LF292-print", "large-print copies of the lending policy at the door",
           "Large-print copies will be available at the door."),
        o("LF292-slides", "a printed copy of the slides",
