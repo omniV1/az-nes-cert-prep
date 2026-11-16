@@ -270,5 +270,4 @@ For page or layout changes, also take screenshots at 1200px and 390px wide and c
 - Forms A–C have no per-option explanations.
 - The validator does not check `skillIds`, `domain`, or `difficulty` values.
 - Progress lives in one browser's `localStorage`; there are no accounts or sync.
-- `README.md` contains a personal folder path that should be removed before the guide is shared.
 - Before selling: review the stored Pearson study-guide items and keys in `js/data/study-guides.js`, the use of the NES and Pearson names, and any pass-rate claims.

@@ -34,7 +34,7 @@ Official passing score is typically a scaled **220**. Your practice bar is highe
 ## Obsidian progress backup
 
 Open `notes.html`, choose **Connect Obsidian vault**, and select
-`G:\Therapy\educator exams`. The app then autosaves progress to
+your vault folder. The app then autosaves progress to
 `Progress/az-nes-progress.json` after lesson checks, practice attempts, and exams.
 The browser requires this one-time folder permission before a web page can write
 to the vault.

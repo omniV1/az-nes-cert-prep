@@ -28,7 +28,7 @@
   </header>
 
   <main class="wrap">
-    <div class="eyebrow">Obsidian vault · G:\Therapy\educator exams</div>
+    <div class="eyebrow">Obsidian vault</div>
     <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Lesson notes + exam sheets</h1>
     <p class="muted">
       Every lesson has a markdown note in your Obsidian folder. Take notes there while you study here.
@@ -47,7 +47,7 @@
           <li><code>Tests/</code> — mock log + session template</li>
           <li><code>Practice App/</code> — this site, inside the vault</li>
         </ul>
-        <p class="muted" style="margin-bottom:0">In Obsidian: open vault <strong>Therapy</strong>, go to folder <strong>educator exams</strong>, start at <strong>00 Home</strong>.</p>
+        <p class="muted" style="margin-bottom:0">In Obsidian: open your vault and start at <strong>00 Home</strong>.</p>
       </article>
       <article class="card">
         <h2>Workflow</h2>
@@ -69,7 +69,7 @@
     <section class="card" style="margin-top:1.25rem">
       <div class="eyebrow">Durable progress backup</div>
       <h2>Save progress inside Obsidian</h2>
-      <p class="muted">Connect the vault once and the app will maintain <code>Progress/az-nes-progress.json</code> after lesson checks, practice attempts, and exams. When prompted, select <code>G:\Therapy\educator exams</code>.</p>
+      <p class="muted">Connect the vault once and the app will maintain <code>Progress/az-nes-progress.json</code> after lesson checks, practice attempts, and exams. When prompted, select your vault folder.</p>
       <p id="vault-status"><span class="chip">Checking connection…</span></p>
       <div class="cta-row">
         <button class="btn btn-accent" id="vault-connect">Connect Obsidian vault</button>
@@ -97,7 +97,7 @@
 
     <section style="margin-top:1.25rem">
       <h2 style="font-family:var(--font-display)">All lesson notes</h2>
-      <p class="muted">Path pattern: <code>G:\Therapy\educator exams\Lessons\…</code></p>
+      <p class="muted">Path pattern: <code>Lessons\…</code> inside your vault</p>
       <div id="list" class="grid" style="gap:0.75rem"></div>
     </section>
   </main>
@@ -129,7 +129,7 @@
         const folder = folderMap[d.id];
         const file = `${L.id} ${L.title.replace(/[:]/g, "").replace(/\//g, "-")}.md`;
         // Match generated filenames more loosely by id prefix in vault
-        const path = `G:\\Therapy\\educator exams\\Lessons\\${folder}\\${L.id}*.md`;
+        const path = `Lessons\\${folder}\\${L.id}*.md`;
         all.push({ d, L, folder, path });
         const opt = document.createElement("option");
         opt.value = L.id;
