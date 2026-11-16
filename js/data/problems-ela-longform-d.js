@@ -82,11 +82,11 @@ The ending -kin marked something spoiled, not something small. A boltkin was a r
 
 To grey meant to teach. New hands learned on undyed, grey wool, so an old hand who trained them was said to grey them. A greyer was a teacher, and the word carried respect.
 
-Slub began as the mill’s word for a lump in the yarn, a flaw. When hand-spun cloth came back into fashion, buyers started asking for slub, and the word became praise.
+Pell began as the mill’s word for its finest yarn, kept back for sale. After the owners began putting that name on their seconds, weavers used pell for a flaw, and no one used it as praise again.
 
-A dobby was at first the boy who carried bobbins between floors. When carts replaced the boys, the carts took the name.
+A hobber was at first a hand cart for bobbins. The carts wore out in the 1890s, the owners hired boys to carry bobbins in their place, and the boys took the name.
 
-A word’s history explains how a meaning arose; it does not decide what the word means now. A visitor who insists that a tam must involve a bell has confused a word’s origin with its definition, a mistake linguists call the etymological fallacy.`
+The mill’s ledgers survive, and people who read them make one mistake more than any other: they carry a word’s present meaning back into an old page. Someone who finds “second tam” in an 1850 ledger and pictures a rest has made it. In 1850 a tam was still a bell.`
   };
 
   const o = (id, text, explanation, isCorrect = false) => ({ id, text, explanation, isCorrect });
@@ -423,7 +423,7 @@ A word’s history explains how a meaning arose; it does not decide what the wor
        o("LF309-learner", "a loom for learners",
           "Learners are tied to the word grey, not to -kin."),
        o("LF309-prized", "a prized loom",
-          "Praise is tied to the word slub, not to -kin.")],
+          "Both -kin words in the passage name something ruined or lost, not something valued.")],
       "Apply the meaning the passage gives the ending, even where it differs from the ending’s usual sense in English."),
 
     item("LF310", "reading", "Mill words — greyer", ["vocabulary"], ["vocab-context", "word-origins"], "words",
@@ -438,29 +438,29 @@ A word’s history explains how a meaning arose; it does not decide what the wor
           "Sorting is not mentioned in the passage.")],
       "The passage builds the noun from a verb it has just defined. Follow that step."),
 
-    item("LF311", "reading", "Mill words — slub", ["vocabulary"], ["word-origins"], "words",
-      "How did the meaning of slub change?",
+    item("LF311", "reading", "Mill words — pell", ["vocabulary"], ["word-origins"], "words",
+      "How did the meaning of pell change?",
       [o("LF311-up", "from a flaw to something buyers wanted",
-          "It began as a lump in the yarn, “a flaw,” and “became praise” when buyers asked for it.", true),
+          "This reverses the direction. Pell began as the finest yarn and ended as a flaw."),
        o("LF311-down", "from a mark of quality to a flaw",
-          "This reverses the direction of the change."),
+          "It began as the mill’s “finest yarn” and, once the name went on seconds, was used “for a flaw.”", true),
        o("LF311-narrow", "from any yarn to one kind of yarn",
-          "The word always named a lump in yarn; its range did not narrow."),
+          "The word first named the finest yarn, not yarn in general; its value changed, not its range."),
        o("LF311-broad", "from one kind of yarn to any yarn",
-          "The word did not widen to all yarn; its value changed.")],
-      "Words can rise or fall in esteem as well as widen or narrow. Decide which kind of change the passage reports."),
+          "The word did not widen to all yarn; it came to name a flaw.")],
+      "Words can rise or fall in esteem as well as widen or narrow. Decide which kind of change the passage reports, and in which direction."),
 
-    item("LF312", "reading", "Mill words — the fallacy", ["vocabulary"], ["word-origins", "informational-texts"], "words",
-      "Which statement makes the mistake the final paragraph describes?",
-      [o("LF312-now", "A bobbin cart is a dobby today, because the word now names the cart.",
-          "This goes by current usage, as the paragraph says to."),
-       o("LF312-then", "A boy who carried bobbins was a dobby in the early mill, because the word then named him.",
-          "This reports the old meaning as old, which is accurate."),
-       o("LF312-fallacy", "A bobbin cart is not a true dobby, because the word first named a boy.",
-          "This treats the word’s first meaning as its only true meaning.", true),
-       o("LF312-moved", "A boy who carries bobbins is no longer a dobby, because the word has moved to the cart.",
-          "This describes the change accurately and goes by current usage.")],
-      "The mistake is not knowing a word’s history. It is treating that history as a ruling on present meaning.")
+    item("LF312", "reading", "Mill words — reading the ledgers", ["vocabulary"], ["word-origins", "informational-texts"], "words",
+      "Which reader makes the mistake the final paragraph describes?",
+      [o("LF312-old-boy", "one who takes hobber in an 1870 ledger to mean a boy",
+          "In 1870 a hobber was still a cart. This reader carries the later meaning back into an old page.", true),
+       o("LF312-old-cart", "one who takes hobber in an 1870 ledger to mean a cart",
+          "This is the correct reading. The boys did not take the name until the 1890s."),
+       o("LF312-new-boy", "one who takes hobber in a 1920 ledger to mean a boy",
+          "This is the correct reading. By 1920 the name had passed to the boys."),
+       o("LF312-new-cart", "one who takes hobber in a 1920 ledger to mean a cart",
+          "This reader is wrong, but in the other direction: the first meaning is applied to a later page. The paragraph describes carrying the present meaning back.")],
+      "Work out what hobber meant at each date, then find the reader who puts the later meaning into the earlier page.")
   ];
 
   // Legacy consumers read choices/answer; QuizCore reads the option objects.
