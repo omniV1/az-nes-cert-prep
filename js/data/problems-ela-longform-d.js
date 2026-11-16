@@ -21,7 +21,7 @@
 (function () {
   const P = {
     garden: `SOURCE 1 — “Why Every School Garden Needs Drip,” by Dale Ferris, on the blog of FlowRight Supply (no date given)
-In a bench test at our shop, one starter kit used up to 70 percent less water than a hose. Drip also doubles harvests. Teachers tell us students love the hands-off system. Order a starter kit today and watch your garden thrive.
+At our shop we ran one starter kit and one hose for an hour each and read the water meter after both: the kit used up to 70 percent less water. Drip also doubles harvests. Teachers tell us students love the hands-off system. Order a starter kit today and watch your garden thrive.
 
 SOURCE 2 — Saguaro County Cooperative Extension, Bulletin 41 (2024), no author listed
 In a two-season trial at six school gardens, beds watered by drip lines used 38 percent less water than beds watered by hand with hoses, as measured by inline meters. Tomato yields did not differ by more than 5 percent between the two methods. The trial did not test lettuce or herbs, and two gardens lost three weeks of data when their meters were vandalized. The bulletin recommends drip lines for fruiting crops in beds larger than 4 by 8 feet and cautions that smaller beds may not repay the installation cost within three years.
@@ -100,13 +100,13 @@ The mill’s ledgers survive, and people who read them make one mistake more tha
     item("LF283", "language", "Drip sources — stated method", ["research"], ["research-citation", "evidence-credibility"], "garden",
       "Which source says how its water figures were measured?",
       [o("LF283-s1", "Source 1 only",
-          "Source 1 names a bench test, but Source 2 also names its method: inline meters."),
+          "Source 1 describes its shop test, but Source 2 also names its method: inline meters."),
        o("LF283-s2", "Source 2 only",
-          "Source 2 names inline meters, but Source 1 also says where its figure came from: a bench test of one kit at the shop."),
+          "Source 2 names inline meters, but Source 1 also says how it got its figure: an hour’s run of one kit and one hose, read off the water meter."),
        o("LF283-both", "both sources",
-          "Source 1 cites “a bench test at our shop” of one kit; Source 2’s figures were “measured by inline meters.”", true),
+          "Source 1 “read the water meter” after an hour’s run of one kit and one hose; Source 2’s figures were “measured by inline meters.”", true),
        o("LF283-neither", "neither source",
-          "Each source names a method: a shop bench test in Source 1, inline meters in Source 2.")],
+          "Each source names a method: a one-hour shop test read off a water meter in Source 1, inline meters in Source 2.")],
       "Naming a method is not the same as having a sound one. First find what each source says it did; then weigh one kit in a shop against six gardens over two seasons."),
 
     item("LF284", "language", "Drip sources — the notecard", ["research"], ["research-citation"], "garden",
