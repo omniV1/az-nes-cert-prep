@@ -10,30 +10,32 @@
    - the four options of a question are the same kind of statement, at the same level of certainty;
    - no option can be ruled out, and none confirmed, without the passage;
    - no question's stem or options answer another question;
-   - the label's rules are specific to this passage and differ from common practice. */
+   - every passage departs from the textbook case, and the textbook answer is offered as a wrong
+     option: the label doses by age, the poll is paid for by the firm with questions written by the
+     campaign, and the study is a randomized experiment whose headline errs about subjects, not cause. */
 (function () {
   const P = {
     poll: `CANYON COUNTY SCHOOL BOND SURVEY — Summary of results (October 2026)
 
-Desert Research Group interviewed 612 likely voters by phone and text from September 18 to 24. The margin of error is ±4 percentage points for the full sample, ±8 points for parents of current students, and ±5 points for voters with no children in district schools.
+Desert Research Group interviewed 612 likely voters by phone and text from September 18 to 24 as part of its quarterly county poll, which the firm pays for itself. The margin of error is ±4 percentage points for the full sample, ±8 points for parents of current students, and ±5 points for voters with no children in district schools.
 
-Question: “If the election were held today, would you vote for Measure K, a $95 million bond to replace school roofs and cooling systems?”
+Question: “If the election were held today, would you vote for Measure K, a bond to replace school roofs and cooling systems?”
 
 Response      All likely voters (612)   Parents (148)   No children in district (464)
-Yes           51%                       63%             47%
-No            41%                       30%             45%
+Yes           48%                       63%             43%
+No            44%                       30%             49%
 Undecided      8%                        7%              8%
 
-Notes. Measure K needs a simple majority to pass. The survey was paid for by Friends of Measure K, the campaign supporting the bond; Desert Research Group wrote the questions and publishes the full questionnaire online. Earlier in the questionnaire, before the vote question, respondents heard a description of classrooms where roofs leaked during last summer’s storms. A survey is a snapshot of opinion during its field dates, not a forecast of who will turn out in November.`,
+Notes. Measure K needs a simple majority to pass. The questions about Measure K were written by Friends of Measure K, the campaign supporting the bond; Desert Research Group conducted the interviews and publishes the full questionnaire online. The ballot will list the bond’s cost, $95 million; the survey question did not. A survey is a snapshot of opinion during its field dates, not a forecast of who will turn out in November.`,
 
     study: `SOURCE A — Journal of School Health Research (2026), study abstract
 
-Researchers followed 2,400 ninth graders in 14 Arizona high schools for one school year. Students who reported reading for pleasure at least 30 minutes a day scored 4 percentile points higher on the end-of-year reading test than students who reported no pleasure reading, after adjusting for prior test scores and family income. Because students chose how much to read, the study cannot show that pleasure reading caused the higher scores; students who already enjoy reading may differ in ways the study did not measure. The authors call for a randomized trial.
+Researchers randomly assigned 2,400 ninth graders in 14 Arizona high schools either to a daily 30-minute period of reading for pleasure or to a regular study hall for one semester. At the end of the semester, the reading group scored 4 percentile points higher on the state reading test than the study-hall group. The two groups did not differ on the state mathematics test. The authors note that the study did not follow students after the semester ended.
 
 SOURCE B — Valley Courier, March 3
-“30 Minutes a Day Boosts Teen Test Scores, Study Finds”
+“30 Minutes a Day Boosts Teen Test Scores Across the Board, Study Finds”
 
-Want better grades? Hand your teenager a novel. A major new study of 2,400 Arizona students proves that reading for fun just half an hour a day raises test scores. “This is a simple fix every family can make,” said Ana Ruiz, a Glendale parent who was not involved in the research. The study’s lead author, Dr. Kenji Watanabe, called the results “encouraging.” Local libraries report that summer-reading sign-ups are already up 12 percent.`,
+Want better grades in every class? Hand your teenager a novel. A major new study of Arizona ninth graders found that reading for fun half an hour a day raises test scores. “This is a simple fix every family can make,” said Ana Ruiz, a Glendale parent who was not involved in the research. The study’s lead author, Dr. Kenji Watanabe, called the results “encouraging” and said sign-ups for his university’s summer reading program are up 12 percent since the study appeared.`,
 
     syrup: `DRUG FACTS — LUMAREST CHILDREN’S FEVER RELIEF (a fictional product with a fictional ingredient, written for reading practice; not medical advice)
 
@@ -81,13 +83,13 @@ under 2       under 24        ask a doctor
     item("LF268", "reading", "Bond poll — supported claim", ["informational", "graphics"], ["text-graphics", "informational-texts"], "poll",
       "Which claim is supported by the table and its margins of error?",
       [o("LF268-all", "Among all likely voters, Yes leads No by more than the full sample’s margin of error.",
-          "51 − 41 = 10 points, larger than the ±4-point margin.", true),
-       o("LF268-parents-close", "Among parents, Yes leads No by less than that group’s margin of error.",
-          "Among parents the lead is 63 − 30 = 33 points, far more than ±8."),
+          "48 − 44 = 4 points, which is not more than the ±4-point margin."),
+       o("LF268-parents", "Among parents, Yes leads No by more than that group’s margin of error.",
+          "63 − 30 = 33 points, far more than the ±8-point margin.", true),
        o("LF268-undecided", "Parents were undecided at about twice the rate of voters with no children in district schools.",
           "Parents were 7% undecided and the other group 8%; the rates are nearly equal."),
        o("LF268-more-undecided", "Among all likely voters, undecided respondents outnumber those who said No.",
-          "8% were undecided and 41% said No.")],
+          "8% were undecided and 44% said No.")],
       "Read the column for the group named, subtract, and compare the gap with that group’s own margin of error."),
 
     item("LF269", "reading", "Bond poll — from percent to people", ["informational", "graphics"], ["text-graphics"], "poll",
@@ -98,45 +100,45 @@ under 2       under 24        ask a doctor
           "8% of the 612 likely voters is about 49 people.", true),
        o("LF269-148", "about 148",
           "148 is the number of parents interviewed."),
-       o("LF269-251", "about 251",
-          "That is about 41% of 612, the share who said No.")],
+       o("LF269-269", "about 269",
+          "That is about 44% of 612, the share who said No.")],
       "A percentage in a table means little until it is tied to its base. Find the column total and multiply."),
 
-    item("LF270", "reading", "Bond poll — question order", ["informational", "evidence"], ["evidence-credibility"], "poll",
+    item("LF270", "reading", "Bond poll — the question itself", ["informational", "evidence"], ["evidence-credibility"], "poll",
       "Which feature of this survey could have pushed respondents toward Yes?",
       [o("LF270-staff", "Campaign staff conducted the interviews.",
-          "Desert Research Group, not the campaign, conducted the interviews."),
+          "Desert Research Group conducted the interviews."),
        o("LF270-neighbors", "Respondents were told that most of their neighbors supported the bond.",
           "Nothing in the summary says respondents were told how others would vote."),
        o("LF270-cost", "The vote question left out the bond’s cost.",
-          "The question names the $95 million cost."),
+          "The notes say the ballot will list the $95 million cost and the survey question did not; a benefit named without its price draws more support.", true),
        o("LF270-roofs", "Before the vote question, respondents heard about classrooms with leaking roofs.",
-          "The notes say this description came earlier in the questionnaire; hearing about the problem first can prime support for the fix.", true)],
+          "The summary reports no such description; the question only names what the bond would replace.")],
       "Each of these would be a real source of bias. The task is to find the one the summary actually reports."),
 
     item("LF271", "reading", "Bond poll — reading a subgroup", ["informational", "graphics"], ["text-graphics"], "poll",
       "Which statement about voters with no children in district schools does the table support?",
-      [o("LF271-yes10", "Yes leads No by 10 points.",
-          "That is the gap among all likely voters, 51% to 41%."),
-       o("LF271-no10", "No leads Yes by 10 points.",
-          "No does not lead in any column of the table."),
-       o("LF271-yes2", "Yes leads No by 2 points.",
-          "In that column Yes is 47% and No is 45%.", true),
-       o("LF271-yes33", "Yes leads No by 33 points.",
-          "That is the gap among parents, 63% to 30%.")],
+      [o("LF271-yes6", "Yes leads No by 6 points.",
+          "The gap is 6 points, but No is ahead, 49% to 43%."),
+       o("LF271-no6", "No leads Yes by 6 points.",
+          "In that column No is 49% and Yes is 43%.", true),
+       o("LF271-yes4", "Yes leads No by 4 points.",
+          "That is the result for all likely voters, 48% to 44%."),
+       o("LF271-no4", "No leads Yes by 4 points.",
+          "A 4-point gap appears only among all likely voters, and there Yes is ahead.")],
       "Find the column for the group named in the question before reading across."),
 
     item("LF272", "reading", "Bond poll — who did what", ["informational", "evidence"], ["evidence-credibility", "informational-texts"], "poll",
-      "According to the notes, who paid for the survey and who wrote its questions?",
+      "According to the summary, who paid for the survey and who wrote its questions about Measure K?",
       [o("LF272-both-campaign", "The campaign both paid for it and wrote the questions.",
-          "The campaign paid, but the research firm wrote the questions."),
-       o("LF272-split", "The campaign paid; the firm wrote the questions.",
-          "Friends of Measure K paid; Desert Research Group wrote the questions and publishes them.", true),
+          "The campaign wrote the questions, but the firm pays for its own quarterly poll."),
+       o("LF272-split", "The campaign paid; the research firm wrote the questions.",
+          "This reverses the two roles."),
        o("LF272-both-firm", "The research firm both paid for it and wrote the questions.",
-          "The firm wrote the questions but did not pay for the survey."),
-       o("LF272-reverse", "The research firm paid; the campaign wrote the questions.",
-          "This reverses the two roles.")],
-      "Sponsorship and authorship are separate facts. A reader judging a poll needs both."),
+          "The firm paid, but the questions about Measure K came from the campaign."),
+       o("LF272-reverse", "The firm paid; the campaign wrote the questions.",
+          "The firm pays for its quarterly poll; Friends of Measure K wrote the questions about the bond.", true)],
+      "Sponsorship and authorship are separate facts. A reader judging a poll needs both, and they do not always fall the usual way."),
 
     /* ---- Study abstract and the news story that reports it ---- */
     item("LF273", "reading", "Study vs story — the headline", ["paired", "evidence"], ["evidence-credibility", "informational-texts"], "study",
@@ -144,23 +146,23 @@ under 2       under 24        ask a doctor
       [o("LF273-magnitude", "a difference of a few percentile points as if the scores had doubled",
           "The headline gives no size for the gain at all."),
        o("LF273-cause", "a difference between groups as if an experiment had produced it",
-          "Students chose how much to read, so the abstract says the study cannot show cause; “boosts” claims it.", true),
-       o("LF273-sample", "a result from one high school as if it held across the whole state",
-          "The study covered 14 high schools, and the headline names no place."),
+          "An experiment did produce it: students were randomly assigned, so the causal claim is fair."),
+       o("LF273-subject", "a gain on one subject’s test as if it appeared in all subjects",
+          "The gain was on the reading test only, and the groups did not differ in mathematics; “across the board” claims every subject.", true),
        o("LF273-grade", "a finding about ninth graders as if it applied to younger children",
           "The headline says “teen,” which fits ninth graders.")],
       "Each option names a real way headlines distort research. Only the passage shows which one this headline commits."),
 
     item("LF274", "reading", "Study vs story — the method", ["paired", "research"], ["research-citation", "evidence-credibility"], "study",
-      "According to Source A, how did the researchers account for differences in students’ backgrounds?",
-      [o("LF274-random", "They assigned students at random either to read for pleasure or not to read at all.",
-          "Students chose how much to read; a randomized trial is what the authors call for next."),
-       o("LF274-school", "They limited each comparison to students at the same school.",
-          "The study covered 14 high schools and does not describe within-school comparison."),
-       o("LF274-exclude", "They left out students who already enjoyed reading.",
-          "The abstract names those students as a limit of the study, not as a group that was removed."),
+      "According to Source A, how did the researchers make the reading group and the comparison group comparable?",
+      [o("LF274-random", "They assigned students at random to the reading period or to a study hall.",
+          "The abstract says students were “randomly assigned” to one of the two.", true),
+       o("LF274-match", "They matched each reader with a non-reader at the same school.",
+          "The abstract describes random assignment, not matching."),
+       o("LF274-exclude", "They left out students who already read for pleasure.",
+          "The abstract mentions no exclusions."),
        o("LF274-adjust", "They adjusted the results for prior test scores and family income.",
-          "The abstract says the difference held “after adjusting for prior test scores and family income.”", true)],
+          "The abstract mentions no statistical adjustment; random assignment did that work.")],
       "A method question is answered by the abstract’s own description, not by what a study of this kind usually does."),
 
     item("LF275", "reading", "Study vs story — the parent quote", ["paired", "evidence"], ["evidence-credibility"], "study",
@@ -175,28 +177,28 @@ under 2       under 24        ask a doctor
           "The article identifies her as a parent with no involvement in the research.")],
       "How much a quotation is worth depends on who the speaker is, and only the article says."),
 
-    item("LF276", "reading", "Study vs story — the library figure", ["paired", "evidence"], ["evidence-credibility"], "study",
+    item("LF276", "reading", "Study vs story — the 12 percent figure", ["paired", "evidence"], ["evidence-credibility"], "study",
       "Which statement about the 12 percent figure is accurate?",
-      [o("LF276-sourcea", "Source A reports it as one of the study’s main results.",
-          "Source A never mentions libraries or sign-ups."),
-       o("LF276-author", "The study’s lead author reports it in his comments to Source B.",
-          "The lead author is quoted only as calling the results “encouraging.”"),
-       o("LF276-signups", "Local libraries report it, and it counts sign-ups.",
-          "Source B attributes it to local libraries, and it measures summer-reading sign-ups, not test scores.", true),
-       o("LF276-scores", "It is the score gain among students who signed up.",
-          "The only score difference in either source is 4 percentile points.")],
+      [o("LF276-author-signups", "The lead author reports it, and it counts sign-ups.",
+          "Dr. Watanabe says sign-ups for his university’s summer reading program are up 12 percent.", true),
+       o("LF276-author-scores", "The lead author reports it, and it measures a score gain.",
+          "He reports it, but it counts sign-ups; the score difference was 4 percentile points."),
+       o("LF276-library-signups", "Local libraries report it, and it counts sign-ups.",
+          "It counts sign-ups, but the article attributes it to the lead author, not to libraries."),
+       o("LF276-library-scores", "Local libraries report it, and it measures a score gain.",
+          "Neither part is right: the lead author reports it, and it counts sign-ups.")],
       "Before judging what a number shows, establish who reported it and what it counts."),
 
     item("LF277", "reading", "Study vs story — common ground", ["paired", "research"], ["research-citation", "evidence-credibility"], "study",
       "Which detail appears in both sources?",
-      [o("LF277-year", "The study followed its students for one school year.",
+      [o("LF277-count", "The study had 2,400 students.",
+          "Only Source A gives the number of students."),
+       o("LF277-grade", "The students were ninth graders.",
+          "Source A: 2,400 ninth graders. Source B: “Arizona ninth graders.”", true),
+       o("LF277-length", "The study lasted one semester.",
           "Only Source A gives the study’s length."),
-       o("LF277-count", "The study included 2,400 students in Arizona.",
-          "Source A: 2,400 ninth graders in 14 Arizona high schools. Source B: 2,400 Arizona students.", true),
-       o("LF277-trial", "The study’s authors want a randomized trial next.",
-          "Only Source A reports the call for a randomized trial."),
-       o("LF277-libraries", "Library sign-ups have risen.",
-          "Only Source B mentions libraries.")],
+       o("LF277-math", "The groups did not differ in mathematics.",
+          "Only Source A reports the mathematics result.")],
       "A synthesis starts from what both sources state. Check each detail in each source."),
 
     /* ---- Medicine label for a fictional product: every answer depends on this label's own rules ---- */
