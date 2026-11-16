@@ -200,7 +200,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
     { id: "LF004", domain: "reading", title: "Heat briefing — author’s purpose", difficulty: "hard", tags: ["informational", "longform"], skillIds: ["informational-texts"], passageSet: "heat", passage: P.heat,
       stem: "The primary purpose of the final paragraph is to—",
       choices: [
-        "settle the appendix debate by endorsing portable misters as cheaper than a shade ordinance",
+        "settle the appendix debate by endorsing portable misters as a cheaper alternative to a shade ordinance for small shops",
         "require the council to adopt engineered sails because they cut peak temperature faster than newly planted trees",
         "distinguish a fast partial fix from a slower lasting one so the council stops treating them as identical",
         "establish that the peer studies used the same instruments and street widths, making the comparison a controlled experiment"
@@ -240,8 +240,8 @@ SOURCE B (neighborhood newsletter, unsigned, August)
     { id: "LF008", domain: "reading", title: "Start-time editorial — assumption", difficulty: "hard", tags: ["persuasive", "longform"], skillIds: ["persuasive-texts", "rhetorical-appeals"], passageSet: "start", passage: P.start,
       stem: "The argument depends most heavily on which unstated assumption?",
       choices: [
-        "If adolescent sleep cycles are later, a later bell is more likely to improve alertness than a 7:10 bell, other supports being equal.",
-        "If lights go on the practice fields, after-school jobs will cease to be a constraint.",
+        "If teenagers’ sleep cycles run later, a later bell is more likely to improve alertness than a 7:10 bell.",
+        "If lights go on the practice fields, after-school jobs and sports will cease to be a constraint on the schedule.",
         "District 14’s small study is already decisive, despite a different athletic conference.",
         "First-period absences running 11 percent higher already complete the local proof, so a two-campus pilot is unnecessary."
       ], answer: 0,
@@ -262,8 +262,8 @@ SOURCE B (neighborhood newsletter, unsigned, August)
       choices: [
         "allow it if the student promises to return it at the next class meeting, because kits are due then anyway",
         "allow it because section 5 lets the teacher issue an alternate kit with the same lab number",
-        "refuse, because red-diamond items may not leave the room",
-        "allow it if a partner signs the log, because shared custody in section 4 covers missing pieces and therefore also covers red-diamond checkout"
+        "refuse, because section 2 says an item marked with a red diamond may not be checked out, even by a student with a current contract",
+        "allow it if a partner signs the log, because section 4’s shared custody covers the checkout"
       ], answer: 2,
       explanation: "Section 2 forbids red-diamond items leaving the room. A next-class due date is for allowed kits, not a waiver. Substitutions (section 5) change lettered kits, not the diamond ban. Shared custody (section 4) does not excuse a forbidden checkout." },
 
@@ -303,7 +303,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "simile, because he compares lessons to bread with like or as",
         "metaphor, equating teaching with food that sustains him more than the loaf he gives away",
         "personification of knowledge as a hungry child who receives the loaf",
-        "apostrophe, because he turns aside to address the “bread of knowledge” directly"
+        "apostrophe, because he turns aside from the story to address the “bread of knowledge” directly as a listener"
       ], answer: 1,
       explanation: "Bread of knowledge maps learning onto food without like/as; he has already given actual bread. It is not a simile, not knowledge-as-child, and not a second-person address. The earlier “ell” is a separate measurement image." },
 
@@ -311,9 +311,9 @@ SOURCE B (neighborhood newsletter, unsigned, August)
       stem: "The tone of the paragraph that withholds the boys’ names is best described as—",
       choices: [
         "grateful yet bitterly aware that teaching a slave to read is treated as an offense",
-        "purely grateful, with no criticism of the culture that would punish the boys",
+        "purely grateful, with no criticism at all of the culture that would punish the boys for helping him",
         "indignant only at the boys, whom he refuses to thank even as a testimonial",
-        "endorsing the law that makes teaching slaves to read an “unpardonable offence”"
+        "endorsing the law that makes teaching slaves to read an “unpardonable offence” in his country"
       ], answer: 0,
       explanation: "He wants to thank them (gratitude) but prudence forbids because the culture criminalizes the teaching (bitter irony in “this Christian country”). {{opt:LF015-1}} drops the bitterness. {{opt:LF015-2}} reverses his affection. {{opt:LF015-3}} takes the offense as his own view." },
 
@@ -361,7 +361,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
       stem: "The narrator’s stance toward Mrs. Bennet is best described as—",
       choices: [
         "unquestioning agreement with her claim that a fortune makes Bingley “rightful property”",
-        "amused distance that lets her talk long enough to expose her motives",
+        "amused distance: the narrator lets her talk on long enough to expose her mercenary motives",
         "first-person identification with Mrs. Bennet, who is narrating her own campaign",
         "satire aimed only at Mr. Bennet, whose dry questions the narrator treats as the neighborhood’s true law"
       ], answer: 1,
@@ -391,7 +391,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
       stem: "In “Life’s but a walking shadow, a poor player,” Macbeth primarily compares life to—",
       choices: [
         "the brief candle he has just addressed, as if that were the same vehicle as “poor player”",
-        "an actor whose performance is brief, anxious, and then gone",
+        "an actor whose brief, anxious performance fills his hour on the stage and then is gone and forgotten",
         "a critic who remains after the hour to interpret the play’s meaning",
         "a tale whose sound and fury prove that performed action leaves a lasting moral"
       ], answer: 1,
@@ -401,8 +401,8 @@ SOURCE B (neighborhood newsletter, unsigned, August)
       stem: "The tone of the speech is best described as—",
       choices: [
         "triumphant, because “to-morrow” promises a reign that will outlast recorded time",
-        "weary nihilism: time crawls, and action seems meaningless",
-        "bitterly comic, treating “a tale told by an idiot” as a joke rather than a judgment on life",
+        "weary nihilism: time only crawls from day to day, and all human action seems to mean nothing",
+        "bitterly comic, treating “a tale told by an idiot” as a joke for the audience rather than a judgment on life",
         "elegiac only for one death, with no generalization from that death to time and meaning"
       ], answer: 1,
       explanation: "Tomorrow creeps; yesterdays light fools to death; the tale signifies nothing. “To-morrow” is grind, not triumph. The idiot’s tale is the judgment, not a joke. The speech begins from “She should have died hereafter” but widens to all of life." },
@@ -453,7 +453,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
         "Death can be imagined as a polite interruption that still ends in the grave and a sense of eternity.",
         "The speaker never leaves home, because the “House” in the ground is her childhood school.",
         "The children at recess are the poem’s proof that Immortality has already failed.",
-        "The carriage is a vehicle of ordinary errands (school, fields) and never turns toward burial or eternity."
+        "The carriage runs ordinary errands (school, fields) and never turns toward burial or eternity."
       ], answer: 0,
       explanation: "Kindness and civility coexist with the buried house and horses toward eternity. The speaker does leave; recess is a station on the ride, not a rebuttal of Immortality; school and fields are early stops, not the destination." },
 
@@ -481,7 +481,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
       stem: "“The world will little note, nor long remember what we say here, but it can never forget what they did here” is best described as—",
       choices: [
         "a metaphor that equates words and deeds as the same kind of consecration",
-        "antithesis contrasting perishable words with enduring deeds",
+        "antithesis: paired clauses set perishable words against deeds the world cannot forget",
         "verbal irony that secretly means the opposite: the world will remember the speech and forget the battle",
         "parallelism that lists three verbs of dedication (dedicate, consecrate, hallow) rather than contrasting say/did"
       ], answer: 1,
@@ -522,7 +522,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
       choices: [
         "people who were waiting outside",
         "people who is waiting outside",
-        "people who waits outside",
+        "people who has been waiting outside",
         "a person who were waiting outside"
       ], answer: 0,
       explanation: "Who refers to people (plural), so were. {{opt:LF036-1}} and {{opt:LF036-2}} are singular verbs. {{opt:LF036-3}} mismatches person/were." },
@@ -530,7 +530,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
     { id: "LF037", domain: "language", title: "Student draft — dangling modifier", difficulty: "hard", tags: ["usage", "longform"], skillIds: ["grammar-usage", "agreement-usage"], passageSet: "essay", passage: P.essay,
       stem: "“Walking into the gym, the sign-in sheet was already full” is weak because—",
       choices: [
-        "it is a fragment missing a finite verb",
+        "it is a fragment, because the sentence is missing a finite verb",
         "the opener attaches to sign-in sheet, which cannot walk",
         "gym should be capitalized because it is the cooling center’s proper name in the draft",
         "already cannot modify full in a complete clause"
@@ -541,11 +541,11 @@ SOURCE B (neighborhood newsletter, unsigned, August)
       stem: "Which revision best combines the two sentences about centers and trees without changing the claim?",
       choices: [
         "A center keeps people alive on the worst afternoons, while trees change the street over a decade.",
-        "A center keeps people alive on the worst afternoons trees change the street over a decade.",
-        "Although a center keeps people alive, trees are irrelevant.",
-        "Because a center keeps people alive, the city should delay trees until the gym is no longer needed."
+        "A center keeps people alive on the worst afternoons, however trees change the street over a whole decade.",
+        "Although a center keeps people alive on the worst afternoons, trees are irrelevant to the city’s heat problem.",
+        "Because a center keeps people alive, the city should delay planting trees until the gym is no longer needed."
       ], answer: 0,
-      explanation: "{{opt:LF038-0}} preserves both timescales with a clear contrast. {{opt:LF038-1}} is a run-on. {{opt:LF038-2}} and {{opt:LF038-3}} alter the claim: the draft says the city can fund both, not that trees are irrelevant or must wait." },
+      explanation: "{{opt:LF038-0}} preserves both timescales with a clear contrast. {{opt:LF038-1}} is a comma splice: however cannot join two clauses with only a comma. {{opt:LF038-2}} and {{opt:LF038-3}} alter the claim: the draft says the city can fund both, not that trees are irrelevant or must wait." },
 
     { id: "LF039", domain: "language", title: "Student draft — quotation and citation", difficulty: "hard", tags: ["research", "longform"], skillIds: ["research-citation"], passageSet: "essay", passage: P.essay,
       stem: "The draft’s use of the volunteer’s words is weakest as research practice because it—",
@@ -590,8 +590,8 @@ SOURCE B (neighborhood newsletter, unsigned, August)
     { id: "LF043", domain: "writing", title: "Thoreau — organization", difficulty: "hard", tags: ["structure", "longform"], skillIds: ["essay-structure", "expository-writing"], passageSet: "thoreau", passage: P.thoreau,
       stem: "The excerpt’s organization is best described as—",
       choices: [
-        "a cause-and-effect sequence that tests trust, then records a measurable result",
-        "associative moral argument: rejected “good behavior,” then trust, then images of anxiety and wasted labor",
+        "a cause-and-effect sequence that first tests trust and then records a measurable result of the test",
+        "associative moral argument that builds by turns of thought and image",
         "a chronological autobiography from childhood to age seventy, with the “old man” as Thoreau at the end of the timeline",
         "a two-part comparison that first praises neighbors’ “good” and then restates it as his own"
       ], answer: 1,
@@ -640,7 +640,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
     { id: "LF048", domain: "reading", title: "Two sources — loaded language", difficulty: "hard", tags: ["persuasive", "longform"], skillIds: ["persuasive-texts"], passageSet: "sources", passage: P.sources,
       stem: "In Source B, “poisoning,” “crime,” and “truly cared” function primarily as—",
       choices: [
-        "precise method labels equivalent to “sampled six residential laterals”",
+        "precise method labels, equivalent to Source A’s “sampled six residential laterals”",
         "loaded language that moralizes opponents instead of reporting the sample",
         "technical synonyms for the retention basins named in Source A",
         "citations that point back to the 2018 baseline figure in Source A"
@@ -671,8 +671,8 @@ SOURCE B (neighborhood newsletter, unsigned, August)
       stem: "If this were a classroom discussion rather than a rally, the most constructive next move after “What about parking?” would be to—",
       choices: [
         "laugh and say “Next year,” keeping the three asks from being diluted",
-        "restate the parking concern, say whether it is in scope, and either add it to a list or explain why it is a different body",
-        "table the three asks and spend the rest of the period only on confiscating phones",
+        "restate the parking concern, say whether it is in scope, and list it or redirect it",
+        "table the three asks and spend the rest of the period only on confiscating the two phones",
         "treat the teacher’s folded arms as a vote to end discussion without placing the parking question"
       ], answer: 1,
       explanation: "Good discussion acknowledges the turn and places it. Dismissal, phone-only policing, and silent shutdown do not process the idea." },
@@ -701,7 +701,7 @@ SOURCE B (neighborhood newsletter, unsigned, August)
       stem: "Which thesis would most improve a student essay that currently says only “Start times are bad”?",
       choices: [
         "Later start times are a good idea because school is tiring.",
-        "The board should adopt an 8:15 start at two campuses for one year and publish first-period and clinic data before making the change permanent.",
+        "The board should pilot an 8:15 start at two campuses for one year and publish the results before deciding.",
         "The board should move the bell, but the essay need not say which campuses, how long to pilot, or what data to publish.",
         "District 14’s different athletic conference makes any local evidence unusable, so a two-campus pilot cannot be justified."
       ], answer: 1,

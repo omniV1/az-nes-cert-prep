@@ -234,7 +234,7 @@ You've fallen cold and dead.`
       stem: "Which inference is actually supported by the table plus the authors’ warnings?",
       choices: [
         "Fairgrounds had the highest proven PM2.5, because it used the most beds and received a county-wide order.",
-        "North ridge logged the highest listed peak among working sensors; fairgrounds peak is unknown because the sensor failed.",
+        "North ridge logged the highest listed peak; the fairgrounds peak is unknown because its sensor failed.",
         "River flats had the least exposure after 8:00 p.m., because it logged the lowest peak and received no order.",
         "School canyon’s 44% bed use, compared with North ridge’s 61%, proves canyon residents were safer rather than simply less present in shelters."
       ], answer: 1,
@@ -253,12 +253,12 @@ You've fallen cold and dead.`
     { id: "LF060", domain: "reading", title: "Smoke note — fact vs claim", difficulty: "hard", tags: ["evidence", "longform"], skillIds: ["evidence-credibility"], passageSet: "smoke", passage: P.smoke,
       stem: "Which sentence is a volunteer’s policy claim rather than a reported measurement, method limit, or staff recommendation?",
       choices: [
-        "North ridge peak PM2.5 was 185.",
+        "Wind shifted after 8:00 p.m., after the peak readings had already been logged.",
         "The fairgrounds sensor failed at 6:10 p.m.",
         "The county should have issued a third order for River flats by 7:00 p.m.",
-        "Hourly files, not only peaks, should be posted within 72 hours."
+        "Hourly files, not only peaks, should be posted within 72 hours of an event."
       ], answer: 2,
-      explanation: "{{opt:LF060-2}} is the appendix argument the main note will not adopt. {{opt:LF060-0}} and {{opt:LF060-1}} are measurements/methods. {{opt:LF060-3}} is staff’s own limited recommendation—still a “should,” but not the volunteer’s extra order. The trap is treating every “should” as the same speaker." },
+      explanation: "{{opt:LF060-2}} is the appendix argument the main note will not adopt. {{opt:LF060-0}} and {{opt:LF060-1}} report what happened and when. {{opt:LF060-3}} is staff’s own limited recommendation—still a “should,” but not the volunteer’s extra order. The trap is treating every “should” as the same speaker." },
 
     { id: "LF061", domain: "reading", title: "Smoke note — vocab", difficulty: "hard", tags: ["vocabulary", "longform"], skillIds: ["vocab-strategies"], passageSet: "smoke", passage: P.smoke,
       stem: "In “the comparison is suggestive, not interchangeable,” interchangeable most nearly means—",
@@ -284,9 +284,9 @@ You've fallen cold and dead.`
       stem: "How does the author handle the broccoli-waste objection?",
       choices: [
         "Treats waste as imagined, because production records already show a missing vegetable component",
-        "Grants waste as a real cost, then argues it does not redefine a complete meal and proposes a second vegetable plus data",
+        "Grants waste as a real cost, then proposes a second vegetable and published data",
         "Accepts that a themed tray may fail the pattern if students prefer it, provided waste weights are published",
-        "Shifts the issue to vendor logos, leaving the waste claim unanswered"
+        "Shifts the issue to vendor logos and partnership language, leaving the waste claim itself unanswered"
       ], answer: 1,
       explanation: "Concession plus a testable alternative is the move. The author does not deny waste, keep the failing tray, or dodge into branding until after the waste answer." },
 
@@ -314,7 +314,7 @@ You've fallen cold and dead.`
       stem: "A resident’s $800 payment posts on the 6th. According to the lease, the landlord may—",
       choices: [
         "treat rent as fully satisfied because a payment posted, and waive the fee as a courtesy implied by partial payment",
-        "treat the remainder as still due and charge the $40 late fee, because partial payment does not waive either",
+        "treat the remainder as still due and also charge the $40 late fee, because a partial payment does not waive either of them",
         "treat the tenancy as month-to-month at the advertised rate, because a late partial payment ends the twelve-month term",
         "issue a 10-day cure notice as if the underpayment created an unauthorized occupant"
       ], answer: 1,
@@ -324,9 +324,9 @@ You've fallen cold and dead.`
       stem: "A resident with qualifying military orders wants to end the lease in month 4. The early-termination fee in section 8—",
       choices: [
         "still applies, because the one-month buyout is available only after month 6",
-        "does not apply; military orders are a separate exception",
-        "applies at the section-4 printed rate rather than the then-current advertised rate",
-        "is replaced by converting the tenancy to month-to-month without a written renewal"
+        "does not apply, because military orders under federal law are a separate exception",
+        "applies at the section-4 printed rate of $1,140 rather than at the then-current advertised rate",
+        "is replaced by a conversion to month-to-month tenancy"
       ], answer: 1,
       explanation: "Section 8 carves military orders out of the fee. The month-6 buyout is a different path, not a barrier to the military exception. {{opt:LF067-2}} confuses which rate the buyout uses. {{opt:LF067-3}} is the holdover rule, not early termination." },
 
@@ -354,9 +354,9 @@ You've fallen cold and dead.`
       stem: "“O, ye nominal Christians!” is best identified as—",
       choices: [
         "an aside meant only for the sailors on deck, unheard by the larger public",
-        "apostrophe: direct address to an absent or accused audience",
+        "apostrophe: direct address to an absent audience he is accusing",
         "a soliloquy in which Equiano debates whether to convert",
-        "verbal irony that pretends the captors have already kept the Golden Rule"
+        "verbal irony that pretends the captors kept the Golden Rule"
       ], answer: 1,
       explanation: "He turns from narrative to address professed Christians who are not in the scene. An aside is a stage whisper to those present. A soliloquy is private self-speech. The irony is in “nominal,” but the device of the line is the address itself." },
 
@@ -403,10 +403,10 @@ You've fallen cold and dead.`
     { id: "LF075", domain: "literature", title: "Wordsworth — personification", difficulty: "hard", tags: ["figurative", "longform"], skillIds: ["figurative-language"], passageSet: "daffodils", passage: P.daffodils,
       stem: "“Tossing their heads in sprightly dance” is primarily—",
       choices: [
-        "personification of the flowers",
+        "personification: the flowers are given heads and a dance, human motions, with no like or as",
         "simile, because the flowers are said to be like dancers",
         "understatement of a scene the speaker later calls wealth",
-        "apostrophe, because the speaker is addressing the daffodils in the second person"
+        "apostrophe, because the speaker addresses the daffodils directly"
       ], answer: 0,
       explanation: "Heads and dance assign human motion to daffodils without like/as. The speaker is not yet saying “O daffodils,” and the image is vivid, not understated." },
 
@@ -416,7 +416,7 @@ You've fallen cold and dead.`
         "memory of the scene becomes inner wealth that returns in solitude",
         "the speaker’s pleasure depends on remaining in the physical presence of the lake",
         "solitude is empty until the daffodils are replaced by the company of other people",
-        "the inward eye is a regret that the original scene was not valued in the moment"
+        "the inward eye is regret that the scene went unvalued"
       ], answer: 0,
       explanation: "Inward eye / bliss of solitude / heart fills. He “little thought” the wealth at the time, but the close is restoration, not leftover regret or a need for human company." },
 
@@ -444,7 +444,7 @@ You've fallen cold and dead.`
       stem: "Repeated “Brutus is an honourable man” works primarily as—",
       choices: [
         "sincere ethos that asks the crowd to trust Brutus’s judgment about ambition",
-        "verbal irony that more and more doubts Brutus while pretending to praise him",
+        "verbal irony: praise that undercuts Brutus a little more each time",
         "dramatic irony that the crowd, but not the audience, already distrusts Brutus",
         "apostrophe, because Antony is addressing Brutus, who is no longer on stage"
       ], answer: 1,
@@ -474,8 +474,8 @@ You've fallen cold and dead.`
       stem: "Antony’s stated purpose (“to bury Caesar, not to praise him”) is best read as—",
       choices: [
         "a literal promise he keeps by listing only faults and omitting friendship, ransoms, and the crown",
-        "an ethos move that lowers suspicion while the speech does praise and prosecute",
-        "proof he accepts Brutus’s charge of ambition and will not contest it",
+        "an ethos move that lowers suspicion while the speech still praises",
+        "proof that he accepts Brutus’s charge of ambition and will not contest it at all",
         "a request that the crowd dismiss the funeral and spare Brutus further debate"
       ], answer: 1,
       explanation: "The disclaimer is strategy. He lists friendship, ransoms, tears, refused crown—praise that prosecutes. {{opt:LF082-2}} and {{opt:LF082-0}} treat the opening as sincere self-limitation." },
@@ -494,7 +494,7 @@ You've fallen cold and dead.`
       stem: "Paine’s governing criterion for a form of government is that it should—",
       choices: [
         "restore lost innocence by making conscience the only lawgiver",
-        "ensure security with the least expense and greatest benefit",
+        "ensure security for the governed with the least expense and the greatest benefit",
         "be endured even in its worst state, because any government is a blessing like society",
         "protect property by requiring citizens to surrender all of it to the state"
       ], answer: 1,
@@ -543,9 +543,9 @@ You've fallen cold and dead.`
     { id: "LF089", domain: "literature", title: "Swift — purpose", difficulty: "hard", tags: ["context", "longform"], skillIds: ["literature-context", "analytical-writing"], passageSet: "swift", passage: P.swift,
       stem: "A reader who takes the speaker’s later “proposal” as Swift’s real policy has most likely—",
       choices: [
-        "confused the ironic persona with the author’s target (indifference to Irish poverty)",
-        "correctly identified the statue-for-a-preserver line as Swift’s unironic career goal",
-        "shown that the opening’s melancholy is incompatible with satire",
+        "confused the ironic persona with the author, whose target is indifference",
+        "correctly identified the statue-for-a-preserver line as Swift’s own unironic ambition for his career",
+        "shown that the melancholy of the opening paragraph cannot coexist with a satiric purpose",
         "proven that Augustan satire cannot criticize a real public"
       ], answer: 0,
       explanation: "Satire uses a mask. The target is English/Irish policy and callous “usefulness.” Melancholy is part of the mask, not a disproof of satire. {{opt:LF089-1}} takes the persona’s vanity as the author’s." },
@@ -653,7 +653,7 @@ You've fallen cold and dead.`
     { id: "LF100", domain: "writing", title: "Fallacy draft — false dilemma", difficulty: "hard", tags: ["fallacies", "longform"], skillIds: ["persuasive-writing"], passageSet: "fallacy", passage: P.fallacy,
       stem: "“Either we start at 8:30 or we admit we hate teenagers” is—",
       choices: [
-        "a careful set of policy options that matches the draft’s closing pilot",
+        "a careful set of policy options matching the closing pilot",
         "a false dilemma that erases pilots, other times, and mixed motives",
         "a slippery-slope claim that 8:30 will become ever-later starts",
         "a hasty generalization from the cousin’s one late start"
@@ -696,7 +696,7 @@ You've fallen cold and dead.`
         "The wall of brown water hit the culvert while I was still on the catwalk, and the sound was a freight train in a pipe.",
         "The wall of brown water hit the culvert while I am still on the catwalk, and the sound was a freight train in a pipe.",
         "The wall of brown water hits the culvert while I was still on the catwalk, and the sound is a freight train.",
-        "The wall of brown water had hit the culvert while I am still on the catwalk, and the sound will be a freight train."
+        "The wall of brown water had hit the culvert while I am still on the catwalk, and the sound will be a freight train in a pipe."
       ], answer: 0,
       explanation: "Past + past. {{opt:LF104-1}} is the draft’s mixed tense. {{opt:LF104-2}} and {{opt:LF104-3}} shuffle present, past, past perfect, and future." },
 
@@ -735,7 +735,7 @@ You've fallen cold and dead.`
       choices: [
         "method labels that match Source A’s baseline and sample size",
         "loaded language that moralizes opponents instead of reporting the sample",
-        "synonyms for “within baseline,” applied to the two downstream laterals",
+        "synonyms for “within baseline,” applied to the two laterals downstream of the new basins",
         "a paraphrase of staff’s request for one more sample after the next inch of rain"
       ], answer: 1,
       explanation: "Guilt and pathos, not methods. B does not restate baseline, mixed results, or the extra-sample ask." },
@@ -743,10 +743,10 @@ You've fallen cold and dead.`
     { id: "LF109", domain: "reading", title: "Canals pair — synthesis", difficulty: "hard", tags: ["paired", "longform"], skillIds: ["informational-texts", "evidence-credibility"], passageSet: "canals", passage: P.canalsA + "\n\n" + P.canalsB,
       stem: "Which sentence fairly synthesizes both sources?",
       choices: [
-        "A limited utilities sample found mixed sediment; a flyer converts that into a moral ban on infill.",
+        "A limited utilities sample found mixed sediment; a flyer turns that into a moral ban on infill.",
         "Both sources agree that nine laterals represent the whole watershed and that basins caused the clean readings.",
-        "Source B is an unsigned rant, so it should be omitted from any synthesis that mentions the storm.",
-        "Staff and the flyer differ only in tone; they report the same causal conclusion about builders."
+        "Source B is an unsigned rant, so it should be left out of any synthesis that mentions the storm at all.",
+        "Staff and the flyer differ only in tone; underneath, they report the same causal conclusion about builders."
       ], answer: 0,
       explanation: "{{opt:LF109-0}} keeps each genre honest. {{opt:LF109-1}} is false on both points Source A warns about. {{opt:LF109-2}} confuses “less usable” with “unmentionable.” {{opt:LF109-3}} treats tone as the only gap." },
 
@@ -773,7 +773,7 @@ You've fallen cold and dead.`
     { id: "LF112", domain: "reading", title: "Paine vs Declaration — purpose", difficulty: "hard", tags: ["paired", "longform"], skillIds: ["rhetorical-appeals"], passageSet: "pair-liberty", passage: P.paine + "\n\n" + P.declaration,
       stem: "Both texts are best classified as—",
       choices: [
-        "private meditations whose first audience is the writer’s conscience",
+        "private meditations addressed to the writer’s conscience",
         "public political argument meant to justify a new civic order",
         "histories of particular kings, with no general claim about government",
         "nature lyrics that use “paradise” and “Creator” as landscape description only"
@@ -813,10 +813,10 @@ You've fallen cold and dead.`
     { id: "LF116", domain: "oral", title: "Lecture — clarifying question", difficulty: "hard", tags: ["listening", "longform"], skillIds: ["listening-speaking", "group-discussion"], passageSet: "lecture", passage: P.lecture,
       stem: "Jared’s question is useful because it—",
       choices: [
-        "repeats the “purple water” error as a joke, matching the student who is filming",
+        "repeats the “purple water” error as a joke, matching the student who is filming the slide from the back",
         "tests a possible implication and lets the teacher correct the water-direction inference",
         "asks for the quiz key while there are still four minutes left",
-        "shows that color and mass cannot both be recorded, which is the point of Keisha’s bag"
+        "shows that color and mass cannot both be recorded, which is the whole point of Keisha’s bag"
       ], answer: 1,
       explanation: "A wrong implied model (“darker ⇒ water left”) is exactly what she can fix. That is productive listening. He is not asking for answers, and Keisha’s bag is two facts, not a ban on recording both." },
 
@@ -824,8 +824,8 @@ You've fallen cold and dead.`
       stem: "Ms. Ortega’s primary purpose in this stretch is to—",
       choices: [
         "entertain with the “purple water” joke so the misconception feels less serious",
-        "correct a concept error before students write it again, using a board rule they can copy",
-        "establish that Keisha’s lost mass means her indicator failed",
+        "correct a concept error with a board rule students can copy",
+        "establish that Keisha’s lost mass means her iodine indicator must have failed",
         "release the quiz answers before the bell, now that the distinction is on the board"
       ], answer: 1,
       explanation: "Definition + board rule + Keisha’s two facts. She does not play along with the joke, blame Keisha’s indicator, or give quiz answers." },
@@ -834,7 +834,7 @@ You've fallen cold and dead.`
       stem: "The teacher’s best discussion move after River speaks is—",
       choices: [
         "letting Mateo answer immediately, since gratitude vs danger is already a clear split",
-        "requiring Mateo to restate River before defending gratitude-as-main-tone",
+        "requiring Mateo to restate River’s point accurately before he defends gratitude as the main tone",
         "accepting Priya’s summary so the class can leave the scene and vote on slavery",
         "correcting Noor, whose restatement mixed bread, errands, and offense"
       ], answer: 1,
@@ -854,7 +854,7 @@ You've fallen cold and dead.`
       stem: "River’s addition is stronger than Mateo’s first claim because River—",
       choices: [
         "denies that the boys were kind, which matches Douglass’s later caution",
-        "keeps the kindness and the withheld names in one reading",
+        "keeps both the boys’ real kindness and the withheld names inside a single reading",
         "treats gratitude as the main tone and danger as a footnote, which is what the teacher asked Noor to do",
         "agrees with Priya that the moral conclusion is enough and the scene is extra"
       ], answer: 1,
