@@ -13,6 +13,8 @@
    - the original passages depart from the textbook case, and the textbook answer is offered
      as a wrong option (the unsigned official bulletin, the photo the district owns, the icon
      that is too tall but not twice as wide, the label that goes on after the cover);
+   - the word-history passage uses invented mill slang, because real etymologies can be known
+     without the passage;
    - no question's stem or options answer another question in its cluster.
    Authored in the option-object format: every option carries a stable id and its own
    explanation, so feedback stays correct when choices are shuffled. */
@@ -70,17 +72,21 @@ Moves on: nor all thy Piety nor Wit
 Shall lure it back to cancel half a Line,
 Nor all thy Tears wash out a Word of it.`,
 
-    words: `WORDS THAT CHANGED THEIR MINDS
+    words: `MILL WORDS
 
-Many English words now mean something far from what they first meant.
+For a century the woolen mills at Harrow Creek, a fictional town, had a slang of their own, and some of it outlived the mills.
 
-Nice came into English in the 1300s from Old French, which had it from Latin nescius, “not knowing.” A nice person was a foolish one. By the 1500s the word had shifted to “fussy” and then to “fine or precise,” the sense that survives when a lawyer draws a nice distinction. Only in the 1700s did nice settle into its modern meaning, “pleasant.”
+A tam was a short break, named for Tamsin Rowe, a floor boss who rang a hand bell to end it. The word first meant the bell itself; by the 1890s it meant the ten minutes the bell ended. Today in Harrow Creek a tam is any short wait, even at a traffic light.
 
-Clue began as clew, a ball of thread. In the Greek story, Theseus unwound a clew behind him to find his way out of the labyrinth; from that story the word came to mean anything that guides a person through a puzzle.
+The ending -kin marked something spoiled, not something small. A boltkin was a ruined bolt of cloth, and a daykin was a shift lost to a broken loom.
 
-Girl, in the 1300s, meant a young person of either sex. Awful once meant “inspiring awe,” so that a traveler could call a cathedral awful and intend high praise.
+To grey meant to teach. New hands learned on undyed, grey wool, so an old hand who trained them was said to grey them. A greyer was a teacher, and the word carried respect.
 
-A word’s history is evidence, not a verdict. It can explain how a meaning arose, but current usage decides what a word means now. A speaker who insists that a nice meal must be a foolish one has confused a word’s origin with its definition, a mistake linguists call the etymological fallacy.`
+Slub began as the mill’s word for a lump in the yarn, a flaw. When hand-spun cloth came back into fashion, buyers started asking for slub, and the word became praise.
+
+A dobby was at first the boy who carried bobbins between floors. When carts replaced the boys, the carts took the name.
+
+A word’s history explains how a meaning arose; it does not decide what the word means now. A visitor who insists that a tam must involve a bell has confused a word’s origin with its definition, a mistake linguists call the etymological fallacy.`
   };
 
   const o = (id, text, explanation, isCorrect = false) => ({ id, text, explanation, isCorrect });
@@ -395,66 +401,66 @@ A word’s history is evidence, not a verdict. It can explain how a meaning aros
           "The poet is named in the introduction, not addressed in the stanza.")],
       "A pronoun tells you who is being spoken to. Find it before reading the lines as a general statement."),
 
-    /* ---- Vocabulary and etymology: words whose meanings moved ---- */
-    item("LF308", "reading", "Word histories — first meaning", ["vocabulary"], ["word-origins"], "words",
-      "According to the passage, what did nice mean when it first came into English?",
-      [o("LF308-foolish", "foolish",
-          "“A nice person was a foolish one.”", true),
-       o("LF308-fussy", "fussy",
-          "That sense came later, by the 1500s."),
-       o("LF308-precise", "precise",
-          "That sense followed “fussy.”"),
-       o("LF308-pleasant", "pleasant",
-          "That is the modern sense, from the 1700s.")],
-      "The passage gives four meanings in order. The question asks for the first."),
+    /* ---- Vocabulary and word history: invented mill slang, so no outside knowledge applies ---- */
+    item("LF308", "reading", "Mill words — first meaning", ["vocabulary"], ["word-origins"], "words",
+      "According to the passage, what did tam first name?",
+      [o("LF308-bell", "a hand bell",
+          "“The word first meant the bell itself.”", true),
+       o("LF308-boss", "a floor boss",
+          "The word comes from a floor boss’s name, but it did not name her."),
+       o("LF308-break", "a ten-minute break",
+          "That is the second meaning, from the 1890s."),
+       o("LF308-wait", "any short wait",
+          "That is the meaning in Harrow Creek today.")],
+      "The passage gives three meanings in order. The question asks for the first."),
 
-    item("LF309", "reading", "Word histories — meaning in context", ["vocabulary"], ["vocab-strategies"], "words",
-      "In the passage’s phrase “a nice distinction,” nice most nearly means—",
-      [o("LF309-pleasant", "pleasant",
-          "The modern sense does not fit a lawyer’s distinction."),
-       o("LF309-foolish", "foolish",
-          "That is the earliest sense, which the passage does not attach to this phrase."),
-       o("LF309-precise", "precise",
-          "The passage ties the phrase to “fine or precise,” the sense that survives in it.", true),
-       o("LF309-fussy", "fussy",
-          "“Fussy” is the stage before the one the passage ties to this phrase.")],
-      "When a word has several historical senses, the passage tells you which one a given phrase keeps."),
+    item("LF309", "reading", "Mill words — an ending", ["vocabulary"], ["vocab-strategies", "word-origins"], "words",
+      "Going by the passage’s account of the ending -kin, a loomkin would most likely be—",
+      [o("LF309-small", "a small loom",
+          "The passage says -kin marked something spoiled, “not something small.”"),
+       o("LF309-spoiled", "a ruined loom",
+          "A boltkin was a ruined bolt and a daykin a lost shift, so -kin marks the thing as spoiled.", true),
+       o("LF309-learner", "a loom for learners",
+          "Learners are tied to the word grey, not to -kin."),
+       o("LF309-prized", "a prized loom",
+          "Praise is tied to the word slub, not to -kin.")],
+      "Apply the meaning the passage gives the ending, even where it differs from the ending’s usual sense in English."),
 
-    item("LF310", "reading", "Word histories — clue", ["vocabulary"], ["word-origins"], "words",
-      "According to the passage, the word clue first named—",
-      [o("LF310-thread", "a ball of thread",
-          "“Clue began as clew, a ball of thread.”", true),
-       o("LF310-maze", "a maze",
-          "The labyrinth is where the thread was used, not what the word named."),
-       o("LF310-mark", "a mark on a wall",
-          "No such sense appears in the passage."),
-       o("LF310-torch", "a torch",
-          "No torch appears in the passage.")],
-      "Separate the object the word named from the story it appeared in."),
+    item("LF310", "reading", "Mill words — greyer", ["vocabulary"], ["vocab-context", "word-origins"], "words",
+      "In mill talk, a greyer was—",
+      [o("LF310-teacher", "an old hand who trained new workers",
+          "“A greyer was a teacher”: an old hand who trained new hands on grey wool.", true),
+       o("LF310-beginner", "a new worker still learning the looms",
+          "New hands were the ones being greyed, not the greyers."),
+       o("LF310-dyer", "a worker who dyed the grey wool for the looms",
+          "The wool was grey because it was undyed; no dyer is mentioned."),
+       o("LF310-sorter", "a worker who sorted the undyed wool by grade",
+          "Sorting is not mentioned in the passage.")],
+      "The passage builds the noun from a verb it has just defined. Follow that step."),
 
-    item("LF311", "reading", "Word histories — the fallacy", ["vocabulary"], ["word-origins"], "words",
+    item("LF311", "reading", "Mill words — slub", ["vocabulary"], ["word-origins"], "words",
+      "How did the meaning of slub change?",
+      [o("LF311-up", "from a flaw to something buyers wanted",
+          "It began as a lump in the yarn, “a flaw,” and “became praise” when buyers asked for it.", true),
+       o("LF311-down", "from a mark of quality to a flaw",
+          "This reverses the direction of the change."),
+       o("LF311-narrow", "from any yarn to one kind of yarn",
+          "The word always named a lump in yarn; its range did not narrow."),
+       o("LF311-broad", "from one kind of yarn to any yarn",
+          "The word did not widen to all yarn; its value changed.")],
+      "Words can rise or fall in esteem as well as widen or narrow. Decide which kind of change the passage reports."),
+
+    item("LF312", "reading", "Mill words — the fallacy", ["vocabulary"], ["word-origins", "informational-texts"], "words",
       "Which statement makes the mistake the final paragraph describes?",
-      [o("LF311-awful-now", "A sunset called awful is being praised, because awful really means inspiring awe.",
-          "This treats the word’s old meaning as its true meaning today.", true),
-       o("LF311-awful-then", "A cathedral called awful long ago was being praised, because awful then meant inspiring awe.",
-          "This reports the old meaning as old, which is accurate."),
-       o("LF311-girl-now", "A boy called a girl today is being misnamed, because girl now means a female child.",
+      [o("LF312-now", "A bobbin cart is a dobby today, because the word now names the cart.",
           "This goes by current usage, as the paragraph says to."),
-       o("LF311-girl-then", "A boy called a girl in the 1300s was not misnamed, because girl then covered both sexes.",
-          "This reports the old meaning as old, which is accurate.")],
-      "The mistake is not knowing a word’s history. It is treating that history as a ruling on present meaning."),
-
-    item("LF312", "reading", "Word histories — when", ["vocabulary"], ["word-origins", "informational-texts"], "words",
-      "When does the passage say nice settled into its modern meaning?",
-      [o("LF312-1300", "in the 1300s",
-          "That is when the word entered English, meaning foolish."),
-       o("LF312-1500", "in the 1500s",
-          "By then it meant fussy, and then precise."),
-       o("LF312-1700", "in the 1700s",
-          "“Only in the 1700s did nice settle into its modern meaning.”", true),
-       o("LF312-1900", "in the 1900s",
-          "The passage’s last date for the word is the 1700s.")],
-      "Dates in a word history mark separate stages. Match the date to the stage asked about.")
+       o("LF312-then", "A boy who carried bobbins was a dobby in the early mill, because the word then named him.",
+          "This reports the old meaning as old, which is accurate."),
+       o("LF312-fallacy", "A bobbin cart is not a true dobby, because the word first named a boy.",
+          "This treats the word’s first meaning as its only true meaning.", true),
+       o("LF312-moved", "A boy who carries bobbins is no longer a dobby, because the word has moved to the cart.",
+          "This describes the change accurately and goes by current usage.")],
+      "The mistake is not knowing a word’s history. It is treating that history as a ruling on present meaning.")
   ];
 
   // Legacy consumers read choices/answer; QuizCore reads the option objects.
