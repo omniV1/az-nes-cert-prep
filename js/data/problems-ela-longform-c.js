@@ -229,10 +229,10 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF129", domain: "reading", title: "Dust note — inference", difficulty: "hard", tags: ["informational", "longform"], skillIds: ["informational-texts"], passageSet: "dust", passage: P.dust,
       stem: "A fair inference from “buses held is not proof that a campus was safer” is that—",
       choices: [
-        "any campus with a 0-minute hold was, by definition, the most dangerous",
+        "any campus with a 0-minute hold was, by definition, the most dangerous one that afternoon",
         "hold time can reflect logistics and family choices, not only outdoor air",
         "Hillside’s 0-minute hold means its sensor failed, matching Mesa View",
-        "the parent appendix has already been adopted as the definition of safety"
+        "the parent appendix has already been adopted as the district’s definition of safety"
       ], answer: 1,
       explanation: "Staff name driving home as another path. Zero hold is not a danger ranking or a failed sensor. The appendix is not adopted." },
 
@@ -241,7 +241,7 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
       choices: [
         "close Sundays because Saturday gate counts are already higher",
         "keep Sunday hours at two large branches and test the choice with published use data",
-        "move all Sunday staff to Monday evening, which the author treats as already proven to capture Sunday users",
+        "move all Sunday staff to Monday evening, a proven way to capture Sunday users",
         "treat a quiet Sunday gate count as a complete theory of who the library serves"
       ], answer: 1,
       explanation: "Keep Sundays at Central and West, publish, then decide. Lower Sunday traffic is granted, not the thesis. Monday staffing is a constraint to manage, not a proven substitute. {{opt:LF130-3}} is the position the author attacks." },
@@ -270,7 +270,7 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
       stem: "Which criticism of the author’s evidence is fairest?",
       choices: [
         "The author treats Sunday’s 18 percent share of holds as if it already proved that the one-year pilot at two branches will succeed and should become permanent.",
-        "The holds figure shows Sunday is used, but not that those patrons could not come another day, so the author has not disproved the shift either.",
+        "Sunday holds show use, but not that those patrons could not come another day.",
         "Gate counts are dismissed outright, so the author never concedes that Sunday afternoons are quieter than Saturdays.",
         "The author relies on a user survey that has already been completed but never reports how many people responded."
       ], answer: 1,
@@ -289,7 +289,7 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF135", domain: "reading", title: "Pool rules — exception", difficulty: "hard", tags: ["technical", "longform"], skillIds: ["technical-texts"], passageSet: "pool", passage: P.pool,
       stem: "A swim-club banquet organizer texts 20 minutes after a reserved start, asking to keep the lane because of car trouble. The supervisor should—",
       choices: [
-        "grant it, because the supervisor may extend any group’s reservation once per month, whatever the reason given",
+        "grant it, because the supervisor may extend any group’s reservation once per month",
         "refuse: banquets and car trouble are not documented late buses, and after-start texts create no extension",
         "grant it, because the text arrived within the first 30 minutes of the reserved time slot",
         "refuse only because the group already used its monthly extension earlier in the month"
@@ -340,17 +340,17 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
       stem: "“So your chimneys I sweep” most clearly—",
       choices: [
         "blames Tom Dacre alone for the soot, because he cried at the razor",
-        "implicates the reader’s household in the labor the child describes",
+        "implicates the reader’s own household in the labor the child describes",
         "identifies the Angel as the owner of the chimneys",
-        "is a stage direction, not spoken by the child speaker"
+        "addresses the master sweep who bought the speaker from his father"
       ], answer: 1,
-      explanation: "Your = the audience’s chimneys. Tom is comforted, not blamed. The Angel has a key, not a flue. The line is the speaker’s." },
+      explanation: "Your = the audience’s chimneys. Tom is comforted, not blamed. The Angel has a key, not a flue. No master sweep appears anywhere in the poem; the houses with chimneys belong to the people listening." },
 
     { id: "LF141", domain: "literature", title: "Blake — last couplet", difficulty: "hard", tags: ["tone", "longform"], skillIds: ["narrative-elements", "analytical-writing"], passageSet: "blake", passage: P.blake,
       stem: "“If all do their duty, they need not fear harm” is most defensibly read as—",
       choices: [
         "Blake’s sincere moral that obedient children are protected, which the Angel’s promise in the dream confirms",
-        "a line that may voice the comfort the boys need, while the coffins and dark morning push the reader to doubt it",
+        "a comfort the boys may need, which the coffins and dark morning invite readers to doubt",
         "the speaker’s bitter sarcasm, spoken knowingly to mock the adults who send children up the chimneys",
         "Tom’s own conclusion, which shows he has rejected the Angel’s promise and accepted that the work is dangerous"
       ], answer: 1,
@@ -369,18 +369,18 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF143", domain: "literature", title: "Keats — paradox", difficulty: "hard", tags: ["figurative", "longform"], skillIds: ["figurative-language"], passageSet: "keats", passage: P.keats,
       stem: "“Heard melodies are sweet, but those unheard / Are sweeter” works as a paradox because it—",
       choices: [
-        "claims silence is noisier than timbrels, which the first stanza already measured",
+        "restates the first stanza’s questions about pipes and timbrels as a direct answer",
         "ranks an imagined, unplayed music above music that actually reaches the ear",
         "proves the Bold Lover will complete the kiss in the next stanza",
-        "denies that the urn shows any pipes at all"
+        "denies that any music can be sweet, since the pipes carved on the urn are forever silent"
       ], answer: 1,
-      explanation: "Unheard > heard is the twist. The lover is frozen short of the kiss. Pipes are on the urn; the point is the ideal air, not their absence." },
+      explanation: "Unheard ranked above heard is the twist. The line answers none of the first stanza’s questions, the lover is frozen short of the kiss, and “heard melodies are sweet” grants that real music is sweet." },
 
     { id: "LF144", domain: "literature", title: "Keats — frozen love", difficulty: "hard", tags: ["theme", "longform"], skillIds: ["narrative-elements", "literary-periods"], passageSet: "keats", passage: P.keats,
       stem: "The Bold Lover “never canst thou kiss” yet “do not grieve” because—",
       choices: [
         "the lover will win the maiden later, once the poem’s slow time finally runs out",
-        "the freeze that denies the kiss also denies fading: she stays fair and he stays in love",
+        "the freeze that denies the kiss also keeps her fair and him in love",
         "the lover is only a carved image, so his feelings do not matter and grief would be foolish",
         "the maiden does not truly love him, so losing the kiss costs him nothing at all"
       ], answer: 1,
@@ -409,7 +409,7 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF147", domain: "literature", title: "Chopin — spring details", difficulty: "hard", tags: ["figurative", "longform"], skillIds: ["figurative-language", "narrative-elements"], passageSet: "chopin", passage: P.chopin,
       stem: "The quivering trees, rain-breath, sparrows, and patches of blue function primarily as—",
       choices: [
-        "a contrast showing how little the outside world cares about Mrs. Mallard’s private grief",
+        "a contrast showing how little the outside world cares about her grief",
         "sensory life outside the room that the coming feeling of freedom will use as its path",
         "foreshadowing that Brently Mallard will soon return home alive and well",
         "signs of spring that mirror the depth of her grief and sense of loss"
@@ -429,12 +429,12 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF149", domain: "literature", title: "Chopin — irony setup", difficulty: "hard", tags: ["irony", "longform"], skillIds: ["figurative-language", "prose-drama-analysis"], passageSet: "chopin", passage: P.chopin,
       stem: "The opening emphasis on “heart trouble” and “great care” in breaking the news most clearly creates—",
       choices: [
-        "verbal irony that Richards works in a newspaper office, so he cannot be tender",
+        "sympathy for Richards, whose haste to bring the news is the scene’s main subject",
         "a medical frame that will sit in tension with the later psychological meaning of “free”",
         "dramatic irony that Josephine already knows Brently is alive, which the reader also knows from paragraph one",
-        "situational irony that sparrows are singing, so no one has died"
+        "foreshadowing that the gentle telling will spare her any strong feeling"
       ], answer: 1,
-      explanation: "Care for a weak heart vs a mind catching a dangerous freedom. The reader does not yet know Brently lives (that twist is later in the full story). Sparrows do not cancel the telegram. Richards’s job is not the irony." },
+      explanation: "Care for a weak heart sits against a mind catching a dangerous freedom. The reader does not yet know Brently lives (that twist is later in the full story). Richards is the messenger, not the subject, and her “sudden, wild abandonment” shows the gentle telling does not spare her." },
 
     { id: "LF150", domain: "literature", title: "Dunbar — extended figure", difficulty: "hard", tags: ["figurative", "longform"], skillIds: ["figurative-language", "poetry-forms"], passageSet: "dunbar", passage: P.dunbar,
       stem: "The mask that “grins and lies” functions as—",
@@ -499,10 +499,10 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF156", domain: "reading", title: "Emerson — Devil’s child", difficulty: "hard", tags: ["rhetoric", "longform"], skillIds: ["rhetorical-appeals"], passageSet: "emerson", passage: P.emerson,
       stem: "The reply “if I am the Devil’s child, I will live then from the Devil” functions primarily as—",
       choices: [
-        "a literal conversion to devil-worship that replaces the integrity-of-mind thesis",
+        "a literal conversion to devil-worship that replaces the integrity-of-mind thesis he began with",
         "a hyperbolic refusal to let the friend’s “below/above” scarecrow stop inner living",
         "evidence that traditions are sacred once the speaker has explored them",
-        "a concession that impulses from within have already been proven to be from below"
+        "a concession that his impulses from within have already been proven to come from below"
       ], answer: 1,
       explanation: "Shock line to reject outsourcing. Not a new religion, not a win for tradition, not an admission the friend was right." },
 
@@ -521,7 +521,7 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
       choices: [
         "death, because misery has already made him a fiend beyond any duty",
         "duty and a chance at happiness, on the ground that a creator is bound to the created",
-        "equality with every other human being, which he claims he already possesses as Frankenstein’s Adam",
+        "equality with all other humans, which he says he already has as Adam",
         "punishment, since the creature admits his crimes and wants to be judged fairly"
       ], answer: 1,
       explanation: "Do your duty, I ought to be thy Adam, make me happy: he argues that a creator is bound to his creation. He fears being killed rather than asking for it, says he is excluded from bliss rather than already equal, and asks for happiness, not punishment." },
@@ -529,17 +529,17 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF159", domain: "literature", title: "Frankenstein — Adam / fallen angel", difficulty: "hard", tags: ["figurative", "longform"], skillIds: ["figurative-language", "literature-context"], passageSet: "frankenstein", passage: P.frankenstein,
       stem: "“I ought to be thy Adam, but I am rather the fallen angel” contrasts—",
       choices: [
-        "two scientific instruments Frankenstein used in the laboratory",
+        "the innocence he was born with and the crimes he now freely admits",
         "the care due a first human versus the exile and punishment of a rejected being",
-        "Adam as a synonym for Frankenstein and the angel as a synonym for Elizabeth",
-        "proof the creature has committed no violence yet, so “fiend” is only meteorology"
+        "Frankenstein as Adam and the creature as the angel who tempted him",
+        "his claim to be human against Frankenstein’s belief that he is a supernatural spirit"
       ], answer: 1,
-      explanation: "Creator/creature + Paradise Lost roles. Not lab tools, not a name-swap with Elizabeth. “Misery made me a fiend” is moral/psychological, and the threat of blood is already in the speech." },
+      explanation: "The roles come from Paradise Lost: Adam was made and cared for; the fallen angel is cast out. The creature takes both roles for himself, not one for Frankenstein. He says he is driven from joy “for no misdeed,” so he is not admitting crimes here, and the contrast is care versus exile, not human versus spirit." },
 
     { id: "LF160", domain: "literature", title: "Frankenstein — condition", difficulty: "hard", tags: ["narrative", "longform"], skillIds: ["narrative-elements"], passageSet: "frankenstein", passage: P.frankenstein,
       stem: "The creature’s bargain is best summarized as—",
       choices: [
-        "unconditional obedience forever, with no request of Frankenstein",
+        "unconditional obedience to Frankenstein forever, offered freely and with no request made in return",
         "peace if Frankenstein meets conditions; vengeance on remaining friends if he refuses",
         "a request that Frankenstein become more powerful, since the creature’s joints are already supple",
         "an admission that life is not dear, so death would be a gift"
@@ -550,7 +550,7 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
       stem: "“Misery made me a fiend. Make me happy, and I shall again be virtuous” treats vice as—",
       choices: [
         "an unchangeable trait of his nature, which no amount of happiness could ever reverse",
-        "a product of exclusion and suffering that might reverse if the creator relents",
+        "a product of suffering that could be reversed",
         "a choice he made freely, for which Frankenstein bears no responsibility",
         "proof that he was evil from the moment of his creation"
       ], answer: 1,
@@ -579,9 +579,9 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF164", domain: "language", title: "Revise draft — plagiarism", difficulty: "hard", tags: ["research", "longform"], skillIds: ["research-citation"], passageSet: "revise", passage: P.revise,
       stem: "Changing harm to harms on a copied blog sentence is—",
       choices: [
-        "acceptable paraphrase, because changing a verb’s form makes the sentence the student’s own",
+        "acceptable paraphrase, because changing the form of a verb is enough to make the sentence the student’s own",
         "still plagiarism: the sentence is taken, and a cosmetic change does not make it the student’s",
-        "acceptable if the student lists the blog in the works-cited page, even without quotation marks",
+        "acceptable if the student lists the blog on the works-cited page, even without any quotation marks",
         "common knowledge, because claims about lateness and learning need no citation"
       ], answer: 1,
       explanation: "Copying a sentence and changing one letter is still plagiarism: the wording is not the student’s. A verb change is not paraphrase, a works-cited entry without quotation marks still passes off the wording as the student’s, and the claim is not common knowledge." },
@@ -590,9 +590,9 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
       stem: "“That contrast is important, it does not prove…” should be repaired by—",
       choices: [
         "leaving the comma, because contrast and proof are the same independent clause",
-        "a period, semicolon, or comma-plus-FANBOYS between the two independent clauses",
-        "deleting the dashboard numbers, which created the splice",
-        "changing important to importantly, which joins clauses"
+        "a period, a semicolon, or a comma plus a conjunction",
+        "deleting the dashboard numbers, since listing them is what created the splice",
+        "changing important to importantly, since an adverb can join the two clauses"
       ], answer: 1,
       explanation: "Classic comma splice. Numbers are evidence, not the grammar error. An adverb does not join independents." },
 
@@ -600,16 +600,16 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
       stem: "The draft’s fairest use of the 22% vs 9% contrast is already closest to which sentence?",
       choices: [
         "Heat caused the August lateness, as the jump from 9% to 22% shows.",
-        "The contrast is important but does not, by itself, prove heat caused the lateness.",
-        "The contrast proves the bus routes were planned badly for August traffic.",
-        "Because lateness fell to 9% in January, cold weather improves bus reliability."
+        "The contrast matters but does not, by itself, prove heat caused the lateness.",
+        "The contrast proves that the bus routes were planned badly for the heavier August traffic.",
+        "Because lateness fell to 9% in January, cold weather must improve bus reliability."
       ], answer: 1,
       explanation: "The draft’s last sentence already uses the contrast fairly: important, but not proof that heat caused lateness. The other options turn a seasonal difference into a cause: heat, poor planning, or cold weather." },
 
     { id: "LF167", domain: "reading", title: "Water pair — credibility", difficulty: "hard", tags: ["paired", "longform"], skillIds: ["evidence-credibility"], passageSet: "water", passage: P.water,
       stem: "For a paper on indoor use after the rate change, Source A is more usable than Source B primarily because it—",
       choices: [
-        "covers the whole service area, while Source B discusses only the 1,200 meters staff sampled",
+        "covers the whole service area, while Source B covers only 1,200 meters",
         "reports a limited sample, names competing explanations, and refuses a success headline",
         "is unsigned and therefore free of the utility’s institutional bias",
         "already concludes the rate starved lawns, which matches the paper’s thesis"
@@ -639,10 +639,10 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
     { id: "LF170", domain: "reading", title: "Water pair — synthesis", difficulty: "hard", tags: ["paired", "longform"], skillIds: ["informational-texts", "evidence-credibility"], passageSet: "water", passage: P.water,
       stem: "Which sentence fairly synthesizes both sources?",
       choices: [
-        "A limited billing sample shows mixed declines with a weather caveat; a flyer turns that into a moral indictment.",
+        "A limited billing sample shows mixed declines; a flyer turns that into a moral indictment.",
         "Both sources agree that the rate change reduced water use, though they describe the reduction in different tones.",
         "Source A proves the rate worked, while Source B proves it harmed families; the paper should present both as findings.",
-        "Source B is unsigned, so a fair synthesis should mention only Source A’s billing results."
+        "Source B is unsigned, so a fair synthesis should describe only Source A’s billing results and omit the flyer."
       ], answer: 0,
       explanation: "A fair synthesis keeps each genre honest: a cautious, limited billing study and a flyer that moralizes it. Source A does not attribute the declines to the rate, neither source proves its claim, and an unsigned flyer can still be described for what it is." },
 
@@ -650,7 +650,7 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
       stem: "Member Ruiz’s best discussion move after River speaks is—",
       choices: [
         "letting Coach Hale answer immediately, since sports vs sleep is already a clear split",
-        "requiring Hale to restate River before defending dark fields",
+        "requiring Hale to restate River’s point before he defends dark fields",
         "accepting Priya’s summary so the body can vote that sleep is good",
         "correcting Noor, whose restatement mixed biology with a GPA proof this district does not have"
       ], answer: 1,
@@ -661,7 +661,7 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
       choices: [
         "uses a phone and replaces the distinction Ruiz asked for with a slogan the board is not voting on",
         "is rude to Coach Hale, whose concern about sports deserved more attention from the board",
-        "is correct that kids need sleep but should have cited the pediatric brief’s specific numbers to support it",
+        "is right that kids need sleep but should have cited the brief’s numbers",
         "cites the whisper about football as the only evidence, ignoring the brief"
       ], answer: 0,
       explanation: "Ruiz names both problems: the phone, and a category error (a slogan instead of the biology-versus-facilities distinction). Priya’s remark targets the process rather than Hale, and adding numbers would not fix answering the wrong question." },
@@ -711,7 +711,7 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
       choices: [
         "readers treating a health claim and a club sale as if they had the same authority",
         "the poster becoming too cluttered to read, since two QR codes compete for the same space",
-        "a copyright violation, since the CDC’s name appears next to a fundraiser",
+        "a copyright violation, since the CDC’s name appears beside a fundraiser that it never approved",
         "students skipping the CDC page because QR codes are rarely scanned"
       ], answer: 0,
       explanation: "Side-by-side codes blur a health authority with a club sale, so readers may lend the fundraiser the CDC’s credibility. Clutter, scanning habits, and copyright are not the main risk here." },
@@ -720,7 +720,7 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
       stem: "The most responsible Friday revision would—",
       choices: [
         "replace the cartoon lungs with a real medical photo of a damaged lung to make the danger more vivid",
-        "use equal-scale images, define “after,” split health sources from the fundraiser, and drop “triples”",
+        "use equal-scale images, define “after,” separate the fundraiser, and drop “triples”",
         "keep the images as they are but enlarge the n=18 footnote and the survey date so readers can judge the claim themselves",
         "add more survey responses before Friday so the “triples damage” claim rests on a larger sample"
       ], answer: 1,
@@ -751,18 +751,18 @@ A stronger reading would notice that the comfort arrives in sleep, that the boys
       choices: [
         "a speaker/author distinction that keeps irony available",
         "proof the student still thinks Blake has no speaker, only a moral tag",
-        "a plot summary of Josephine telling Mrs. Mallard the news",
+        "a summary of the dream, restating what the Angel promises Tom",
         "a concession that paragraph one’s endorsement reading is the only defensible one"
       ], answer: 0,
-      explanation: "Character consolation ≠ poet’s unironic message. That is the opposite of paragraph one, not Chopin, not a missing speaker." },
+      explanation: "Character consolation ≠ poet’s unironic message. That is the opposite of paragraph one, not a summary of the dream, and not a missing speaker." },
 
     { id: "LF182", domain: "writing", title: "Analysis draft — revision", difficulty: "hard", tags: ["revision", "longform"], skillIds: ["analytical-writing", "essay-structure"], passageSet: "analysis", passage: P.analysis,
       stem: "The most effective revision of the draft as a whole would—",
       choices: [
         "delete paragraph one, since a weak reading has no place in a revised paper",
         "lead with the sleep/work and “your chimneys” evidence and recast paragraph one as a misreading to reject",
-        "combine both paragraphs into a balanced thesis saying the poem is both endorsement and critique",
-        "add historical background on chimney sweeps before either reading, then keep both paragraphs as written"
+        "combine both paragraphs into one balanced thesis saying the poem is both an endorsement and a critique of child labor",
+        "add historical background on chimney sweeps before either reading, then keep both paragraphs exactly as written"
       ], answer: 1,
       explanation: "The strongest revision leads with the better-supported reading and uses the weaker one as a foil. Deleting it loses a useful counterargument, a both-ways thesis gives up the claim, and background alone does not resolve the conflict between the paragraphs." }
   ];
