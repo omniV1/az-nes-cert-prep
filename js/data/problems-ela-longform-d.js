@@ -2,36 +2,49 @@
    research (0011), visual media and presentations (0017), expository writing (0013),
    literature in context and analytical writing (0008, 0015, 0007), world literature
    and poetry (0006, 0007), and vocabulary/etymology (0001).
-   Public-domain literature (Gilman 1892, FitzGerald 1859) and original prose only.
+   Public-domain literature (Gilman 1892, FitzGerald 1859) and original prose only; the
+   literary excerpts are unchanged from the first version and were checked against
+   Project Gutenberg texts.
+
+   This is the second version of the form. A reader with no passages answered all 30
+   questions of the first version (LF183–LF212, now retired) correctly. These questions
+   follow the anti-testwiseness rules in CLAUDE.md:
+   - the options of a question are the same kind of statement and differ in a checkable fact;
+   - the original passages depart from the textbook case, and the textbook answer is offered
+     as a wrong option (the unsigned official bulletin, the photo the district owns, the icon
+     that is too tall but not twice as wide, the label that goes on after the cover);
+   - the word-history passage uses invented mill slang, because real etymologies can be known
+     without the passage;
+   - no question's stem or options answer another question in its cluster.
    Authored in the option-object format: every option carries a stable id and its own
    explanation, so feedback stays correct when choices are shuffled. */
 (function () {
   const P = {
-    garden: `SOURCE 1 — Saguaro County Cooperative Extension, Bulletin 41 (2024)
+    garden: `SOURCE 1 — “Why Every School Garden Needs Drip,” by Dale Ferris, on the blog of FlowRight Supply (no date given)
+At our shop we ran one starter kit and one hose for an hour each and read the water meter after both: the kit used up to 70 percent less water. Drip also doubles harvests. Teachers tell us students love the hands-off system. Order a starter kit today and watch your garden thrive.
+
+SOURCE 2 — Saguaro County Cooperative Extension, Bulletin 41 (2024), no author listed
 In a two-season trial at six school gardens, beds watered by drip lines used 38 percent less water than beds watered by hand with hoses, as measured by inline meters. Tomato yields did not differ by more than 5 percent between the two methods. The trial did not test lettuce or herbs, and two gardens lost three weeks of data when their meters were vandalized. The bulletin recommends drip lines for fruiting crops in beds larger than 4 by 8 feet and cautions that smaller beds may not repay the installation cost within three years.
 
-SOURCE 2 — “Why Every School Garden Needs Drip,” posted in 2016 on the blog of FlowRight Supply (no author listed)
-Drip irrigation cuts water use by up to 70 percent and doubles harvests. Teachers tell us students love the hands-off system. Order a starter kit today and watch your garden thrive.
-
 STUDENT NOTECARD
-Drip lines use 38 percent less water than hand watering (Saguaro County, 2024).
+Drip lines use 38 percent less water than hand watering (Ferris, FlowRight Supply).
 
 STUDENT DRAFT SENTENCE
-Research proves drip irrigation saves water and doubles harvests in every school garden.`,
+A two-season trial at six school gardens found that drip lines cut water use by 38 percent and raised tomato yields.`,
 
     ebooks: `A district communications office drafted the poster and slide plan below for a family night about library e-books.
 
 POSTER DRAFT
-The headline reads “E-BOOKS EXPLODE!” Beneath it, two book icons compare checkouts: a small icon labeled “2023: 4,100” and a larger icon labeled “2024: 8,300.” The 2024 icon is drawn twice as tall and twice as wide as the 2023 icon. A footnote in 7-point type reads: “Print checkouts fell from 61,000 to 58,500 over the same period.” A photograph of smiling teenagers holding tablets fills the lower half of the poster. The designer found it through an image search and plans to use it because “it was on a public website.”
+The headline reads “E-BOOKS ON THE RISE.” Beneath it, two book icons compare checkouts: one labeled “2023: 4,100” and one labeled “2024: 8,200.” The two icons are the same width, and the 2024 icon is drawn three times as tall as the 2023 icon. A footnote reads: “Print checkouts fell from 61,000 to 56,000 over the same period.” The lower half of the poster is a photograph of students holding tablets. A staff member took it at last year’s family night, so the district owns the picture, but the office has no signed release from the families of the students shown.
 
 SLIDE PLAN
-Slide 4 will display all 312 words of the board’s lending policy, which the presenter will read aloud word for word. Slide 5 will show a 14-row table of branch-by-branch figures in 10-point type. The presenter plans to add captions to the recorded version of the talk only if a family requests them.`,
+Slide 3 lists three steps for borrowing an e-book. Slide 4 displays all 312 words of the board’s lending policy while the presenter sums it up in two sentences. Slide 5 shows a 14-row table of branch-by-branch figures. Slide 6 is a 40-word thank-you that the presenter will read aloud word for word. A sign-language interpreter will attend the live event. Large-print copies of the policy will be available at the door. The recorded version of the talk will be captioned only if a family asks for captions by the Friday after.`,
 
-    treatment: `A student wrote the draft below for an assignment titled “Explain a process that affects daily life in our city.”
+    bookpath: `A student wrote the draft below for an assignment titled “Explain a process most people at our school never see.”
 
-(1) Our city’s water comes from the Salt River, but you would not want to drink it straight from the canal. (2) Water treatment is the reason the tap is safe. (3) First, the plant adds a coagulant, which makes tiny particles clump together into larger bits called floc. (4) The floc is heavy, so it sinks to the bottom of the settling basins. (5) Filtration comes next. (6) The water passes through layers of sand, gravel, and charcoal. (7) Honestly, the city should spend more money on this plant than on the new stadium. (8) Last, the plant adds a small, measured amount of chlorine to kill microorganisms that survived filtering. (9) Some people think chlorine is dangerous. (10) In conclusion, water treatment is a process.`,
+(1) Most students never see what happens to a new book before it reaches a shelf in our school library. (2) Every book goes through the same steps, and the order matters. (3) First, an aide stamps the school’s name on the top edge of the pages. (4) Next, the librarian enters the book in the catalog and prints its spine label. (5) I think the old card catalog was more fun to use than the computer. (6) The label is not attached yet, because the plastic cover goes on first and the label is stuck to the outside of the cover. (7) After the cover and label are on, a security strip is hidden inside the back cover. (8) Then the book is entered in the catalog. (9) Finally, the book sits on the New Arrivals cart for two weeks before it moves to its regular shelf. (10) That is how a book gets to the shelf.`,
 
-    wallpaper: `From Charlotte Perkins Gilman, “The Yellow Wallpaper” (1892). The narrator, a new mother, has been brought by her husband to a rented country house for a “rest cure.”
+    wallpaper: `From Charlotte Perkins Gilman, “The Yellow Wallpaper” (1892). The narrator, a new mother, has been brought by her husband to a rented country house to rest.
 
 John laughs at me, of course, but one expects that in marriage.
 
@@ -50,7 +63,7 @@ My brother is also a physician, and also of high standing, and he says the same 
 So I take phosphates or phosphites—whichever it is, and tonics, and journeys, and air, and exercise, and am absolutely forbidden to “work” until I am well again.
 
 STUDENT ANALYTICAL PARAGRAPH (draft)
-Gilman’s narrator is crazy. She says the house is queer. Her husband John is a doctor who wants her to get better. “John laughs at me, of course, but one expects that in marriage.” This shows that marriage is funny.`,
+(1) Gilman’s narrator is crazy. (2) She says her brother is a lawyer. (3) Her husband John is a physician. (4) “John laughs at me, of course, but one expects that in marriage.” (5) This shows that marriage is funny.`,
 
     rubaiyat: `Edward FitzGerald published his English Rubáiyát of Omar Khayyám in 1859. It is a free Victorian adaptation, not a line-by-line translation, of Persian quatrains (rubāʿiyāt) attributed to the twelfth-century astronomer and poet Omar Khayyám. FitzGerald rearranged, combined, and sometimes invented material so that the quatrains read as a single meditation. One stanza reads:
 
@@ -59,445 +72,395 @@ Moves on: nor all thy Piety nor Wit
 Shall lure it back to cancel half a Line,
 Nor all thy Tears wash out a Word of it.`,
 
-    words: `WORDS THAT REMEMBER
+    words: `MILL WORDS
 
-Many English words carry fossils of older beliefs. Disaster arrived in English in the late 1500s from Italian disastro, built from dis- (“ill” or “away”) and astro (“star”). To call an event a disaster once meant blaming a bad alignment of the stars. The astrological belief faded, but the word stayed.
+For a century the woolen mills at Harrow Creek, a fictional town, had a slang of their own, and some of it outlived the mills.
 
-Quarantine preserves a number. In the fourteenth century, the port of Ragusa (today’s Dubrovnik) required ships arriving from plague regions to wait offshore before landing; Venetian practice later fixed the wait at forty days—quaranta giorni in Italian. Today a quarantine can last two weeks or two hours, yet the forty is still hidden inside the word.
+A tam was a short break, named for Tamsin Rowe, a floor boss who rang a hand bell to end it. The word first meant the bell itself; by the 1890s it meant the ten minutes the bell ended. Today in Harrow Creek a tam is any short wait, even at a traffic light.
 
-Muscle hides an animal. Latin musculus meant “little mouse,” perhaps because a flexing muscle under the skin looked like a mouse moving beneath a cloth. The ending marked something small, the same diminutive sense that survives in molecule, a “little mass.”
+The ending -kin marked something spoiled, not something small. A boltkin was a ruined bolt of cloth, and a daykin was a shift lost to a broken loom.
 
-Etymology is evidence, not a verdict. A word’s history can suggest a meaning, but current usage decides what a word means now. A student who insists that a disaster must involve the stars has confused a word’s origin with its definition—a mistake linguists call the etymological fallacy.`
+To grey meant to teach. New hands learned on undyed, grey wool, so an old hand who trained them was said to grey them. A greyer was a teacher, and the word carried respect.
+
+Pell began as the mill’s word for its finest yarn, kept back for sale. After the owners began putting that name on their seconds, weavers used pell for a flaw, and no one used it as praise again.
+
+A hobber was at first a hand cart for bobbins. The carts wore out in the 1890s, the owners hired boys to carry bobbins in their place, and the boys took the name.
+
+The mill’s ledgers survive, and people who read them make one mistake more than any other: they carry a word’s present meaning back into an old page. Someone who finds “second tam” in an 1850 ledger and pictures a rest has made it. In 1850 a tam was still a bell.`
   };
 
   const o = (id, text, explanation, isCorrect = false) => ({ id, text, explanation, isCorrect });
+  const item = (id, domain, title, tags, skillIds, set, stem, options, explanation) => ({
+    id, domain, title, difficulty: "hard", tags: tags.concat("longform"), skillIds,
+    passageSet: set, passage: P[set], stem, options, explanation
+  });
 
   const items = [
-    /* ---- garden: research and citation (0011) ---- */
-    { id: "LF183", domain: "language", title: "Drip sources — accurate paraphrase", difficulty: "hard", tags: ["research", "longform"], skillIds: ["research-citation"], passageSet: "garden", passage: P.garden,
-      stem: "Which sentence is the most accurate paraphrase of Source 1’s findings about water and tomato yields?",
-      options: [
-        o("LF183-scoped", "In the trial, switching to drip lines cut water use without meaningfully changing tomato harvests.",
-          "Restates both results in new words and keeps the trial’s scope (tomatoes, this study).", true),
-        o("LF183-doubles", "Drip lines doubled tomato yields while using 38 percent less water.",
-          "Imports Source 2’s unsupported “doubles harvests.” Source 1 found yields within 5 percent."),
-        o("LF183-verbatim", "Tomato yields did not differ by more than 5 percent between the two methods.",
-          "Copies Source 1 word for word without quotation marks: that is plagiarism, not paraphrase."),
-        o("LF183-every-crop", "Drip lines are the best choice for every crop a school might grow.",
-          "Overgeneralizes: lettuce and herbs were not tested, and small beds may not repay the cost.")
-      ],
-      explanation: "A paraphrase changes the wording, keeps the meaning, and keeps the source’s limits. Watch for imported claims from a weaker source and for verbatim copying without quotation marks." },
+    /* ---- Research: two sources, a notecard, and a draft sentence ---- */
+    item("LF283", "language", "Drip sources — stated method", ["research"], ["research-citation", "evidence-credibility"], "garden",
+      "Which source says how its water figures were measured?",
+      [o("LF283-s1", "Source 1 only",
+          "Source 1 describes its shop test, but Source 2 also names its method: inline meters."),
+       o("LF283-s2", "Source 2 only",
+          "Source 2 names inline meters, but Source 1 also says how it got its figure: an hour’s run of one kit and one hose, read off the water meter."),
+       o("LF283-both", "both sources",
+          "Source 1 “read the water meter” after an hour’s run of one kit and one hose; Source 2’s figures were “measured by inline meters.”", true),
+       o("LF283-neither", "neither source",
+          "Each source names a method: a one-hour shop test read off a water meter in Source 1, inline meters in Source 2.")],
+      "Naming a method is not the same as having a sound one. First find what each source says it did; then weigh one kit in a shop against six gardens over two seasons."),
 
-    { id: "LF184", domain: "language", title: "Drip sources — credibility", difficulty: "hard", tags: ["research", "longform"], skillIds: ["research-citation", "evidence-credibility"], passageSet: "garden", passage: P.garden,
-      stem: "For a research paper, Source 1 is more credible than Source 2 chiefly because Source 1—",
-      options: [
-        o("LF184-method", "names its method, reports its own data losses, and limits its recommendation",
-          "Transparency about method and limits is the strongest credibility signal here.", true),
-        o("LF184-newer", "is more recent, and newer sources are always more accurate",
-          "Currency helps, but “always” is false and recency is not the chief difference."),
-        o("LF184-smaller", "reports a smaller water savings, which proves it is more careful",
-          "A smaller number is not itself evidence of care; the method and stated limits are."),
-        o("LF184-infallible", "comes from a government office, so it cannot contain errors and needs no checking",
-          "Authority is not infallibility; the bulletin itself reports lost data.")
-      ],
-      explanation: "Judge credibility by method, transparency, and fit between claim and evidence. Source 2 is unsigned, promotional, and states “up to 70 percent” and “doubles harvests” with no method." },
+    item("LF284", "language", "Drip sources — the notecard", ["research"], ["research-citation"], "garden",
+      "The figure on the student’s notecard—",
+      [o("LF284-s1-s1", "comes from Source 1 and is credited to Source 1",
+          "The credit names Source 1’s author, but 38 percent is Source 2’s figure. Source 1 says “up to 70 percent.”"),
+       o("LF284-s1-s2", "comes from Source 1 but is credited to Source 2",
+          "This reverses both the figure’s origin and the credit."),
+       o("LF284-s2-s2", "comes from Source 2 and is credited to Source 2",
+          "The figure is Source 2’s, but the notecard credits Ferris and FlowRight Supply, which is Source 1."),
+       o("LF284-s2-s1", "comes from Source 2 but is credited to Source 1",
+          "“38 percent less water” is the bulletin’s finding; the notecard’s citation names Ferris of FlowRight Supply, the blog.", true)],
+      "A citation must point to the source the fact actually came from. Check the number against each source."),
 
-    { id: "LF185", domain: "language", title: "Drip sources — misusing evidence", difficulty: "hard", tags: ["research", "longform"], skillIds: ["research-citation"], passageSet: "garden", passage: P.garden,
-      stem: "The student’s draft sentence misuses the sources mainly by—",
-      options: [
-        o("LF185-blend", "blending Source 2’s “doubles harvests” with Source 1 and widening the claim to “every” garden",
-          "Both errors are present: an unsupported claim borrowed from the weak source, and an overgeneralization.", true),
-        o("LF185-gov", "relying on a government bulletin, which should never be used in student research because agencies have agendas",
-          "Agency bulletins are often strong sources; the problem is how the sources were combined."),
-        o("LF185-research-word", "using the word “research,” which a paper must always replace with the name of the study’s author or agency",
-          "Word choice is not the main problem; the claim itself goes beyond the evidence."),
-        o("LF185-common", "stating the water finding, which is common knowledge and needs no citation",
-          "A measured 38 percent figure is specific evidence that needs a citation, and it is not the main misuse.")
-      ],
-      explanation: "“Research proves… doubles harvests… every school garden” turns a limited trial into a universal claim and smuggles in a vendor’s figure. Synthesis must keep each source’s limits." },
+    item("LF285", "language", "Drip sources — the draft sentence", ["research"], ["research-citation"], "garden",
+      "Which detail in the student’s draft sentence misstates the trial?",
+      [o("LF285-seasons", "the number of seasons",
+          "The trial did run for two seasons."),
+       o("LF285-gardens", "the number of gardens",
+          "The trial did use six school gardens."),
+       o("LF285-water", "the size of the water savings",
+          "The bulletin does report 38 percent."),
+       o("LF285-yields", "the effect on tomato yields",
+          "Yields “did not differ by more than 5 percent”; the draft says they rose.", true)],
+      "A paraphrase has to be checked detail by detail. One wrong detail can sit among several right ones."),
 
-    { id: "LF186", domain: "language", title: "Drip sources — research question", difficulty: "hard", tags: ["research", "longform"], skillIds: ["research-citation"], passageSet: "garden", passage: P.garden,
-      stem: "Which research question would best guide a paper built from these sources?",
-      options: [
-        o("LF186-conditions", "When do drip lines save enough water in school gardens to justify their installation cost?",
-          "Focused, researchable, and matched to what Source 1 actually measured (water use, bed size, cost).", true),
-        o("LF186-broad", "How do school gardens affect students’ learning, health, and behavior across the United States?",
-          "Far too broad for these sources, which are about irrigation methods and water use."),
-        o("LF186-narrow", "How many gallons of water did the garden at one elementary school use on the first Monday of last May?",
-          "Too narrow to support a paper, and the sources do not report it."),
-        o("LF186-loaded", "Why do supply companies like FlowRight lie to schools about how much water drip irrigation really saves?",
-          "Loaded: it presumes a conclusion. Source 2 is promotional and unsupported, which is not proof of lying.")
-      ],
-      explanation: "A strong research question is open, bounded, and answerable with credible evidence. Reject questions that are too broad, too trivial, or that presume their answer." },
+    item("LF286", "language", "Drip sources — the citation", ["research"], ["research-citation"], "garden",
+      "A works-cited entry for Source 1 would have to leave out—",
+      [o("LF286-author", "the author’s name",
+          "Source 1 names its author, Dale Ferris. Source 2 is the one with no author listed."),
+       o("LF286-title", "the title of the post",
+          "The title is given: “Why Every School Garden Needs Drip.”"),
+       o("LF286-date", "the post’s date",
+          "Source 1 is marked “no date given.”", true),
+       o("LF286-site", "the name of the site",
+          "The site is named: the blog of FlowRight Supply.")],
+      "The two sources are missing different things. Read each source line before building its entry."),
 
-    { id: "LF187", domain: "language", title: "Drip sources — what needs a citation", difficulty: "hard", tags: ["research", "longform"], skillIds: ["research-citation"], passageSet: "garden", passage: P.garden,
-      stem: "Which detail in the student’s paper would most clearly require a citation?",
-      options: [
-        o("LF187-stat", "the 38 percent water reduction from the trial",
-          "A specific measured finding from one source must be attributed.", true),
-        o("LF187-plants", "the general fact that garden plants need regular water to grow",
-          "Common knowledge that any reader could confirm in many places needs no citation."),
-        o("LF187-gardens", "the widely known observation that many schools keep gardens",
-          "A general, widely known observation; it is not drawn from either source."),
-        o("LF187-opinion", "the student’s own opinion that school gardens deserve funding",
-          "The writer’s own claim needs support, but not a citation to someone else.")
-      ],
-      explanation: "Cite specific data, quotations, and ideas that come from a source. Common knowledge and your own claims do not need attribution, though your claims still need evidence." },
+    item("LF287", "language", "Drip sources — the missing data", ["research"], ["evidence-credibility"], "garden",
+      "What does Source 2 report about missing data?",
+      [o("LF287-2-3", "Two gardens lost three weeks of data.",
+          "“Two gardens lost three weeks of data when their meters were vandalized.”", true),
+       o("LF287-3-2", "Three gardens lost two weeks of data.",
+          "The numbers are reversed."),
+       o("LF287-2-drop", "Two gardens were dropped from the trial.",
+          "Two gardens lost some data; the bulletin does not say they were dropped."),
+       o("LF287-3-drop", "Three gardens were dropped from the trial.",
+          "No garden is reported as dropped, and the number affected was two.")],
+      "A source that reports its own gaps lets you judge how far to trust its figures."),
 
-    /* ---- poster: visual media, presentations, copyright, accessibility (0017) ---- */
-    { id: "LF188", domain: "oral", title: "E-book poster — misleading icons", difficulty: "hard", tags: ["media", "longform"], skillIds: ["media-analysis"], passageSet: "ebooks", passage: P.ebooks,
-      stem: "The two book icons are misleading mainly because—",
-      options: [
-        o("LF188-area", "doubling height and width makes the 2024 icon cover about four times the area, exaggerating a twofold rise",
-          "Scaling a picture in two dimensions squares the visual change. That is the classic pictograph distortion.", true),
-        o("LF188-false", "the numbers printed on the labels are false",
-          "Nothing suggests the labels are wrong; the distortion is in the drawing."),
-        o("LF188-never", "icons can never be used honestly in informational graphics, because any picture distorts the data it shows",
-          "Overclaim. Icons are fine when their size is proportional to the data."),
-        o("LF188-order", "the 2023 icon should have been placed on the right",
-          "Left-to-right order is not the problem; the area is.")
-      ],
-      explanation: "4,100 to 8,300 is about double, but an icon twice as tall and twice as wide looks four times as large. Proportional graphics scale one dimension, or use bars." },
+    /* ---- Visual media and presentations: a poster and a slide plan ---- */
+    item("LF288", "oral", "E-book poster — the icons", ["media"], ["media-analysis"], "ebooks",
+      "How does the growth of the icon compare with the growth in e-book checkouts?",
+      [o("LF288-same", "The icon grows by the same factor as checkouts.",
+          "Checkouts doubled, from 4,100 to 8,200; the icon tripled in height at the same width."),
+       o("LF288-3v2", "The icon’s area triples; checkouts double.",
+          "Same width and three times the height gives three times the area, against a doubling in checkouts.", true),
+       o("LF288-4v2", "The icon’s area is four times as large; checkouts double.",
+          "That would need double the height and double the width. Here only the height changes."),
+       o("LF288-2v3", "The icon’s area doubles; checkouts triple.",
+          "This reverses the two: checkouts doubled and the icon tripled.")],
+      "Work out what the picture does to area, then compare it with what the numbers do."),
 
-    { id: "LF189", domain: "oral", title: "E-book poster — honest revision", difficulty: "hard", tags: ["media", "longform"], skillIds: ["media-analysis"], passageSet: "ebooks", passage: P.ebooks,
-      stem: "Which revision would most improve the poster’s honesty?",
-      options: [
-        o("LF189-total", "give the print decline the same visual weight as the e-book gain so families can see total borrowing",
-          "Total borrowing rose only from 65,100 to 66,800 (about 3 percent), which is not an explosion. Giving both trends equal weight removes the cherry-picking.", true),
-        o("LF189-headline", "make the “E-BOOKS EXPLODE!” headline larger",
-          "Amplifies the hype instead of correcting it."),
-        o("LF189-cut-footnote", "remove the footnote about print checkouts so the poster’s message about e-books stays focused and clear",
-          "Hides the most relevant context; that makes the poster less honest."),
-        o("LF189-photo", "add a second photograph of teenagers with tablets",
-          "Decoration does not address the omitted data.")
-      ],
-      explanation: "The poster spotlights a gain of about 4,200 e-book checkouts while burying a print drop of 2,500 in 7-point type. Honest design shows the comparison readers need, at comparable visual weight." },
+    item("LF289", "oral", "E-book poster — the footnote", ["media"], ["media-analysis"], "ebooks",
+      "Counting print and e-books together, checkouts from 2023 to 2024—",
+      [o("LF289-fell5000", "fell by about 5,000",
+          "That is the drop in print alone."),
+       o("LF289-fell900", "fell by about 900",
+          "4,100 + 61,000 = 65,100; 8,200 + 56,000 = 64,200; the difference is a drop of 900.", true),
+       o("LF289-rose900", "rose by about 900",
+          "The size is right but the direction is not: the total went from 65,100 down to 64,200."),
+       o("LF289-rose4100", "rose by about 4,100",
+          "That is the rise in e-books alone.")],
+      "A headline figure and a footnote figure often need to be added before either means much."),
 
-    { id: "LF190", domain: "oral", title: "E-book poster — using the photograph", difficulty: "hard", tags: ["media", "longform"], skillIds: ["presentation-ethics"], passageSet: "ebooks", passage: P.ebooks,
-      stem: "The designer’s reasoning about the photograph is flawed because—",
-      options: [
-        o("LF190-license", "being publicly visible is not permission; the office needs a license or an openly licensed image",
-          "Copyright attaches automatically. Public visibility is not permission.", true),
-        o("LF190-teens", "photographs of identifiable teenagers can never appear on school materials, even with their families’ consent",
-          "Overclaim. Releases may be needed, but that is not the flaw in the designer’s reasoning."),
-        o("LF190-public-domain", "any image shared on a public website enters the public domain once posted, so it may be reused freely with credit",
-          "This is the misconception itself, not a correction of it."),
-        o("LF190-size", "fair use depends only on how large the image is printed",
-          "Fair use weighs purpose, nature, amount, and market effect, not just print size.")
-      ],
-      explanation: "Copyright protects an image from creation, whether or not it is online. Use licensed, permitted, or openly licensed images (for example, Creative Commons) and follow the license’s attribution terms." },
+    item("LF290", "oral", "E-book poster — the photograph", ["media"], ["presentation-ethics"], "ebooks",
+      "What does the office still need before it uses the photograph?",
+      [o("LF290-license", "a license from the photographer",
+          "A staff member took it, and the district owns the picture."),
+       o("LF290-site", "permission from the website where it was found",
+          "The photograph did not come from a website."),
+       o("LF290-release", "releases from the families of the students shown",
+          "The office “has no signed release from the families of the students shown.”", true),
+       o("LF290-credit", "a credit line naming a stock-photo agency",
+          "No agency is involved; the district’s own staff took the picture.")],
+      "Owning a picture and having permission to show the people in it are separate questions."),
 
-    { id: "LF191", domain: "oral", title: "E-book slides — audience fit", difficulty: "hard", tags: ["media", "longform"], skillIds: ["presentation-ethics", "speech-craft"], passageSet: "ebooks", passage: P.ebooks,
-      stem: "Which change would best fit Slide 4 to a family-night audience?",
-      options: [
-        o("LF191-summarize", "show a few key points and link the full policy",
-          "Slides support the speaker; dense documents belong in a handout or link.", true),
-        o("LF191-shrink", "shrink the font so all 312 words fit on the slide more comfortably",
-          "Makes a wall of text even harder to read."),
-        o("LF191-animate", "animate each sentence so it appears one at a time while the presenter reads",
-          "Still a read-aloud document, now with added distraction."),
-        o("LF191-faster", "read the policy aloud faster so that there is time left for questions",
-          "Speed does not fix a slide that duplicates a document.")
-      ],
-      explanation: "Effective presentation slides carry a few key points the audience can take in at a glance. Reading a full document from a slide divides attention and loses listeners." },
+    item("LF291", "oral", "E-book slides — reading aloud", ["media"], ["presentation-ethics", "speech-craft"], "ebooks",
+      "Which slide does the plan say the presenter will read aloud word for word?",
+      [o("LF291-3", "Slide 3",
+          "Slide 3 lists three steps; the plan does not say it is read aloud."),
+       o("LF291-4", "Slide 4",
+          "Slide 4 shows the full policy, but the presenter sums it up in two sentences."),
+       o("LF291-5", "Slide 5",
+          "Slide 5 is a table of figures."),
+       o("LF291-6", "Slide 6",
+          "“Slide 6 is a 40-word thank-you that the presenter will read aloud word for word.”", true)],
+      "Check what the plan says the presenter does with each slide, not what such slides usually invite."),
 
-    { id: "LF192", domain: "oral", title: "E-book slides — captions", difficulty: "hard", tags: ["media", "longform"], skillIds: ["presentation-ethics"], passageSet: "ebooks", passage: P.ebooks,
-      stem: "The presenter’s plan for captions is weakest because—",
-      options: [
-        o("LF192-default", "captions should be built in from the start; some viewers who need them will never ask",
-          "Accessibility is planned in advance, not granted on request.", true),
-        o("LF192-live", "captions matter only for live events, so a recording can go without them unless someone complains",
-          "False. Recorded video is exactly where captions are expected."),
-        o("LF192-distract", "captions distract hearing viewers, so they are best avoided",
-          "Captions help many viewers (noise, language learners) and are an accessibility baseline."),
-        o("LF192-only", "the 10-point table on Slide 5 is the only accessibility problem in the presenter’s plan, so captions can wait",
-          "The small-type table is also a problem, but “only” makes this false.")
-      ],
-      explanation: "Inclusive presentation design builds in captions, readable type, and alternatives from the start. The plan has two accessibility problems: request-only captions and a 10-point table." },
+    item("LF292", "oral", "E-book slides — on request", ["media"], ["presentation-ethics"], "ebooks",
+      "According to the plan, which of these is provided only if a family asks for it?",
+      [o("LF292-captions", "captions on the recorded version of the talk",
+          "The recording “will be captioned only if a family asks for captions by the Friday after.”", true),
+       o("LF292-interpreter", "a sign-language interpreter at the live event",
+          "The plan says an interpreter will attend, with no condition attached."),
+       o("LF292-print", "large-print copies of the lending policy at the door",
+          "Large-print copies will be available at the door."),
+       o("LF292-slides", "a printed copy of the slides",
+          "The plan does not mention printed slides at all.")],
+      "An accommodation that depends on a request reaches only the people who know to ask."),
 
-    /* ---- water: expository writing (0013) ---- */
-    { id: "LF193", domain: "writing", title: "Water draft — expository thesis", difficulty: "hard", tags: ["revision", "longform"], skillIds: ["expository-writing", "thesis-support"], passageSet: "treatment", passage: P.treatment,
-      stem: "Which sentence would best replace sentence 2 as the draft’s thesis?",
-      options: [
-        o("LF193-stages", "Before it reaches the tap, river water passes through three main stages—coagulation and settling, filtration, and disinfection—each removing a different kind of contaminant.",
-          "Explains rather than argues, previews the organization, and is specific.", true),
-        o("LF193-argue", "Water treatment is the most important service a city provides, and anyone who disagrees is wrong.",
-          "Argumentative and dismissive; the assignment is expository."),
-        o("LF193-personal", "I have always been interested in where water comes from.",
-          "Personal background, not a controlling idea."),
-        o("LF193-vague", "Water treatment has many steps.",
-          "True but too vague to organize the essay.")
-      ],
-      explanation: "An expository thesis states what will be explained and how it is organized. It informs; it does not take sides." },
+    /* ---- Expository writing: a process draft with numbered sentences ---- */
+    item("LF293", "writing", "Book draft — off-purpose sentence", ["revision"], ["expository-writing", "writing-process"], "bookpath",
+      "Which sentence departs from the draft’s purpose of explaining a process?",
+      [o("LF293-2", "Sentence 2",
+          "Sentence 2 sets up the explanation by saying the order matters."),
+       o("LF293-5", "Sentence 5",
+          "Sentence 5 gives the writer’s opinion of the old card catalog; it is not a step.", true),
+       o("LF293-6", "Sentence 6",
+          "Sentence 6 explains why the label waits for the cover."),
+       o("LF293-9", "Sentence 9",
+          "Sentence 9 gives the last step.")],
+      "In an explanation, a sentence earns its place by telling the reader what happens or why."),
 
-    { id: "LF194", domain: "writing", title: "Water draft — off-purpose sentence", difficulty: "hard", tags: ["revision", "longform"], skillIds: ["expository-writing", "writing-process"], passageSet: "treatment", passage: P.treatment,
-      stem: "Which sentence most clearly departs from the draft’s expository purpose?",
-      options: [
-        o("LF194-s7", "Sentence 7, which argues that the plant deserves more money than the stadium",
-          "A persuasive aside about budget priorities breaks the explanation of the process.", true),
-        o("LF194-s1", "Sentence 1, which contrasts untreated canal water with the water that comes from the tap",
-          "A legitimate hook that sets up why treatment matters."),
-        o("LF194-s3", "Sentence 3, which defines floc as the larger clumps that form after a coagulant is added",
-          "Defining a technical term is exactly what exposition should do."),
-        o("LF194-s8", "Sentence 8, which describes the measured dose of chlorine used for disinfection",
-          "Explains the final stage; it belongs.")
-      ],
-      explanation: "In revision, cut or move sentences that switch modes. Sentence 7 argues for a budget priority in the middle of a process explanation." },
+    item("LF294", "writing", "Book draft — repeated step", ["revision"], ["expository-writing", "writing-process"], "bookpath",
+      "Which sentence repeats a step the draft has already explained?",
+      [o("LF294-4", "Sentence 4",
+          "Sentence 4 is the first mention of the catalog."),
+       o("LF294-6", "Sentence 6",
+          "Sentence 6 adds new information about the cover and label."),
+       o("LF294-7", "Sentence 7",
+          "Sentence 7 introduces the security strip."),
+       o("LF294-8", "Sentence 8",
+          "Sentence 8 says the book is entered in the catalog, which sentence 4 already covered.", true)],
+      "Trace each step to its first mention. A second mention out of order confuses the sequence."),
 
-    { id: "LF195", domain: "writing", title: "Water draft — transition", difficulty: "hard", tags: ["revision", "longform"], skillIds: ["expository-writing", "sentence-craft"], passageSet: "treatment", passage: P.treatment,
-      stem: "Which revision of sentence 5 best links it to sentence 4?",
-      options: [
-        o("LF195-once", "Once the floc has settled, the clearer water moves on to filtration.",
-          "Signals sequence and carries the result of settling into the next stage.", true),
-        o("LF195-however", "However, filtration comes next, even though the floc has already sunk to the bottom.",
-          "“However” signals contrast, but nothing is being contrasted."),
-        o("LF195-therefore", "Therefore, filtration is a better way to clean the water than settling is.",
-          "Adds an unsupported comparison and misuses a cause-effect transition."),
-        o("LF195-conclusion", "In conclusion, filtration comes next.",
-          "A concluding transition in the middle of the process misleads the reader.")
-      ],
-      explanation: "Choose transitions by the logical relation. Here the relation is sequence (then, once, after), not contrast or conclusion." },
+    item("LF295", "writing", "Book draft — the label", ["revision"], ["expository-writing"], "bookpath",
+      "According to the draft, when is the spine label attached?",
+      [o("LF295-before-cover", "before the plastic cover goes on",
+          "Sentence 6 says the cover goes on first."),
+       o("LF295-after-cover", "after the plastic cover goes on",
+          "The label “is stuck to the outside of the cover,” so the cover comes first.", true),
+       o("LF295-after-strip", "after the security strip is hidden",
+          "Sentence 7 puts the strip after the cover and label."),
+       o("LF295-before-catalog", "before the book is entered in the catalog",
+          "The label is printed when the book is cataloged and attached later.")],
+      "When a process departs from the order you would expect, the writer’s explanation is the evidence."),
 
-    { id: "LF196", domain: "writing", title: "Water draft — developing a concern", difficulty: "hard", tags: ["revision", "longform"], skillIds: ["expository-writing"], passageSet: "treatment", passage: P.treatment,
-      stem: "Sentence 9 would best be developed by—",
-      options: [
-        o("LF196-explain", "explaining that the chlorine dose is measured and kept within drinking-water limits, and citing the source",
-          "Answers a reader’s likely concern with checkable information and stays expository.", true),
-        o("LF196-delete-stage", "deleting every mention of chlorine so that readers who worry about chemicals are not distracted from the process",
-          "Removes a key stage of the process the essay must explain."),
-        o("LF196-dismiss", "calling people who worry about chlorine uninformed",
-          "Dismissive and argumentative; it explains nothing."),
-        o("LF196-pool", "adding a story about a summer the writer spent swimming in a chlorinated pool",
-          "An off-topic anecdote; pools are not drinking water.")
-      ],
-      explanation: "An undeveloped sentence that raises a concern should be followed by the explanation and evidence a reader needs. Here, how the dose is controlled." },
+    item("LF296", "writing", "Book draft — placing a sentence", ["revision"], ["expository-writing", "sentence-craft"], "bookpath",
+      "The writer wants to add this sentence: “The strip sets off the door alarm if a book leaves without being checked out.” It fits best right after—",
+      [o("LF296-4", "sentence 4",
+          "Sentence 4 is about the catalog and the label."),
+       o("LF296-6", "sentence 6",
+          "Sentence 6 is about the cover; the strip has not been mentioned yet."),
+       o("LF296-7", "sentence 7",
+          "Sentence 7 introduces the security strip, so the detail about it follows there.", true),
+       o("LF296-9", "sentence 9",
+          "Sentence 9 is about the New Arrivals cart.")],
+      "A supporting detail belongs directly after the sentence that introduces what it supports."),
 
-    { id: "LF197", domain: "writing", title: "Water draft — conclusion", difficulty: "hard", tags: ["revision", "longform"], skillIds: ["expository-writing", "essay-structure"], passageSet: "treatment", passage: P.treatment,
-      stem: "Which sentence would best replace sentence 10?",
-      options: [
-        o("LF197-synthesize", "Each stage removes a different problem, so safe tap water depends on all three in order.",
-          "Synthesizes the process and states why the sequence matters.", true),
-        o("LF197-restate", "In conclusion, water treatment is a process that has several steps, as this essay has explained.",
-          "Restates vaguely and adds nothing."),
-        o("LF197-stadium", "In conclusion, since the plant is so important, the city should cancel the new stadium and fund water treatment instead.",
-          "Introduces a new argument at the end."),
-        o("LF197-sewage", "Next, I will explain how the city treats sewage, which is another process that affects daily life.",
-          "Opens a new topic instead of concluding.")
-      ],
-      explanation: "An expository conclusion pulls the parts together and shows their significance. It does not merely restate, argue something new, or start a new topic." },
+    item("LF297", "writing", "Book draft — giving a reason", ["revision"], ["expository-writing"], "bookpath",
+      "Which sentence explains why two steps happen in the order they do?",
+      [o("LF297-3", "Sentence 3",
+          "Sentence 3 states a step without a reason."),
+       o("LF297-4", "Sentence 4",
+          "Sentence 4 states a step without a reason."),
+       o("LF297-6", "Sentence 6",
+          "Sentence 6 says the label waits “because the plastic cover goes on first.”", true),
+       o("LF297-7", "Sentence 7",
+          "Sentence 7 gives the order of the strip but no reason for it.")],
+      "Sentence 2 promises that the order matters. Look for where the draft makes good on that."),
 
-    /* ---- wallpaper: literature in context (0008), narration (0005), analytical writing (0015), periods (0007) ---- */
-    { id: "LF198", domain: "literature", title: "Gilman — social context", difficulty: "hard", tags: ["context", "longform"], skillIds: ["literature-context"], passageSet: "wallpaper", passage: P.wallpaper,
-      stem: "Knowing that the period’s “rest cure” often forbade intellectual work, especially for women diagnosed with nervous illness, most strengthens which reading of the excerpt?",
-      options: [
-        o("LF198-silenced", "The forbidden “work” and the secret writing on “dead paper” show medical authority silencing a woman’s mind.",
-          "Context illuminates the details the text stresses: the forbidden work, the secret writing, the two physicians.", true),
-        o("LF198-villain", "John is a cruel villain who knowingly harms his wife.",
-          "Overclaim. The text shows John’s certainty and dismissal, not deliberate cruelty."),
-        o("LF198-ghost", "The story is mainly a ghost story about a haunted colonial mansion.",
-          "Elsewhere the narrator jokes about a haunted house; the excerpt’s pressure is medical and marital."),
-        o("LF198-proved", "Two physicians, the narrator’s husband and her brother, have proved that the narrator’s illness is only imaginary.",
-          "Takes the doctors’ authority at face value; the excerpt invites the reader to question it.")
-      ],
-      explanation: "Use historical context to sharpen what the text already emphasizes, not to replace the text with outside claims. Here, prescribed idleness and male medical authority." },
+    /* ---- Literature in context: Gilman, with a student paragraph ---- */
+    item("LF298", "literature", "Gilman — one reason", ["context"], ["narrative-elements"], "wallpaper",
+      "What does the narrator suggest may be one reason she does not get well faster?",
+      [o("LF298-physician", "Her husband is a physician.",
+          "“John is a physician, and perhaps … that is one reason I do not get well faster.”", true),
+       o("LF298-brother", "Her brother disagrees with her husband.",
+          "Her brother “says the same thing” as John."),
+       o("LF298-tonics", "She has stopped taking her tonics.",
+          "She says she takes phosphates and tonics."),
+       o("LF298-work", "She has been made to work too hard.",
+          "She is “absolutely forbidden” to work.")],
+      "The narrator’s suggestion is the surprising one. Take it from her sentence, not from what would be usual."),
 
-    { id: "LF199", domain: "literature", title: "Gilman — the parenthesis", difficulty: "hard", tags: ["context", "longform"], skillIds: ["narrative-elements"], passageSet: "wallpaper", passage: P.wallpaper,
-      stem: "The parenthetical aside “(I would not say it to a living soul, of course, but this is dead paper and a great relief to my mind)” chiefly reveals that the narrator—",
-      options: [
-        o("LF199-private", "can voice doubts about her husband’s treatment only in private writing",
-          "She confides to paper what she cannot say aloud, which is the core of the story’s irony.", true),
-        o("LF199-destroy", "distrusts her own writing and plans to destroy it",
-          "Nothing suggests she will destroy it; she calls writing “a great relief.”"),
-        o("LF199-addressing-john", "is speaking these words directly to John",
-          "She explicitly would not say this to a living soul."),
-        o("LF199-recovered", "has fully recovered and is looking back on her illness",
-          "“I do not get well faster” places the illness in the present.")
-      ],
-      explanation: "First-person asides reveal the gap between what a narrator thinks and what she may say. Here, writing is her only outlet." },
+    item("LF299", "literature", "Gilman — a second opinion", ["context"], ["narrative-elements"], "wallpaper",
+      "Besides John, who does the narrator say gives the same opinion of her condition?",
+      [o("LF299-brother", "her brother",
+          "“My brother is also a physician, and also of high standing, and he says the same thing.”", true),
+       o("LF299-sister", "her sister",
+          "No sister appears in the excerpt."),
+       o("LF299-mother", "her mother",
+          "No mother appears in the excerpt."),
+       o("LF299-friend", "a family friend",
+          "Friends and relatives are told John’s opinion; they do not give one.")],
+      "Name the person from the text. The excerpt mentions several people and gives an opinion to only two."),
 
-    { id: "LF200", domain: "writing", title: "Gilman — analytical claim", difficulty: "hard", tags: ["analytical", "longform"], skillIds: ["analytical-writing", "thesis-support"], passageSet: "wallpaper", passage: P.wallpaper,
-      stem: "Which sentence would best replace the student’s first sentence as the paragraph’s claim?",
-      options: [
-        o("LF200-claim", "Gilman uses the narrator’s polite, self-correcting sentences to show how much authority the men hold over her.",
-          "Arguable, specific, and tied to features of the text (style and the two physicians).", true),
-        o("LF200-fact", "“The Yellow Wallpaper,” written by Charlotte Perkins Gilman in 1892, is a story about a woman, her physician husband, and a rented house.",
-          "A fact, not an interpretation a paragraph can develop."),
-        o("LF200-label", "The narrator is crazy from the start, and readers should not trust anything a person like her says about her husband.",
-          "A reductive label rather than a text-based interpretation."),
-        o("LF200-vague", "This story is very interesting and has many themes.",
-          "Too vague to guide evidence or analysis.")
-      ],
-      explanation: "An analytical claim makes an arguable interpretation of how the text works, precise enough that the evidence can prove it." },
+    item("LF300", "literature", "Gilman — the list", ["context"], ["narrative-elements", "literature-context"], "wallpaper",
+      "In her list of treatments, which one is the narrator unsure how to name?",
+      [o("LF300-phosphates", "the phosphates",
+          "“Phosphates or phosphites—whichever it is.” She does not care, or is not told, which.", true),
+       o("LF300-tonics", "the tonics",
+          "She names the tonics without hesitation."),
+       o("LF300-journeys", "the journeys",
+          "She names the journeys without hesitation."),
+       o("LF300-exercise", "the exercise",
+          "She names the exercise without hesitation.")],
+      "A small hesitation in a list can show how little a patient has been told about her own treatment."),
 
-    { id: "LF201", domain: "writing", title: "Gilman — integrating evidence", difficulty: "hard", tags: ["analytical", "longform"], skillIds: ["analytical-writing"], passageSet: "wallpaper", passage: P.wallpaper,
-      stem: "Which sentence best integrates and analyzes the quotation the student uses?",
-      options: [
-        o("LF201-embedded", "Her shrug that “one expects that in marriage” normalizes being dismissed by the man treating her.",
-          "Embeds the quotation in the writer’s sentence and explains what it shows.", true),
-        o("LF201-dropped", "“John laughs at me, of course, but one expects that in marriage.” This quote is about marriage and shows what the narrator says about it.",
-          "A dropped quotation followed by summary, not analysis."),
-        o("LF201-misread", "John laughs at the narrator, which shows that their marriage is funny and that the two of them enjoy joking with each other.",
-          "Misreads the tone. The laughter dismisses her; it is not shared humor."),
-        o("LF201-bare-cite", "Marriage is mentioned in the story when the narrator talks about John, as readers can see in the quotation above (Gilman).",
-          "A citation without a quotation or any analysis.")
-      ],
-      explanation: "Integrate evidence by blending the quotation into your own sentence and immediately explaining its significance for your claim." },
+    item("LF301", "writing", "Gilman — the student’s facts", ["analytical"], ["analytical-writing"], "wallpaper",
+      "Which sentence of the student’s paragraph gets a fact from the excerpt wrong?",
+      [o("LF301-2", "Sentence 2",
+          "The narrator says her brother is a physician, not a lawyer.", true),
+       o("LF301-3", "Sentence 3",
+          "The excerpt does say John is a physician."),
+       o("LF301-4", "Sentence 4",
+          "The quotation matches the excerpt word for word."),
+       o("LF301-5", "Sentence 5",
+          "Sentence 5 is a weak interpretation, not a statement of fact.")],
+      "Check an analytical paragraph’s facts against the text before judging its ideas."),
 
-    { id: "LF202", domain: "literature", title: "Gilman — period and movement", difficulty: "hard", tags: ["periods", "longform"], skillIds: ["literary-periods"], passageSet: "wallpaper", passage: P.wallpaper,
-      stem: "Placed in literary history, the excerpt is most accurately described as—",
-      options: [
-        o("LF202-gothic-realist", "1890s American fiction that uses Gothic touches in a domestic setting to critique gender roles",
-          "Matches the 1892 date, the domestic realism, the haunted-house play, and the critique of medical and marital authority.", true),
-        o("LF202-romantic", "an early nineteenth-century Romantic celebration of nature’s power to heal a troubled and overworked mind",
-          "Wrong period, and the prescribed “air” is part of what the story questions."),
-        o("LF202-modernist", "a 1920s Modernist novel built on fragmented stream of consciousness and an unreliable first-person narrator",
-          "Wrong decade and form. This is an 1892 short story in diary-like first person."),
-        o("LF202-puritan", "a seventeenth-century Puritan spiritual autobiography",
-          "Wrong century and purpose.")
-      ],
-      explanation: "Locate texts by date, form, and concerns. Gilman’s 1892 story blends realism and Gothic convention in an early feminist critique." },
+    item("LF302", "literature", "Gilman — what is forbidden", ["context"], ["literature-context"], "wallpaper",
+      "What does the narrator say she is absolutely forbidden to do until she is well?",
+      [o("LF302-work", "to work",
+          "She is “absolutely forbidden to ‘work’ until I am well again.”", true),
+       o("LF302-travel", "to travel",
+          "Journeys are among the things prescribed for her."),
+       o("LF302-exercise", "to exercise",
+          "Exercise is among the things prescribed for her."),
+       o("LF302-read", "to read",
+          "The excerpt does not mention reading.")],
+      "Separate what the narrator is given from what she is denied. The list holds both."),
 
-    /* ---- rubaiyat: world literature, translation, poetry (0007, 0006, 0001) ---- */
-    { id: "LF203", domain: "literature", title: "Rubáiyát — stanza form", difficulty: "hard", tags: ["world-lit", "longform"], skillIds: ["poetry-forms"], passageSet: "rubaiyat", passage: P.rubaiyat,
-      stem: "The rhyme scheme of the stanza is—",
-      options: [
-        o("LF203-aaba", "AABA: lines 1, 2, and 4 rhyme (writ, Wit, it)",
-          "“Line” is the unrhymed third line, the signature of the Rubáiyát quatrain.", true),
-        o("LF203-abab", "ABAB: alternating rhyme, with the first and third lines rhyming",
-          "The first and second lines rhyme with each other, so this is not alternating rhyme."),
-        o("LF203-aabb", "AABB: two rhymed couplets, the second pairing “Line” with “it”",
-          "The last two lines (Line, it) do not rhyme."),
-        o("LF203-blank", "unrhymed blank verse",
-          "Three of the four lines rhyme.")
-      ],
-      explanation: "Mark end words: writ, Wit, Line, it. Three share a rhyme and the third line stands apart, giving AABA." },
+    /* ---- World literature and poetry: FitzGerald's Rubáiyát ---- */
+    item("LF303", "literature", "Rubáiyát — three things", ["world-lit"], ["world-literature"], "rubaiyat",
+      "Which three things does the stanza say cannot undo what has been written?",
+      [o("LF303-pwt", "Piety, Wit, and Tears",
+          "“Nor all thy Piety nor Wit … Nor all thy Tears.”", true),
+       o("LF303-pwealtht", "Piety, Wealth, and Tears",
+          "Wealth is not named in the stanza."),
+       o("LF303-prayer", "Prayer, Wit, and Time",
+          "Neither prayer nor time is named."),
+       o("LF303-wtt", "Wit, Tears, and Time",
+          "Time is not named, and Piety is left out.")],
+      "List what the stanza names before deciding what it means."),
 
-    { id: "LF204", domain: "literature", title: "Rubáiyát — translation as adaptation", difficulty: "hard", tags: ["world-lit", "longform"], skillIds: ["world-literature"], passageSet: "rubaiyat", passage: P.rubaiyat,
-      stem: "A teacher pairs this stanza with a literal scholarly translation of a Persian quatrain. The pairing most likely teaches students that—",
-      options: [
-        o("LF204-reshape", "an English version can reshape its source, reflecting the translator’s era as well as the original",
-          "The passage says FitzGerald rearranged, combined, and invented material.", true),
-        o("LF204-original", "FitzGerald’s English stanza is the original text",
-          "The passage identifies Persian quatrains as the source."),
-        o("LF204-literal-better", "literal translations always make better poems, because they keep every image of the original intact",
-          "Overclaim. The comparison is about what translation changes, not a ranking."),
-        o("LF204-victorian-origin", "the quatrains were first composed in Victorian England",
-          "Confuses the 1859 adaptation with the twelfth-century source.")
-      ],
-      explanation: "World literature in English often reaches readers through translation. Comparing versions shows how translators’ choices shape meaning." },
+    item("LF304", "literature", "Rubáiyát — how much", ["world-lit"], ["figurative-language"], "rubaiyat",
+      "How much does the stanza say the Finger cannot be lured back to cancel?",
+      [o("LF304-word", "a single Word",
+          "A Word is what tears cannot wash out; the amount that cannot be cancelled is half a Line."),
+       o("LF304-half", "half a Line",
+          "“Shall lure it back to cancel half a Line.”", true),
+       o("LF304-line", "a whole Line",
+          "The stanza says not even half a line."),
+       o("LF304-page", "a whole Page",
+          "Pages are not mentioned.")],
+      "The stanza measures twice, with two verbs. Match the amount to the verb in the question."),
 
-    { id: "LF205", domain: "literature", title: "Rubáiyát — the Moving Finger", difficulty: "hard", tags: ["world-lit", "longform"], skillIds: ["figurative-language"], passageSet: "rubaiyat", passage: P.rubaiyat,
-      stem: "“The Moving Finger writes” is best described as—",
-      options: [
-        o("LF205-personify", "personification of time or fate as a hand recording what cannot be revised",
-          "The finger writes, moves on, and cannot be lured back: an abstract force given a human action.", true),
-        o("LF205-onomatopoeia", "onomatopoeia that imitates the sound of a pen",
-          "No word imitates a sound."),
-        o("LF205-literal", "a literal description of a scribe at work",
-          "Piety, wit, and tears cannot literally recall a scribe’s pen; the image is figurative."),
-        o("LF205-hyperbole", "a hyperbole exaggerating how quickly a writer’s hand moves across the page",
-          "Speed of writing is not the point; irreversibility is.")
-      ],
-      explanation: "Ask what abstract idea a concrete image stands for. Here, a writing hand that cannot erase stands for the irreversibility of what has happened." },
+    item("LF305", "literature", "Rubáiyát — what FitzGerald did", ["world-lit"], ["world-literature"], "rubaiyat",
+      "According to the introduction, what did FitzGerald do with the Persian quatrains?",
+      [o("LF305-literal", "He translated them line by line in their original order.",
+          "The introduction says his version is “not a line-by-line translation.”"),
+       o("LF305-free", "He rearranged and combined them and sometimes invented material.",
+          "“FitzGerald rearranged, combined, and sometimes invented material.”", true),
+       o("LF305-select", "He chose a few and left their wording as close as he could.",
+          "The introduction describes free adaptation, not close selection."),
+       o("LF305-prose", "He turned them into a single prose meditation.",
+          "They read as one meditation but remain quatrains, as the stanza shows.")],
+      "An English version of a foreign poem is partly the translator’s work. The introduction says how much."),
 
-    { id: "LF206", domain: "literature", title: "Rubáiyát — word meaning", difficulty: "hard", tags: ["world-lit", "longform"], skillIds: ["vocab-strategies"], passageSet: "rubaiyat", passage: P.rubaiyat,
-      stem: "In line 2, “Wit” most nearly means—",
-      options: [
-        o("LF206-intelligence", "intelligence",
-          "Paired with Piety as a human resource that cannot undo the past: the older sense of wit as mind.", true),
-        o("LF206-joking", "a talent for humor and joking",
-          "The modern narrow sense; it does not fit beside Piety and Tears."),
-        o("LF206-witness", "a witness",
-          "Confuses wit with a different word."),
-        o("LF206-wealth", "wealth or worldly possessions",
-          "Not a meaning of wit.")
-      ],
-      explanation: "Use context and period usage. Piety, Wit, and Tears name faith, intellect, and grief, and none of them can cancel a line." },
+    item("LF306", "literature", "Rubáiyát — after it writes", ["world-lit"], ["figurative-language"], "rubaiyat",
+      "In the stanza, what does the Moving Finger do once it has written?",
+      [o("LF306-moves", "It moves on.",
+          "“And, having writ, / Moves on.”", true),
+       o("LF306-waits", "It waits for an answer.",
+          "Nothing in the stanza pauses."),
+       o("LF306-returns", "It returns to correct a line.",
+          "The stanza says it cannot be lured back."),
+       o("LF306-erases", "It washes out a word.",
+          "Washing out is what tears fail to do.")],
+      "Follow the Finger’s own verbs: writes, moves on."),
 
-    { id: "LF207", domain: "literature", title: "Rubáiyát — central idea", difficulty: "hard", tags: ["world-lit", "longform"], skillIds: ["world-literature"], passageSet: "rubaiyat", passage: P.rubaiyat,
-      stem: "Which statement best expresses the stanza’s central idea?",
-      options: [
-        o("LF207-irreversible", "What is done cannot be undone by any means.",
-          "Covers all three failed remedies and the image of writing that cannot be cancelled.", true),
-        o("LF207-prayer", "Sincere prayer and piety can erase the mistakes of the past.",
-          "Contradicts “nor all thy Piety.”"),
-        o("LF207-writing-skill", "Writing is a difficult skill that requires steady practice and careful revision.",
-          "Reads the figurative image literally."),
-        o("LF207-tears-weak", "Tears are a sign of weakness that the wise learn to hide.",
-          "The stanza says tears cannot erase the past, not that they are weak.")
-      ],
-      explanation: "A central idea accounts for the whole stanza. Here, each human resource fails against the irreversibility of the past." },
+    item("LF307", "literature", "Rubáiyát — who is addressed", ["world-lit"], ["poetry-forms"], "rubaiyat",
+      "Whose piety, wit, and tears does the stanza speak of?",
+      [o("LF307-finger", "the Moving Finger’s",
+          "The Finger is what cannot be moved; the piety is someone else’s."),
+       o("LF307-poet", "the speaker’s own",
+          "The stanza says “thy,” not “my.”"),
+       o("LF307-reader", "the listener’s",
+          "“All thy Piety,” “all thy Tears”: the stanza speaks to a listener, addressed as “thy.”", true),
+       o("LF307-khayyam", "Omar Khayyám’s",
+          "The poet is named in the introduction, not addressed in the stanza.")],
+      "A pronoun tells you who is being spoken to. Find it before reading the lines as a general statement."),
 
-    /* ---- words: vocabulary and etymology (0001) ---- */
-    { id: "LF208", domain: "reading", title: "Word histories — inferring a root", difficulty: "hard", tags: ["vocabulary", "longform"], skillIds: ["word-origins"], passageSet: "words", passage: P.words,
-      stem: "Based on the passage, the word asterisk most likely comes from a root meaning—",
-      options: [
-        o("LF208-star", "star",
-          "The passage glosses astro as “star”; an asterisk is a little star-shaped mark.", true),
-        o("LF208-mouse", "mouse",
-          "That is the root of muscle, not asterisk."),
-        o("LF208-forty", "forty",
-          "That is the root of quarantine."),
-        o("LF208-mass", "mass",
-          "That is the root of molecule.")
-      ],
-      explanation: "Transfer a known root to a new word: astro/aster (star) appears in disaster, asterisk, and astronomy." },
+    /* ---- Vocabulary and word history: invented mill slang, so no outside knowledge applies ---- */
+    item("LF308", "reading", "Mill words — first meaning", ["vocabulary"], ["word-origins"], "words",
+      "According to the passage, what did tam first name?",
+      [o("LF308-bell", "a hand bell",
+          "“The word first meant the bell itself.”", true),
+       o("LF308-boss", "a floor boss",
+          "The word comes from a floor boss’s name, but it did not name her."),
+       o("LF308-break", "a ten-minute break",
+          "That is the second meaning, from the 1890s."),
+       o("LF308-wait", "any short wait",
+          "That is the meaning in Harrow Creek today.")],
+      "The passage gives three meanings in order. The question asks for the first."),
 
-    { id: "LF209", domain: "reading", title: "Word histories — diminutive ending", difficulty: "hard", tags: ["vocabulary", "longform"], skillIds: ["word-origins", "vocab-strategies"], passageSet: "words", passage: P.words,
-      stem: "According to the passage, the Latin ending in musculus, whose sense survives in molecule, signals—",
-      options: [
-        o("LF209-small", "smallness",
-          "The passage calls it a diminutive: little mouse, little mass.", true),
-        o("LF209-plural", "more than one",
-          "A plural ending is not what the passage describes."),
-        o("LF209-agent", "a person who performs an action",
-          "That is the job of endings such as -er and -or, not a diminutive."),
-        o("LF209-opposite", "a negative or opposite meaning",
-          "That is the job of a prefix like dis-.")
-      ],
-      explanation: "Affixes carry meaning. A diminutive marks something small, as in musculus, molecule, and booklet." },
+    item("LF309", "reading", "Mill words — an ending", ["vocabulary"], ["vocab-strategies", "word-origins"], "words",
+      "Going by the passage’s account of the ending -kin, a loomkin would most likely be—",
+      [o("LF309-small", "a small loom",
+          "The passage says -kin marked something spoiled, “not something small.”"),
+       o("LF309-spoiled", "a ruined loom",
+          "A boltkin was a ruined bolt and a daykin a lost shift, so -kin marks the thing as spoiled.", true),
+       o("LF309-learner", "a loom for learners",
+          "Learners are tied to the word grey, not to -kin."),
+       o("LF309-prized", "a prized loom",
+          "Both -kin words in the passage name something ruined or lost, not something valued.")],
+      "Apply the meaning the passage gives the ending, even where it differs from the ending’s usual sense in English."),
 
-    { id: "LF210", domain: "reading", title: "Word histories — etymological fallacy", difficulty: "hard", tags: ["vocabulary", "longform"], skillIds: ["word-origins"], passageSet: "words", passage: P.words,
-      stem: "Which statement commits the error the final paragraph describes?",
-      options: [
-        o("LF210-fallacy", "A two-hour quarantine is not a real quarantine, because quarantine means forty days.",
-          "Treats the word’s origin as its current definition: the etymological fallacy.", true),
-        o("LF210-origin", "Quarantine comes from the Italian phrase for “forty days,” the wait once required of ships.",
-          "An accurate statement about origin, with no claim about present meaning."),
-        o("LF210-mouse", "A flexing muscle was once compared to a moving mouse.",
-          "Reports history accurately."),
-        o("LF210-date", "Disaster entered English in the late 1500s.",
-          "A dated fact about the word’s arrival, not a claim about its meaning.")
-      ],
-      explanation: "Origins can explain a word but do not limit its present meaning. Current usage defines words." },
+    item("LF310", "reading", "Mill words — greyer", ["vocabulary"], ["vocab-context", "word-origins"], "words",
+      "In mill talk, a greyer was—",
+      [o("LF310-teacher", "an old hand who trained new workers",
+          "“A greyer was a teacher”: an old hand who trained new hands on grey wool.", true),
+       o("LF310-beginner", "a new worker still learning the looms",
+          "New hands were the ones being greyed, not the greyers."),
+       o("LF310-dyer", "a worker who dyed the grey wool for the looms",
+          "The wool was grey because it was undyed; no dyer is mentioned."),
+       o("LF310-sorter", "a worker who sorted the undyed wool by grade",
+          "Sorting is not mentioned in the passage.")],
+      "The passage builds the noun from a verb it has just defined. Follow that step."),
 
-    { id: "LF211", domain: "reading", title: "Word histories — meaning in context", difficulty: "hard", tags: ["vocabulary", "longform"], skillIds: ["vocab-strategies"], passageSet: "words", passage: P.words,
-      stem: "In the first paragraph, “alignment” most nearly means—",
-      options: [
-        o("LF211-position", "arrangement or relative position",
-          "“A bad alignment of the stars” refers to how the stars were positioned.", true),
-        o("LF211-alliance", "agreement or political alliance",
-          "A real sense of the word, but it does not fit the stars."),
-        o("LF211-line", "a straight line drawn on paper",
-          "Too literal and unrelated to the context."),
-        o("LF211-wheels", "an adjustment of a car’s wheels",
-          "A specialized sense that does not fit the context.")
-      ],
-      explanation: "With multiple-meaning words, test each sense in the sentence. Only arrangement or position fits stars." },
+    item("LF311", "reading", "Mill words — pell", ["vocabulary"], ["word-origins"], "words",
+      "How did the meaning of pell change?",
+      [o("LF311-up", "from a flaw to something buyers wanted",
+          "This reverses the direction. Pell began as the finest yarn and ended as a flaw."),
+       o("LF311-down", "from a mark of quality to a flaw",
+          "It began as the mill’s “finest yarn” and, once the name went on seconds, was used “for a flaw.”", true),
+       o("LF311-narrow", "from any yarn to one kind of yarn",
+          "The word first named the finest yarn, not yarn in general; its value changed, not its range."),
+       o("LF311-broad", "from one kind of yarn to any yarn",
+          "The word did not widen to all yarn; it came to name a flaw.")],
+      "Words can rise or fall in esteem as well as widen or narrow. Decide which kind of change the passage reports, and in which direction."),
 
-    { id: "LF212", domain: "reading", title: "Word histories — author’s purpose", difficulty: "hard", tags: ["vocabulary", "longform"], skillIds: ["word-origins", "informational-texts"], passageSet: "words", passage: P.words,
-      stem: "The writer’s main purpose is to—",
-      options: [
-        o("LF212-illuminate", "show what word histories reveal and what they cannot settle",
-          "Covers the three examples and the closing caution.", true),
-        o("LF212-return", "argue that English speakers should return to the original meanings of words to avoid confusion and error",
-          "The final paragraph argues the opposite."),
-        o("LF212-astrology", "prove that astrology, plague, and Latin shaped the vocabulary of modern science",
-          "Overclaim. The passage shows old beliefs and customs leaving traces in a few words, not shaping science."),
-        o("LF212-hard-words", "list the English words whose meanings are most difficult for students to learn",
-          "The words are examples of etymology, not a difficulty ranking.")
-      ],
-      explanation: "A purpose statement must fit the whole passage, including any turn or caution at the end." }
+    item("LF312", "reading", "Mill words — reading the ledgers", ["vocabulary"], ["word-origins", "informational-texts"], "words",
+      "Which reader makes the mistake the final paragraph describes?",
+      [o("LF312-old-boy", "one who takes hobber in an 1870 ledger to mean a boy",
+          "In 1870 a hobber was still a cart. This reader carries the later meaning back into an old page.", true),
+       o("LF312-old-cart", "one who takes hobber in an 1870 ledger to mean a cart",
+          "This is the correct reading. The boys did not take the name until the 1890s."),
+       o("LF312-new-boy", "one who takes hobber in a 1920 ledger to mean a boy",
+          "This is the correct reading. By 1920 the name had passed to the boys."),
+       o("LF312-new-cart", "one who takes hobber in a 1920 ledger to mean a cart",
+          "This reader is wrong, but in the other direction: the first meaning is applied to a later page. The paragraph describes carrying the present meaning back.")],
+      "Work out what hobber meant at each date, then find the reader who puts the later meaning into the earlier page.")
   ];
 
   // Legacy consumers read choices/answer; QuizCore reads the option objects.
