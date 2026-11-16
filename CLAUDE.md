@@ -29,6 +29,7 @@ The owner is preparing for NES 301 and intends to sell the guide later, so quest
 | `js/data/flashcards.js` | Flashcard decks and their quiz logic |
 | `scripts/load-question-data.js` | Loads the data files into a Node sandbox in page order |
 | `scripts/validate-questions.js` | Validator (`npm run validate`) |
+| `scripts/audit.js` | Blind and open-book audit copies of a passage form, and scoring of a reader's answers |
 | `tests/*.test.js` | `node:test` suites (`npm test`) |
 
 ### Passage forms
@@ -204,6 +205,20 @@ A passage question must not be answerable from the stem and options alone. The f
 
 **The check.** Before opening a PR for new or rewritten passage questions, print the stems and options with no passages, keys, or explanations, and have a reader who has not seen the passages predict the answers with a confidence level for each. Chance is 25%. Treat any answer predicted with high confidence as a defect and fix the question, even if the prediction happens to be wrong. The author of the questions cannot run this check on their own work. Neither can a reader who has seen an earlier version of the same passages or the notes describing the revision: the second Form F audit was run by the reader who had audited the first, who then knew the passages' facts from the old options and scored 9 of 10 on the two unchanged passages against 2 of 5 on the new one. Use a fresh reader each time a passage is reused.
 
+**Running it.** `scripts/audit.js` prepares the copies and scores the replies:
+
+```bash
+node scripts/audit.js export F --seed 1     # writes audit-out/F-s1-blind.txt, -open.txt, -key.json
+node scripts/audit.js score audit-out/F-s1-key.json reply1.txt [audit-out/F-s2-key.json reply2.txt ...]
+```
+
+- The **blind** copy has stems and options only. The **open** copy adds the passages; a reader who has them and still disagrees with the key has found a wrong key, two defensible answers, or an unclear stem.
+- Each copy starts with a fixed prompt asking for one table of answers, confidence, and a short reason. Paste the whole file into a new chat and save the reply as a text file.
+- Each seed shuffles the options differently. Use a new seed and a new chat for every run, and never show a reader the key file. `audit-out/` is not committed.
+- Read the two runs together: blind misses and open hits is a healthy question; repeated blind hits means fix the options; an open miss means fix the key or the question.
+- One run of one form is noisy. Run several seeds; `score` lists the questions guessed in more than half the runs.
+- Do not act on a reader's advice to "fix" a question it answered confidently and wrongly. That is the trap working.
+
 ### Wrong answers
 
 - Every wrong answer must be a mistake a real test-taker could make after reading the passage: a true detail that is not the main idea, the wrong speaker, a neighboring term, an overclaim, a causal reading of a correlation.
@@ -256,6 +271,7 @@ Test suites:
 | `tests/validate-questions.test.js` | The validator's rules |
 | `tests/length-bias.test.js` | Answer-length limits on the passage forms |
 | `tests/testwiseness.test.js` | No absolute words in Form F options; parallel numeric options |
+| `tests/audit.test.js` | The audit export hides passages and keys; shuffles and scoring are correct |
 | `tests/clusters.test.js` | Template families in the cluster exam |
 | `tests/flashcards.test.js` | No flashcard question with two correct answers |
 | `tests/countdown.test.js` | Study-plan dates and weak-area ranking; includes a browser test |
