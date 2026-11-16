@@ -1,13 +1,13 @@
 /* Crude guards against answers that can be picked without the passage. They catch only the
    mechanical tells; the real check is a passage-blind read by someone who has not seen the
    passages (see "Anti-testwiseness rules" in CLAUDE.md). Applies to the forms rebuilt to those
-   rules: D and F. Add a form to REBUILT when it is rebuilt. */
+   rules: D, E, and F. Add a form to REBUILT when it is rebuilt. */
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const { loadQuestionData } = require("../scripts/load-question-data.js");
 
 const data = loadQuestionData();
-const REBUILT = ["js/data/problems-ela-longform-d.js", "js/data/problems-ela-longform-f.js"];
+const REBUILT = ["js/data/problems-ela-longform-d.js", "js/data/problems-ela-longform-e.js", "js/data/problems-ela-longform-f.js"];
 const items = data.problems.filter(p => REBUILT.some(file => data.problemsByFile[file].has(p.id)));
 
 const ABSOLUTE = /\b(always|never|nothing|must|every|everyone|no one|proves?|proved|guarantees?|impossible|completely|entirely)\b/i;
