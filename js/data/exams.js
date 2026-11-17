@@ -62,7 +62,7 @@ window.EXAMS = [
   },
   {
     id: "math-official-1",
-    title: "Official-Length Math Simulation A",
+    title: "Full-Length Math Simulation A",
     type: "math",
     minutes: 300,
     description: "150 questions in 5 hours, weighted to the five official NT304 domains. Use only after both half-length forms are stable.",
@@ -70,10 +70,10 @@ window.EXAMS = [
   },
   {
     id: "math-official-2",
-    title: "Official-Length Math Simulation B",
+    title: "Full-Length Math Simulation B",
     type: "math",
     minutes: 300,
-    description: "A second shuffled 150-question, 5-hour simulation. Ace gate: score at least 85% on both official-length forms.",
+    description: "A second shuffled 150-question, 5-hour simulation. Ace gate: score at least 85% on both full-length forms.",
     build: { count: 150, official: true, weighted: true }
   },
   {
@@ -210,7 +210,7 @@ window.EXAMS = [
   },
   {
     id: "ela-official-1",
-    title: "Official-Length ELA Simulation A",
+    title: "Full-Length ELA Simulation A",
     type: "english",
     minutes: 180,
     description: "150 questions in 3 hours, weighted to the five official NT301 domains. Long-passage and hard items fill first. Treat this score—not a short-stem 90%—as your unofficial NES 301 signal.",
@@ -218,7 +218,7 @@ window.EXAMS = [
   },
   {
     id: "ela-official-2",
-    title: "Official-Length ELA Simulation B",
+    title: "Full-Length ELA Simulation B",
     type: "english",
     minutes: 180,
     description: "A second shuffled 150-question, 3-hour simulation with the same hard-first mix. Ace gate: ≥85% here is only booking-relevant if Field 02 or passage-set Form B is also in the mid-70s+.",
@@ -688,7 +688,7 @@ window.EXAMS = [
     id: "ela-phase-16",
     title: "Phase 16 test: full-map mixed review",
     minutes: 40,
-    description: "Holistic short form across every ELA domain and term deck before official-length simulations. Not a substitute for passage-set Forms A/B.",
+    description: "Holistic short form across every ELA domain and term deck before full-length simulations. Not a substitute for passage-set Forms A/B.",
     mix: {
       domains: ["reading", "literature", "language", "writing", "oral", "ela-foundation"],
       decks: ["reading-process", "informational", "rhetoric-composition", "oral-visual", "literature-terms", "grammar-usage"],
@@ -756,6 +756,9 @@ In a focused response (approx. 150–250 words):
 Write 150–250 words addressing: (1) one learning-theory explanation, (2) one instructional routine to build proof reasoning, (3) one formative check you will use within a week, (4) how you will support a student with an IEP accommodation for graphic organizers during proofs.`
   }
 ];
+
+// The sale edition ships without Pearson's answer keys, so the Field 02 / Field 10 exams are removed.
+if (window.APP_EDITION === "sale") window.EXAMS = window.EXAMS.filter(e => !e.aepaGuide);
 
 /** Resolve exam items (supports dynamic hard gauntlet builds) */
 window.resolveExamItems = function resolveExamItems(exam) {

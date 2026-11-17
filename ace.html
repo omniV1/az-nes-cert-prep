@@ -49,7 +49,7 @@
           <div id="math-actions" class="grid" style="gap:0.5rem"></div>
         </div>
       </div>
-      <h3>Math official-length log</h3>
+      <h3>Math full-length log</h3>
       <div id="math-mocks" class="muted"></div>
     </section>
 
@@ -67,12 +67,13 @@
           <div id="ela-actions" class="grid" style="gap:0.5rem"></div>
         </div>
       </div>
-      <h3>ELA official-length log</h3>
+      <h3>ELA full-length log</h3>
       <div id="ela-mocks" class="muted"></div>
       <div id="ela-honest" style="margin-top:1rem"></div>
     </section>
   </main>
 
+  <script src="js/edition.js"></script>
   <script src="js/data/curriculum.js"></script>
   <script src="js/data/skills.js"></script>
   <script src="js/data/problems.js"></script>
@@ -187,7 +188,7 @@
       ? `<h2 style="margin-top:0;color:var(--easy)">READY TO BOOK BOTH</h2>
          <p>Math’s 85% sims are green and ELA’s honest passage-set gate is green. Register at <a href="https://www.aepa.nesinc.com/" target="_blank" rel="noopener">aepa.nesinc.com</a>. Light review the morning of — not a cram. Save Pearson’s NES 301 practice test for the last 10–14 days if you have not used it.</p>`
       : `<h2 style="margin-top:0;color:var(--copper)">NOT READY TO BOOK BOTH YET</h2>
-         <p class="muted" style="margin-bottom:0">Math: ${math.ready ? "ready" : "still red"} (85% × two official-length sims). English: ${loop.honestReady ? "honest gate green" : "still red"} — do not book 301 on short-stem 85% alone.</p>`;
+         <p class="muted" style="margin-bottom:0">Math: ${math.ready ? "ready" : "still red"} (85% × two full-length sims). English: ${loop.honestReady ? "honest gate green" : "still red"} — do not book 301 on short-stem 85% alone.</p>`;
 
     document.getElementById("stats").innerHTML = `
       <div class="stat"><div class="label">Bank solved</div><div class="value">${st.solved}</div></div>
@@ -245,8 +246,8 @@
     function renderActions(el, report, cfg) {
       const weak = report.domainRows.filter(d => !(d.attempted >= 10 && d.pct >= 85)).sort((a,b) => a.pct - b.pct);
       const actions = [];
-      if (!report.gateA) actions.push(`<a class="btn btn-accent" href="exam.html?exam=${cfg.simA}">Take Official-Length Simulation A</a>`);
-      else if (!report.gateB) actions.push(`<a class="btn btn-accent" href="exam.html?exam=${cfg.simB}">Take Official-Length Simulation B</a>`);
+      if (!report.gateA) actions.push(`<a class="btn btn-accent" href="exam.html?exam=${cfg.simA}">Take Full-Length Simulation A</a>`);
+      else if (!report.gateB) actions.push(`<a class="btn btn-accent" href="exam.html?exam=${cfg.simB}">Take Full-Length Simulation B</a>`);
       if (weak[0]) actions.push(`<a class="btn btn-secondary" href="practice.html?domain=${weak[0].id}&status=todo">Repair weakest: ${weak[0].id}</a>`);
       actions.push(`<a class="btn btn-secondary" href="exam.html?exam=${cfg.gauntlet}">Hard Gauntlet</a>`);
       if (cfg.track === "english") {
@@ -273,8 +274,8 @@
         ? `<ul>${mocks.slice(0,10).map(m => `<li><strong>${m.title}</strong> — ${m.percent}% (${m.correct}/${m.total}) · ${new Date(m.at).toLocaleString()}</li>`).join("")}</ul>`
         : empty;
     }
-    renderMocks(document.getElementById("math-mocks"), math.mocks, "No official-length math simulations yet.");
-    renderMocks(document.getElementById("ela-mocks"), ela.mocks, "No official-length ELA simulations yet.");
+    renderMocks(document.getElementById("math-mocks"), math.mocks, "No full-length math simulations yet.");
+    renderMocks(document.getElementById("ela-mocks"), ela.mocks, "No full-length ELA simulations yet.");
 
     document.getElementById("ela-honest").innerHTML = `
       <h3>Honest NES 301 signal</h3>

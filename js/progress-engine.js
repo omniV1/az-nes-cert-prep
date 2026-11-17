@@ -290,15 +290,15 @@ window.ProgressEngine = (() => {
         { examId: "ela-field-rigor", title: "ELA passage sets Form A", target: 80 },
         { examId: "ela-field-rigor-b", title: "ELA passage sets Form B", target: 80 },
         { examId: "ela-clusters", title: "ELA Pearson-style cluster exam", target: 80 },
-        { examId: "ela-official-1", title: "Official-Length ELA Simulation A", target: 85 },
-        { examId: "ela-official-2", title: "Official-Length ELA Simulation B", target: 85 }
+        { examId: "ela-official-1", title: "Full-Length ELA Simulation A", target: 85 },
+        { examId: "ela-official-2", title: "Full-Length ELA Simulation B", target: 85 }
       ];
     }
     return [
       { examId: "math-full-1", title: "Half-Length Math Mock A", target: 85 },
       { examId: "math-full-2", title: "Half-Length Math Mock B", target: 85 },
-      { examId: "math-official-1", title: "Official-Length Math Simulation A", target: 85 },
-      { examId: "math-official-2", title: "Official-Length Math Simulation B", target: 85 }
+      { examId: "math-official-1", title: "Full-Length Math Simulation A", target: 85 },
+      { examId: "math-official-2", title: "Full-Length Math Simulation B", target: 85 }
     ];
   }
 

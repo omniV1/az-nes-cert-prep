@@ -94,56 +94,10 @@ window.STUDY_GUIDES = (() => {
 
   const guides = { field02, field10 };
 
-  /* Official answer-key letters and objective IDs only — not Pearson stems or choices.
-     X / null = Pearson removed the item. Work the questions in the official PDF. */
-  const itemBanks = {
-    field02: {
-      answers: "CDBCCADBBBDXCAABCDBDDADBBXDDBCAACCABDCADCBDCDBCADC BACDAADBBCBACDDBBACBACBCAAACBD".replace(/\s/g, ""),
-      objectives: [
-        "0001","0001","0001","0001","0002","0001","0002","0002","0003","0002",
-        "0002",null,"0003","0003","0004","0004","0004","0004","0005","0005",
-        "0005","0005","0006","0006","0006",null,"0007","0008","0007","0007",
-        "0012","0008","0008","0008","0008","0009","0009","0009","0007","0010",
-        "0011","0010","0010","0010","0010","0011","0011","0012","0011","0012",
-        "0011","0012","0012","0013","0013","0013","0013","0013","0014","0014",
-        "0014","0014","0015","0015","0015","0015","0016","0016","0016","0016",
-        "0016","0017","0017","0017","0017","0018","0018","0018","0018","0018"
-      ],
-      pages: [
-        11,12,12,12,15,16,16,17,17,19,
-        19,20,21,21,22,22,22,23,23,24,
-        24,25,25,26,26,27,28,28,29,30,
-        30,31,31,32,32,33,34,34,34,35,
-        35,36,36,37,37,38,38,38,39,39,
-        40,40,40,41,41,41,42,42,42,42,
-        43,43,43,43,44,44,44,44,45,45,
-        45,46,46,47,48,48,49,49,50,51
-      ]
-    },
-    field10: {
-      answers: "BABDBDCDABBDBCADCBABADABDACBDCAACBCAAACBCABBDCCABADBCDBDBCCBDABCADDDDCBDBCDBDBDA",
-      objectives: [
-        "0001","0001","0001","0002","0002","0002","0003","0003","0004","0004",
-        "0004","0005","0005","0005","0005","0006","0006","0007","0007","0007",
-        "0008","0008","0009","0009","0009","0010","0010","0010","0011","0011",
-        "0011","0012","0012","0012","0013","0013","0013","0014","0014","0014",
-        "0015","0015","0015","0016","0016","0016","0016","0017","0017","0018",
-        "0018","0018","0019","0019","0019","0020","0020","0020","0021","0021",
-        "0022","0022","0022","0023","0023","0023","0024","0024","0024","0025",
-        "0025","0025","0026","0026","0026","0027","0027","0027","0028","0028"
-      ],
-      pages: [
-        13,14,14,15,15,15,16,17,17,18,
-        18,19,19,20,20,21,21,22,22,23,
-        23,24,24,25,25,26,27,27,28,28,
-        29,30,31,32,33,34,34,35,35,36,
-        36,37,38,39,40,41,42,43,44,45,
-        46,47,47,48,48,49,49,50,51,51,
-        52,52,53,53,54,55,55,56,56,57,
-        58,58,59,59,60,60,61,61,62,62
-      ]
-    }
-  };
+  /* Pearson’s answer keys live in js/data/pearson-keys.js, which only the personal edition loads.
+     Without it (the release build), the Field 02 / Field 10 items and exams are simply absent. */
+  const itemBanks = (window.APP_EDITION !== "sale" && window.PEARSON_KEYS) || {};
+  const hasKeys = Object.keys(itemBanks).length > 0;
 
   const current = {
     english: {
@@ -287,17 +241,17 @@ window.STUDY_GUIDES = (() => {
   function examLobbyHtml() {
     return `
       <section class="card" style="margin-top:1.25rem">
-        <h2>Official Pearson PDFs — how to use them to pass</h2>
+        <h2>Pearson’s free study PDFs — how to use them</h2>
         <ol>
           <li><strong>Current exam:</strong> NES frameworks and profiles (301 / 304) set the live competencies, weights, and sample-item style.</li>
           <li><strong>Lesson first:</strong> finish the mapped lesson in Learn, then work that competency's NES profile sample.</li>
-          <li><strong>Extra official practice:</strong> Field 02 (English) and Field 10 (Math) are retired AEPA guides Pearson still recommends. Read each item in the official PDF, then score it here. Stems stay in Pearson’s document.</li>
+          <li><strong>Extra practice from Pearson:</strong> Field 02 (English) and Field 10 (Math) are retired AEPA guides Pearson still recommends. Read each item in Pearson’s PDF and check it against the key at the back of the guide.${hasKeys ? " In this personal copy you can also score it here." : ""}</li>
           <li><strong>Ignore retired format:</strong> constructed-response / written tasks in Field 02 and Field 10 are not on NES 301 or 304 (those are multiple-choice). APK 052 is the exam with written tasks.</li>
         </ol>
-        <div class="cta-row">
+        ${hasKeys ? `<div class="cta-row">
           <a class="btn btn-accent" href="exam.html?exam=aepa-field02">Interactive Field 02 exam</a>
           <a class="btn btn-accent" href="exam.html?exam=aepa-field10">Interactive Field 10 exam</a>
-        </div>
+        </div>` : ""}
         <p class="muted" style="margin-bottom:0"><a href="study-guides.html">Open the full Field 02 / Field 10 crosswalk</a> — every retired objective is mapped to a current lesson.</p>
       </section>
       ${embedDetailsHtml(field02, "Use after the matching NES 301 lesson. Current ELA weights: reading 23%, literature 23%, language 19%, writing modes 23%, oral/visual 12%.")}
@@ -335,8 +289,8 @@ window.STUDY_GUIDES = (() => {
         <section class="official-calibration" id="aepa-${guide.id}">
           <div class="eyebrow">Supplemental AEPA practice (not the live blueprint)</div>
           <h3>${guide.title}</h3>
-          <p>After the NES sample above, read Field ${guide.field} items <strong>${qText || objText}</strong> in the official PDF (objectives ${objText}). Cover the answer key at the back. Score them on the Guides page — we use Pearson’s key, not a copy of the questions.</p>
-          <p class="cta-row"><a class="btn btn-secondary" href="exam.html?exam=aepa-${guide.id}&amp;lesson=${lessonId}">Score these Field ${guide.field} items</a></p>
+          <p>After the NES sample above, read Field ${guide.field} items <strong>${qText || objText}</strong> in Pearson’s PDF (objectives ${objText}). Cover the answer key at the back of the guide until you have answered.</p>
+          ${hasKeys ? `<p class="cta-row"><a class="btn btn-secondary" href="exam.html?exam=aepa-${guide.id}&amp;lesson=${lessonId}">Score these Field ${guide.field} items</a></p>` : ""}
           <iframe class="official-embed" src="${guide.url}" title="${guide.title}" loading="lazy"></iframe>
           <p class="muted">If the PDF does not render, <a href="${guide.url}" target="_blank" rel="noopener">open Field ${guide.field}</a>. Full map: <a href="study-guides.html#${guide.id}">study-guides.html</a>.</p>
           <label class="official-confirm">
@@ -351,6 +305,7 @@ window.STUDY_GUIDES = (() => {
     field02,
     field10,
     guides,
+    hasKeys,
     current,
     urls: { FIELD02_URL, FIELD10_URL, NES_PROFILE_301, NES_PROFILE_304, NES_FRAMEWORK_301, NES_FRAMEWORK_304 },
     forLesson,

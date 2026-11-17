@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Official Study Guides — AZ NES Cert Prep</title>
+  <title>Study Guides — AZ NES Cert Prep</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -29,15 +29,15 @@
 
   <main class="wrap">
     <div class="eyebrow">Pearson / Arizona archive PDFs</div>
-    <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Follow Field 02 and Field 10 to pass NES</h1>
+    <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Field 02 and Field 10: extra practice for NES</h1>
     <p class="muted">
       Arizona replaced AEPA English (Field 02) and Mathematics (Field 10) with NES 301 and NES 304.
       Pearson still publishes both study guides and says they remain useful because the old objectives overlap the current tests.
       This page maps every retired objective onto a current lesson so you can work the official PDFs in exam order.
     </p>
 
-    <section class="card" style="margin-top:1.25rem">
-      <h2>Take the official items as private interactive exams</h2>
+    <section class="card" style="margin-top:1.25rem" data-personal-only>
+      <h2>Take the Field 02 and Field 10 items as private interactive exams</h2>
       <p>This app stays on your machine. Pearson still owns the question text, including licensed poems and passages, so those stay in Pearson’s PDF. You read the item there, answer A–D here, and we score the published key and map misses to NES lessons.</p>
       <div class="cta-row">
         <a class="btn btn-accent" href="exam.html?exam=aepa-field02">Field 02 English exam (78 items)</a>
@@ -53,7 +53,7 @@
           <a href="https://www.aepa.nesinc.com/Content/Docs/AZ_Field02_StudyGuide.pdf" target="_blank" rel="noopener">AZ Field 02 English</a>
           and
           <a href="https://www.aepa.nesinc.com/Content/Docs/AZ_Field10_StudyGuide.pdf" target="_blank" rel="noopener">AZ Field 10 Mathematics</a>
-          — free Pearson PDFs, used interactively through the exams above.</li>
+          — free Pearson PDFs. Work each item there and check it against the key at the back of the guide.</li>
         <li><strong>This app:</strong> original lessons and original MCQs aligned to the current NES competencies.</li>
       </ul>
       <h3>How to use a Field guide item</h3>
@@ -69,9 +69,11 @@
     <div id="guides"></div>
   </main>
 
-  <footer class="footer">Unofficial study tool. Not affiliated with Pearson, NES, AEPA, or ADE.</footer>
+  <footer class="footer" data-disclaimer>Unofficial study tool. Not affiliated with or endorsed by Pearson, the NES program, AEPA, or the Arizona Department of Education. NES and National Evaluation Series are trademarks of Pearson Education, Inc.</footer>
 
+  <script src="js/edition.js"></script>
   <script src="js/data/curriculum.js"></script>
+  <script src="js/data/pearson-keys.js"></script>
   <script src="js/data/study-guides.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/vault-sync.js"></script>
@@ -105,7 +107,7 @@
             <a href="${current.profile}" target="_blank" rel="noopener">profile / sample items</a>.
           </p>
           <div class="tag-row">${weightChips(guide)}</div>
-          <div class="cta-row" style="margin:0.75rem 0">
+          <div class="cta-row" style="margin:0.75rem 0" data-personal-only>
             <a class="btn btn-accent" href="exam.html?exam=aepa-${guide.id}">Take Field ${guide.field} as an interactive exam</a>
           </div>
           <iframe class="official-embed" src="${guide.url}" title="${guide.title}" loading="lazy"></iframe>

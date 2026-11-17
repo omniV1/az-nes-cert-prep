@@ -15,7 +15,7 @@ Open `ace.html` and drive every gate green **for that subject**:
 - Every Foundation Bootcamp and official lesson mastered
 - ≥85% accuracy (≥10 attempts) in **every** official domain
 - Both half-length forms ≥85%
-- Both official-length simulations ≥85%
+- Both full-length simulations ≥85%
   - Math: 150 questions, 5 hours
   - English: 150 questions, 3 hours
 - ≥70% of that subject’s hard items solved
@@ -45,8 +45,8 @@ to the vault.
 |------|---------|
 | 200+ math MCQs | Foundation placement, transfer practice, and all NES 304 domains |
 | 230 ELA MCQs | Foundation, reading, literature, conventions/research, writing modes, oral/visual |
-| Math half-length (75q) + official-length (150q / 5h) forms | Math booking gates |
-| ELA half-length (75q / 90 min) + official-length (150q / 3h) forms | ELA booking gates |
+| Math half-length (75q) + full-length (150q / 5h) forms | Math booking gates |
+| ELA half-length (75q / 90 min) + full-length (150q / 3h) forms | ELA booking gates |
 | Domain drills + Hard Gauntlets | Targeted repair for each subject |
 | Embedded official 304 / 301 / 052 profiles and sample items | Required calibration inside every exam lesson |
 | Embedded AEPA Field 02 (ELA) and Field 10 (Math) study guides | Retired Pearson workbooks mapped onto current NES lessons |
@@ -81,3 +81,7 @@ npm test           # unit tests + Chromium exam-review test (needs playwright)
 Open `study-guides.html` for the objective-to-lesson map, or `exam.html` for timed Field 02 / Field 10 sessions that score Pearson’s published key while you read the official PDF. Live exam weights and sample-item style come from the NES frameworks and profiles, not the retired AEPA forms.
 
 Not affiliated with Pearson, NES, AEPA, or ADE.
+
+## Personal and sale editions
+
+This repository is a personal study copy: it includes Pearson’s Field 02 / Field 10 answer keys and Field 02 coaching notes. Build the copy you distribute with `npm run build:release -- --name "Product Name"`, which writes `release/` without those files. See `CLAUDE.md`.
