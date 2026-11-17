@@ -15,7 +15,7 @@
       <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a class="active" href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
-      <a href="study-guides.html">Guides</a>
+      <a href="study-guides.html" data-personal-only>Guides</a>
       <a href="practice.html">Practice</a>
       <a href="exam.html">Exams</a>
       <a href="ace.html">Ace</a>
@@ -54,7 +54,7 @@
     <section class="card" id="ela-loop-card" style="margin-top:1.25rem;background:rgba(15,118,110,0.06)">
       <div class="eyebrow">NES 301 loop (what actually transfers)</div>
       <h2 style="margin-top:0">Today’s ELA session</h2>
-      <p class="muted">Two sports: cheap-point cards, then a <em>new</em> passage. One timed original form per week. Field 02 is a calibration, not homework.</p>
+      <p class="muted">Two sports: cheap-point cards, then a <em>new</em> passage. One timed original form per week.<span data-personal-only> Field 02 is a calibration, not homework.</span></p>
       <div id="ela-loop"></div>
     </section>
 
@@ -83,8 +83,8 @@
       </article>
     </section>
 
-    <section class="card" style="margin-top:1.25rem">
-      <h2>Official Arizona study guides</h2>
+    <section class="card" style="margin-top:1.25rem" data-personal-only>
+      <h2>Pearson’s Arizona study guides</h2>
       <p class="muted">Pearson still publishes the retired AEPA English and Math workbooks and says they remain useful for NES. Follow them after the current NES lesson — not instead of it.</p>
       <ul>
         <li><a href="https://www.aepa.nesinc.com/Content/Docs/AZ_Field02_StudyGuide.pdf" target="_blank" rel="noopener">Field 02 English</a> — extra NES 301 practice (skip the old written assignment).</li>
@@ -97,7 +97,7 @@
 
     <section style="margin-top:1.5rem">
       <h2 style="font-family:var(--font-display);letter-spacing:-0.02em">Content domains</h2>
-      <p class="muted">Aligned to the official NES Mathematics (304) and English Language Arts (301) frameworks, plus retired AEPA Field 02 / Field 10 practice mapped onto those lessons.</p>
+      <p class="muted">Aligned to the official NES Mathematics (304) and English Language Arts (301) frameworks<span data-personal-only>, plus retired AEPA Field 02 / Field 10 practice mapped onto those lessons</span>.</p>
       <div class="domain-list" id="domains"></div>
     </section>
 
@@ -193,7 +193,7 @@
         </div>
         <div style="border:1px solid var(--line);border-radius:12px;padding:0.85rem 1rem;background:#fff">
           <div class="tag-row"><span class="chip">${loop.timed.due ? "Track C · this week" : "timed form logged"}</span></div>
-          <p style="margin:0.4rem 0 0.65rem"><strong>One timed original form per week.</strong> ${loop.timed.due ? `Due (last one ${loop.timed.daysSince === 99 ? "never" : loop.timed.daysSince + "d ago"}).` : "Already logged this week."} Not Field 02.</p>
+          <p style="margin:0.4rem 0 0.65rem"><strong>One timed original form per week.</strong> ${loop.timed.due ? `Due (last one ${loop.timed.daysSince === 99 ? "never" : loop.timed.daysSince + "d ago"}).` : "Already logged this week."}<span data-personal-only> Not Field 02.</span></p>
           <a class="btn ${loop.timed.due ? "btn-secondary" : "btn-ghost"}" href="${loop.timed.href}">${loop.timed.due ? "Start weekly timed form" : "Optional extra timed"}</a>
         </div>
       </div>

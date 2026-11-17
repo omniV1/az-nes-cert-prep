@@ -197,7 +197,7 @@ window.EXAMS = [
     title: "Half-Length ELA Mock A",
     type: "english",
     minutes: 90,
-    description: "75 questions in 1.5 hours: half of the official 150-question, 3-hour format. Built from long-passage and hard items first so the score is closer to Field 02 / NES 301 than the old short-stem bank.",
+    description: "75 questions in 1.5 hours: half of the official 150-question, 3-hour format. Built from long-passage and hard items first so the score reflects passage-based questions better than the old short-stem bank.",
     build: { count: 75, official: true, weighted: true, track: "english" }
   },
   {
@@ -221,7 +221,7 @@ window.EXAMS = [
     title: "Full-Length ELA Simulation B",
     type: "english",
     minutes: 180,
-    description: "A second shuffled 150-question, 3-hour simulation with the same hard-first mix. Ace gate: ≥85% here is only booking-relevant if Field 02 or passage-set Form B is also in the mid-70s+.",
+    description: "A second shuffled 150-question, 3-hour simulation with the same hard-first mix. Ace gate: ≥85% here is only booking-relevant if an original passage set is also at 80% or better.",
     build: { count: 150, official: true, weighted: true, track: "english" }
   },
   {
@@ -291,7 +291,7 @@ window.EXAMS = [
     title: "ELA terms, periods, and traps",
     type: "english",
     minutes: 45,
-    description: "Exam-style items for devices, periods, grammar, rhetoric, and media — the Quizlet-style content as NES multiple choice.",
+    description: "Exam-style items for devices, periods, grammar, rhetoric, and media — the flashcard content as NES-format multiple choice.",
     problemIds: [
       "LT051","LT052","LT053","LT054","LT055","LT056","LT057","LT058","LT059","LT060",
       "LT061","LT062","LT063","LT064","LT065",
@@ -303,10 +303,10 @@ window.EXAMS = [
   },
   {
     id: "ela-field-rigor",
-    title: "ELA passage sets (Field 02 rigor)",
+    title: "ELA passage sets, Form A",
     type: "english",
     minutes: 80,
-    description: "Original long-passage clusters written to match retired Field 02 selected-response difficulty: dense distractors, multi-question sets, public-domain literature. Not Pearson’s items. Use this score—not a Field 02 retake—as your honest NES 301 signal once the official PDF is burned.",
+    description: "Original long-passage clusters: dense distractors, multi-question sets, public-domain literature. Use this score, not a short-stem 90%, as your main ELA readiness check. It is this app’s target, not a prediction of your NES result.",
     problemIds: [
       "LF359","LF360","LF361","LF362","LF363",
       "LF364","LF365","LF366","LF367","LF368",
@@ -325,10 +325,10 @@ window.EXAMS = [
   },
   {
     id: "ela-field-rigor-b",
-    title: "ELA passage sets Form B (Field 02 rigor)",
+    title: "ELA passage sets, Form B",
     type: "english",
     minutes: 90,
-    description: "Second original long-passage form: paired texts, a drama scene, graphics in a briefing, listening/seminar transcripts, revision drafts, and public-domain literature not used on Form A. Distractors are written close together (overclaim, wrong speaker, adjacent literary term) so the key should not be obvious without the passage.",
+    description: "Second original long-passage form: a flood-warning procedure, a letter to the editor, a projector guide, a works-cited check, an outline, a narrative draft, two accounts of one fire, a radio interview, a peer-review talk, and public-domain literature not used on Form A. Distractors are written close together (overclaim, wrong speaker, adjacent literary term) so the key should not be obvious without the passage.",
     problemIds: [
       "LF388","LF389","LF390","LF391","LF392",
       "LF393","LF394","LF395","LF396",
@@ -351,10 +351,10 @@ window.EXAMS = [
   },
   {
     id: "ela-field-rigor-c",
-    title: "ELA passage sets Form C (Field 02 rigor)",
+    title: "ELA passage sets, Form C",
     type: "english",
     minutes: 80,
-    description: "Third original long-passage form: dust-event briefing with a table, Sunday hours editorial, pool rules, Blake/Keats/Chopin/Dunbar/Emerson/Frankenstein, a revision draft, paired water-rate sources, a board transcript, a misleading poster, and an analytical paragraph. Same tight-distractor style as A/B. After two sittings, switch to the randomized cluster exam — do not grind these letters.",
+    description: "Third original long-passage form: a bus timetable, a fundraising letter and its budget, a recipe card, an email draft, a study and its press release, a video script, a speech observation form, an evidence chart, and Blake/Keats/Chopin/Dunbar/Emerson/Frankenstein. Same tight-distractor style as A/B. After two sittings, switch to the randomized cluster exam — do not grind these letters.",
     problemIds: [
       "LF425","LF426","LF427","LF428","LF429",
       "LF430","LF431","LF432","LF433",
@@ -374,10 +374,10 @@ window.EXAMS = [
   },
   {
     id: "ela-clusters",
-    title: "ELA Pearson-style cluster exam (new mix each sitting)",
+    title: "ELA passage-cluster exam (new mix each sitting)",
     type: "english",
     minutes: 80,
-    description: "The weekly Field 02 analog that does not burn a letter key: 12 original passage clusters drawn from Forms A–F (informational, editorial, technical, literature, revision, paired sources, oral/visual) plus a short cheap-point block. Each sitting uses at most one passage per template (for example, one sensor-data briefing or one memo-versus-flyer pair) and prefers templates you have not sat in your last three cluster exams. Item order stays grouped by passage; choices reshuffle. Target ≥80% on a sitting whose clusters are still mostly new.",
+    description: "The weekly passage exam that does not burn a letter key: 12 original passage clusters drawn from Forms A–F (informational, editorial, technical, literature, revision, paired sources, oral/visual) plus a short cheap-point block. Each sitting uses at most one passage per template (for example, one sensor-data briefing or one memo-versus-flyer pair) and prefers templates you have not sat in your last three cluster exams. Item order stays grouped by passage; choices reshuffle. Target ≥80% on a sitting whose clusters are still mostly new.",
     build: {
       count: 56,
       clusters: true,
@@ -404,7 +404,7 @@ window.EXAMS = [
     type: "english",
     minutes: 15,
     group: "flashcards",
-    description: "Pass/fail on each term. Misses recycle until you hit 100%. Opens the Quizlet-style card quiz.",
+    description: "Pass/fail on each term. Misses recycle until you hit 100%. Opens the flashcard quiz.",
     build: { flashcardDecks: ["reading-process"], count: 20 }
   },
   {

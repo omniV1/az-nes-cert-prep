@@ -7,14 +7,21 @@
      <script> tags.
    - Sets window.APP_EDITION = "sale" in js/edition.js, which turns Pearson's PDFs into plain links
      and removes anything marked data-personal-only.
-   - With --name, replaces the product name "AZ NES Cert Prep" in every page.
+   - Replaces the product name "AZ NES Cert Prep" in every page with --name, or with a neutral
+     default so the trademark never ships in the product name.
+   - Leaves out the pages built entirely on Pearson's retired study guides (study-guides.html).
    Fails if any Pearson answer key or coaching text is still present in the output. */
 const fs = require("fs");
 const path = require("path");
+const vm = require("vm");
 
 const ROOT = path.resolve(__dirname, "..");
-const PERSONAL_ONLY = ["js/data/pearson-keys.js", "js/data/field02-coach.js"];
+const PERSONAL_ONLY = ["js/data/pearson-keys.js", "js/data/field02-coach.js", "js/data/aepa-guides.js"];
+/* Pages built entirely on Pearson's retired study guides; left out of the sale build. */
+const PERSONAL_PAGES = ["study-guides.html"];
 const PRODUCT_NAME = "AZ NES Cert Prep";
+/* Used when --name is not given, so the sale build never ships with NES in the product name. */
+const DEFAULT_SALE_NAME = "AZ Secondary Cert Prep";
 
 function copyDir(from, to, skip) {
   fs.mkdirSync(to, { recursive: true });
@@ -39,13 +46,13 @@ function build(outDir, { name } = {}) {
     if (fs.existsSync(path.join(ROOT, dir))) copyDir(path.join(ROOT, dir), path.join(out, dir), skip);
   }
 
-  const pages = fs.readdirSync(ROOT).filter(f => f.endsWith(".html"));
+  const pages = fs.readdirSync(ROOT).filter(f => f.endsWith(".html") && !PERSONAL_PAGES.includes(f));
   for (const page of pages) {
     let html = fs.readFileSync(path.join(ROOT, page), "utf8");
     for (const file of PERSONAL_ONLY) {
       html = html.replace(new RegExp(`[ \\t]*<script src="${file.replace(/[.]/g, "\\.")}"></script>\\r?\\n`, "g"), "");
     }
-    if (name) html = html.split(PRODUCT_NAME).join(name);
+    html = html.split(PRODUCT_NAME).join(name || DEFAULT_SALE_NAME);
     fs.writeFileSync(path.join(out, page), html);
   }
 
@@ -61,13 +68,14 @@ function build(outDir, { name } = {}) {
 
 /* Strings that exist only in the Pearson-derived files. If any appears in the build, it fails. */
 function forbiddenStrings() {
+  const window = {};
+  window.window = window;
+  const ctx = vm.createContext({ window });
+  for (const file of PERSONAL_ONLY) vm.runInContext(fs.readFileSync(path.join(ROOT, file), "utf8"), ctx, { filename: file });
   const out = [];
-  global.window = {};
-  require(path.join(ROOT, "js/data/pearson-keys.js"));
-  for (const bank of Object.values(global.window.PEARSON_KEYS)) out.push(bank.answers.slice(0, 40));
-  require(path.join(ROOT, "js/data/field02-coach.js"));
-  for (const note of Object.values(global.window.FIELD02_COACH).slice(0, 10)) out.push(note.whyKey.slice(0, 60));
-  delete global.window;
+  for (const bank of Object.values(window.PEARSON_KEYS)) out.push(bank.answers.slice(0, 40));
+  for (const note of Object.values(window.FIELD02_COACH).slice(0, 10)) out.push(note.whyKey.slice(0, 60));
+  for (const guide of Object.values(window.AEPA_GUIDES)) out.push(guide.formatNote.slice(0, 60), ...guide.objectives.slice(0, 5).map(o => o.summary.slice(0, 50)));
   return out;
 }
 
@@ -97,7 +105,7 @@ if (require.main === module) {
   const outDir = positional[0] || path.join(ROOT, "release");
   const { out, pages } = build(outDir, { name });
   console.log(`Sale edition built in ${out} (${pages.length} pages). Pearson answer keys and coaching notes left out.`);
-  if (!name) console.log(`Product name unchanged ("${PRODUCT_NAME}"). Pass --name "..." to rename it in the build.`);
+  if (!name) console.log(`Product name set to the placeholder "${DEFAULT_SALE_NAME}". Pass --name "..." to choose your own.`);
 }
 
-module.exports = { build, check, PERSONAL_ONLY };
+module.exports = { build, check, PERSONAL_ONLY, PERSONAL_PAGES, DEFAULT_SALE_NAME };

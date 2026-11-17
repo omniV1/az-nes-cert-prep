@@ -84,4 +84,4 @@ Not affiliated with Pearson, NES, AEPA, or ADE.
 
 ## Personal and sale editions
 
-This repository is a personal study copy: it includes Pearson’s Field 02 / Field 10 answer keys and Field 02 coaching notes. Build the copy you distribute with `npm run build:release -- --name "Product Name"`, which writes `release/` without those files. See `CLAUDE.md`.
+This repository is a personal study copy: it includes Pearson’s Field 02 / Field 10 answer keys, objective lists, and Field 02 coaching notes, so keep it private. Build the copy you distribute with `npm run build:release -- --name "Product Name"`, which writes `release/` without those files. See `CLAUDE.md`.

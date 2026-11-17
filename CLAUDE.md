@@ -32,7 +32,7 @@ The owner is preparing for NES 301 and intends to sell the guide later, so quest
 | `scripts/validate-questions.js` | Validator (`npm run validate`) |
 | `scripts/audit.js` | Blind and open-book audit copies of a passage form, and scoring of a reader's answers |
 | `scripts/build-release.js` | Builds the sale edition into `release/` (`npm run build:release`) |
-| `js/data/pearson-keys.js`, `js/data/field02-coach.js` | Pearson's Field 02 / Field 10 answer keys and the Field 02 coaching notes. Personal edition only |
+| `js/data/pearson-keys.js`, `js/data/field02-coach.js`, `js/data/aepa-guides.js` | Pearson's Field 02 / Field 10 answer keys, the Field 02 coaching notes, and the Field 02 / Field 10 objective lists. Personal edition only |
 | `tests/*.test.js` | `node:test` suites (`npm test`) |
 
 ### Passage forms
@@ -64,13 +64,13 @@ A new `js/data/problems-*.js` file does nothing until it has a `<script>` tag in
 
 ## Editions: personal and sale
 
-The repository is the owner's personal study copy. It loads two files built on Pearson's study guides: `js/data/pearson-keys.js` (the published answer keys for Field 02 and Field 10) and `js/data/field02-coach.js` (notes that walk through each Field 02 item). These must never ship in a copy that is sold.
+The repository is the owner's personal study copy. It loads three files built on Pearson's study guides: `js/data/pearson-keys.js` (the published answer keys for Field 02 and Field 10), `js/data/field02-coach.js` (notes that walk through each Field 02 item), and `js/data/aepa-guides.js` (the guides' objective lists and weights). `study-guides.html` is built entirely on them. None of these may ship in a copy that is sold, and the repository should stay private while it holds them.
 
-- `js/edition.js` sets `window.APP_EDITION = "personal"`. `npm run build:release` copies the site to `release/`, sets the edition to `sale`, leaves the two files out, and removes their script tags. Pass `--name "..."` to replace the product name.
-- In the sale edition, `STUDY_GUIDES.hasKeys` is false, the Field 02 / Field 10 exams are removed from `EXAMS`, Pearson's PDFs become links instead of embedded frames, and anything marked `data-personal-only` is removed.
+- `js/edition.js` sets `window.APP_EDITION = "personal"`. `npm run build:release` copies the site to `release/`, sets the edition to `sale`, leaves the three files and `study-guides.html` out, and removes their script tags. It replaces the product name with `--name "..."`, or with a neutral placeholder so "NES" never ships in the product name.
+- In the sale edition, `STUDY_GUIDES.guides` is empty and `hasKeys` is false, the Field 02 / Field 10 exams are removed from `EXAMS`, the ELA readiness gate uses both original passage sets at 80% instead of a Field 02 sitting, Pearson's PDFs become links instead of embedded frames, and anything marked `data-personal-only` (the Guides nav link, Field 02 prose, flashcard objective chips) is removed.
 - The build fails if any answer key or coaching text appears in the output. `tests/release.test.js` builds a copy and checks both editions.
 - Put any new material taken from Pearson's documents in a personal-only file, add it to `PERSONAL_ONLY` in `scripts/build-release.js`, and make the app work without it. Mark personal-only links or sections with `data-personal-only`.
-- Every page gets the disclaimer from `js/edition.js` unless it already has an element marked `data-disclaimer`. Do not call this app's own exams or lessons "official", and do not promise a pass; readiness thresholds are the app's targets, not predictions.
+- Every page gets the disclaimer from `js/edition.js` unless it already has an element marked `data-disclaimer`. Do not call this app's own exams or lessons "official", "Pearson-style", or compare them to Pearson's guides; do not use other companies' names (Quizlet) for the app's features; and do not promise a pass. Readiness thresholds are the app's targets, not predictions.
 
 ## Question schema
 
@@ -330,4 +330,5 @@ For page or layout changes, also take screenshots at 1200px and 390px wide and c
 - The legacy literature questions in Forms A, B, and C have no per-option explanations.
 - The validator does not check `skillIds`, `domain`, or `difficulty` values.
 - Progress lives in one browser's `localStorage`; there are no accounts or sync.
-- Before selling: have a lawyer review the sale build, including the remaining use of the NES and Pearson names and the Field 02 / Field 10 objective titles in `js/data/study-guides.js`. Pick a product name and pass it with `--name`.
+- Before selling: have a lawyer review the sale build and its remaining factual references to the NES tests and Pearson. Pick a product name and pass it with `--name`.
+- The GitHub repository is public, and its history includes the Pearson-derived files. Make it private, or remove those files from history, before selling.

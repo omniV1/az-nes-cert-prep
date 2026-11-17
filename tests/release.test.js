@@ -6,7 +6,7 @@ const os = require("os");
 const path = require("path");
 const vm = require("vm");
 const { pathToFileURL } = require("url");
-const { build, PERSONAL_ONLY } = require("../scripts/build-release.js");
+const { build, PERSONAL_ONLY, PERSONAL_PAGES, DEFAULT_SALE_NAME } = require("../scripts/build-release.js");
 const { ROOT } = require("../scripts/load-question-data.js");
 
 let chromium;
@@ -29,6 +29,14 @@ test("the sale build leaves out the Pearson-derived files and their script tags"
   assert.match(fs.readFileSync(path.join(out, "js/edition.js"), "utf8"), /window\.APP_EDITION = "sale";/);
   assert.match(fs.readFileSync(path.join(out, "index.html"), "utf8"), /Test Prep Name/);
   for (const dir of ["tests", "scripts", "audit-out"]) assert.ok(!fs.existsSync(path.join(out, dir)), dir);
+  for (const page of PERSONAL_PAGES) assert.ok(!fs.existsSync(path.join(out, page)), page);
+  for (const page of fs.readdirSync(out).filter(f => f.endsWith(".html"))) {
+    assert.doesNotMatch(fs.readFileSync(path.join(out, page), "utf8"), /AZ NES Cert Prep/, `${page} keeps the NES product name`);
+  }
+  const unnamed = fs.mkdtempSync(path.join(os.tmpdir(), "release-unnamed-"));
+  build(unnamed);
+  assert.match(fs.readFileSync(path.join(unnamed, "index.html"), "utf8"), new RegExp(DEFAULT_SALE_NAME));
+  fs.rmSync(unnamed, { recursive: true, force: true });
 });
 
 test("the personal copy keeps the keys; the sale edition drops the Field 02 / Field 10 exams", () => {
@@ -36,7 +44,7 @@ test("the personal copy keeps the keys; the sale edition drops the Field 02 / Fi
     const window = { APP_EDITION: edition };
     window.window = window;
     const ctx = vm.createContext({ window });
-    const files = ["js/data/exams.js", ...(withKeys ? ["js/data/pearson-keys.js"] : []), "js/data/study-guides.js"];
+    const files = ["js/data/exams.js", ...(withKeys ? ["js/data/aepa-guides.js", "js/data/pearson-keys.js"] : []), "js/data/study-guides.js"];
     for (const f of files) vm.runInContext(fs.readFileSync(path.join(ROOT, f), "utf8"), ctx, { filename: f });
     return window;
   };
@@ -48,12 +56,13 @@ test("the personal copy keeps the keys; the sale edition drops the Field 02 / Fi
   assert.equal(sale.STUDY_GUIDES.hasKeys, false);
   assert.equal(sale.STUDY_GUIDES.itemsForGuide("field02").length, 0);
   assert.equal(sale.EXAMS.filter(e => e.aepaGuide).length, 0);
+  assert.deepEqual(Object.keys(sale.STUDY_GUIDES.guides), []);
 });
 
 test("sale pages show Pearson PDFs as links, offer no Field exams, and carry the disclaimer", { skip: !chromium && "playwright not installed" }, async () => {
   const browser = await chromium.launch();
   try {
-    for (const page of ["exam.html", "study-guides.html", "learn.html", "formulas.html"]) {
+    for (const page of ["exam.html", "learn.html", "formulas.html", "index.html", "ace.html", "plan.html"]) {
       const tab = await browser.newPage();
       const errors = [];
       tab.on("pageerror", e => errors.push(e.message));
@@ -61,7 +70,7 @@ test("sale pages show Pearson PDFs as links, offer no Field exams, and carry the
       await tab.waitForTimeout(300);
       const r = await tab.evaluate(() => ({
         iframes: document.querySelectorAll("iframe").length,
-        fieldExams: document.querySelectorAll('a[href*="exam=aepa-"]').length,
+        fieldExams: document.querySelectorAll('a[href*="exam=aepa-"], a[href*="study-guides.html"]').length,
         disclaimer: document.querySelectorAll("[data-disclaimer]").length
       }));
       assert.deepEqual(r, { iframes: 0, fieldExams: 0, disclaimer: 1 }, page);
