@@ -308,20 +308,19 @@ window.EXAMS = [
     minutes: 80,
     description: "Original long-passage clusters written to match retired Field 02 selected-response difficulty: dense distractors, multi-question sets, public-domain literature. Not Pearson’s items. Use this score—not a Field 02 retake—as your honest NES 301 signal once the official PDF is burned.",
     problemIds: [
-      "LF001","LF002","LF003","LF004","LF005",
-      "LF006","LF007","LF008","LF009",
-      "LF010","LF011","LF012","LF013",
+      "LF359","LF360","LF361","LF362","LF363",
+      "LF364","LF365","LF366","LF367","LF368",
+      "LF369","LF370","LF371","LF372","LF373",
       "LF014","LF015","LF016","LF017","LF018",
       "LF019","LF020","LF021","LF022",
       "LF023","LF024","LF025","LF026",
       "LF027","LF028","LF029","LF030",
       "LF031","LF032","LF033","LF034",
-      "LF035","LF036","LF037","LF038","LF039",
+      "LF374","LF375","LF376","LF377","LF378","LF379",
       "LF040","LF041","LF042","LF043",
       "LF044","LF045",
-      "LF046","LF047","LF048",
-      "LF049","LF050","LF051","LF052","LF053",
-      "LF054","LF055","LF056"
+      "LF380","LF381","LF382","LF383",
+      "LF384","LF385","LF386","LF387"
     ]
   },
   {
@@ -935,11 +934,11 @@ function longformClusters(bank) {
    family, and recency is tracked by family so a template does not return the
    next day under a new name. Sets not listed are their own family. */
 const CLUSTER_FAMILIES = {
-  "data-briefing": ["heat", "smoke", "dust"],
-  "memo-vs-flyer": ["sources", "canals", "water"],
-  "board-editorial": ["start", "lunch", "hours"],
-  "rules-document": ["lab", "pool", "lease"],
-  "error-draft": ["essay", "research", "revise"],
+  "data-briefing": ["smoke", "dust"],
+  "memo-vs-flyer": ["canals", "water"],
+  "board-editorial": ["lunch", "hours"],
+  "rules-document": ["buspass", "pool", "lease"],
+  "error-draft": ["plantsale", "research", "revise"],
   "pictograph": ["poster", "ebooks"],
   "paine": ["paine", "pair-liberty"]
 };

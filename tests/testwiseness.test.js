@@ -1,7 +1,8 @@
 /* Crude guards against answers that can be picked without the passage. They catch only the
    mechanical tells; the real check is a passage-blind read by someone who has not seen the
    passages (see "Anti-testwiseness rules" in CLAUDE.md). Applies to the forms rebuilt to those
-   rules: D, E, and F. Add a form to REBUILT when it is rebuilt. */
+   rules: D, E, and F. Add a form to REBUILT when it is rebuilt. Forms repaired in place (A) keep
+   their interpretation questions and get the two option checks below, applied to wrong answers. */
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const { loadQuestionData } = require("../scripts/load-question-data.js");
@@ -9,6 +10,10 @@ const { loadQuestionData } = require("../scripts/load-question-data.js");
 const data = loadQuestionData();
 const REBUILT = ["js/data/problems-ela-longform-d.js", "js/data/problems-ela-longform-e.js", "js/data/problems-ela-longform-f.js"];
 const items = data.problems.filter(p => REBUILT.some(file => data.problemsByFile[file].has(p.id)));
+
+const REPAIRED = ["js/data/problems-ela-longform.js"];
+const repaired = data.problems.filter(p => REPAIRED.some(file => data.problemsByFile[file].has(p.id)));
+const REASON = /\b(because|since|so that)\b|, so\b/i;
 
 const ABSOLUTE = /\b(always|never|nothing|must|every|everyone|no one|proves?|proved|guarantees?|impossible|completely|entirely)\b/i;
 
@@ -35,5 +40,20 @@ test("rebuilt forms: no correct answer repeats another correct answer in its clu
       const shared = [...a].filter(w => b.has(w));
       assert.ok(shared.length < 3, `${set}: ${list[i].id} and ${list[j].id} keys share "${shared.join(", ")}"`);
     }
+  }
+});
+
+test("repaired forms: wrong answers use no absolute or extreme words", () => {
+  for (const p of repaired) {
+    p.choices.forEach((text, i) => {
+      if (i !== p.answer) assert.doesNotMatch(text, ABSOLUTE, `${p.id}: ${text}`);
+    });
+  }
+});
+
+test("repaired forms: options do not mix bare answers with answers that carry a reason", () => {
+  for (const p of repaired) {
+    const withReason = p.choices.filter(text => REASON.test(text)).length;
+    assert.ok(withReason === 0 || withReason === p.choices.length, `${p.id}: ${withReason} of ${p.choices.length} options give a reason`);
   }
 });

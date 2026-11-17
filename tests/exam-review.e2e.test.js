@@ -15,8 +15,8 @@ try {
 }
 
 const PAGE = pathToFileURL(path.join(__dirname, "..", "exam.html")).href;
-const MISSES = ["LF017", "LF020", "LF021", "LF028", "LF035", "LF047", "LF055"];
-const BLANK = "LF001";
+const MISSES = ["LF017", "LF020", "LF021", "LF028", "LF374", "LF381", "LF040"];
+const BLANK = "LF359";
 
 test("passage-set exam review: wrong answers show the picked choice, only blanks say Blank, keys follow the shuffle", { skip: !chromium && "playwright not installed" }, async () => {
   const browser = await chromium.launch();
@@ -34,19 +34,21 @@ test("passage-set exam review: wrong answers show the picked choice, only blanks
         id: l.querySelector("input").value,
         letter: l.querySelector("strong").textContent.replace(".", "")
       })));
-      const { id, keyId, texts } = await page.evaluate(i => {
+      const { id, keyId, texts, notes } = await page.evaluate(i => {
         const p = session.items[i];
         return {
           id: p.id,
           keyId: QuizCore.correctOption(p).id,
-          texts: Object.fromEntries(QuizCore.getOptions(p).map(o => [o.id, o.text]))
+          texts: Object.fromEntries(QuizCore.getOptions(p).map(o => [o.id, o.text])),
+          notes: Object.fromEntries(QuizCore.getOptions(p).map(o => [o.id, o.explanation || ""]))
         };
       }, i);
       const key = shown.find(s => s.id === keyId);
       const mode = MISSES.includes(id) ? "wrong" : id === BLANK ? "blank" : "right";
       const pick = mode === "right" ? key : mode === "wrong" ? shown.find(s => s.id !== keyId) : null;
       if (pick) await page.click(`#qchoices input[value="${pick.id}"]`);
-      expected.push({ id, mode, pick, key, pickText: pick && texts[pick.id], keyText: texts[keyId] });
+      // Option-object questions show the picked option's own explanation; legacy ones show its text.
+      expected.push({ id, mode, pick, key, pickText: pick && (notes[pick.id] || texts[pick.id]), keyText: texts[keyId], keyNote: notes[keyId] });
       if (i < total - 1) await page.click("#next");
     }
     await page.click("#submit-exam");
@@ -82,19 +84,19 @@ test("passage-set exam review: wrong answers show the picked choice, only blanks
       } else {
         assert.equal(row.status, "correct", exp.id);
         assert.equal(row.yourLetter, exp.key.letter, exp.id);
-        assert.equal(row.yourNote, "Matches the published key.", exp.id);
+        assert.equal(row.yourNote, exp.keyNote || "Matches the published key.", exp.id);
       }
     });
     const score = await page.textContent("#results");
     assert.match(score, /48<\/strong>|48\s*\/\s*56/);
 
-    // LF055: the explanation names options by the letters actually shown.
+    // LF040: the explanation names options by the letters actually shown.
     const lf = await page.evaluate(() => {
-      const i = session.items.findIndex(p => p.id === "LF055");
+      const i = session.items.findIndex(p => p.id === "LF040");
       const order = session.optionOrders[i];
-      return { i, b: QuizCore.letterFor(order, "LF055-1"), a: QuizCore.letterFor(order, "LF055-0") };
+      return { i, b: QuizCore.letterFor(order, "LF040-1"), a: QuizCore.letterFor(order, "LF040-0") };
     });
-    assert.ok(rows[lf.i].explanation.startsWith(`${lf.b} recasts the idea in new syntax and keeps the limit. ${lf.a} is unquoted copying.`));
+    assert.ok(rows[lf.i].explanation.startsWith(`${lf.b} names the devices and makes an arguable claim the text supports. ${lf.a} reverses his view of what neighbors call good.`));
     assert.equal(rows[lf.i].keyLetter, lf.b);
 
     // The saved attempt stores option IDs (and text) for every submission, wrong ones included.

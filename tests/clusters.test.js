@@ -42,10 +42,10 @@ test("templates from the last sitting are skipped while fresh ones remain", () =
   }
 });
 
-test("yesterday's dust note keeps the smoke and heat briefings out of today's sitting", () => {
+test("yesterday's dust note keeps the smoke briefing out of today's sitting", () => {
   for (let i = 0; i < 50; i++) {
-    const next = sitWith([{ id: "ela-clusters", clusterIds: ["dust", "canals", "start"] }]);
-    for (const id of ["dust", "smoke", "heat", "sources", "canals", "water", "start", "lunch", "hours"]) {
+    const next = sitWith([{ id: "ela-clusters", clusterIds: ["dust", "canals", "lunch"] }]);
+    for (const id of ["dust", "smoke", "canals", "water", "lunch", "hours"]) {
       assert.ok(!next.includes(id), `${id} in ${next.join(", ")}`);
     }
   }

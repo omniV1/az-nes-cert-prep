@@ -3,39 +3,6 @@
    Not copied from Pearson Field 02, Quizlet, or licensed modern works. */
 (function () {
   const P = {
-    heat: `City staff released a 28-page briefing this month on shade and surface temperature along a two-mile commercial corridor. Between 2019 and 2025, researchers mounted identical sensors on light poles at 40-meter intervals and recorded afternoon surface readings on 18 cloudless July days. The mean sidewalk temperature on unshaded blocks was 118°F. Blocks with a continuous canopy of mature trees averaged 99°F. Painted “cool” crosswalks, installed in 2023 on three intersections, lowered the painted surface by 7°F relative to adjacent asphalt but did not change sidewalk readings more than 20 feet away.
-
-The briefing is careful about what it does not claim. The sensor network covers one corridor, not the whole city. Readings were taken between 2:00 and 4:00 p.m.; morning and night patterns were not measured. The tree-canopy blocks also have older buildings and slower traffic, so shade is not the only variable. Staff therefore refuse to promise that planting saplings will reproduce the 19-degree gap within five years. A sapling, the urban forester notes, does not cast a mature canopy.
-
-Business owners quoted in an appendix split into two camps. One group wants a shade ordinance that would require new frontage projects to fund either trees or engineered shade. The other group calls the ordinance a tax on small shops and argues that portable misters are cheaper. The briefing does not endorse either policy. It does recommend that any ordinance, if drafted, include a five-year evaluation using the same sensor protocol and that staff publish raw hourly files, not only means.
-
-A final section compares the corridor with two peer cities that published similar studies. Both peer reports found that engineered shade (sails, arcades) cut peak surface temperature faster than newly planted trees, while mature trees outperformed sails after about twelve years. Those studies used different instruments and different street widths, so the comparison is illustrative, not a controlled experiment. The authors close by asking the council to decide whether it wants a fast, partial reduction or a slower change that may last longer—and to stop treating those as the same choice.`,
-
-    start: `The school board should move the high-school bell from 7:10 a.m. to 8:15 a.m. This is not a plea for extra sleep as a luxury. It is a request that the district stop fighting adolescent biology with a schedule designed for bus routes.
-
-Pediatric researchers have repeated the same finding for more than a decade: teenagers’ sleep cycles shift later. A 7:10 start asks many students to be alert in the last third of their biological night. Our own attendance office already knows the cost. First-period absences run 11 percent higher than sixth-period absences, and nurses log more “fatigue” visits before 9:00 than after lunch. Neighboring District 14 moved its start time in 2022 and reported a 9 percent drop in first-period tardies the following year. That study was small, and District 14 has a different athletic conference. It is still the closest local evidence we have.
-
-Critics say later starts wreck afternoon sports and after-school jobs. Those are real constraints, not insults. A later bell can be paired with a later final bell, with lights on the practice fields, and with a job-board partnership that lists shifts beginning at 4:00. What the critics have not produced is evidence that a 7:10 start improves learning. They have produced a transportation spreadsheet.
-
-Some parents worry that childcare for younger siblings will collapse if high schoolers leave later. That concern deserves a pilot, not a veto. Run 8:15 for one year at the two largest campuses, publish first-period grades and clinic data, and then decide. If the data are flat, return to 7:10 without embarrassment. If the data move, stop treating a bus schedule as if it were a theory of the teenage brain.`,
-
-    lab: `EAST VALLEY HIGH SCHOOL — SCIENCE MATERIALS CHECKOUT
-Effective 12 August. Applies to Biology, Chemistry, and Earth Science.
-
-1. Eligibility. Only enrolled students with a signed safety contract on file may check out materials. Contracts expire each June 30.
-
-2. What may leave the room. Students may check out goggles, unopened kits labeled “home-safe,” and analog thermometers. Students may not check out acids, bases above household concentration, bunsen burners, scalpels, or any item marked with a red diamond.
-
-3. Time limits. Kits are due at the start of the borrower’s next class meeting in the same course. A kit returned after the late bell is late. Three late returns in one semester suspend checkout for ten school days.
-
-4. Damaged or missing items. The borrower must report damage before leaving the room. Missing pieces discovered later are billed to the borrower at replacement cost unless a partner’s signature on the log shows shared custody. Shared custody does not excuse a red-diamond item leaving the room.
-
-5. Substitutions. If a listed kit is out, the teacher may issue an alternate kit with the same lab number and a different letter (for example, 4B instead of 4A). The alternate is due on the original due date.
-
-6. Closures. Checkout closes at 3:05 p.m. on regular days and at 12:20 p.m. on early-release days. Items may not be left on the front counter after closing; they must be handed to the teacher of record.
-
-7. Exceptions. The department chair may extend a due date once per student per semester for a documented absence. Team sports and club meetings are not documented absences. Email requests sent after the due date do not create an extension.`,
-
     douglass: `The first step had been taken. Mistress, in teaching me the alphabet, had given me the inch, and no precaution could prevent me from taking the ell.
 
 The plan which I adopted, and the one by which I was most successful, was that of making friends of all the little white boys whom I met in the street. As many of these as I could, I converted into teachers. With their kindly aid, obtained at different times and in different places, I finally succeeded in learning to read. When I was sent of errands, I always took my book, and by going one part of my errand quickly, I found time to get a lesson before my return. I used also to carry bread from the house, enough of which was always in the house, and to which I was always welcome; for I was much better off in this regard than many of the poor white children in our neighborhood. This bread I used to bestow upon the hungry little urchins, who, in return, would give me that more valuable bread of knowledge.
@@ -127,14 +94,6 @@ Now we are engaged in a great civil war, testing whether that nation, or any nat
 
 But, in a larger sense, we can not dedicate—we can not consecrate—we can not hallow—this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced. It is rather for us to be here dedicated to the great task remaining before us—that from these honored dead we take increased devotion to that cause for which they gave the last full measure of devotion—that we here highly resolve that these dead shall not have died in vain—that this nation, under God, shall have a new birth of freedom—and that government of the people, by the people, for the people, shall not perish from the earth.`,
 
-    essay: `Draft — student essay (unedited)
-
-Last year our city opened a “cooling center” in the old rec gym, and I think it was the most important thing the council did. Heat is dangerous. My neighbor Ms. Ortega is seventy-two, she does not own an air conditioner. On July 18 the gym hit capacity by 2 p.m. Walking into the gym, the sign-in sheet was already full. Volunteers handed out water, and they also handed out water to people who was waiting outside.
-
-Some residents say cooling centers treat a symptom and ignore tree canopy. That argument deserve a hearing. A center keeps people alive on the worst afternoons; trees change the street over a decade. The city can fund both, the budget is not a law of nature.
-
-I interviewed one volunteer, who said “we turned people away and I hated it.” I also read a 2024 city memo that listed 11 days over 110°F last July. If the council wants fewer ambulance calls, they should keep the gym open and plant the trees. Anything less is theater.`,
-
     thoreau: `From Henry David Thoreau, Walden (1854), the chapter “Economy”:
 
 The greater part of what my neighbors call good I believe in my soul to be bad, and if I repent of anything, it is very likely to be my good behavior. What demon possessed me that I behaved so well? You may say the wisest thing you can, old man,—you who have lived seventy years, not without honor of a kind,—I hear an irresistible voice which invites me away from all that. One generation abandons the enterprises of another like stranded vessels.
@@ -155,187 +114,50 @@ Now he sat down and looked at the grapes in disgust.
 
 And off he walked very, very scornfully.
 
-Moral: There are many who pretend to despise and belittle that which is beyond their reach.`,
+Moral: There are many who pretend to despise and belittle that which is beyond their reach.`
 
-    sources: `SOURCE A (city hydrology memo, 2025)
-Staff sampled six residential laterals after the July monsoon. Four laterals showed sediment loads above the 2018 baseline. Two laterals, both downstream of recently regraded lots, were within baseline. The memo does not claim that regrading caused the two clean readings; those lots also have new retention basins. Staff recommend a follow-up sample after the next 1-inch storm and warn that six laterals cannot represent the whole basin.
-
-SOURCE B (neighborhood newsletter, unsigned, August)
-“The city has proved that new construction is poisoning our washes. Every pile of dirt on a vacant lot is a crime against the aquifer. Demand a building freeze until the desert is clean again. A hydrologist who truly cared would already have shut the permits down.”`,
-
-    speech: `A student council candidate speaks in the cafeteria at lunch, standing on a bench, holding a megaphone. The period lasts 28 minutes. About sixty students are in line; twenty sit at tables. The candidate’s notes list three asks: later passing periods, a water-bottle filler by the gym, and “real food” on Fridays. She opens with a story about spilling a tray last Tuesday, then reads the three asks in one breath, then says, “If you don’t vote, you can’t complain.” A teacher at the back folds her arms. Two students film on phones. The candidate never states how a filler would be funded. When a friend in line yells “What about parking?” she laughs and says “Next year,” then steps down because the bell is about to ring.`
   };
 
   const items = [
-    { id: "LF001", domain: "reading", title: "Heat briefing — main idea", difficulty: "hard", tags: ["informational", "longform"], skillIds: ["informational-texts"], passageSet: "heat", passage: P.heat,
-      stem: "Which statement best expresses the central idea of the briefing as a whole?",
-      choices: [
-        "Mature tree canopy is associated with cooler sidewalks on this corridor, but the data do not by themselves settle a shade-ordinance fight.",
-        "Painted “cool” crosswalks lowered some surfaces by 7°F, so the briefing treats paint as the city’s heat solution and a substitute for canopy.",
-        "Because one appendix camp wants a shade ordinance, the briefing endorses that ordinance as the official recommendation.",
-        "Peer-city studies found that engineered shade works faster at first, so the authors treat those reports as a controlled experiment the council must follow."
-      ], answer: 0,
-      explanation: "The through-line is a limited corridor finding plus a refusal to convert it into one policy. {{opt:LF001-1}} overclaims the true 7°F paint result. {{opt:LF001-2}} turns a split appendix into an endorsement the briefing withholds. {{opt:LF001-3}} upgrades an “illustrative” comparison into a controlled mandate." },
-
-    { id: "LF002", domain: "reading", title: "Heat briefing — too-broad summary", difficulty: "hard", tags: ["informational", "longform"], skillIds: ["informational-texts"], passageSet: "heat", passage: P.heat,
-      stem: "A student writes this summary: “Trees always cool cities, so every block should be forced to plant them immediately.” The summary is weak primarily because it—",
-      choices: [
-        "omits the 118°F mean, which is the briefing’s only usable claim",
-        "turns a limited, qualified finding into a universal policy the authors refuse to promise",
-        "treats the sapling caution as if staff had already guaranteed a 19-degree gap within five years",
-        "assumes the sensor network already covers the whole city, which the briefing states as fact"
-      ], answer: 1,
-      explanation: "Field-style summary items punish upgrading one corridor’s hedged finding into “always” and “every block.” {{opt:LF002-0}} is not the defect: a number is not the controlling idea. {{opt:LF002-2}} and {{opt:LF002-3}} are other real misreads, but they are not what this summary does—and {{opt:LF002-3}} reverses the briefing’s coverage limit." },
-
-    { id: "LF003", domain: "reading", title: "Heat briefing — vocab in context", difficulty: "hard", tags: ["vocabulary", "longform"], skillIds: ["vocab-strategies"], passageSet: "heat", passage: P.heat,
-      stem: "In the sentence “the comparison is illustrative, not a controlled experiment,” illustrative most nearly means—",
-      choices: [
-        "binding on the council because two peer cities published similar studies",
-        "useful as an example, but not proof under matched conditions",
-        "a claim that the peer reports used identical instruments and street widths",
-        "evidence that saplings will reproduce the 19-degree gap within five years"
-      ], answer: 1,
-      explanation: "The contrast with controlled experiment is the clue: the peer comparison can show a pattern worth noticing, not causal proof. {{opt:LF003-0}} invents a legal duty. {{opt:LF003-2}} is what the authors say the comparison is not. {{opt:LF003-3}} borrows a different caution from earlier in the briefing." },
-
-    { id: "LF004", domain: "reading", title: "Heat briefing — author’s purpose", difficulty: "hard", tags: ["informational", "longform"], skillIds: ["informational-texts"], passageSet: "heat", passage: P.heat,
-      stem: "The primary purpose of the final paragraph is to—",
-      choices: [
-        "settle the appendix debate by endorsing portable misters as a cheaper alternative to a shade ordinance for small shops",
-        "require the council to adopt engineered sails because they cut peak temperature faster than newly planted trees",
-        "distinguish a fast partial fix from a slower lasting one so the council stops treating them as identical",
-        "establish that the peer studies used the same instruments and street widths, making the comparison a controlled experiment"
-      ], answer: 2,
-      explanation: "The close asks the council to choose between speed and durability rather than treat them as one choice. {{opt:LF004-0}} is an earlier split the briefing will not endorse. {{opt:LF004-1}} turns a peer finding into a mandate. {{opt:LF004-3}} contradicts the different-instruments warning." },
-
-    { id: "LF005", domain: "reading", title: "Heat briefing — fact vs opinion", difficulty: "hard", tags: ["evidence", "longform"], skillIds: ["evidence-credibility"], passageSet: "heat", passage: P.heat,
-      stem: "Which sentence from the briefing reports an evaluative opinion rather than a measured or procedural fact?",
-      choices: [
-        "The mean sidewalk temperature on unshaded blocks was 118°F.",
-        "Readings were taken between 2:00 and 4:00 p.m.",
-        "The other group calls the ordinance a tax on small shops and argues that portable misters are cheaper.",
-        "Staff therefore refuse to promise that planting saplings will reproduce the 19-degree gap within five years."
-      ], answer: 2,
-      explanation: "{{opt:LF005-2}} reports others’ evaluative framing (tax, cheaper) rather than a sensor result. {{opt:LF005-0}} and {{opt:LF005-1}} are measurements/methods. {{opt:LF005-3}} is a stated limit on what staff will claim, not a taste judgment by the narrator." },
-
-    { id: "LF006", domain: "reading", title: "Start-time editorial — claim", difficulty: "hard", tags: ["persuasive", "longform"], skillIds: ["persuasive-texts"], passageSet: "start", passage: P.start,
-      stem: "The author’s primary claim is that the board should—",
-      choices: [
-        "cancel after-school sports and jobs so a later bell has no remaining constraints",
-        "move the high-school start later and test the change with published data",
-        "adopt District 14’s athletic conference so the 9 percent tardy drop will transfer automatically",
-        "treat the transportation spreadsheet as proof that 7:10 a.m. already maximizes learning"
-      ], answer: 1,
-      explanation: "The opening and the closing pilot both urge 8:15 plus evaluation. Sports and jobs are constraints to manage, not cancel. District 14 is local evidence, not a conference takeover. {{opt:LF006-3}} is the critics’ unproven position." },
-
-    { id: "LF007", domain: "reading", title: "Start-time editorial — counterargument", difficulty: "hard", tags: ["persuasive", "longform"], skillIds: ["persuasive-texts"], passageSet: "start", passage: P.start,
-      stem: "The sentence “Those are real constraints, not insults” functions primarily as—",
-      choices: [
-        "the author’s thesis that the bell should move to 8:15",
-        "a concession that the opposing practical worries deserve an answer rather than mockery",
-        "a retraction of the attendance-office data, as if first-period absences were not real",
-        "a concession that the board should keep 7:10 if sports cannot be rescheduled"
-      ], answer: 1,
-      explanation: "The line grants that sports and jobs are genuine limits, then offers pairing strategies. It is not the thesis (later start plus a pilot), not a denial of attendance data, and not a veto in the critics’ favor." },
-
-    { id: "LF008", domain: "reading", title: "Start-time editorial — assumption", difficulty: "hard", tags: ["persuasive", "longform"], skillIds: ["persuasive-texts", "rhetorical-appeals"], passageSet: "start", passage: P.start,
-      stem: "The argument depends most heavily on which unstated assumption?",
-      choices: [
-        "If teenagers’ sleep cycles run later, a later bell is more likely to improve alertness than a 7:10 bell.",
-        "If lights go on the practice fields, after-school jobs and sports will cease to be a constraint on the schedule.",
-        "District 14’s small study is already decisive, despite a different athletic conference.",
-        "First-period absences running 11 percent higher already complete the local proof, so a two-campus pilot is unnecessary."
-      ], answer: 0,
-      explanation: "Biology plus local attendance data support a schedule change only if later sleep opportunity can translate into alertness. {{opt:LF008-1}} treats a pairing strategy as a vanished problem. {{opt:LF008-2}} overstates the author’s caution that District 14 was small and different. {{opt:LF008-3}} treats existing clinic/attendance gaps as if the proposed test had already been run." },
-
-    { id: "LF009", domain: "reading", title: "Start-time editorial — evidence quality", difficulty: "hard", tags: ["evidence", "longform"], skillIds: ["evidence-credibility"], passageSet: "start", passage: P.start,
-      stem: "Which criticism of the author’s evidence is fairest?",
-      choices: [
-        "The author cites first-period absences and clinic fatigue visits as if they already proved that 8:15 has worked in this district.",
-        "District 14 is offered as the closest local evidence even though the author admits the study is small and the settings differ.",
-        "Pediatric research is treated as if it were only a transportation spreadsheet, reversing the author’s own contrast.",
-        "The author presents the two-campus pilot as already finished and successful rather than as a test still to run."
-      ], answer: 1,
-      explanation: "Fair evaluation names a real limit the author already half-admits. {{opt:LF009-0}} misreads current cost data as proof of the proposed bell. {{opt:LF009-2}} reverses the author’s contrast between biology and bus routing. {{opt:LF009-3}} is false: the pilot is proposed, not completed." },
-
-    { id: "LF010", domain: "reading", title: "Lab checkout — apply a rule", difficulty: "hard", tags: ["technical", "longform"], skillIds: ["technical-texts"], passageSet: "lab", passage: P.lab,
-      stem: "A chemistry student with a current safety contract wants to take home an opened bottle labeled with a red diamond for a weekend project. According to the policy, the teacher should—",
-      choices: [
-        "allow it if the student promises to return it at the next class meeting, because kits are due then anyway",
-        "allow it because section 5 lets the teacher issue an alternate kit with the same lab number",
-        "refuse, because section 2 says an item marked with a red diamond may not be checked out, even by a student with a current contract",
-        "allow it if a partner signs the log, because section 4’s shared custody covers the checkout"
-      ], answer: 2,
-      explanation: "Section 2 forbids red-diamond items leaving the room. A next-class due date is for allowed kits, not a waiver. Substitutions (section 5) change lettered kits, not the diamond ban. Shared custody (section 4) does not excuse a forbidden checkout." },
-
-    { id: "LF011", domain: "reading", title: "Lab checkout — exception limit", difficulty: "hard", tags: ["technical", "longform"], skillIds: ["technical-texts"], passageSet: "lab", passage: P.lab,
-      stem: "A starter on the soccer team emails at 8:00 p.m. the day a kit was due, asking for an extension because of a match. The chair should—",
-      choices: [
-        "grant the extension once, because sports are listed as documented absences and the chair may extend a due date once per semester",
-        "deny it, because team sports are not documented absences and late email does not create an extension",
-        "grant it if the kit is left on the front counter after 3:05, because closing time is a separate rule",
-        "deny the extension but treat the match as resetting the three-late-returns clock in section 3"
-      ], answer: 1,
-      explanation: "Section 7 excludes sports and says after-due-date email does not create an extension. {{opt:LF011-0}} reverses the documented-absence list. {{opt:LF011-2}} misapplies the closing rule (items may not be left on the counter). {{opt:LF011-3}} invents a sports exception to the late-return count." },
-
-    { id: "LF012", domain: "reading", title: "Lab checkout — inference", difficulty: "hard", tags: ["technical", "longform"], skillIds: ["technical-texts"], passageSet: "lab", passage: P.lab,
-      stem: "The policy most clearly implies that the school’s first concern in checkout is—",
-      choices: [
-        "keeping hazardous materials and accountability rules tighter than convenience",
-        "maximizing how many home-safe kits leave overnight, since analog thermometers and unopened kits are allowed",
-        "treating team sports as the policy’s main target, since sports cannot create an extension",
-        "allowing a front-counter drop after 3:05 so closing time does not inconvenience borrowers"
-      ], answer: 0,
-      explanation: "Banned items, due-date discipline, damage reporting, and no counter-drop after closing all prioritize safety and a named custodian. Allowed home-safe items do not make volume the goal. Sports are excluded from extensions, not targeted. A drop after closing is forbidden." },
-
-    { id: "LF013", domain: "reading", title: "Lab checkout — clause purpose", difficulty: "hard", tags: ["technical", "longform"], skillIds: ["technical-texts"], passageSet: "lab", passage: P.lab,
-      stem: "The main purpose of the sentence “Shared custody does not excuse a red-diamond item leaving the room” is to—",
-      choices: [
-        "create an exception so a partner’s signature can authorize a red-diamond checkout after all",
-        "close a loophole: a partner’s signature cannot legalize a forbidden checkout",
-        "cancel the three-late-returns suspension in section 3 when two students share a kit",
-        "replace the signed safety contract in section 1 as the test of eligibility"
-      ], answer: 1,
-      explanation: "The line blocks using section 4’s partner log as a workaround for section 2. {{opt:LF013-0}} reverses that block. {{opt:LF013-2}} and {{opt:LF013-3}} pull in other sections the sentence does not rewrite." },
-
     { id: "LF014", domain: "literature", title: "Douglass — figurative bread", difficulty: "hard", tags: ["figurative", "longform"], skillIds: ["figurative-language"], passageSet: "douglass", passage: P.douglass,
       stem: "When Douglass calls the boys’ lessons “that more valuable bread of knowledge,” he is primarily using—",
       choices: [
-        "simile, because he compares lessons to bread with like or as",
-        "metaphor, equating teaching with food that sustains him more than the loaf he gives away",
-        "personification of knowledge as a hungry child who receives the loaf",
-        "apostrophe, because he turns aside from the story to address the “bread of knowledge” directly as a listener"
+        "simile, comparing lessons to bread with like or as",
+        "metaphor, treating lessons as food better than a loaf",
+        "personification, giving knowledge the hunger of the boys who teach him",
+        "apostrophe, turning aside from the story to address knowledge directly"
       ], answer: 1,
-      explanation: "Bread of knowledge maps learning onto food without like/as; he has already given actual bread. It is not a simile, not knowledge-as-child, and not a second-person address. The earlier “ell” is a separate measurement image." },
+      explanation: "“Bread of knowledge” maps learning onto food without like or as, right after he has given away real bread. {{opt:LF014-0}} needs like or as, which the phrase lacks. {{opt:LF014-2}} gives the boys’ hunger to knowledge; the boys are the hungry ones. {{opt:LF014-3}} needs a direct address, which the sentence does not make." },
 
     { id: "LF015", domain: "literature", title: "Douglass — tone", difficulty: "hard", tags: ["narrative", "longform"], skillIds: ["narrative-elements", "literature-context"], passageSet: "douglass", passage: P.douglass,
       stem: "The tone of the paragraph that withholds the boys’ names is best described as—",
       choices: [
-        "grateful yet bitterly aware that teaching a slave to read is treated as an offense",
-        "purely grateful, with no criticism at all of the culture that would punish the boys for helping him",
-        "indignant only at the boys, whom he refuses to thank even as a testimonial",
-        "endorsing the law that makes teaching slaves to read an “unpardonable offence” in his country"
+        "grateful, and bitter at a law that makes their help an offense",
+        "grateful, and afraid that naming the boys would get him punished",
+        "resentful, and unwilling to credit the boys for their help",
+        "detached, recording the boys’ help as a plain fact"
       ], answer: 0,
-      explanation: "He wants to thank them (gratitude) but prudence forbids because the culture criminalizes the teaching (bitter irony in “this Christian country”). {{opt:LF015-1}} drops the bitterness. {{opt:LF015-2}} reverses his affection. {{opt:LF015-3}} takes the offense as his own view." },
+      explanation: "He wants to thank them but holds back because teaching a slave to read is “almost an unpardonable offence,” and “this Christian country” is bitter. {{opt:LF015-1}} reverses his reason: he says naming them would not injure him but might embarrass them. {{opt:LF015-2}} contradicts “gratitude and affection.” {{opt:LF015-3}} misses both feelings." },
 
     { id: "LF016", domain: "literature", title: "Douglass — purpose", difficulty: "hard", tags: ["context", "longform"], skillIds: ["literature-context", "prose-drama-analysis"], passageSet: "douglass", passage: P.douglass,
       stem: "A chief purpose of this excerpt in Douglass’s narrative is to—",
       choices: [
-        "show literacy as stolen agency under a system that tried to keep him ignorant",
-        "argue that the white boys’ future freedom at twenty-one makes literacy unnecessary for them",
-        "show that by twelve he had already accepted being a slave for life and no longer sought freedom",
-        "present The Columbian Orator as a comfort that lightened, rather than intensified, the thought of lifelong slavery"
+        "show how he won reading from a system built to keep him from it",
+        "show how his mistress’s lessons carried him from the alphabet to full literacy",
+        "show how the boys’ sympathy made him content with his position as a slave",
+        "show how The Columbian Orator eased the thought of slavery for life"
       ], answer: 0,
-      explanation: "The inch/ell, street teachers, and Columbian Orator all stage reading as resistance. He envies the boys’ future freedom; the thought of slavery for life “began to bear heavily,” and the Orator arrives at that moment, not as a sedative." },
+      explanation: "The inch and the ell, the street teachers, and the Orator all stage reading as something taken against the system. {{opt:LF016-1}} is false: she gave him the alphabet, and the boys did the rest. {{opt:LF016-2}} reverses the end of the excerpt, where slavery for life begins “to bear heavily.” {{opt:LF016-3}} reverses the timing: the Orator arrives as that thought grows heavier." },
 
     { id: "LF017", domain: "literature", title: "Douglass — inference", difficulty: "hard", tags: ["narrative", "longform"], skillIds: ["prose-drama-analysis"], passageSet: "douglass", passage: P.douglass,
       stem: "The excerpt most strongly supports the inference that—",
       choices: [
-        "he could still rely on Mistress’s alphabet lessons as an openly approved curriculum",
-        "he treated errand time and leftover bread as tools in a covert curriculum",
-        "the boys’ sympathy proved that teaching a slave to read was already treated as respectable",
-        "The Columbian Orator arrived as a comfort that made lifelong slavery easier to bear"
+        "his mistress went on teaching him openly after he learned the alphabet",
+        "he used errands and spare bread to get lessons in secret",
+        "the boys’ families knew about the lessons and approved of them",
+        "he learned to read from the pages of The Columbian Orator itself"
       ], answer: 1,
-      explanation: "He speeds errands to study and trades bread for lessons after Mistress’s teaching is no longer the plan. The boys help him, but prudence forbids naming them because the teaching is an “unpardonable offence.” The Orator arrives as the thought of slavery for life bears more heavily, not as a comfort." },
+      explanation: "He hurries errands to study and trades bread for lessons, and he will not name the boys. {{opt:LF017-0}} is false: the boys, not his mistress, became his teachers. {{opt:LF017-2}} is contradicted by his need to protect the boys. {{opt:LF017-3}} reverses the order: he gets the book after he can read." },
 
     { id: "LF018", domain: "literature", title: "Douglass — theme", difficulty: "hard", tags: ["theme", "longform"], skillIds: ["narrative-elements"], passageSet: "douglass", passage: P.douglass,
       stem: "Which statement is the best theme (not a topic) of the excerpt?",
@@ -350,222 +172,172 @@ SOURCE B (neighborhood newsletter, unsigned, August)
     { id: "LF019", domain: "literature", title: "Austen — irony", difficulty: "hard", tags: ["irony", "longform"], skillIds: ["figurative-language", "prose-drama-analysis"], passageSet: "austen", passage: P.austen,
       stem: "The opening sentence is ironic primarily because—",
       choices: [
-        "it is verbal irony from Mrs. Bennet, who already knows Bingley’s name and is pretending otherwise",
-        "it presents a neighborhood prejudice as if it were a law of nature, while the dialogue shows the “want” is the families’, not the bachelor’s proven desire",
-        "it is dramatic irony because Mr. Bennet has already met Bingley and the reader has not",
-        "it is situational irony because Netherfield is let to a man without fortune, contradicting the income named later"
+        "Mrs. Bennet speaks it while meaning the opposite",
+        "it states as a universal truth what is only the families’ wish",
+        "Mr. Bennet has already met Bingley, and the reader learns this later",
+        "the new tenant turns out to have no fortune at all"
       ], answer: 1,
-      explanation: "“Universally acknowledged” and “must be in want” sound like axioms; Mrs. Bennet’s chatter reveals the hunger is social and parental. The narrator, not Mrs. Bennet, opens; Mr. Bennet has not met Bingley; the fortune is large, not missing." },
+      explanation: "“Universally acknowledged” and “must be in want” sound like a law of nature; the dialogue shows the want belongs to the families. {{opt:LF019-0}} is false: the narrator, not Mrs. Bennet, speaks the line. {{opt:LF019-2}} is false: Mr. Bennet has not heard of Bingley. {{opt:LF019-3}} is false: he has four or five thousand a year." },
 
     { id: "LF020", domain: "literature", title: "Austen — narrative voice", difficulty: "hard", tags: ["pov", "longform"], skillIds: ["narrative-elements"], passageSet: "austen", passage: P.austen,
       stem: "The narrator’s stance toward Mrs. Bennet is best described as—",
       choices: [
-        "unquestioning agreement with her claim that a fortune makes Bingley “rightful property”",
-        "amused distance: the narrator lets her talk on long enough to expose her mercenary motives",
-        "first-person identification with Mrs. Bennet, who is narrating her own campaign",
-        "satire aimed only at Mr. Bennet, whose dry questions the narrator treats as the neighborhood’s true law"
+        "agreement with Mrs. Bennet that a rich bachelor belongs to some daughter",
+        "amused distance that lets Mrs. Bennet’s talk expose her motives",
+        "first-person sympathy from inside Mrs. Bennet’s own thoughts and plans",
+        "sharp disapproval aimed at Mr. Bennet’s dry replies"
       ], answer: 1,
-      explanation: "The opening axiom plus Mr. Bennet’s dry replies frame her as comic and mercenary. The narrator is not Mrs. Bennet and does not simply ratify her market view; Mr. Bennet is a foil, not the sole target." },
+      explanation: "The opening axiom and Mr. Bennet’s dry replies frame her as comic and mercenary. {{opt:LF020-0}} takes the ironic opening at face value. {{opt:LF020-2}} is false: the narrator is third person and reports her speech from outside. {{opt:LF020-3}} reverses the roles: Mr. Bennet is the foil, not the target." },
 
     { id: "LF021", domain: "literature", title: "Austen — characterization", difficulty: "hard", tags: ["character", "longform"], skillIds: ["prose-drama-analysis"], passageSet: "austen", passage: P.austen,
       stem: "Mr. Bennet’s replies characterize him as—",
       choices: [
-        "eager, like his wife, to treat Bingley’s income as a plan for one of the girls before he even asks the name",
-        "detached and teasing, forcing his wife to supply the gossip she is bursting to tell",
-        "uninterested in the letting, since he never asks a follow-up once he hears “Bingley”",
-        "aligned with Mrs. Long as a rival matchmaker rather than as a dry audience for the gossip"
+        "as eager as his wife to match Bingley with a daughter",
+        "detached and teasing, making his wife carry the conversation",
+        "uninterested in the new tenant’s name or situation",
+        "already informed of the news by Mrs. Long"
       ], answer: 1,
-      explanation: "He withholds curiosity (“You want to tell me”) so she performs. He is not planning a wedding; he does ask name and marital status; Mrs. Long is her source, not his partner." },
+      explanation: "He withholds curiosity (“You want to tell me”) so that she performs. {{opt:LF021-0}} gives him her plan. {{opt:LF021-2}} is false: he asks the tenant’s name and whether he is married. {{opt:LF021-3}} is false: Mrs. Long told Mrs. Bennet, and Mr. Bennet “had not” heard." },
 
     { id: "LF022", domain: "literature", title: "Austen — social context", difficulty: "hard", tags: ["context", "longform"], skillIds: ["literature-context", "literary-periods"], passageSet: "austen", passage: P.austen,
       stem: "The passage most clearly satirizes a social world in which—",
       choices: [
-        "a man’s income is treated as a family’s hunting license for a daughter’s marriage",
-        "marriage is treated as irrelevant to income, since Mr. Bennet asks how Bingley can “affect” the girls",
-        "women’s speech is barred at home, which is why Mrs. Bennet must rely on Mrs. Long",
-        "Michaelmas has no social meaning, even though Mrs. Bennet uses it as the move-in date"
+        "a rich man is a prize for families with daughters",
+        "marriage is arranged by fathers without the mothers’ say",
+        "women may not speak of money or income in front of men",
+        "newcomers are shunned until they have lived there a year"
       ], answer: 0,
-      explanation: "“Rightful property” and “fine thing for our girls” plus the income figure make marriage a market. Mr. Bennet’s “how can it affect them?” is dry bait, not the narrator’s view. Mrs. Bennet speaks constantly; Michaelmas still marks possession." },
+      explanation: "“Rightful property,” “a fine thing for our girls,” and the income figure make marriage a market. {{opt:LF022-1}} reverses the scene: the mother is the one planning. {{opt:LF022-2}} is false: Mrs. Bennet names his income at once. {{opt:LF022-3}} is false: the neighborhood claims Bingley before he arrives." },
 
     { id: "LF023", domain: "literature", title: "Macbeth — metaphor", difficulty: "hard", tags: ["figurative", "longform"], skillIds: ["figurative-language", "poetry-forms"], passageSet: "macbeth", passage: P.macbeth,
       stem: "In “Life’s but a walking shadow, a poor player,” Macbeth primarily compares life to—",
       choices: [
-        "the brief candle he has just addressed, as if that were the same vehicle as “poor player”",
-        "an actor whose brief, anxious performance fills his hour on the stage and then is gone and forgotten",
-        "a critic who remains after the hour to interpret the play’s meaning",
-        "a tale whose sound and fury prove that performed action leaves a lasting moral"
+        "the yesterdays that light fools to dusty death",
+        "an actor who struts and frets his hour and is heard no more",
+        "the petty pace that creeps from day to day",
+        "the recorded time that ends at its last syllable"
       ], answer: 1,
-      explanation: "The player “struts and frets his hour” and is “heard no more.” The candle is a separate image just before this line. A critic would stay to interpret; the speech says the tale signifies nothing." },
+      explanation: "The “poor player” is an actor who “struts and frets his hour upon the stage / And then is heard no more.” The other options are images from earlier lines, each describing time rather than life." },
 
     { id: "LF024", domain: "literature", title: "Macbeth — tone", difficulty: "hard", tags: ["tone", "longform"], skillIds: ["narrative-elements"], passageSet: "macbeth", passage: P.macbeth,
       stem: "The tone of the speech is best described as—",
       choices: [
-        "triumphant, because “to-morrow” promises a reign that will outlast recorded time",
-        "weary nihilism: time only crawls from day to day, and all human action seems to mean nothing",
-        "bitterly comic, treating “a tale told by an idiot” as a joke for the audience rather than a judgment on life",
-        "elegiac only for one death, with no generalization from that death to time and meaning"
+        "hopeful: tomorrow promises time to recover",
+        "weary despair: time crawls and life means nothing",
+        "mocking: the speaker laughs at the tale told by an idiot",
+        "grieving: the speaker mourns the queen’s death and no wider loss"
       ], answer: 1,
-      explanation: "Tomorrow creeps; yesterdays light fools to death; the tale signifies nothing. “To-morrow” is grind, not triumph. The idiot’s tale is the judgment, not a joke. The speech begins from “She should have died hereafter” but widens to all of life." },
+      explanation: "Tomorrow creeps, yesterdays light fools to death, and the tale signifies nothing. {{opt:LF024-0}} misreads “to-morrow” as hope; it is grind. {{opt:LF024-2}} mistakes the idiot’s tale for a joke; it is the verdict on life. {{opt:LF024-3}} stops at the opening line; the speech widens from one death to all of life." },
 
     { id: "LF025", domain: "literature", title: "Macbeth — theme", difficulty: "hard", tags: ["theme", "longform"], skillIds: ["narrative-elements"], passageSet: "macbeth", passage: P.macbeth,
       stem: "Which statement best captures a theme of the speech?",
       choices: [
-        "Human time can feel both endless in its grind and empty of lasting meaning.",
-        "Grief for one death can be postponed (“died hereafter”), so the speech’s insight is patience rather than emptiness.",
-        "Sound and fury on a stage prove that performed action is more meaningful than “dusty death.”",
-        "Tomorrow never arrives; the speech denies that any next day comes."
+        "Time grinds on yet leaves life without lasting meaning.",
+        "Grief should be delayed until there is time to feel it properly.",
+        "Acting on a stage gives life more meaning than death can take away.",
+        "The future offers relief from the failures and griefs of the past."
       ], answer: 0,
-      explanation: "Petty pace plus “signifying nothing” joins duration to emptiness. The opening death is the occasion, not a lesson in patience. The player and the tale are vehicles for meaninglessness, not a defense of performance. Tomorrow does arrive—it just creeps." },
+      explanation: "“Petty pace” and “signifying nothing” join duration to emptiness. {{opt:LF025-1}} turns the opening line into a lesson. {{opt:LF025-2}} reverses the player image, which ends “heard no more.” {{opt:LF025-3}} reverses “to-morrow,” which only creeps." },
 
     { id: "LF026", domain: "literature", title: "Macbeth — sound and pace", difficulty: "hard", tags: ["sound", "longform"], skillIds: ["sound-devices", "poetry-forms"], passageSet: "macbeth", passage: P.macbeth,
       stem: "The repetition of “To-morrow, and to-morrow, and to-morrow” most clearly—",
       choices: [
-        "speeds the line, as if each tomorrow arrived faster than the last",
-        "enacts the dragging sameness the speech describes",
-        "marks a witches’ refrain, as if this speech were the play’s chorus rather than Macbeth’s",
-        "is apostrophe to tomorrow as a person who could answer and change the pace"
+        "speeds the line, as each tomorrow comes faster",
+        "slows the line to the creeping pace it describes",
+        "echoes a refrain the witches chant earlier in the play",
+        "addresses tomorrow as a listener"
       ], answer: 1,
-      explanation: "Repeating the same word three times with and mimics a pace that “creeps.” It is not acceleration, not a witches’ chorus in this speech, and not an address that expects tomorrow to reply." },
+      explanation: "Three tomorrows joined by and drag the line, matching “creeps in this petty pace.” {{opt:LF026-0}} reverses the effect. {{opt:LF026-2}} is outside this speech. {{opt:LF026-3}} would need a direct address, which the line does not make." },
 
     { id: "LF027", domain: "literature", title: "Dickinson — personification", difficulty: "hard", tags: ["figurative", "longform"], skillIds: ["figurative-language"], passageSet: "dickinson", passage: P.dickinson,
       stem: "Death is characterized in the opening stanzas primarily through—",
       choices: [
-        "personification as a civil, unhurried carriage driver",
-        "a simile that compares Death to a carriage using like or as in the opening lines",
-        "apostrophe, because the speaker addresses Death in the second person throughout the first stanza",
-        "allegory in which Immortality, not Death, is the one who “kindly stopped”"
+        "personification: Death is a polite driver",
+        "simile: Death is like a carriage, compared with like or as",
+        "apostrophe: the speaker addresses Death directly as you",
+        "hyperbole: Death’s slow pace is exaggerated for effect"
       ], answer: 0,
-      explanation: "He kindly stopped, knew no haste, showed civility, and drives a carriage—human traits without like/as. The speaker says “for me,” not “O Death.” Immortality is a passenger, not the driver who stopped." },
+      explanation: "Death “kindly stopped,” “knew no haste,” shows “Civility,” and drives: human traits with no like or as. {{opt:LF027-1}} needs like or as, which the stanzas lack. {{opt:LF027-2}} is false: she speaks of Death as he. {{opt:LF027-3}} is false: “He knew no haste” is stated plainly, not exaggerated." },
 
     { id: "LF028", domain: "literature", title: "Dickinson — tone shift", difficulty: "hard", tags: ["tone", "longform"], skillIds: ["narrative-elements", "poetry-forms"], passageSet: "dickinson", passage: P.dickinson,
       stem: "The poem’s tone shifts most sharply when—",
       choices: [
-        "Immortality first sits in the carriage, which is already the graveyard chill of the later stanzas",
-        "the journey’s courtesy gives way to chill, gossamer clothing, and a house that is a grave",
-        "the speaker dates the ride precisely enough to treat centuries as a historical chronicle",
-        "Death’s civility turns into haste, reversing “He knew no haste” without a change in weather or clothing"
+        "Immortality joins them in the carriage",
+        "the dew turns chill and her thin gown gives no warmth",
+        "she says the ride happened centuries ago, though it feels shorter than a day",
+        "Death drops his civility and begins to drive the horses with haste"
       ], answer: 1,
-      explanation: "Civility and slow driving turn to dew, thin clothing, and a swelling in the ground. Immortality is early and calm. Centuries remain a feeling, not a date. Haste is never reversed; the chill arrives while the driver is still unhurried." },
+      explanation: "After “He passed Us,” the dew is quivering and chill and her gown is only gossamer; the next stop is a house that is a swelling in the ground. {{opt:LF028-0}} is in the calm first stanza. {{opt:LF028-2}} comes after the shift, in the last stanza. {{opt:LF028-3}} is false: Death never hurries." },
 
     { id: "LF029", domain: "literature", title: "Dickinson — theme", difficulty: "hard", tags: ["theme", "longform"], skillIds: ["narrative-elements"], passageSet: "dickinson", passage: P.dickinson,
       stem: "Which reading is best supported by the whole poem?",
       choices: [
-        "Death can be imagined as a polite interruption that still ends in the grave and a sense of eternity.",
-        "The speaker never leaves home, because the “House” in the ground is her childhood school.",
-        "The children at recess are the poem’s proof that Immortality has already failed.",
-        "The carriage runs ordinary errands (school, fields) and never turns toward burial or eternity."
+        "Death arrives politely, yet the ride ends at the grave and points toward eternity.",
+        "The ride ends at the speaker’s childhood school, where the poem began.",
+        "The children at recess show that Immortality has failed.",
+        "The ride passes through ordinary life and stops before reaching the grave."
       ], answer: 0,
-      explanation: "Kindness and civility coexist with the buried house and horses toward eternity. The speaker does leave; recess is a station on the ride, not a rebuttal of Immortality; school and fields are early stops, not the destination." },
+      explanation: "Kindness and civility sit beside the house in the ground and the horses’ heads toward eternity. {{opt:LF029-1}} is false: the school is an early stop, and the ride ends at the grave. {{opt:LF029-2}} makes the children an argument; they are a scene passed. {{opt:LF029-3}} is false: they pause before a house that is a grave." },
 
     { id: "LF030", domain: "literature", title: "Dickinson — structure", difficulty: "hard", tags: ["form", "longform"], skillIds: ["poetry-forms"], passageSet: "dickinson", passage: P.dickinson,
       stem: "The repeated “We passed…” sequence functions structurally as—",
       choices: [
-        "a refrain that repeats without advancing, as if the ride never left the schoolyard",
-        "a journey catalogue that moves from ordinary life (school, fields, sun) toward burial",
-        "a volta that resolves the poem in the schoolyard stanza, after which nothing further is passed",
-        "a frame that returns the speaker to the labor and leisure she has not put away"
+        "a refrain that keeps the ride circling the schoolyard",
+        "a list of stops that moves through a day of life toward dusk and burial",
+        "the turn that ends the poem in the schoolyard stanza",
+        "a frame that returns the speaker at the end to the labor and leisure she had put away"
       ], answer: 1,
-      explanation: "Anaphora marks stages of a ride from living scenes to the grave-house. The sequence does advance (grain, sun, then the house in the ground). The school stanza is not a closing turn, and labor/leisure were put away at the start." },
+      explanation: "Anaphora marks the stages of the ride: school, grain, setting sun, then the house in the ground. {{opt:LF030-0}} is false: the ride moves on. {{opt:LF030-2}} is false: three stanzas follow. {{opt:LF030-3}} is false: she put labor and leisure away at the start." },
 
     { id: "LF031", domain: "reading", title: "Gettysburg — purpose", difficulty: "hard", tags: ["rhetoric", "longform"], skillIds: ["rhetorical-appeals", "persuasive-texts"], passageSet: "lincoln", passage: P.lincoln,
       stem: "Lincoln’s primary purpose is to—",
       choices: [
-        "give a complete military history of the battle, with the dedication as a footnote",
-        "redefine the ceremony so the living take on the unfinished political work of the dead",
-        "argue that the world will remember this speech longer than the soldiers’ actions",
-        "consecrate the ground more powerfully than the soldiers already have, so the living need not take up unfinished work"
+        "recount the battle fought on this field",
+        "turn the dedication into a charge to the living to finish the work",
+        "argue that this speech will outlast the soldiers’ deeds",
+        "consecrate the ground with words"
       ], answer: 1,
-      explanation: "After saying the ground is already consecrated, he turns to “us the living” and the “great task remaining.” He downplays the speech versus the deeds. No order of battle appears, and he denies that words can add to the soldiers’ hallowing." },
+      explanation: "After saying the ground is already consecrated, he turns to “us the living” and “the great task remaining.” {{opt:LF031-0}} is false: no account of the battle appears. {{opt:LF031-2}} reverses “the world will little note.” {{opt:LF031-3}} reverses “we can not consecrate.”" },
 
     { id: "LF032", domain: "reading", title: "Gettysburg — antithesis", difficulty: "hard", tags: ["rhetoric", "longform"], skillIds: ["rhetorical-appeals"], passageSet: "lincoln", passage: P.lincoln,
       stem: "“The world will little note, nor long remember what we say here, but it can never forget what they did here” is best described as—",
       choices: [
-        "a metaphor that equates words and deeds as the same kind of consecration",
-        "antithesis: paired clauses set perishable words against deeds the world cannot forget",
-        "verbal irony that secretly means the opposite: the world will remember the speech and forget the battle",
-        "parallelism that lists three verbs of dedication (dedicate, consecrate, hallow) rather than contrasting say/did"
+        "metaphor: words and deeds are made into the same kind of act",
+        "antithesis: what we say is set against what they did",
+        "irony: the line means the speech will be remembered",
+        "tricolon: three verbs of dedication in a row"
       ], answer: 1,
-      explanation: "Say/did and little note/never forget are balanced opposites. The line distinguishes words from deeds rather than equating them. It is not a wink that the speech will outlast the battle. Dedicate/consecrate/hallow is a nearby tricolon, not this sentence’s device." },
+      explanation: "Say and did, little note and never forget, are balanced opposites. {{opt:LF032-0}} reverses the contrast. {{opt:LF032-2}} reads a hidden meaning the speech does not support. {{opt:LF032-3}} describes the nearby sentence “we can not dedicate—we can not consecrate—we can not hallow.”" },
 
     { id: "LF033", domain: "reading", title: "Gettysburg — diction", difficulty: "hard", tags: ["vocabulary", "longform"], skillIds: ["vocab-strategies", "style-audience"], passageSet: "lincoln", passage: P.lincoln,
       stem: "In “the last full measure of devotion,” measure most nearly means—",
       choices: [
-        "a musical bar, as if “devotion” were scored like a hymn the living should sing",
-        "the utmost portion or extent (they gave all they had)",
-        "a geometric survey of the cemetery plot the living have come to dedicate",
-        "a modest portion, the opposite of “full,” meaning the dead gave only part of what they had"
+        "a bar of music",
+        "the full amount or extent",
+        "a step taken to reach a goal",
+        "a unit used in surveying land"
       ], answer: 1,
-      explanation: "Full measure of devotion = the complete extent of commitment, i.e., their lives. Musical and surveying senses ignore “devotion.” {{opt:LF033-3}} inverts “full.”" },
+      explanation: "“The last full measure of devotion” is the complete extent of their commitment: their lives. The other options are real senses of measure that do not fit “of devotion.”" },
 
     { id: "LF034", domain: "reading", title: "Gettysburg — implied argument", difficulty: "hard", tags: ["persuasive", "longform"], skillIds: ["persuasive-texts", "literature-context"], passageSet: "lincoln", passage: P.lincoln,
       stem: "The speech most strongly implies that the war’s justification depends on—",
       choices: [
-        "whether the living finish a government grounded in popular equality rather than let the dead’s sacrifice be wasted",
-        "whether the living can make this speech outlast the battle, which Lincoln says the world will little note",
-        "whether the ground can still be consecrated by words after soldiers have already hallowed it by dying",
-        "whether a nation conceived in Liberty has already failed, so the unfinished work should be abandoned"
+        "whether the living finish the work of popular government",
+        "whether the world remembers the words spoken at this ceremony",
+        "whether words can consecrate ground the soldiers already hallowed",
+        "whether the nation can end the war before another battle is fought"
       ], answer: 0,
-      explanation: "“Testing whether that nation…can long endure” and “shall not have died in vain” tie meaning to unfinished equality-government. He downplays the speech, denies that words can add to the soldiers’ consecration, and calls for a new birth of freedom rather than abandonment." },
-
-    { id: "LF035", domain: "language", title: "Student draft — comma splice", difficulty: "hard", tags: ["mechanics", "longform"], skillIds: ["mechanics", "grammar-usage"], passageSet: "essay", passage: P.essay,
-      stem: "Which sentence from the draft is a comma splice?",
-      choices: [
-        "Heat is dangerous.",
-        "My neighbor Ms. Ortega is seventy-two, she does not own an air conditioner.",
-        "I also read a 2024 city memo that listed 11 days over 110°F last July.",
-        "If the council wants fewer ambulance calls, they should keep the gym open and plant the trees."
-      ], answer: 1,
-      explanation: "Two independent clauses joined by a comma alone. {{opt:LF035-0}} is simple. {{opt:LF035-2}} is one clause plus a relative. {{opt:LF035-3}} is complex with a comma after a dependent opener, which is legal." },
-
-    { id: "LF036", domain: "language", title: "Student draft — agreement", difficulty: "hard", tags: ["usage", "longform"], skillIds: ["grammar-usage", "agreement-usage"], passageSet: "essay", passage: P.essay,
-      stem: "Which revision best corrects the agreement error in “people who was waiting outside”?",
-      choices: [
-        "people who were waiting outside",
-        "people who is waiting outside",
-        "people who has been waiting outside",
-        "a person who were waiting outside"
-      ], answer: 0,
-      explanation: "Who refers to people (plural), so were. {{opt:LF036-1}} and {{opt:LF036-2}} are singular verbs. {{opt:LF036-3}} mismatches person/were." },
-
-    { id: "LF037", domain: "language", title: "Student draft — dangling modifier", difficulty: "hard", tags: ["usage", "longform"], skillIds: ["grammar-usage", "agreement-usage"], passageSet: "essay", passage: P.essay,
-      stem: "“Walking into the gym, the sign-in sheet was already full” is weak because—",
-      choices: [
-        "it is a fragment, because the sentence is missing a finite verb",
-        "the opener attaches to sign-in sheet, which cannot walk",
-        "gym should be capitalized because it is the cooling center’s proper name in the draft",
-        "already cannot modify full in a complete clause"
-      ], answer: 1,
-      explanation: "Dangling participial opener: the grammatical subject must be the walker. It is a complete sentence; gym need not be capitalized; already legitimately modifies full." },
-
-    { id: "LF038", domain: "language", title: "Student draft — combining", difficulty: "hard", tags: ["sentences", "longform"], skillIds: ["sentence-craft"], passageSet: "essay", passage: P.essay,
-      stem: "Which revision best combines the two sentences about centers and trees without changing the claim?",
-      choices: [
-        "A center keeps people alive on the worst afternoons, while trees change the street over a decade.",
-        "A center keeps people alive on the worst afternoons, however trees change the street over a whole decade.",
-        "Although a center keeps people alive on the worst afternoons, trees are irrelevant to the city’s heat problem.",
-        "Because a center keeps people alive, the city should delay planting trees until the gym is no longer needed."
-      ], answer: 0,
-      explanation: "{{opt:LF038-0}} preserves both timescales with a clear contrast. {{opt:LF038-1}} is a comma splice: however cannot join two clauses with only a comma. {{opt:LF038-2}} and {{opt:LF038-3}} alter the claim: the draft says the city can fund both, not that trees are irrelevant or must wait." },
-
-    { id: "LF039", domain: "language", title: "Student draft — quotation and citation", difficulty: "hard", tags: ["research", "longform"], skillIds: ["research-citation"], passageSet: "essay", passage: P.essay,
-      stem: "The draft’s use of the volunteer’s words is weakest as research practice because it—",
-      choices: [
-        "uses quotation marks, which are unnecessary once the speaker is called “one volunteer”",
-        "offers no identifiable source beyond “one volunteer” and no date or context that a reader could verify",
-        "mentions a 2024 city memo in the next sentence, which cannot count as a separate source",
-        "argues that the city can fund both programs, which is a citation error rather than a policy claim"
-      ], answer: 1,
-      explanation: "A quoted claim still needs a traceable source. Marks are present and appropriate; the memo is a separate, better-specified source; the policy claim is not a citation issue." },
+      explanation: "“Testing whether that nation … can long endure” and “shall not have died in vain” tie the war’s meaning to the unfinished work. {{opt:LF034-1}} reverses “the world will little note.” {{opt:LF034-2}} reverses “we can not consecrate.” {{opt:LF034-3}} names a goal the speech never mentions." },
 
     { id: "LF040", domain: "writing", title: "Thoreau — analytical thesis", difficulty: "hard", tags: ["analytical", "longform"], skillIds: ["analytical-writing", "thesis-support"], passageSet: "thoreau", passage: P.thoreau,
       stem: "Which thesis best fits a critical essay on this excerpt (interpretive, arguable, text-based)?",
       choices: [
-        "Thoreau wrote Walden, a fact that already interprets this excerpt.",
-        "Thoreau uses the language of disease and wasted stitches to argue that anxious “good” behavior can be a refusal of trust.",
-        "Readers should trust less, because the excerpt’s “incurable form of disease” proves that neighbors’ “good” is already healthy caution.",
-        "The excerpt’s purpose is to praise taking a thousand stitches today, which Thoreau offers as wisdom rather than as anxious waste."
+        "Thoreau praises his neighbors’ careful habits as the source of a steady life.",
+        "Thoreau’s images of disease and wasted stitches cast anxious caution as a failure of trust.",
+        "Thoreau argues that the old man’s seventy years of experience should guide the young.",
+        "Thoreau treats a thousand stitches today as sensible saving for tomorrow."
       ], answer: 1,
-      explanation: "{{opt:LF040-1}} names devices and an arguable claim. {{opt:LF040-0}} is a fact, not an interpretation. {{opt:LF040-2}} and {{opt:LF040-3}} reverse Thoreau’s critique: he distrusts anxious “good” and treats the extra stitches as the disease, not the cure." },
+      explanation: "{{opt:LF040-1}} names the devices and makes an arguable claim the text supports. {{opt:LF040-0}} reverses his view of what neighbors call good. {{opt:LF040-2}} reverses his answer to the old man: an “irresistible voice” calls him away. {{opt:LF040-3}} reverses the stitches line, which mocks the extra work." },
 
     { id: "LF041", domain: "writing", title: "Thoreau — best support", difficulty: "hard", tags: ["analytical", "longform"], skillIds: ["analytical-writing"], passageSet: "thoreau", passage: P.thoreau,
       stem: "Which sentence from the excerpt best supports the claim that Thoreau treats over-caution as a kind of illness?",
@@ -580,153 +352,471 @@ SOURCE B (neighborhood newsletter, unsigned, August)
     { id: "LF042", domain: "writing", title: "Thoreau — audience and style", difficulty: "hard", tags: ["style", "longform"], skillIds: ["style-audience", "expository-writing"], passageSet: "thoreau", passage: P.thoreau,
       stem: "If a student rewrote the excerpt as a school-board memo demanding a policy vote this week, the main stylistic problem would be—",
       choices: [
-        "the original’s aphoristic, inward argument does not supply the concrete proposal, audience, and evidence a civic memo needs",
-        "the original already names a board vote, a deadline, and checkable clinic data, so only the greeting needs changing",
-        "aphorisms about trust are already the evidence a civic memo requires, because “disease” is a measurable policy outcome",
-        "rewriting as a memo would fail mainly because Thoreau’s sentences are too short to count as professional prose"
+        "it is reflection and imagery, not a proposal with evidence",
+        "the excerpt’s sentences are too short and plain for a formal board memo",
+        "the excerpt is written in the first person, which a board memo should avoid",
+        "the excerpt’s claims about trust would need quotation marks and a citation"
       ], answer: 0,
-      explanation: "Mode and audience control form. Walden’s sentences meditate; a board memo needs a request and checkable grounds. {{opt:LF042-1}} invents civic specifics the excerpt lacks. {{opt:LF042-2}} treats metaphor as data. {{opt:LF042-3}} makes word-length the issue." },
+      explanation: "Mode and audience control form: a board memo needs a request, an audience, and checkable grounds. {{opt:LF042-1}} is false of Thoreau’s long sentences and is not the issue. {{opt:LF042-2}} is a minor point of style; memos often use first person. {{opt:LF042-3}} confuses citation with genre." },
 
     { id: "LF043", domain: "writing", title: "Thoreau — organization", difficulty: "hard", tags: ["structure", "longform"], skillIds: ["essay-structure", "expository-writing"], passageSet: "thoreau", passage: P.thoreau,
       stem: "The excerpt’s organization is best described as—",
       choices: [
-        "a cause-and-effect sequence that first tests trust and then records a measurable result of the test",
-        "associative moral argument that builds by turns of thought and image",
-        "a chronological autobiography from childhood to age seventy, with the “old man” as Thoreau at the end of the timeline",
-        "a two-part comparison that first praises neighbors’ “good” and then restates it as his own"
+        "cause and effect: a test of trust followed by its measured result",
+        "associative: ideas build by turns of thought and image",
+        "chronological: from his youth to the old man’s seventieth year",
+        "comparison: neighbors’ habits set against his own, point by point"
       ], answer: 1,
-      explanation: "Ideas accumulate by turn and image, not by an experiment, a life-date sequence, or praise. The seventy-year-old is an addressee, not a timeline of Thoreau’s life; he says neighbors’ “good” is what he believes to be bad." },
+      explanation: "Ideas accumulate by turn and image. {{opt:LF043-0}} is false: no test is run. {{opt:LF043-2}} is false: the old man is someone addressed, not a stage of Thoreau’s life. {{opt:LF043-3}} is false: there is no point-by-point comparison." },
 
     { id: "LF044", domain: "literature", title: "Fox and grapes — fable logic", difficulty: "hard", tags: ["world-lit", "longform"], skillIds: ["world-literature", "narrative-elements"], passageSet: "fox", passage: P.fox,
       stem: "The fox’s final speech is an example of—",
       choices: [
-        "a reliable taste test, because he has already reached and eaten the grapes",
-        "rationalization: he revalues the grapes as sour because he failed to reach them",
-        "dramatic irony in which the reader, but not the fox, knows the grapes are literally sour",
-        "verbal irony that praises the grapes while he walks off “very, very scornfully”"
+        "an honest judgment: he has tasted the grapes and found them sour",
+        "rationalization: he calls unreachable grapes sour",
+        "dramatic irony: the reader knows the grapes really are sour",
+        "verbal irony: he praises the grapes while walking off in scorn"
       ], answer: 1,
-      explanation: "The moral states the pattern: despise what is out of reach. He never tastes the grapes, so “sour” is not a test. The reader does not have secret proof of acidity. The speech belittles the grapes; it does not praise them." },
+      explanation: "The moral names the pattern: belittling what is out of reach. {{opt:LF044-0}} is false: he never reaches them. {{opt:LF044-2}} is false: the grapes are described as ripe and full of juice. {{opt:LF044-3}} is false: he belittles them." },
 
     { id: "LF045", domain: "literature", title: "Fox and grapes — theme vs moral tag", difficulty: "hard", tags: ["world-lit", "longform"], skillIds: ["world-literature"], passageSet: "fox", passage: P.fox,
       stem: "Compared with the appended moral, the narrative itself is more effective at showing the theme because it—",
       choices: [
-        "withholds the failed leaps, so the scorn looks unmotivated until the moral names it",
-        "lets readers watch the failed leaps before the scorn, so the insult looks like cover for failure",
-        "proves that no fox can jump, a zoological claim the narrative never needs",
-        "states the moral first and then omits the scornful speech, so readers never see the cover story"
+        "it hides the failed leaps, so the scorn comes as a surprise",
+        "it shows the failed leaps first, so the scorn reads as a cover for failure",
+        "it explains why foxes cannot jump high, so the failure seems natural",
+        "it states the moral first, so readers know what to look for"
       ], answer: 1,
-      explanation: "Story-then-spin is the fable’s method. The moral names the pattern; the action makes it visible. The text does show the leaps and the scorn; it does not generalize about all fox anatomy." },
+      explanation: "Story, then spin: the leaps come before the scorn. {{opt:LF045-0}} is false: the leaps are shown. {{opt:LF045-2}} is false: the fable gives no reason. {{opt:LF045-3}} is false: the moral comes last." }
 
-    { id: "LF046", domain: "reading", title: "Two sources — credibility", difficulty: "hard", tags: ["evidence", "longform"], skillIds: ["evidence-credibility"], passageSet: "sources", passage: P.sources,
-      stem: "For a research paper on sediment after the monsoon, Source A is more credible than Source B primarily because it—",
-      choices: [
-        "uses stronger moral language (“poisoning,” “crime”) and therefore sounds more certain",
-        "reports a limited sample, names a method, and refuses a citywide causal claim",
-        "calls for a building freeze, which is a clearer recommendation than a follow-up sample",
-        "is unsigned, so it cannot be biased by a city department"
-      ], answer: 1,
-      explanation: "Limits, methods, and caution raise credibility. {{opt:LF046-0}} and {{opt:LF046-2}} describe Source B’s rhetoric and freeze demand. {{opt:LF046-3}} treats Source B’s anonymity as neutrality; unsigned is a weakness, and Source A is a staff memo." },
-
-    { id: "LF047", domain: "reading", title: "Two sources — misuse", difficulty: "hard", tags: ["evidence", "longform"], skillIds: ["evidence-credibility", "research-citation"], passageSet: "sources", passage: P.sources,
-      stem: "A student writes, “Staff proved new construction poisons every wash.” That sentence is a misuse of Source A because—",
-      choices: [
-        "Source A never reports sediment above baseline, so “poisons” has no numeric hook at all",
-        "Source A’s six laterals, mixed results, and explicit warning against basin-wide claims cannot support “proved…every”",
-        "Source A’s warning that six laterals cannot represent the whole basin actually licenses the word “every”",
-        "Source B’s freeze demand is what the student quoted, so the sentence cannot be a misuse of A"
-      ], answer: 1,
-      explanation: "The memo’s own hedges block the student’s universal causal claim. Four laterals were above baseline—the problem is overclaim, not a missing number. The warning forbids “every,” and the student’s wording tracks A’s “staff,” not only B’s freeze." },
-
-    { id: "LF048", domain: "reading", title: "Two sources — loaded language", difficulty: "hard", tags: ["persuasive", "longform"], skillIds: ["persuasive-texts"], passageSet: "sources", passage: P.sources,
-      stem: "In Source B, “poisoning,” “crime,” and “truly cared” function primarily as—",
-      choices: [
-        "precise method labels, equivalent to Source A’s “sampled six residential laterals”",
-        "loaded language that moralizes opponents instead of reporting the sample",
-        "technical synonyms for the retention basins named in Source A",
-        "citations that point back to the 2018 baseline figure in Source A"
-      ], answer: 1,
-      explanation: "The words assign guilt and motive. They are not methods, engineering terms, or the baseline figure." },
-
-    { id: "LF049", domain: "oral", title: "Cafeteria speech — listening barrier", difficulty: "hard", tags: ["listening", "longform"], skillIds: ["listening-speaking"], passageSet: "speech", passage: P.speech,
-      stem: "A student in line is rehearsing a joke about the spilled tray and misses the three asks. This is primarily a failure of—",
-      choices: [
-        "hearing, because the megaphone and cafeteria noise made the asks physically inaudible",
-        "listening: attention was spent preparing a response rather than taking in the claims",
-        "occasion, because a 28-minute lunch period cannot contain three asks",
-        "media framing, because two students filming is what caused the joke to be rehearsed"
-      ], answer: 1,
-      explanation: "The megaphone implies sound; the miss is attention. The period can hold three asks; filming is in the scene but is not why this student lost the claims." },
-
-    { id: "LF050", domain: "oral", title: "Cafeteria speech — occasion", difficulty: "hard", tags: ["speech", "longform"], skillIds: ["speech-craft"], passageSet: "speech", passage: P.speech,
-      stem: "The speech is weakest for its occasion primarily because the speaker—",
-      choices: [
-        "names three concrete asks, which a lunch-hour rally cannot support",
-        "uses a story to open, which is always a defect in a campaign speech",
-        "never explains cost or process for the filler and treats a serious ask as a laugh line when parking is raised",
-        "stops before the bell, which wastes the remaining minutes of the period"
-      ], answer: 2,
-      explanation: "A lunch-hour campaign still needs a feasible ask. Missing funding and brushing off parking undercut purpose. Opening with a story, naming asks, and stopping on time are not the core defects." },
-
-    { id: "LF051", domain: "oral", title: "Cafeteria speech — discussion move", difficulty: "hard", tags: ["discussion", "longform"], skillIds: ["group-discussion"], passageSet: "speech", passage: P.speech,
-      stem: "If this were a classroom discussion rather than a rally, the most constructive next move after “What about parking?” would be to—",
-      choices: [
-        "laugh and say “Next year,” keeping the three asks from being diluted",
-        "restate the parking concern, say whether it is in scope, and list it or redirect it",
-        "table the three asks and spend the rest of the period only on confiscating the two phones",
-        "treat the teacher’s folded arms as a vote to end discussion without placing the parking question"
-      ], answer: 1,
-      explanation: "Good discussion acknowledges the turn and places it. Dismissal, phone-only policing, and silent shutdown do not process the idea." },
-
-    { id: "LF052", domain: "oral", title: "Cafeteria speech — media framing", difficulty: "hard", tags: ["media", "longform"], skillIds: ["media-analysis"], passageSet: "speech", passage: P.speech,
-      stem: "Two phone videos go online: one cropped to the spilled-tray story and captioned “Candidate not serious”; one cropped to the three asks and captioned “Concrete platform.” This pair best illustrates that—",
-      choices: [
-        "video is a neutral copy of the event, so opposite captions cannot both be framing",
-        "selection, crop, and caption can make opposite claims from the same event",
-        "fair-use rules require that any cafeteria clip delete its caption, which is why the two posts cannot argue",
-        "the spilled-tray crop is the only accurate frame, because the three asks were never actually spoken"
-      ], answer: 1,
-      explanation: "Same event, different frames. Images/clips are not neutral windows. Fair-use caption rules are not the point. The notes list three asks that she does read." },
-
-    { id: "LF053", domain: "oral", title: "Cafeteria speech — ethics", difficulty: "hard", tags: ["ethics", "longform"], skillIds: ["presentation-ethics"], passageSet: "speech", passage: P.speech,
-      stem: "A classmate posts the full 28-minute video on a public channel with the caption “Vote for her” and no permission from students whose faces and voices are clear. The fairest ethics judgment is that the poster—",
-      choices: [
-        "has no issue, because a cafeteria is public and a campaign caption cannot raise consent questions",
-        "should consider consent, school media rules, and whether campaigning with identifiable minors is allowed",
-        "has placed the recording in the public domain automatically by posting it, which ends any duty to classmates",
-        "has solved the permission problem by including the megaphone audio, which substitutes for student consent"
-      ], answer: 1,
-      explanation: "Identifiable students plus a campaign caption raise consent and policy issues. Public spaces do not wipe those duties; posting is not public domain; a megaphone is not a license." },
-
-    { id: "LF054", domain: "writing", title: "Start-time — best revision of a thesis", difficulty: "hard", tags: ["thesis", "longform"], skillIds: ["thesis-support", "persuasive-writing"], passageSet: "start", passage: P.start,
-      stem: "Which thesis would most improve a student essay that currently says only “Start times are bad”?",
-      choices: [
-        "Later start times are a good idea because school is tiring.",
-        "The board should pilot an 8:15 start at two campuses for one year and publish the results before deciding.",
-        "The board should move the bell, but the essay need not say which campuses, how long to pilot, or what data to publish.",
-        "District 14’s different athletic conference makes any local evidence unusable, so a two-campus pilot cannot be justified."
-      ], answer: 1,
-      explanation: "A strong persuasive thesis is specific, arguable, and previewable. {{opt:LF054-0}} is still a slogan. {{opt:LF054-2}} keeps the vagueness the stem asks to fix. {{opt:LF054-3}} overcloses inquiry; the editorial treats District 14 as limited evidence, not as a bar to a pilot." },
-
-    { id: "LF055", domain: "language", title: "Heat briefing — best paraphrase", difficulty: "hard", tags: ["research", "longform"], skillIds: ["research-citation", "informational-texts"], passageSet: "heat", passage: P.heat,
-      stem: "Which sentence is an acceptable paraphrase of the sapling caution rather than plagiarism or distortion?",
-      choices: [
-        "Staff therefore refuse to promise that planting saplings will reproduce the 19-degree gap within five years. (copied with no marks)",
-        "The urban forester notes that a young tree will not soon throw the shade of a mature one, so the 19°F gap should not be sold as a five-year planting guarantee.",
-        "Saplings immediately recreate an exact 19-degree drop on every block.",
-        "Staff refuse to promise a five-year match, which means the briefing rejects the finding that mature canopy is cooler than unshaded blocks."
-      ], answer: 1,
-      explanation: "{{opt:LF055-1}} recasts the idea in new syntax and keeps the limit. {{opt:LF055-0}} is unquoted copying. {{opt:LF055-2}} overclaims. {{opt:LF055-3}} turns a caution about saplings into a denial of the mature-canopy result." },
-
-    { id: "LF056", domain: "writing", title: "Student draft — mode", difficulty: "hard", tags: ["modes", "longform"], skillIds: ["persuasive-writing", "expository-writing"], passageSet: "essay", passage: P.essay,
-      stem: "The draft’s dominant mode is—",
-      choices: [
-        "a personal narrative whose only purpose is to tell Ms. Ortega’s story, with no council ask",
-        "persuasive civic argument that also uses a brief narrative example",
-        "an informative report that refuses to recommend keeping the gym or planting trees",
-        "a research paper whose volunteer quotation already meets a verifiable-citation standard, so persuasion is unnecessary"
-      ], answer: 1,
-      explanation: "It urges the council to keep the gym and plant trees; Ms. Ortega and July 18 are support, not the whole genre. It does make a recommendation; the volunteer quote is still thinly sourced." }
   ];
 
-  window.PROBLEMS = (window.PROBLEMS || []).concat(items);
+  /* ---- Rebuilt original passages (LF359–LF387). The first versions (LF001–LF013, LF035–LF039,
+     LF046–LF056) are retired. Option-object format: every option carries its own explanation. ---- */
+  const Q = {
+    fans: `WIND MACHINES AND SPRING FROST
+From Bulletin 9 of the Hollis Valley Growers’ Cooperative (a fictional cooperative), 2023
+
+(1) On still spring nights, cold air settles near the ground while a layer of warmer air sits about 40 feet up. (2) A wind machine is a tall fan that pulls that warmer air down into the orchard. (3) In the cooperative’s trial on four farms, each fan was run on some frost nights and left off on others; with the fan running, its block stayed 2.5°F warmer at blossom height. (4) The fans made no difference on windy nights, when the warm layer had already mixed away, or on the two nights when the whole valley fell to 22°F.¹ (5) Growers in the trial named the fans’ noise as their chief complaint; two farms ran them only after midnight to spare their neighbors.² (6) The bulletin calls the fans a marginal tool: one that decides the crop only on nights already close to the damage line.³
+
+Notes
+1. Readings from the cooperative’s station network, March 2022.
+2. Grower interviews, May 2022.
+3. The damage line is the temperature below which open blossoms are killed: about 26°F at full bloom for the valley’s main variety.
+
+A STUDENT’S NOTECARDS
+Card A: “With the fan running, its block stayed 2.5°F warmer at blossom height on every frost night.” (Bulletin 9, sentence 3)
+Card B: Growers said the noise was the biggest problem. (Bulletin 9, note 2)
+Card C: The fans did not help on the nights the valley fell to 22°F. (Bulletin 9, note 2)`,
+
+    comment: `Public comment at a meeting of the Ridgeline Unified school board (fictional), read by a parent
+
+(1) I am here about the plan to close the Alder Street branch library on Saturdays. (2) The district says Saturday visits fell 30 percent in two years. (3) That figure is accurate, and I will not pretend otherwise. (4) But visits dropped the year the bus route stopped running on weekends, so the families who left did not stop wanting books; they stopped being able to reach them. (5) Either the board keeps Saturday hours or it admits it no longer cares about children who ride the bus. (6) Some board members say a weekday evening slot could replace Saturdays. (7) My neighbor tried the Tuesday evening slot once and found the parking lot empty, so evening hours will fail. (8) I ask the board to keep Saturday hours for one more year and to ask the transit office to restore the weekend route. (9) If visits do not recover once the bus runs again, I will support the change myself.`,
+
+    buspass: `DELLWOOD SCHOOL DISTRICT — STUDENT BUS PASS RULES (fictional)
+
+1. Hours. A student pass is valid on weekdays from 6:00 a.m. to 7:00 p.m. and on Saturdays until noon. It is not valid on Sundays.
+2. Eligibility. Passes are issued free to students who live 1.5 miles or more from their school. A student who lives closer may buy a pass for $20 a semester.
+3. Lost passes. The first replacement in a semester costs $5. Each later replacement in the same semester costs $15.
+4. Guests. On field-trip days only, a student may bring one adult guest free of charge with the teacher’s signed slip.
+5. Misuse. A second warning for misuse suspends the pass for five school days; a third suspends it for twenty.
+6. Summer. Summer-school students keep using their spring pass until July 31.`,
+
+    plantsale: `A student wrote the paragraph below for a school newsletter. The sentences are numbered.
+
+(1) Every spring our school holds a plant sale to raise money for the greenhouse. (2) Last year the sale earned $1,400, more than twice what it earned the year before. (3) The tomatoes sold out by ten, the peppers lasted until noon. (4) Each of the volunteers were given a green apron. (5) Arriving early, the tables had already been set up by the custodians. (6) When a customer asks a volunteer about soil, they should point to the sign by the door. (7) My cousin’s school in Ohio sells pies instead of plants. (8) This year the club hopes to add herbs, since basil was the plant customers asked for most.`,
+
+    studyloop: `A magazine ad for a study app (fictional)
+
+Headline: “Students who use StudyLoop score 18 points higher.*”
+Body: “Join 2 million learners.** Teachers recommend it.*** Try it free for 30 days.†”
+
+Fine print
+* Average gain on StudyLoop’s own practice quiz among users who finished all 40 lessons, compared with each user’s first practice quiz.
+** Accounts created since 2019, including accounts no longer in use.
+*** From a survey of 50 teachers who had been given a free classroom license.
+† A card is required for the trial. The yearly plan, $59.99, is charged on day 15 of the trial and refunded in full if the trial is cancelled by day 30.`,
+
+    council: `Transcript of a student council meeting about the spring dance (fictional)
+
+MAYA (chair): We have $600. The gym costs $200, which leaves $400 for music and food.
+LEO: A DJ quoted us $350.
+PRIYA: So if we hire the DJ, food has to come out of $50?
+LEO: That’s right.
+SAM: What if we use a playlist and put the whole $400 into food?
+MAYA: Let me make sure I have both plans. Leo’s is a DJ and almost no food; Sam’s is food and a playlist. Is that right?
+PRIYA: Yes. And last year’s survey ranked food above music.
+LEO: Can we also talk about moving the dance to Friday?
+MAYA: Let’s hold that for next week. The vote on Sam’s plan is four in favor and one against. Sam’s plan passes.`
+  };
+
+  const o = (id, text, explanation, isCorrect = false) => ({ id, text, explanation, isCorrect });
+  const item = (id, domain, title, tags, skillIds, set, stem, options, explanation) => ({
+    id, domain, title, difficulty: "hard", tags: tags.concat("longform"), skillIds,
+    passageSet: set, passage: Q[set], stem, options, explanation
+  });
+
+  const rebuilt = [
+    /* ---- Research: a bulletin with notes and a student's notecards ---- */
+    item("LF359", "language", "Frost fans — marginal", ["vocabulary", "research"], ["vocab-context", "vocab-strategies"], "fans",
+      "As the bulletin uses it in sentence 6, marginal most nearly means—",
+      [o("LF359-page", "written in the margin of a page",
+          "That is a real sense of the word, but the bulletin defines its own use after the colon."),
+       o("LF359-profit", "barely worth what it costs to run",
+          "This is the common business sense. The bulletin never discusses cost; it defines marginal by when the fans matter."),
+       o("LF359-threshold", "deciding the outcome only near a cutoff",
+          "“One that decides the crop only on nights already close to the damage line.”", true),
+       o("LF359-weak", "too weak to change temperatures",
+          "Sentence 3 reports a 2.5°F gain, so the fans do change temperatures.")],
+      "When a passage defines a word after a colon, that definition outranks the word’s everyday senses."),
+
+    item("LF360", "language", "Frost fans — a misquotation", ["research"], ["research-citation"], "fans",
+      "Which notecard changes the words of the sentence it quotes?",
+      [o("LF360-a", "Card A",
+          "Sentence 3 has no “on every frost night.” The card adds those words, and sentence 4 names nights when the fans made no difference.", true),
+       o("LF360-b", "Card B",
+          "Card B is a paraphrase without quotation marks, so it does not claim to give the bulletin’s words."),
+       o("LF360-c", "Card C",
+          "Card C is a paraphrase. Its problem, if any, is its citation, not its wording."),
+       o("LF360-none", "no card",
+          "Card A puts a word inside quotation marks that sentence 3 does not contain.")],
+      "Quotation marks promise the source’s exact words. Compare each quoted card word for word."),
+
+    item("LF361", "language", "Frost fans — the wrong note", ["research"], ["research-citation", "evidence-credibility"], "fans",
+      "Which notecard credits its claim to the wrong note?",
+      [o("LF361-a", "Card A",
+          "Card A cites sentence 3, which is where its figure comes from."),
+       o("LF361-b", "Card B",
+          "The noise complaint is in sentence 5, which carries note 2, so Card B’s citation is right."),
+       o("LF361-c", "Card C",
+          "The 22°F nights are in sentence 4, which carries note 1, the station readings. Card C cites note 2, the interviews.", true),
+       o("LF361-none", "no card",
+          "Card C’s claim comes from a sentence marked with note 1, but the card cites note 2.")],
+      "Follow each claim back to the sentence it comes from, then read the note number on that sentence."),
+
+    item("LF362", "language", "Frost fans — the damage line", ["research"], ["informational-texts"], "fans",
+      "According to the notes, open blossoms at full bloom are killed below about—",
+      [o("LF362-22", "22°F",
+          "22°F is how cold the whole valley got on two nights, from sentence 4."),
+       o("LF362-26", "26°F",
+          "Note 3: “about 26°F at full bloom for the valley’s main variety.”", true),
+       o("LF362-32", "32°F",
+          "32°F is the freezing point of water. The bulletin gives its own figure."),
+       o("LF362-28", "28°F",
+          "28°F is a figure often given for blossoms elsewhere. This bulletin gives its own: 26°F.")],
+      "Footnotes often carry the definitions a reader needs. Note 3 defines the damage line and gives its value."),
+
+    item("LF363", "language", "Frost fans — what the figure compares", ["research"], ["informational-texts", "evidence-credibility"], "fans",
+      "The 2.5°F figure in sentence 3 compares—",
+      [o("LF363-onoff", "the same block on frost nights with its fan on and with it off",
+          "Each fan “was run on some frost nights and left off on others”; the 2.5°F is the difference for its own block.", true),
+       o("LF363-neighbors", "blocks with a fan and nearby blocks with no fan",
+          "This is the usual design for such a trial, but this one compared each block with itself, fan on and fan off."),
+       o("LF363-height", "the air at blossom height and the air 40 feet up",
+          "Sentence 1 says the upper layer is warmer but gives no figure for the difference."),
+       o("LF363-midnight", "farms that ran fans all night and farms that waited until midnight",
+          "Sentence 5 says two farms waited until midnight but reports no temperature for them.")],
+      "Before using a number, find exactly which two things it compares."),
+
+    /* ---- Argument: a numbered public comment ---- */
+    item("LF364", "writing", "Library comment — the request", ["fallacies", "persuasive"], ["persuasive-texts", "persuasive-writing"], "comment",
+      "Which sentence states what the speaker asks the board to do?",
+      [o("LF364-1", "Sentence 1",
+          "Sentence 1 names the topic, the plan to close on Saturdays, but asks for nothing."),
+       o("LF364-5", "Sentence 5",
+          "Sentence 5 frames the board’s choice; it is not the request."),
+       o("LF364-8", "Sentence 8",
+          "“I ask the board to keep Saturday hours for one more year and to ask the transit office to restore the weekend route.”", true),
+       o("LF364-9", "Sentence 9",
+          "Sentence 9 says what the speaker will do if visits do not recover.")],
+      "The claim of a speech is often not its first sentence. Look for the sentence that asks for an action."),
+
+    item("LF365", "writing", "Library comment — the concession", ["fallacies", "persuasive"], ["persuasive-texts", "rhetorical-appeals"], "comment",
+      "In which sentence does the speaker grant a point to the district?",
+      [o("LF365-3", "Sentence 3",
+          "“That figure is accurate, and I will not pretend otherwise.”", true),
+       o("LF365-4", "Sentence 4",
+          "Sentence 4 begins “But” and answers the district’s figure with a cause."),
+       o("LF365-6", "Sentence 6",
+          "Sentence 6 reports what some board members say; the speaker does not agree with it."),
+       o("LF365-7", "Sentence 7",
+          "Sentence 7 argues against the board members’ suggestion.")],
+      "A concession accepts something the other side says before the speaker answers it."),
+
+    item("LF366", "writing", "Library comment — a false choice", ["fallacies"], ["persuasive-texts", "persuasive-writing"], "comment",
+      "Which sentence offers only two options when others exist?",
+      [o("LF366-4", "Sentence 4",
+          "Sentence 4 offers a cause for the drop; it does not limit the board to two choices."),
+       o("LF366-5", "Sentence 5",
+          "“Either the board keeps Saturday hours or it admits it no longer cares” leaves out other possibilities, such as the evening slot raised in sentence 6.", true),
+       o("LF366-7", "Sentence 7",
+          "Sentence 7 has a different flaw: it generalizes from one visit."),
+       o("LF366-8", "Sentence 8",
+          "Sentence 8 is a request with two parts, not a choice between two options.")],
+      "A false dilemma presents two options as the only ones. The speech itself mentions a third."),
+
+    item("LF367", "writing", "Library comment — one case", ["fallacies"], ["persuasive-texts", "evidence-credibility"], "comment",
+      "Which sentence draws a general conclusion from a single instance?",
+      [o("LF367-2", "Sentence 2",
+          "Sentence 2 reports a figure from two years of visits, not a single instance."),
+       o("LF367-4", "Sentence 4",
+          "Sentence 4 links a pattern to a cause; it is not built on one event."),
+       o("LF367-7", "Sentence 7",
+          "One neighbor’s one Tuesday becomes “evening hours will fail.”", true),
+       o("LF367-9", "Sentence 9",
+          "Sentence 9 is a promise about the future, not a conclusion from a case.")],
+      "A hasty generalization moves from one example to a rule. Find the sentence built on one person’s one visit."),
+
+    item("LF368", "writing", "Library comment — the cause offered", ["fallacies", "persuasive"], ["persuasive-texts"], "comment",
+      "Which sentence offers an explanation for the drop in Saturday visits?",
+      [o("LF368-2", "Sentence 2",
+          "Sentence 2 reports the drop but does not explain it."),
+       o("LF368-4", "Sentence 4",
+          "Sentence 4 ties the drop to the end of the weekend bus route.", true),
+       o("LF368-6", "Sentence 6",
+          "Sentence 6 is about a possible replacement for Saturday hours."),
+       o("LF368-9", "Sentence 9",
+          "Sentence 9 depends on the explanation in sentence 4 but does not give it.")],
+      "Separate the sentence that reports a fact from the sentence that explains it."),
+
+    /* ---- Technical: rules that differ from the usual defaults ---- */
+    item("LF369", "reading", "Bus pass — replacement fees", ["technical"], ["technical-texts"], "buspass",
+      "A student loses her pass in September and again in November of the same semester. What has she paid in replacement fees?",
+      [o("LF369-10", "$10",
+          "This charges $5 twice. Section 3 raises the price after the first replacement."),
+       o("LF369-15", "$15",
+          "$15 is the second replacement alone. The first one cost $5."),
+       o("LF369-20", "$20",
+          "$5 for the first replacement plus $15 for the second.", true),
+       o("LF369-30", "$30",
+          "This charges $15 twice. The first replacement in a semester costs $5.")],
+      "Read which replacement each fee applies to. The price changes after the first one."),
+
+    item("LF370", "reading", "Bus pass — hours", ["technical"], ["technical-texts"], "buspass",
+      "Which of these rides does a student pass cover?",
+      [o("LF370-sat11", "Saturday at 11:00 a.m.",
+          "Section 1: “on Saturdays until noon.”", true),
+       o("LF370-sat1", "Saturday at 1:00 p.m.",
+          "Saturday coverage ends at noon."),
+       o("LF370-sun10", "Sunday at 10:00 a.m.",
+          "The pass “is not valid on Sundays.”"),
+       o("LF370-wed730", "Wednesday at 7:30 p.m.",
+          "Weekday coverage ends at 7:00 p.m.")],
+      "Each day has its own hours. Check the day first, then the time."),
+
+    item("LF371", "reading", "Bus pass — suspensions", ["technical"], ["technical-texts"], "buspass",
+      "A student’s pass is suspended for twenty school days. How many warnings for misuse has the student received?",
+      [o("LF371-1", "one",
+          "Section 5 sets no suspension after a single warning."),
+       o("LF371-2", "two",
+          "A second warning brings five school days, not twenty."),
+       o("LF371-3", "three",
+          "“A third suspends it for twenty.”", true),
+       o("LF371-4", "four",
+          "Twenty days is the penalty for the third warning; the rules do not mention a fourth.")],
+      "Match the penalty to the warning that triggers it."),
+
+    item("LF372", "reading", "Bus pass — eligibility", ["technical"], ["technical-texts"], "buspass",
+      "A student lives 1.2 miles from her school. Under the rules, she—",
+      [o("LF372-free", "receives a pass free of charge",
+          "Free passes go to students who live 1.5 miles or more away."),
+       o("LF372-buy20", "may buy a pass for $20 a semester",
+          "Section 2: “A student who lives closer may buy a pass for $20 a semester.”", true),
+       o("LF372-buy5", "may buy a pass for $5 a semester",
+          "$5 is the first replacement fee in section 3, not the price of a pass."),
+       o("LF372-none", "may not ride the bus with a pass",
+          "Section 2 lets students who live closer buy a pass.")],
+      "Many districts simply exclude students inside the distance limit. This one sells them a pass."),
+
+    item("LF373", "reading", "Bus pass — guests", ["technical"], ["technical-texts"], "buspass",
+      "When may a student bring an adult guest free of charge?",
+      [o("LF373-anyday", "on any school day, with a teacher’s signed slip",
+          "Section 4 limits guests to field-trip days."),
+       o("LF373-trip-teacher", "on field-trip days, with a teacher’s signed slip",
+          "“On field-trip days only, a student may bring one adult guest free of charge with the teacher’s signed slip.”", true),
+       o("LF373-saturday", "on Saturday mornings, with a teacher’s signed slip",
+          "Saturday mornings are part of the pass’s hours, not a guest rule."),
+       o("LF373-trip-parent", "on field-trip days, with a parent’s signed note",
+          "The day is right, but the slip must come from the teacher.")],
+      "A rule with two conditions needs both. Check the day and who signs."),
+
+    /* ---- Conventions: a numbered draft ---- */
+    item("LF374", "language", "Plant sale — comma splice", ["mechanics"], ["mechanics", "punctuation-basics"], "plantsale",
+      "Which sentence is a comma splice?",
+      [o("LF374-2", "Sentence 2",
+          "The comma in sentence 2 sets off an appositive phrase, not a second clause."),
+       o("LF374-3", "Sentence 3",
+          "“The tomatoes sold out by ten” and “the peppers lasted until noon” are complete clauses joined by a comma alone.", true),
+       o("LF374-5", "Sentence 5",
+          "Sentence 5 has a different error: its opening phrase has nothing to modify."),
+       o("LF374-8", "Sentence 8",
+          "The comma in sentence 8 comes before a dependent clause beginning with “since,” which is correct.")],
+      "A comma splice joins two independent clauses with only a comma."),
+
+    item("LF375", "language", "Plant sale — agreement", ["usage"], ["agreement-usage", "grammar-usage"], "plantsale",
+      "Which sentence has a subject and verb that do not agree?",
+      [o("LF375-1", "Sentence 1",
+          "“Our school holds”: singular subject, singular verb."),
+       o("LF375-4", "Sentence 4",
+          "The subject is “Each,” which is singular, so the verb should be “was.”", true),
+       o("LF375-6", "Sentence 6",
+          "Sentence 6 has a pronoun problem, not a verb problem."),
+       o("LF375-7", "Sentence 7",
+          "“School … sells”: singular subject, singular verb.")],
+      "The subject of “Each of the volunteers” is “Each.” The phrase after “of” does not change it."),
+
+    item("LF376", "language", "Plant sale — dangling modifier", ["usage"], ["grammar-usage", "sentence-craft"], "plantsale",
+      "Which sentence opens with a phrase that has no word to modify?",
+      [o("LF376-3", "Sentence 3",
+          "Sentence 3 is a comma splice; it does not open with a modifying phrase."),
+       o("LF376-5", "Sentence 5",
+          "“Arriving early” attaches to “the tables,” which did not arrive. No one who arrived is named.", true),
+       o("LF376-6", "Sentence 6",
+          "The opening clause of sentence 6 has its own subject, “a customer.”"),
+       o("LF376-8", "Sentence 8",
+          "“This year” is a time phrase and modifies the whole clause correctly.")],
+      "An opening participle must describe the subject that follows the comma."),
+
+    item("LF377", "language", "Plant sale — unclear pronoun", ["usage"], ["grammar-usage", "agreement-usage"], "plantsale",
+      "In which sentence could a pronoun refer to either of two people?",
+      [o("LF377-4", "Sentence 4",
+          "Sentence 4 has no pronoun referring to a person."),
+       o("LF377-5", "Sentence 5",
+          "Sentence 5 has no pronoun at all."),
+       o("LF377-6", "Sentence 6",
+          "“They” could be the customer or the volunteer, and it is plural for two singular nouns.", true),
+       o("LF377-7", "Sentence 7",
+          "“My cousin’s school” is clear; no pronoun is ambiguous.")],
+      "When two people come before a pronoun, check that a reader can tell which one it means."),
+
+    item("LF378", "language", "Plant sale — off purpose", ["revision"], ["writing-process", "essay-structure"], "plantsale",
+      "Which sentence does least to serve the paragraph’s purpose of describing this school’s sale?",
+      [o("LF378-1", "Sentence 1",
+          "Sentence 1 introduces the sale and its purpose."),
+       o("LF378-2", "Sentence 2",
+          "Sentence 2 reports what the sale earned."),
+       o("LF378-7", "Sentence 7",
+          "A cousin’s school in another state that sells pies says nothing about this school’s plant sale.", true),
+       o("LF378-8", "Sentence 8",
+          "Sentence 8 looks ahead to this year’s sale.")],
+      "Every sentence should help the paragraph do what it sets out to do."),
+
+    item("LF379", "language", "Plant sale — the earlier year", ["revision"], ["informational-texts"], "plantsale",
+      "According to sentence 2, what did the sale earn the year before last year?",
+      [o("LF379-under700", "less than $700",
+          "$1,400 was “more than twice” the year before, so the year before was under $700.", true),
+       o("LF379-700", "exactly $700",
+          "Exactly $700 would make $1,400 exactly twice, not more than twice."),
+       o("LF379-2800", "more than $2,800",
+          "This doubles last year’s figure instead of halving it."),
+       o("LF379-1400", "about $1,400",
+          "$1,400 is last year’s figure.")],
+      "“More than twice what it earned” sets an upper limit on the earlier figure. Halve $1,400 and read the direction."),
+
+    /* ---- Persuasion: an ad and its fine print ---- */
+    item("LF380", "reading", "Study app ad — the 18 points", ["persuasive", "rhetoric"], ["persuasive-texts", "evidence-credibility"], "studyloop",
+      "According to the fine print, the 18-point gain compares users with—",
+      [o("LF380-nonusers", "students who did not use the app",
+          "The usual way to read an ad’s comparison. The fine print compares users only with themselves."),
+       o("LF380-first", "their own first practice quiz",
+          "“Compared with each user’s first practice quiz.”", true),
+       o("LF380-state", "the state average on a state test",
+          "The gain is on StudyLoop’s own practice quiz, not a state test."),
+       o("LF380-fewer", "users who finished fewer lessons",
+          "Only users who finished all 40 lessons are counted, and they are compared with their own first quiz.")],
+      "An ad’s footnote says what its headline number measures. Read it before believing the headline."),
+
+    item("LF381", "reading", "Study app ad — 2 million", ["persuasive", "rhetoric"], ["persuasive-texts", "rhetorical-appeals"], "studyloop",
+      "The figure of 2 million learners counts—",
+      [o("LF381-year", "accounts opened in the past year, used or not",
+          "The count runs from 2019, not from the past year."),
+       o("LF381-accounts", "accounts opened from 2019 on, used or not",
+          "“Accounts created since 2019, including accounts no longer in use.”", true),
+       o("LF381-downloads", "downloads of the app, repeat downloads included",
+          "The fine print counts accounts, not downloads."),
+       o("LF381-lesson", "students who finished at least one lesson",
+          "The fine print counts accounts “including accounts no longer in use,” with no lesson required.")],
+      "A bandwagon number is only as large as what it counts. Here it includes accounts no one uses."),
+
+    item("LF382", "reading", "Study app ad — the teachers", ["persuasive", "rhetoric"], ["persuasive-texts", "evidence-credibility"], "studyloop",
+      "The teachers whose recommendation the ad cites—",
+      [o("LF382-random", "were chosen at random from the app’s users",
+          "The fine print gives no sampling method; it says how the teachers were connected to the company."),
+       o("LF382-paid", "were paid to appear in the ad",
+          "The fine print mentions no payment."),
+       o("LF382-license", "had been given a free classroom license",
+          "“A survey of 50 teachers who had been given a free classroom license.”", true),
+       o("LF382-count", "numbered about 2,000 in all",
+          "The survey covered 50 teachers.")],
+      "Ask who was asked and what they had received. A free license is a reason to discount the recommendation."),
+
+    item("LF383", "reading", "Study app ad — the trial", ["persuasive"], ["persuasive-texts", "technical-texts"], "studyloop",
+      "A user starts the free trial on June 1 and never cancels. When is she first charged $59.99?",
+      [o("LF383-june15", "on June 15",
+          "The fine print charges the yearly plan “on day 15 of the trial.” June 1 is day 1.", true),
+       o("LF383-july1", "on July 1",
+          "This assumes the charge comes after a 30-day trial ends. Here it comes on day 15; day 30 is only the refund deadline."),
+       o("LF383-june30", "on June 30",
+          "Day 30 is the last day to cancel for a refund, not the day of the charge."),
+       o("LF383-june1", "on June 1",
+          "A card is taken at signup, but the charge comes on day 15, not on day 1.")],
+      "A free trial can still charge during the trial. Read when the charge falls, not only when the trial ends."),
+
+    /* ---- Discussion: a meeting transcript ---- */
+    item("LF384", "oral", "Council transcript — checking a consequence", ["discussion"], ["group-discussion"], "council",
+      "Who asks a question to check what another member’s proposal would mean for the budget?",
+      [o("LF384-maya", "Maya",
+          "Maya restates both plans later, but her question is about whether she has them right."),
+       o("LF384-leo", "Leo",
+          "Leo gives the DJ’s price and later raises a new topic."),
+       o("LF384-priya", "Priya",
+          "“So if we hire the DJ, food has to come out of $50?”", true),
+       o("LF384-sam", "Sam",
+          "Sam’s question proposes a new plan rather than checking Leo’s.")],
+      "A clarifying question works out what a proposal implies. It does not offer a new one."),
+
+    item("LF385", "oral", "Council transcript — summarizing", ["discussion"], ["group-discussion"], "council",
+      "Who sums up the two proposals before the vote?",
+      [o("LF385-sam", "Sam",
+          "Sam makes one of the two proposals."),
+       o("LF385-priya", "Priya",
+          "Priya confirms the summary and adds the survey result."),
+       o("LF385-leo", "Leo",
+          "Leo makes the other proposal and then raises a new topic."),
+       o("LF385-maya", "Maya",
+          "“Leo’s is a DJ and almost no food; Sam’s is food and a playlist.”", true)],
+      "A chair often paraphrases the positions and checks them before calling a vote."),
+
+    item("LF386", "oral", "Council transcript — the postponed topic", ["discussion"], ["group-discussion"], "council",
+      "Whose topic does the chair put off until next week?",
+      [o("LF386-leo", "Leo’s",
+          "Leo asks to talk about moving the dance to Friday, and Maya says, “Let’s hold that for next week.”", true),
+       o("LF386-sam", "Sam’s",
+          "Sam’s plan is voted on and passes."),
+       o("LF386-priya", "Priya’s",
+          "Priya raises the survey, which supports the plan that passes."),
+       o("LF386-maya", "Maya’s",
+          "Maya is the one who postpones the topic.")],
+      "Keeping to the agenda means placing a new topic, not ignoring it."),
+
+    item("LF387", "oral", "Council transcript — the plan that passed", ["discussion"], ["group-discussion"], "council",
+      "Under the plan that passed, how much goes to food?",
+      [o("LF387-50", "$50",
+          "$50 is what would be left for food under Leo’s plan."),
+       o("LF387-200", "$200",
+          "$200 is the cost of the gym."),
+       o("LF387-350", "$350",
+          "$350 is the DJ’s quote."),
+       o("LF387-400", "$400",
+          "Sam’s plan, which passed, puts “the whole $400 into food.”", true)],
+      "Several numbers in a discussion belong to different plans. Find which plan passed, then its figure.")
+  ];
+
+  // Legacy consumers read choices/answer; QuizCore reads the option objects.
+  rebuilt.forEach(p => {
+    p.choices = p.options.map(opt => opt.text);
+    p.answer = p.options.findIndex(opt => opt.isCorrect);
+  });
+
+  window.PROBLEMS = (window.PROBLEMS || []).concat(items, rebuilt);
 })();
