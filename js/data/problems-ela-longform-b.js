@@ -438,7 +438,7 @@ Step 1. Three river gauges (Mill Road, Pike Ford, and South Bend) report the wat
 Step 2. If any one gauge reads above 9 feet, the duty officer is paged. No public alert goes out yet.
 Step 3. If two or more gauges read above 9 feet, or any one gauge reads above 12 feet, a text alert goes to residents who have signed up.
 Step 4. The sirens sound only when the Mill Road gauge reads above 12 feet. Mill Road sits just upstream of the low bridge.
-Step 5. The all-clear text goes out once every gauge has read below 9 feet for two full hours.
+Step 5. The all-clear text goes out once every gauge has read below 9 feet for 90 minutes.
 
 Box: The sirens are tested at noon on the first Monday of each month, except in January, when the test moves to the second Monday.
 
@@ -459,9 +459,9 @@ Note: The 2024 edition of this handout said the sirens sound when any gauge pass
     projector: `LUMEX P-40 CLASSROOM PROJECTOR — QUICK START (fictional product)
 
 Setup
-1. Connect the video cable first and the power cord last.
+1. Connect the power cord. Leave the video cable unplugged for now.
 2. Press and hold POWER for 3 seconds. A single short press does nothing.
-3. Wait for the status light to turn solid white before choosing an input.
+3. When the status light turns solid white, connect the video cable. Connecting it earlier can make the projector choose the wrong input.
 
 Status light
 Solid white: ready.
@@ -471,17 +471,18 @@ Blinking orange, three flashes: overheated. Unplug it for 30 minutes. Do not ope
 Solid orange: lamp failure. Call the help desk. Do not restart.
 
 Warranty
-The two-year warranty covers the lamp only for its first 1,500 hours of use. Opening the case for any reason other than replacing the filter voids the warranty.`,
+The two-year warranty covers the lamp only for its first 1,500 hours of use. Owners may open the case to replace the filter or the lamp. Installing a lamp not made by Lumex voids the warranty.`,
 
     workscited: `A student’s draft paragraph and works-cited list. The sentences are numbered. (The sources are fictional.)
 
-(1) The Larkin Dam was finished in 1938 (Okafor 12). (2) Its builders housed workers in a camp that held 600 families (Hale). (3) A camp nurse wrote in her diary that “water came by truck twice a week” (Marsh 44). (4) One historian argues that the camp was better run than most of its kind (Okafor 15). (5) Later accounts put the camp at 900 families (Diaz 3).
+(1) The Larkin Dam was finished in 1938 (Okafor 12). (2) Its builders housed workers in a camp that held 600 families (Hale). (3) A camp nurse later recalled that “water came by truck twice a week” (Marsh 44). (4) One writer argued at the time that the camp was better run than most of its kind (Pryor 33). (5) Later accounts put the camp at 900 families (Diaz 3).
 
 Works Cited
 Hale, Ruth. Interview by the author. 4 Mar. 2025.
-Marsh, Edith. Diary, 1937–1938. Larkin County Historical Society.
+Marsh, Edith. Recollections of the Larkin Camp. Larkin County Historical Society, 1979.
 Okafor, James. The River Camps. Western Press, 2011.
-Pryor, Lena. “Dam Towns.” Valley Review, vol. 8, 2019, pp. 30–41.`,
+Pryor, Lena. “Camp Life at Larkin.” Valley Review, vol. 2, 1938, pp. 30–41.
+Vance, Tomas. Concrete and Water. Delta Books, 2004.`,
 
     outline: `A student’s outline for an argument essay
 
@@ -496,7 +497,7 @@ II. A sign-out sheet records time.
    C. The library already uses a sheet, and the librarian reports fewer students wandering the halls.
 III. Some say sheets waste class time.
    A. Signing out takes about ten seconds.
-IV. Our school mascot is a heron.
+   B. Our school mascot is a heron.
 
 Conclusion: Restate the thesis.`,
 
@@ -506,16 +507,16 @@ Conclusion: Restate the thesis.`,
 
     fire: `Two accounts of the same event (both fictional)
 
-ACCOUNT 1 — From a letter Ada Kell wrote to her sister the next morning
-The fire at Lowry’s mill started a little after nine last night, in the dye house at the east end. By the time the pump wagon came, the roof over the looms had caught. No one was hurt; the night crew of eleven got out by the river door.
+ACCOUNT 1 — From a letter Ada Kell wrote to her sister a month later
+The fire at Lowry’s mill started a little after nine that night, in the dye house at the east end. By the time the pump wagon came, the roof over the looms had caught. No one was hurt; the night crew of eleven got out by the river door.
 
-ACCOUNT 2 — From the Lowry Falls Courier, one week later
+ACCOUNT 2 — From the Lowry Falls Courier, the next morning
 Fire broke out at the Lowry mill shortly before ten on Thursday night, beginning in the boiler room at the west end. The volunteer company arrived within twenty minutes. All fourteen men of the night shift escaped, two of them with burns to the hands.`,
 
     radio: `Transcript of a school radio interview (fictional)
 
 HOST: Today’s guest is Dr. Imani Rhee, who studies sleep at Coastal State. Dr. Rhee, you found that teens who put their phones away an hour before bed slept longer?
-RHEE: About twenty minutes longer on average, in a group of 90 students over three weeks. I’d call that a start, not a rule.
+RHEE: About twenty minutes longer on average, in a group of 90 students over three weeks. I’d call that strong enough to try at home, but not strong enough to put into a school policy.
 HOST: So, twenty more minutes for everyone who tries it.
 RHEE: No. That’s an average. Some of the students slept no longer at all.
 HOST: And this was all high-school students?
@@ -549,7 +550,7 @@ ANA: Okay. I’ll move the claim and cut paragraph three. I’m keeping the bus 
        o("LF388-siren", "The sirens sound at once.",
           "Step 4: the sirens depend on Mill Road reading above 12 feet."),
        o("LF388-allclear", "The all-clear text goes out.",
-          "The all-clear needs every gauge below 9 feet for two hours.")],
+          "The all-clear needs every gauge below 9 feet for 90 minutes.")],
       "Each step has its own threshold. Count how many gauges are above 9 feet, then check for any above 12."),
 
     item("LF389", "reading", "Flood handout — South Bend at 13 feet", ["informational", "graphics"], ["informational-texts", "text-graphics"], "siren",
@@ -567,13 +568,13 @@ ANA: Okay. I’ll move the claim and cut paragraph three. I’m keeping the bus 
     item("LF390", "reading", "Flood handout — the all-clear", ["informational"], ["informational-texts"], "siren",
       "Every gauge drops below 9 feet at 3:00 p.m. and stays there. When does the all-clear go out?",
       [o("LF390-3", "at 3:00 p.m.",
-          "The gauges must stay below 9 feet for two full hours first."),
+          "The gauges must stay below 9 feet for 90 minutes first."),
        o("LF390-315", "at 3:15 p.m.",
-          "That is the next 15-minute reading, not the two-hour wait."),
+          "That is the next 15-minute reading, not the 90-minute wait."),
+       o("LF390-430", "at 4:30 p.m.",
+          "Step 5: below 9 feet “for 90 minutes.”", true),
        o("LF390-5", "at 5:00 p.m.",
-          "Step 5: below 9 feet “for two full hours.”", true),
-       o("LF390-9", "at 9:00 p.m.",
-          "The wait is two hours, not six.")],
+          "That would be a two-hour wait. This county’s wait is 90 minutes.")],
       "A wait measured from when a condition starts ends at that time plus the wait."),
 
     item("LF391", "reading", "Flood handout — siren tests", ["informational"], ["informational-texts"], "siren",
@@ -665,14 +666,14 @@ ANA: Okay. I’ll move the claim and cut paragraph three. I’m keeping the bus 
     item("LF398", "reading", "Projector guide — setup order", ["technical"], ["technical-texts"], "projector",
       "Which order follows the setup steps?",
       [o("LF398-power-first", "power cord, video cable, hold POWER",
-          "Many devices are plugged in first, but step 1 says the power cord goes last."),
+          "Step 1 says to leave the video cable unplugged; it goes in after the light turns solid white."),
        o("LF398-video-first", "video cable, power cord, hold POWER",
-          "Step 1: video cable first, power cord last; step 2: hold POWER.", true),
+          "Connecting video first is a common habit, but this guide connects it last."),
        o("LF398-power-mid", "video cable, hold POWER, power cord",
           "The projector cannot be switched on before it has power."),
        o("LF398-power-on", "power cord, hold POWER, video cable",
-          "This puts the power cord first and the video cable last, the reverse of step 1.")],
-      "Read setup steps for order words such as first and last."),
+          "Steps 1–3: power cord, hold POWER, then the video cable once the light is solid white.", true)],
+      "Read setup steps for order words such as first, now, and when."),
 
     item("LF399", "reading", "Projector guide — switching on", ["technical"], ["technical-texts"], "projector",
       "How does a user switch the projector on?",
@@ -689,24 +690,22 @@ ANA: Okay. I’ll move the claim and cut paragraph three. I’m keeping the bus 
     item("LF400", "reading", "Projector guide — the warranty", ["technical"], ["technical-texts"], "projector",
       "Which of these voids the warranty?",
       [o("LF400-filter", "opening the case to replace the filter",
-          "Replacing the filter is the one reason the warranty allows for opening the case."),
-       o("LF400-lamp", "opening the case to check the lamp",
-          "Opening the case “for any reason other than replacing the filter voids the warranty.”", true),
+          "Owners may open the case to replace the filter."),
+       o("LF400-lamp", "opening the case to replace the lamp",
+          "Many warranties forbid this, but this one lets owners replace the lamp themselves."),
        o("LF400-hours", "using the lamp for more than 1,500 hours",
           "Past 1,500 hours the lamp is no longer covered, but the warranty is not voided."),
-       o("LF400-restart", "restarting the projector after it overheats",
-          "Restarting after the 30-minute wait is what the guide says to do.")],
-      "Ending coverage for one part is not the same as voiding the whole warranty."),
-
-    /* ---- Research: in-text citations against a works-cited list ---- */
+       o("LF400-other", "installing a lamp from another maker",
+          "“Installing a lamp not made by Lumex voids the warranty.”", true)],
+      "Ending coverage for one part is not the same as voiding the whole warranty, and a guide’s own rules can differ from the usual ones."),
     item("LF401", "language", "Dam paragraph — a missing entry", ["research"], ["research-citation"], "workscited",
       "Which in-text citation names a source that is missing from the works-cited list?",
       [o("LF401-hale", "Hale, in sentence 2",
           "Hale’s interview is listed."),
        o("LF401-marsh", "Marsh, in sentence 3",
-          "Marsh’s diary is listed."),
-       o("LF401-okafor", "Okafor, in sentence 4",
-          "Okafor’s book is listed."),
+          "Marsh’s recollections are listed."),
+       o("LF401-pryor", "Pryor, in sentence 4",
+          "Pryor’s article is listed."),
        o("LF401-diaz", "Diaz, in sentence 5",
           "The list has no entry for Diaz.", true)],
       "Every source cited in the text needs an entry, and every entry should be cited. Check both directions."),
@@ -715,36 +714,36 @@ ANA: Okay. I’ll move the claim and cut paragraph three. I’m keeping the bus 
       "Which works-cited entry is never cited in the paragraph?",
       [o("LF402-hale", "Hale",
           "Hale is cited in sentence 2."),
-       o("LF402-marsh", "Marsh",
-          "Marsh is cited in sentence 3."),
+       o("LF402-vance", "Vance",
+          "No sentence cites Vance’s book.", true),
        o("LF402-pryor", "Pryor",
-          "No sentence cites Pryor’s article.", true),
+          "Pryor is cited in sentence 4."),
        o("LF402-okafor", "Okafor",
-          "Okafor is cited in sentences 1 and 4.")],
+          "Okafor is cited in sentence 1.")],
       "An entry no one cites should be cut or used."),
 
-    item("LF403", "language", "Dam paragraph — a primary source", ["research"], ["research-citation", "evidence-credibility"], "workscited",
-      "Which listed source was written during the time the camp existed?",
-      [o("LF403-marsh", "Marsh’s diary",
-          "The diary is dated 1937–1938, while the camp housed the dam’s workers.", true),
+    item("LF403", "language", "Dam paragraph — a source from the time", ["research"], ["research-citation", "evidence-credibility"], "workscited",
+      "Which listed source was written while the camp existed?",
+      [o("LF403-marsh", "Marsh’s recollections",
+          "A nurse’s account sounds firsthand, but she wrote it in 1979, decades later."),
        o("LF403-okafor", "Okafor’s book",
           "Okafor’s book was published in 2011."),
        o("LF403-pryor", "Pryor’s article",
-          "Pryor’s article was published in 2019."),
+          "Pryor’s article appeared in 1938, the year the dam was finished.", true),
        o("LF403-hale", "Hale’s interview",
           "The interview took place in 2025.")],
-      "Dates in a works-cited list show which sources come from the period itself."),
+      "A witness can write long after the event. Read the dates in the list, not only the kind of source."),
 
     item("LF404", "language", "Dam paragraph — the two figures", ["research"], ["research-citation", "evidence-credibility"], "workscited",
       "The paragraph gives two sizes for the camp. Which sources give them?",
       [o("LF404-hale-diaz", "Hale gives 600 families, and Diaz gives 900",
           "Sentence 2 cites Hale for 600; sentence 5 cites Diaz for 900.", true),
-       o("LF404-okafor-diaz", "Okafor gives 600 families, and Diaz gives 900",
-          "Okafor is cited for the date and for a judgment about the camp, not for its size."),
+       o("LF404-pryor-diaz", "Pryor gives 600 families, and Diaz gives 900",
+          "Pryor is cited for a judgment about how the camp was run, not for its size."),
        o("LF404-diaz-hale", "Diaz gives 600 families, and Hale gives 900",
           "This reverses the two figures."),
-       o("LF404-marsh-okafor", "Marsh gives 600 families, and Okafor gives 900",
-          "Marsh is cited for the water trucks.")],
+       o("LF404-vance-diaz", "Vance gives 600 families, and Diaz gives 900",
+          "Vance is listed but never cited.")],
       "When sources disagree, a writer should say which source gives which figure."),
 
     item("LF405", "language", "Dam paragraph — a direct quotation", ["research"], ["research-citation"], "workscited",
@@ -754,9 +753,9 @@ ANA: Okay. I’ll move the claim and cut paragraph three. I’m keeping the bus 
        o("LF405-2", "Sentence 2",
           "Sentence 2 paraphrases Hale."),
        o("LF405-3", "Sentence 3",
-          "Sentence 3 puts the diary’s words in quotation marks.", true),
+          "Sentence 3 puts the nurse’s words in quotation marks.", true),
        o("LF405-4", "Sentence 4",
-          "Sentence 4 reports an argument in the writer’s own words.")],
+          "Sentence 4 reports Pryor’s argument in the student’s own words.")],
       "Quotation marks show where a source’s exact words begin and end."),
 
     /* ---- Writing: an outline ---- */
@@ -780,7 +779,7 @@ ANA: Okay. I’ll move the claim and cut paragraph three. I’m keeping the bus 
           "II.A gives a benefit of the sheet."),
        o("LF407-IIIA", "Line III.A",
           "III.A answers an objection to the sheet."),
-       o("LF407-IV", "Line IV",
+       o("LF407-IIIB", "Line III.B",
           "The mascot has nothing to do with hall passes.", true)],
       "Test each line against the thesis: does it help show the school should switch?"),
 
@@ -873,14 +872,14 @@ ANA: Okay. I’ll move the claim and cut paragraph three. I’m keeping the bus 
     item("LF415", "reading", "Mill fire — closeness to the event", ["paired"], ["evidence-credibility", "research-citation"], "fire",
       "Which account was written closer to the event, and when?",
       [o("LF415-1-next", "Account 1, the next morning",
-          "Ada Kell wrote “the next morning”; the Courier printed its account a week later.", true),
+          "A private letter can feel more immediate, but Ada Kell wrote hers a month later."),
        o("LF415-2-next", "Account 2, the next morning",
-          "The Courier account came one week later."),
-       o("LF415-1-week", "Account 1, one week later",
-          "The week’s delay belongs to Account 2."),
-       o("LF415-2-same", "Account 2, that same night",
-          "Account 2 was printed a week later.")],
-      "When accounts disagree, time of writing is one factor in weighing them, though not the only one."),
+          "The Courier printed its account the next morning; the letter came a month later.", true),
+       o("LF415-1-month", "Account 1, a month later",
+          "That is when the letter was written, but it is the later of the two."),
+       o("LF415-2-month", "Account 2, a month later",
+          "The month’s delay belongs to Account 1.")],
+      "When accounts disagree, time of writing is one factor in weighing them. Read the headings for dates."),
 
     item("LF416", "reading", "Mill fire — the crew", ["paired"], ["evidence-credibility"], "fire",
       "How many night-shift workers does each account report?",
@@ -929,21 +928,19 @@ ANA: Okay. I’ll move the claim and cut paragraph three. I’m keeping the bus 
           "She says 90."),
        o("LF419-19-3w", "19 students, three weeks",
           "She says 90.")],
-      "Small studies over short periods are a reason for the caution she expresses."),
+      "Small studies over short periods are a reason for the limit she puts on her finding."),
 
     item("LF420", "oral", "Radio interview — her verdict", ["listening"], ["listening-speaking", "evidence-credibility"], "radio",
       "How does Dr. Rhee describe the strength of her finding?",
-      [o("LF420-rule", "as a rule families should follow",
-          "She says the opposite: “a start, not a rule.”"),
-       o("LF420-start", "as a start rather than a rule",
-          "“I’d call that a start, not a rule.”", true),
-       o("LF420-surprise", "as a surprise to other researchers",
-          "She says nothing about other researchers."),
-       o("LF420-final", "as the final word on teen sleep",
-          "She limits the finding rather than extending it.")],
-      "A speaker’s own words about how sure she is are evidence a listener should keep."),
-
-    /* ---- Oral: a peer-review conversation ---- */
+      [o("LF420-start", "as a start, not a rule",
+          "That is a common way for researchers to hedge, but it is not what she says."),
+       o("LF420-home", "as fit for home, not for school policy",
+          "“Strong enough to try at home, but not strong enough to put into a school policy.”", true),
+       o("LF420-policy", "as strong enough to become a school policy now",
+          "She says the opposite about school policy."),
+       o("LF420-weak", "as too weak to be worth trying at home",
+          "She says it is strong enough to try at home.")],
+      "A speaker’s own words about how sure she is are evidence a listener should keep. Do not substitute the usual phrase."),
     item("LF421", "oral", "Peer review — asking for detail", ["discussion"], ["group-discussion", "listening-speaking"], "peerreview",
       "Who asks a reviewer to make a comment more specific?",
       [o("LF421-ana", "Ana",
@@ -968,17 +965,17 @@ ANA: Okay. I’ll move the claim and cut paragraph three. I’m keeping the bus 
           "Tess names the Evidence row.")],
       "Tying a comment to a rubric row tells the writer which part of the draft it concerns."),
 
-    item("LF423", "oral", "Peer review — what Ana keeps", ["discussion"], ["group-discussion"], "peerreview",
-      "What does Ana say she will keep?",
-      [o("LF423-bus", "the bus-schedule numbers",
-          "“I’m keeping the bus numbers.”", true),
-       o("LF423-p3", "paragraph three",
+    item("LF423", "oral", "Peer review — what Ana moves", ["discussion"], ["group-discussion"], "peerreview",
+      "What does Ana say she will move?",
+      [o("LF423-claim-first", "the claim, to the first paragraph",
+          "Jonah says the claim is in the last paragraph and should move up; Ana agrees.", true),
+       o("LF423-bus-first", "the bus numbers, to the first paragraph",
+          "Ana says she is keeping the bus numbers, not moving them."),
+       o("LF423-p3-end", "paragraph three, to the end",
           "She says she will cut paragraph three."),
-       o("LF423-claim", "the claim in the last paragraph",
-          "She says she will move the claim."),
-       o("LF423-first", "the first paragraph’s opening",
-          "No one discusses the first paragraph’s opening.")],
-      "A writer can accept some feedback and keep what works."),
+       o("LF423-claim-end", "the claim, to the last paragraph of the essay",
+          "The claim is already in the last paragraph; she will move it up.")],
+      "A writer can accept some feedback and keep what works. Track which change goes with which comment."),
 
     item("LF424", "oral", "Peer review — the repetition", ["discussion"], ["group-discussion", "essay-structure"], "peerreview",
       "Which paragraph does Jonah say repeats another?",
