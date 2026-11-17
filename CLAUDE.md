@@ -39,13 +39,13 @@ The hard, passage-based ELA questions live in six files. All use IDs `LF###`.
 | Form | File | IDs | Authoring format |
 |---|---|---|---|
 | A | `js/data/problems-ela-longform.js` | LF014–LF034, LF040–LF045 (legacy); LF359–LF387 (option objects) | both |
-| B | `js/data/problems-ela-longform-b.js` | LF057–LF124 | legacy |
+| B | `js/data/problems-ela-longform-b.js` | LF070–LF093, LF110–LF113, LF122–LF124 (legacy); LF388–LF424 (option objects) | both |
 | C | `js/data/problems-ela-longform-c.js` | LF125–LF182 | legacy |
 | D | `js/data/problems-ela-longform-d.js` | LF283–LF312 | option objects |
 | E | `js/data/problems-ela-longform-e.js` | LF313–LF358 | option objects |
 | F | `js/data/problems-ela-longform-f.js` | LF268–LF282 | option objects |
 
-The next free ID is LF388. LF001–LF013, LF035–LF039, and LF046–LF056 (Form A’s first original passages), LF183–LF212 (the first Form D), LF213–LF252 (the first Form E), and LF253–LF267 (the first Form F) are retired; never reuse a retired ID, because saved attempts and mastery records still point at it. Forms D, E, and F have been rebuilt to the anti-testwiseness rules below. In Form A, the six original passages were rebuilt with new IDs, and the literature and speech clusters were repaired in place: same IDs and keys, with their wrong answers rewritten to those rules. Forms B and C have not been touched yet. Use Form D, E, or F as the model for new work.
+The next free ID is LF425. LF001–LF013, LF035–LF039, and LF046–LF056 (Form A’s first original passages), LF057–LF069, LF094–LF109, and LF114–LF121 (Form B’s), LF183–LF212 (the first Form D), LF213–LF252 (the first Form E), and LF253–LF267 (the first Form F) are retired; never reuse a retired ID, because saved attempts and mastery records still point at it. Forms D, E, and F have been rebuilt to the anti-testwiseness rules below. In Forms A and B, the original passages were rebuilt with new IDs, and the literature and historical clusters were repaired in place: same IDs and keys, with their wrong answers rewritten to those rules. Form C has not been touched yet. Use Form D, E, or F as the model for new work.
 
 ### The five pages that load question data
 
@@ -115,7 +115,7 @@ Required fields:
 
 Option IDs are `<problemId>-<slug>` (for example `LF268-all`). They are saved in users' attempt history, so never rename or reuse one after it ships. When a question changes so much that it is a different question, give it a new ID and retire the old one.
 
-### Existing questions: legacy format (Form A’s literature questions, Forms B–C, and most other banks)
+### Existing questions: legacy format (the literature questions in Forms A and B, Form C, and most other banks)
 
 ```js
 { id: "LF001", domain: "reading", title: "...", difficulty: "hard",
@@ -275,7 +275,7 @@ Test suites:
 | `tests/quiz-core.test.js` | Option IDs, shuffling, grading, saved attempts |
 | `tests/validate-questions.test.js` | The validator's rules |
 | `tests/length-bias.test.js` | Answer-length limits on the passage forms |
-| `tests/testwiseness.test.js` | Rebuilt forms (D, E, F): no absolute words, no option-only reasons, no repeated key ideas. Repaired forms (A): no absolute words in wrong answers, no option-only reasons |
+| `tests/testwiseness.test.js` | Rebuilt forms (D, E, F): no absolute words, no option-only reasons, no repeated key ideas. Repaired forms (A, B): no absolute words in wrong answers, no option-only reasons |
 | `tests/audit.test.js` | The audit export hides passages and keys; shuffles and scoring are correct |
 | `tests/clusters.test.js` | Template families in the cluster exam |
 | `tests/flashcards.test.js` | No flashcard question with two correct answers |
@@ -311,7 +311,7 @@ For page or layout changes, also take screenshots at 1200px and 390px wide and c
 
 ## Known gaps
 
-- Forms B and C, and Form A’s legacy questions, have no per-option explanations.
+- Form C, and the legacy questions in Forms A and B, have no per-option explanations.
 - The validator does not check `skillIds`, `domain`, or `difficulty` values.
 - Progress lives in one browser's `localStorage`; there are no accounts or sync.
 - Before selling: review the stored Pearson study-guide items and keys in `js/data/study-guides.js`, the use of the NES and Pearson names, and any pass-rate claims.

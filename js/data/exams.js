@@ -330,22 +330,22 @@ window.EXAMS = [
     minutes: 90,
     description: "Second original long-passage form: paired texts, a drama scene, graphics in a briefing, listening/seminar transcripts, revision drafts, and public-domain literature not used on Form A. Distractors are written close together (overclaim, wrong speaker, adjacent literary term) so the key should not be obvious without the passage.",
     problemIds: [
-      "LF057","LF058","LF059","LF060","LF061",
-      "LF062","LF063","LF064","LF065",
-      "LF066","LF067","LF068","LF069",
+      "LF388","LF389","LF390","LF391","LF392",
+      "LF393","LF394","LF395","LF396",
+      "LF397","LF398","LF399","LF400",
       "LF070","LF071","LF072","LF073",
       "LF074","LF075","LF076","LF077",
       "LF078","LF079","LF080","LF081","LF082",
       "LF083","LF084","LF085","LF086",
       "LF087","LF088","LF089","LF090",
       "LF091","LF092","LF093",
-      "LF094","LF095","LF096","LF097","LF098",
-      "LF099","LF100","LF101","LF102",
-      "LF103","LF104","LF105",
-      "LF106","LF107","LF108","LF109",
+      "LF401","LF402","LF403","LF404","LF405",
+      "LF406","LF407","LF408","LF409",
+      "LF410","LF411","LF412",
+      "LF413","LF414","LF415","LF416",
       "LF110","LF111","LF112","LF113",
-      "LF114","LF115","LF116","LF117",
-      "LF118","LF119","LF120","LF121",
+      "LF417","LF418","LF419","LF420",
+      "LF421","LF422","LF423","LF424",
       "LF122","LF123","LF124"
     ]
   },
@@ -934,11 +934,8 @@ function longformClusters(bank) {
    family, and recency is tracked by family so a template does not return the
    next day under a new name. Sets not listed are their own family. */
 const CLUSTER_FAMILIES = {
-  "data-briefing": ["smoke", "dust"],
-  "memo-vs-flyer": ["canals", "water"],
-  "board-editorial": ["lunch", "hours"],
-  "rules-document": ["buspass", "pool", "lease"],
-  "error-draft": ["plantsale", "research", "revise"],
+  "rules-document": ["buspass", "pool"],
+  "error-draft": ["plantsale", "revise"],
   "pictograph": ["poster", "ebooks"],
   "paine": ["paine", "pair-liberty"]
 };
