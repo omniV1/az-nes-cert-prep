@@ -19,6 +19,7 @@ The owner is preparing for NES 301 and intends to sell the guide later, so quest
 | `ace.html` | Readiness gates |
 | `countdown.html`, `js/countdown.js` | Study plan built backward from a test date |
 | `cards.html`, `learn.html`, `plan.html`, `notes.html`, `formulas.html`, `traps.html`, `review.html`, `study-guides.html` | Other pages |
+| `js/edition.js` | Edition setting (`window.APP_EDITION`): `personal` or `sale`. Loaded first on every page |
 | `js/quiz-core.js` | Question model: option IDs, shuffling, grading, explanation rendering |
 | `js/storage.js` | `window.Progress`: saved state in `localStorage` under `az-nes-math-prep-v1` |
 | `js/progress-engine.js` | Mastery, repair plans, trap labels |
@@ -30,6 +31,8 @@ The owner is preparing for NES 301 and intends to sell the guide later, so quest
 | `scripts/load-question-data.js` | Loads the data files into a Node sandbox in page order |
 | `scripts/validate-questions.js` | Validator (`npm run validate`) |
 | `scripts/audit.js` | Blind and open-book audit copies of a passage form, and scoring of a reader's answers |
+| `scripts/build-release.js` | Builds the sale edition into `release/` (`npm run build:release`) |
+| `js/data/pearson-keys.js`, `js/data/field02-coach.js`, `js/data/aepa-guides.js` | Pearson's Field 02 / Field 10 answer keys, the Field 02 coaching notes, and the Field 02 / Field 10 objective lists. Personal edition only |
 | `tests/*.test.js` | `node:test` suites (`npm test`) |
 
 ### Passage forms
@@ -58,6 +61,16 @@ A new `js/data/problems-*.js` file does nothing until it has a `<script>` tag in
 - `ace.html`
 
 `scripts/load-question-data.js` discovers data files by reading the script tags in `guide.html`, `exam.html`, and `practice.html`. A file that is missing from those pages is invisible to the validator and the tests, so they will pass without checking it.
+
+## Editions: personal and sale
+
+The repository is the owner's personal study copy. It loads three files built on Pearson's study guides: `js/data/pearson-keys.js` (the published answer keys for Field 02 and Field 10), `js/data/field02-coach.js` (notes that walk through each Field 02 item), and `js/data/aepa-guides.js` (the guides' objective lists and weights). `study-guides.html` is built entirely on them. None of these may ship in a copy that is sold, and the repository should stay private while it holds them.
+
+- `js/edition.js` sets `window.APP_EDITION = "personal"`. `npm run build:release` copies the site to `release/`, sets the edition to `sale`, leaves the three files and `study-guides.html` out, and removes their script tags. It replaces the product name with `--name "..."`, or with a neutral placeholder so "NES" never ships in the product name.
+- In the sale edition, `STUDY_GUIDES.guides` is empty and `hasKeys` is false, the Field 02 / Field 10 exams are removed from `EXAMS`, the ELA readiness gate uses both original passage sets at 80% instead of a Field 02 sitting, Pearson's PDFs become links instead of embedded frames, and anything marked `data-personal-only` (the Guides nav link, Field 02 prose, flashcard objective chips) is removed.
+- The build fails if any answer key or coaching text appears in the output. `tests/release.test.js` builds a copy and checks both editions.
+- Put any new material taken from Pearson's documents in a personal-only file, add it to `PERSONAL_ONLY` in `scripts/build-release.js`, and make the app work without it. Mark personal-only links or sections with `data-personal-only`.
+- Every page gets the disclaimer from `js/edition.js` unless it already has an element marked `data-disclaimer`. Do not call this app's own exams or lessons "official", "Pearson-style", or compare them to Pearson's guides; do not use other companies' names (Quizlet) for the app's features; and do not promise a pass. Readiness thresholds are the app's targets, not predictions.
 
 ## Question schema
 
@@ -265,6 +278,7 @@ npm run validate                           # schema and letter-reference checks 
 npm test                                   # all unit tests; Chromium tests skip without Playwright
 NODE_PATH=$(npm root -g) npm test          # the same, with the Chromium tests running
 node --test tests/length-bias.test.js      # one suite
+npm run build:release -- --name "Name"     # sale edition into release/
 ```
 
 Playwright is installed globally in the cloud environment, not in `node_modules`. Without `NODE_PATH=$(npm root -g)`, the two browser tests are skipped and the run still reports success. Chromium is preinstalled; do not run `playwright install`.
@@ -282,6 +296,7 @@ Test suites:
 | `tests/flashcards.test.js` | No flashcard question with two correct answers |
 | `tests/countdown.test.js` | Study-plan dates and weak-area ranking; includes a browser test |
 | `tests/exam-review.e2e.test.js` | A full exam in Chromium, checking the review screen |
+| `tests/release.test.js` | The sale build leaves out Pearson-derived files; both editions behave as intended; includes a browser test |
 
 ## Verifying a change
 
@@ -315,4 +330,5 @@ For page or layout changes, also take screenshots at 1200px and 390px wide and c
 - The legacy literature questions in Forms A, B, and C have no per-option explanations.
 - The validator does not check `skillIds`, `domain`, or `difficulty` values.
 - Progress lives in one browser's `localStorage`; there are no accounts or sync.
-- Before selling: review the stored Pearson study-guide items and keys in `js/data/study-guides.js`, the use of the NES and Pearson names, and any pass-rate claims.
+- Before selling: have a lawyer review the sale build and its remaining factual references to the NES tests and Pearson. Pick a product name and pass it with `--name`.
+- The GitHub repository is public, and its history includes the Pearson-derived files. Make it private, or remove those files from history, before selling.

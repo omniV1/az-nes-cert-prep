@@ -15,7 +15,7 @@
       <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
-      <a href="study-guides.html">Guides</a>
+      <a href="study-guides.html" data-personal-only>Guides</a>
       <a href="practice.html">Practice</a>
       <a class="active" href="exam.html">Exams</a>
       <a href="ace.html">Ace</a>
@@ -31,7 +31,7 @@
     <div id="lobby">
       <div class="eyebrow">HackerRank-style timed exams</div>
       <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Practice exams</h1>
-      <p class="muted">Timed. No hints mid-exam. Math ace gate: <strong>≥85% on both official-length math simulations</strong>. ELA: treat Passage sets A/B and a Field 02 <em>first</em> sitting as the real signal — a short-stem 90% does not mean NES 301 is ready. Phase tests and checkpoints draw a new mix each sitting (items, prompt type, choice order) so you cannot memorize the form. Do not keep retaking Field 02 after two sittings; the letters stick and the next test will be new passages.</p>
+      <p class="muted">Timed. No hints mid-exam. Math ace gate: <strong>≥85% on both full-length math simulations</strong>. ELA: treat Passage sets A/B<span data-personal-only> and a Field 02 <em>first</em> sitting</span> as the real signal — a short-stem 90% does not mean NES 301 is ready. Phase tests and checkpoints draw a new mix each sitting (items, prompt type, choice order) so you cannot memorize the form. Do not keep retaking Field 02 after two sittings; the letters stick and the next test will be new passages.</p>
       <div id="exam-groups" style="margin-top:1rem"></div>
 
       <div id="official-guides"></div>
@@ -93,6 +93,7 @@
     </div>
   </main>
 
+  <script src="js/edition.js"></script>
   <script src="js/data/curriculum.js"></script>
   <script src="js/data/skills.js"></script>
   <script src="js/data/problems.js"></script>
@@ -117,6 +118,8 @@
   <script src="js/data/problem-skills.js"></script>
   <script src="js/data/exams.js"></script>
   <script src="js/data/field02-coach.js"></script>
+  <script src="js/data/aepa-guides.js"></script>
+  <script src="js/data/pearson-keys.js"></script>
   <script src="js/data/study-guides.js"></script>
   <script src="js/quiz-core.js"></script>
   <script src="js/storage.js"></script>
@@ -444,17 +447,17 @@
       }
       const newlyMastered = ProgressEngine.syncExamLessonMastery(repair.track);
       const rigorNote = exam.id === "ela-clusters"
-        ? "This sitting assembled original passage clusters. Treat ≥80% as Pearson-style readiness only if most clusters were still new to you — not if you recognized the passages from A/B/C."
+        ? "This sitting assembled original passage clusters. Treat ≥80% as exam-ready by this app’s target only if most clusters were still new to you — not if you recognized the passages from A/B/C."
         : exam.id === "ela-field-rigor" || exam.id === "ela-field-rigor-b" || exam.id === "ela-field-rigor-c"
-        ? "This form is an honest unofficial signal. Treat ≥70% as a start and ≥80% as approaching Pearson-style readiness — 85% on short-stem sims is not enough by itself. After two sittings, use the randomized cluster exam instead of grinding these letters."
+        ? "This form is an honest unofficial signal. Treat ≥70% as a start and ≥80% as approaching this app’s readiness — 85% on short-stem sims is not enough by itself. After two sittings, use the randomized cluster exam instead of grinding these letters."
         : exam.id === "aepa-field02"
           ? "Official Pearson items. This score outweighs our short-stem bank when you decide whether to book NES 301."
           : exam.id === "aepa-field10"
             ? "Official Pearson math items. Weight this more heavily than the unofficial math bank when you decide whether to book NES 304."
           : percent >= 85
             ? (exam.type === "english"
-              ? "ACE RANGE on this unofficial form — still confirm with Field 02 or the passage-set exam before you treat ELA as booked."
-              : "ACE RANGE — this is booking territory if both official-length mocks clear 85%.")
+              ? "ACE RANGE on this unofficial form — still confirm with an original passage set before you treat ELA as booked."
+              : "ACE RANGE — by this app’s own target, you are ready to book once both full-length mocks clear 85%. A target, not a prediction.")
             : percent >= 75 ? "Close. Repair weak domains, then retake a full mock."
             : percent >= 65 ? "Foundation forming — not ace-ready. Back to Learn + domain drills."
             : "Large gaps. Follow the learning path before another full mock.";

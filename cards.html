@@ -15,7 +15,7 @@
       <a class="brand" href="index.html">AZ NES <span>Cert Prep</span></a>
       <a href="index.html">Dashboard</a>
       <a href="learn.html">Learn</a>
-      <a href="study-guides.html">Guides</a>
+      <a href="study-guides.html" data-personal-only>Guides</a>
       <a href="practice.html">Practice</a>
       <a href="exam.html">Exams</a>
       <a href="ace.html">Ace</a>
@@ -28,9 +28,9 @@
   </header>
 
   <main class="wrap">
-    <div class="eyebrow">Quizlet-style cheap points</div>
+    <div class="eyebrow">Flashcards for quick points</div>
     <h1 style="font-family:var(--font-display);letter-spacing:-0.03em;margin-top:0">Term cards</h1>
-    <p class="muted">Flip cards to learn the term. Quizlet Learn: you will see a term in multiple choice a few times before it asks you to type it. Close spelling counts. A miss drops it back to multiple choice. Passed means every term is typed, not just clicked.</p>
+    <p class="muted">Flip cards to learn the term. Learn mode: you will see a term in multiple choice a few times before it asks you to type it. Close spelling counts. A miss drops it back to multiple choice. Passed means every term is typed, not just clicked.</p>
 
     <div id="deck-lobby"></div>
 
@@ -99,6 +99,7 @@
     <div id="done" class="card hidden" style="margin-top:1.25rem"></div>
   </main>
 
+  <script src="js/edition.js"></script>
   <script src="js/data/flashcards.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/vault-sync.js"></script>
@@ -122,7 +123,7 @@
           <p class="muted">${d.blurb}</p>
           <div class="tag-row">
             <span class="chip">${d.cards.length} cards</span>
-            <span class="chip">${d.aepa}</span>
+            <span class="chip" data-personal-only>${d.aepa}</span>
             <span class="chip">${d.nes}</span>
           </div>
           <div class="cta-row" style="margin-top:0.75rem">

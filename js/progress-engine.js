@@ -289,16 +289,16 @@ window.ProgressEngine = (() => {
       return [
         { examId: "ela-field-rigor", title: "ELA passage sets Form A", target: 80 },
         { examId: "ela-field-rigor-b", title: "ELA passage sets Form B", target: 80 },
-        { examId: "ela-clusters", title: "ELA Pearson-style cluster exam", target: 80 },
-        { examId: "ela-official-1", title: "Official-Length ELA Simulation A", target: 85 },
-        { examId: "ela-official-2", title: "Official-Length ELA Simulation B", target: 85 }
+        { examId: "ela-clusters", title: "ELA passage-cluster exam", target: 80 },
+        { examId: "ela-official-1", title: "Full-Length ELA Simulation A", target: 85 },
+        { examId: "ela-official-2", title: "Full-Length ELA Simulation B", target: 85 }
       ];
     }
     return [
       { examId: "math-full-1", title: "Half-Length Math Mock A", target: 85 },
       { examId: "math-full-2", title: "Half-Length Math Mock B", target: 85 },
-      { examId: "math-official-1", title: "Official-Length Math Simulation A", target: 85 },
-      { examId: "math-official-2", title: "Official-Length Math Simulation B", target: 85 }
+      { examId: "math-official-1", title: "Full-Length Math Simulation A", target: 85 },
+      { examId: "math-official-2", title: "Full-Length Math Simulation B", target: 85 }
     ];
   }
 
@@ -461,8 +461,10 @@ window.ProgressEngine = (() => {
         examId: timedExam,
         daysSince: daysSince(today.lastTimedAt)
       },
+      // The sale edition has no Field 02 exam, so its gate is the "Field 02 burned" path: both original forms ≥80%.
+      fieldAvailable: window.APP_EDITION !== "sale",
       field02Burned: field02N >= 2,
-      honestReady: field02N >= 2
+      honestReady: (window.APP_EDITION === "sale" || field02N >= 2)
         ? (formA.best >= 80 && formB.best >= 80)
         : (field02N >= 1 && field02Best >= 70 && (formA.best >= 80 || formB.best >= 80))
     };
