@@ -460,7 +460,7 @@ Note: The 2024 edition of this handout said the sirens sound when any gauge pass
 
 Setup
 1. Connect the power cord. Leave the video cable unplugged for now.
-2. Press and hold POWER for 3 seconds. A single short press does nothing.
+2. Press POWER twice within two seconds. Holding POWER down resets the projector to factory settings.
 3. When the status light turns solid white, connect the video cable. Connecting it earlier can make the projector choose the wrong input.
 
 Status light
@@ -518,7 +518,7 @@ Fire broke out at the Lowry mill shortly before ten on Thursday night, beginning
 HOST: Today’s guest is Dr. Imani Rhee, who studies sleep at Coastal State. Dr. Rhee, you found that teens who put their phones away an hour before bed slept longer?
 RHEE: About twenty minutes longer on average, in a group of 90 students over three weeks. I’d call that strong enough to try at home, but not strong enough to put into a school policy.
 HOST: So, twenty more minutes for everyone who tries it.
-RHEE: No. That’s an average. Some of the students slept no longer at all.
+RHEE: No. Twenty minutes was the average for the students who kept to it at least five nights a week. Across the whole group, it was eight minutes.
 HOST: And this was all high-school students?
 RHEE: Ninth and tenth graders, at two schools.
 HOST: Listeners, text us your bedtime tips.`,
@@ -665,27 +665,27 @@ ANA: Okay. I’ll move the claim and cut paragraph three. I’m keeping the bus 
 
     item("LF398", "reading", "Projector guide — setup order", ["technical"], ["technical-texts"], "projector",
       "Which order follows the setup steps?",
-      [o("LF398-power-first", "power cord, video cable, hold POWER",
+      [o("LF398-power-first", "power cord, video cable, press POWER",
           "Step 1 says to leave the video cable unplugged; it goes in after the light turns solid white."),
-       o("LF398-video-first", "video cable, power cord, hold POWER",
+       o("LF398-video-first", "video cable, power cord, press POWER",
           "Connecting video first is a common habit, but this guide connects it last."),
-       o("LF398-power-mid", "video cable, hold POWER, power cord",
+       o("LF398-power-mid", "video cable, press POWER, power cord",
           "The projector cannot be switched on before it has power."),
-       o("LF398-power-on", "power cord, hold POWER, video cable",
-          "Steps 1–3: power cord, hold POWER, then the video cable once the light is solid white.", true)],
+       o("LF398-power-on", "power cord, press POWER, video cable",
+          "Steps 1–3: power cord, press POWER, then the video cable once the light is solid white.", true)],
       "Read setup steps for order words such as first, now, and when."),
 
     item("LF399", "reading", "Projector guide — switching on", ["technical"], ["technical-texts"], "projector",
       "How does a user switch the projector on?",
       [o("LF399-once", "press POWER once",
-          "“A single short press does nothing.”"),
-       o("LF399-twice", "press POWER twice",
-          "The guide does not mention a double press."),
+          "Step 2 calls for two presses."),
+       o("LF399-twice", "press POWER twice quickly",
+          "Step 2: “Press POWER twice within two seconds.”", true),
        o("LF399-hold3", "hold POWER for 3 seconds",
-          "Step 2: “Press and hold POWER for 3 seconds.”", true),
+          "Holding POWER is how many devices start, but on this one it resets the projector."),
        o("LF399-hold10", "hold POWER for 10 seconds",
-          "The guide says 3 seconds.")],
-      "When a guide says a usual action does nothing, it is warning you off the habit."),
+          "Holding POWER down resets the projector to factory settings.")],
+      "When a guide gives an unusual step, follow it over the habit. Here the habitual press-and-hold does something else."),
 
     item("LF400", "reading", "Projector guide — the warranty", ["technical"], ["technical-texts"], "projector",
       "Which of these voids the warranty?",
@@ -738,12 +738,12 @@ ANA: Okay. I’ll move the claim and cut paragraph three. I’m keeping the bus 
       "The paragraph gives two sizes for the camp. Which sources give them?",
       [o("LF404-hale-diaz", "Hale gives 600 families, and Diaz gives 900",
           "Sentence 2 cites Hale for 600; sentence 5 cites Diaz for 900.", true),
+       o("LF404-hale-vance", "Hale gives 600 families, and Vance gives 900",
+          "Vance is listed but never cited; the 900 comes from Diaz."),
        o("LF404-pryor-diaz", "Pryor gives 600 families, and Diaz gives 900",
           "Pryor is cited for a judgment about how the camp was run, not for its size."),
-       o("LF404-diaz-hale", "Diaz gives 600 families, and Hale gives 900",
-          "This reverses the two figures."),
-       o("LF404-vance-diaz", "Vance gives 600 families, and Diaz gives 900",
-          "Vance is listed but never cited.")],
+       o("LF404-pryor-vance", "Pryor gives 600 families, and Vance gives 900",
+          "Neither source is cited for a size.")],
       "When sources disagree, a writer should say which source gives which figure."),
 
     item("LF405", "language", "Dam paragraph — a direct quotation", ["research"], ["research-citation"], "workscited",
@@ -896,26 +896,26 @@ ANA: Okay. I’ll move the claim and cut paragraph three. I’m keeping the bus 
     /* ---- Oral: an interview transcript ---- */
     item("LF417", "oral", "Radio interview — the correction", ["listening"], ["listening-speaking", "speech-craft"], "radio",
       "When the host restates her finding, how does Dr. Rhee correct him?",
-      [o("LF417-average", "She says the gain is an average, and some slept no longer.",
-          "“That’s an average. Some of the students slept no longer at all.”", true),
-       o("LF417-forty", "She says the gain was closer to forty minutes.",
-          "She gives about twenty minutes and does not revise it."),
-       o("LF417-grades", "She says the study covered all four high-school grades.",
-          "She says ninth and tenth graders."),
-       o("LF417-months", "She says the study lasted three months, not weeks.",
-          "She says three weeks.")],
-      "A good listener catches when a summary turns an average into a promise."),
+      [o("LF417-average", "She says twenty minutes is an average, and some students slept no longer.",
+          "That is the usual correction, but she makes a different one: the twenty minutes applies to a subgroup."),
+       o("LF417-subgroup", "She says twenty minutes held only for students who kept to it.",
+          "“The average for the students who kept to it at least five nights a week. Across the whole group, it was eight minutes.”", true),
+       o("LF417-grades", "She says the twenty minutes held only for the ninth graders in the group.",
+          "She separates students by how often they kept to it, not by grade."),
+       o("LF417-forty", "She says the true gain was closer to forty minutes a night.",
+          "She lowers the figure for the whole group, to eight minutes.")],
+      "A good listener catches which group a number belongs to. Here the headline figure describes only the students who stuck with it."),
 
     item("LF418", "oral", "Radio interview — the students", ["listening"], ["listening-speaking"], "radio",
       "Which students were in the study?",
       [o("LF418-9-10-two", "ninth and tenth graders at two schools",
           "“Ninth and tenth graders, at two schools.”", true),
-       o("LF418-all-one", "all four high-school grades at one school",
-          "The host asks whether it was all high-school students; Rhee narrows it."),
+       o("LF418-9-10-one", "ninth and tenth graders at one school",
+          "She says two schools."),
        o("LF418-11-12-two", "eleventh and twelfth graders at two schools",
           "She names ninth and tenth grade."),
-       o("LF418-9-10-one", "ninth and tenth graders at one school",
-          "She says two schools.")],
+       o("LF418-11-12-one", "eleventh and twelfth graders at one school",
+          "She names ninth and tenth grade, at two schools.")],
       "Listen for the exact group a finding covers; it limits who the finding applies to."),
 
     item("LF419", "oral", "Radio interview — size and length", ["listening"], ["listening-speaking"], "radio",
@@ -926,8 +926,8 @@ ANA: Okay. I’ll move the claim and cut paragraph three. I’m keeping the bus 
           "She says weeks."),
        o("LF419-900-3w", "900 students, three weeks",
           "She says 90."),
-       o("LF419-19-3w", "19 students, three weeks",
-          "She says 90.")],
+       o("LF419-900-3m", "900 students, three months",
+          "She says 90 students and three weeks.")],
       "Small studies over short periods are a reason for the limit she puts on her finding."),
 
     item("LF420", "oral", "Radio interview — her verdict", ["listening"], ["listening-speaking", "evidence-credibility"], "radio",
@@ -966,28 +966,28 @@ ANA: Okay. I’ll move the claim and cut paragraph three. I’m keeping the bus 
       "Tying a comment to a rubric row tells the writer which part of the draft it concerns."),
 
     item("LF423", "oral", "Peer review — what Ana moves", ["discussion"], ["group-discussion"], "peerreview",
-      "What does Ana say she will move?",
-      [o("LF423-claim-first", "the claim, to the first paragraph",
+      "What does Ana say she will move, and where?",
+      [o("LF423-claim-first", "the claim, up to the first paragraph",
           "Jonah says the claim is in the last paragraph and should move up; Ana agrees.", true),
-       o("LF423-bus-first", "the bus numbers, to the first paragraph",
-          "Ana says she is keeping the bus numbers, not moving them."),
-       o("LF423-p3-end", "paragraph three, to the end",
-          "She says she will cut paragraph three."),
-       o("LF423-claim-end", "the claim, to the last paragraph of the essay",
-          "The claim is already in the last paragraph; she will move it up.")],
+       o("LF423-claim-end", "the claim, down to the last paragraph",
+          "The claim is already in the last paragraph; she will move it up."),
+       o("LF423-bus-first", "the bus numbers, up to the first paragraph",
+          "Ana says she is keeping the bus numbers where they are."),
+       o("LF423-bus-end", "the bus numbers, down to the last paragraph",
+          "No one suggests moving the bus numbers, and Ana keeps them.")],
       "A writer can accept some feedback and keep what works. Track which change goes with which comment."),
 
     item("LF424", "oral", "Peer review — the repetition", ["discussion"], ["group-discussion", "essay-structure"], "peerreview",
       "Which paragraph does Jonah say repeats another?",
       [o("LF424-3-2", "paragraph three repeats paragraph two",
           "“Paragraph three repeats paragraph two.”", true),
-       o("LF424-2-1", "paragraph two repeats paragraph one",
-          "He names paragraphs three and two."),
-       o("LF424-last-first", "the last paragraph repeats the first",
-          "His comment about the last paragraph concerns where the claim sits."),
-       o("LF424-3-last", "paragraph three repeats the last one",
-          "He names paragraph two as the one repeated.")],
-      "Keep each comment with the paragraphs it names.")
+       o("LF424-3-1", "paragraph three repeats paragraph one",
+          "He names paragraph two as the one repeated."),
+       o("LF424-4-2", "paragraph four repeats paragraph two",
+          "He names paragraph three as the one that repeats."),
+       o("LF424-4-1", "paragraph four repeats paragraph one",
+          "He names paragraphs three and two.")],
+      "Keep each comment with the paragraphs it names."),
   ];
 
   // Legacy consumers read choices/answer; QuizCore reads the option objects.

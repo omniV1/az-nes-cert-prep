@@ -194,6 +194,7 @@ A passage question must not be answerable from the stem and options alone. The f
    - Do not give the correct answer the only hedge ("may," "could," "not necessarily," "does not by itself"), the only precise number, or the only two-part claim.
    - Do not attach a "because…" clause to some options and not others. A reason attached to a wrong answer is usually what gives it away.
    - Prefer options that differ in a checkable fact (which group, which number, which source, which heading) over options that differ in how reasonable they sound.
+   - When options combine two facts, do not make the key the option that shares the most parts with the others ("90 students, three weeks" beside "90 … months," "900 … weeks," and "19 … weeks"). A blind reader picks the most common value of each part. Cross the parts evenly instead: 90 or 900, weeks or months, one option for each pair.
 2. **No cross-item cueing.** No stem, option, or explanation shown before answering may reveal or narrow the answer to another question in the cluster.
    - Test a given idea once per cluster. The first Form F asked about correlation versus causation in three of five questions, so answering one answered all three.
    - Check distractors too: a fact offered as wrong in one question must not be the fact another question asks for.
