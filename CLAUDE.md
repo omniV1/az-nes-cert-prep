@@ -42,10 +42,10 @@ The hard, passage-based ELA questions live in six files. All use IDs `LF###`.
 | B | `js/data/problems-ela-longform-b.js` | LF057–LF124 | legacy |
 | C | `js/data/problems-ela-longform-c.js` | LF125–LF182 | legacy |
 | D | `js/data/problems-ela-longform-d.js` | LF283–LF312 | option objects |
-| E | `js/data/problems-ela-longform-e.js` | LF313–LF352 | option objects |
+| E | `js/data/problems-ela-longform-e.js` | LF313–LF358 | option objects |
 | F | `js/data/problems-ela-longform-f.js` | LF268–LF282 | option objects |
 
-The next free ID is LF353. LF183–LF212 (the first Form D), LF213–LF252 (the first Form E), and LF253–LF267 (the first Form F) are retired; never reuse a retired ID, because saved attempts and mastery records still point at it. Forms D, E, and F have been rebuilt to the anti-testwiseness rules below; Forms A, B, and C have not. Use Form D, E, or F as the model for new work.
+The next free ID is LF359. LF183–LF212 (the first Form D), LF213–LF252 (the first Form E), and LF253–LF267 (the first Form F) are retired; never reuse a retired ID, because saved attempts and mastery records still point at it. Forms D, E, and F have been rebuilt to the anti-testwiseness rules below. Form A has been repaired in place: same IDs and keys, with its wrong answers rewritten to those rules. Forms B and C have not been touched yet. Use Form D, E, or F as the model for new work.
 
 ### The five pages that load question data
 
@@ -205,6 +205,7 @@ A passage question must not be answerable from the stem and options alone. The f
    - Do not let the stem's wording match the correct option's wording ("is it allowed?" → "Do not use").
    - "Which revision is best?" and "which thesis is strongest?" are answerable blind, because the good sentence looks good. Ask instead what the draft itself does: which numbered sentence is off-purpose, repeats a step, or gets a fact wrong; where a given sentence belongs.
    - Literature cannot be changed to depart from the textbook case. Ask about what specific lines say (who, what, how much, in what order), with wrong answers drawn from other lines of the same excerpt, and avoid questions that knowledge of the author or period would settle. A language-model reader may know a famous text by heart, so its blind score on a literature cluster overstates what a human could guess.
+   - Keep interpretation questions (theme, tone, purpose, period, context). NES 301 tests them, and removing them from a form removes that practice. Make their wrong answers misread specific details of the passage, keep the options parallel, and judge them by the open-book run, because a blind reader can often guess them.
 
 **The check.** Before opening a PR for new or rewritten passage questions, print the stems and options with no passages, keys, or explanations, and have a reader who has not seen the passages predict the answers with a confidence level for each. Chance is 25%. Treat any answer predicted with high confidence as a defect and fix the question, even if the prediction happens to be wrong. The author of the questions cannot run this check on their own work. Neither can a reader who has seen an earlier version of the same passages or the notes describing the revision: the second Form F audit was run by the reader who had audited the first, who then knew the passages' facts from the old options and scored 9 of 10 on the two unchanged passages against 2 of 5 on the new one. Use a fresh reader each time a passage is reused.
 
@@ -273,7 +274,7 @@ Test suites:
 | `tests/quiz-core.test.js` | Option IDs, shuffling, grading, saved attempts |
 | `tests/validate-questions.test.js` | The validator's rules |
 | `tests/length-bias.test.js` | Answer-length limits on the passage forms |
-| `tests/testwiseness.test.js` | Rebuilt forms (D, E, F): no absolute words, no option-only reasons, no repeated key ideas |
+| `tests/testwiseness.test.js` | Rebuilt forms (D, E, F): no absolute words, no option-only reasons, no repeated key ideas. Repaired forms (A): no absolute words in wrong answers, no option-only reasons |
 | `tests/audit.test.js` | The audit export hides passages and keys; shuffles and scoring are correct |
 | `tests/clusters.test.js` | Template families in the cluster exam |
 | `tests/flashcards.test.js` | No flashcard question with two correct answers |
