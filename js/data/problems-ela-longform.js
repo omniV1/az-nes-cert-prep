@@ -255,9 +255,9 @@ Moral: There are many who pretend to despise and belittle that which is beyond t
         "personification: Death is a polite driver",
         "simile: Death is like a carriage, compared with like or as",
         "apostrophe: the speaker addresses Death directly as you",
-        "allegory: Immortality is the driver who kindly stopped"
+        "hyperbole: Death’s slow pace is exaggerated for effect"
       ], answer: 0,
-      explanation: "Death “kindly stopped,” “knew no haste,” shows “Civility,” and drives: human traits with no like or as. {{opt:LF027-1}} needs like or as, which the stanzas lack. {{opt:LF027-2}} is false: she speaks of Death as he. {{opt:LF027-3}} is false: Death stopped; Immortality is a passenger." },
+      explanation: "Death “kindly stopped,” “knew no haste,” shows “Civility,” and drives: human traits with no like or as. {{opt:LF027-1}} needs like or as, which the stanzas lack. {{opt:LF027-2}} is false: she speaks of Death as he. {{opt:LF027-3}} is false: “He knew no haste” is stated plainly, not exaggerated." },
 
     { id: "LF028", domain: "literature", title: "Dickinson — tone shift", difficulty: "hard", tags: ["tone", "longform"], skillIds: ["narrative-elements", "poetry-forms"], passageSet: "dickinson", passage: P.dickinson,
       stem: "The poem’s tone shifts most sharply when—",
@@ -397,15 +397,15 @@ Moral: There are many who pretend to despise and belittle that which is beyond t
     fans: `WIND MACHINES AND SPRING FROST
 From Bulletin 9 of the Hollis Valley Growers’ Cooperative (a fictional cooperative), 2023
 
-(1) On still spring nights, cold air settles near the ground while a layer of warmer air sits about 40 feet up. (2) A wind machine is a tall fan that pulls that warmer air down into the orchard. (3) In the cooperative’s trial on four farms, blocks with a fan stayed 2.5°F warmer at blossom height on frost nights than blocks without one. (4) The fans made no difference on windy nights, when the warm layer had already mixed away, or on the two nights when the whole valley fell to 22°F.¹ (5) Growers in the trial named the fans’ noise as their chief complaint; two farms ran them only after midnight to spare their neighbors.² (6) The bulletin calls the fans a marginal tool: one that decides the crop only on nights already close to the damage line.³
+(1) On still spring nights, cold air settles near the ground while a layer of warmer air sits about 40 feet up. (2) A wind machine is a tall fan that pulls that warmer air down into the orchard. (3) In the cooperative’s trial on four farms, each fan was run on some frost nights and left off on others; with the fan running, its block stayed 2.5°F warmer at blossom height. (4) The fans made no difference on windy nights, when the warm layer had already mixed away, or on the two nights when the whole valley fell to 22°F.¹ (5) Growers in the trial named the fans’ noise as their chief complaint; two farms ran them only after midnight to spare their neighbors.² (6) The bulletin calls the fans a marginal tool: one that decides the crop only on nights already close to the damage line.³
 
 Notes
 1. Readings from the cooperative’s station network, March 2022.
 2. Grower interviews, May 2022.
-3. The damage line is the temperature below which open blossoms are killed: about 28°F at full bloom.
+3. The damage line is the temperature below which open blossoms are killed: about 26°F at full bloom for the valley’s main variety.
 
 A STUDENT’S NOTECARDS
-Card A: “Blocks with a fan stayed 2.5°F warmer at blossom height on every frost night.” (Bulletin 9, sentence 3)
+Card A: “With the fan running, its block stayed 2.5°F warmer at blossom height on every frost night.” (Bulletin 9, sentence 3)
 Card B: Growers said the noise was the biggest problem. (Bulletin 9, note 2)
 Card C: The fans did not help on the nights the valley fell to 22°F. (Bulletin 9, note 2)`,
 
@@ -435,7 +435,7 @@ Fine print
 * Average gain on StudyLoop’s own practice quiz among users who finished all 40 lessons, compared with each user’s first practice quiz.
 ** Accounts created since 2019, including accounts no longer in use.
 *** From a survey of 50 teachers who had been given a free classroom license.
-† A card is required for the trial. The yearly plan, $59.99, is charged on day 31 unless the trial is cancelled.`,
+† A card is required for the trial. The yearly plan, $59.99, is charged on day 15 of the trial and refunded in full if the trial is cancelled by day 30.`,
 
     council: `Transcript of a student council meeting about the spring dance (fictional)
 
@@ -473,7 +473,7 @@ MAYA: Let’s hold that for next week. The vote on Sam’s plan is four in favor
     item("LF360", "language", "Frost fans — a misquotation", ["research"], ["research-citation"], "fans",
       "Which notecard changes the words of the sentence it quotes?",
       [o("LF360-a", "Card A",
-          "Sentence 3 says “on frost nights.” The card adds “every,” and sentence 4 names nights when the fans made no difference.", true),
+          "Sentence 3 has no “on every frost night.” The card adds those words, and sentence 4 names nights when the fans made no difference.", true),
        o("LF360-b", "Card B",
           "Card B is a paraphrase without quotation marks, so it does not claim to give the bulletin’s words."),
        o("LF360-c", "Card C",
@@ -498,20 +498,20 @@ MAYA: Let’s hold that for next week. The vote on Sam’s plan is four in favor
       "According to the notes, open blossoms at full bloom are killed below about—",
       [o("LF362-22", "22°F",
           "22°F is how cold the whole valley got on two nights, from sentence 4."),
-       o("LF362-28", "28°F",
-          "Note 3: “about 28°F at full bloom.”", true),
+       o("LF362-26", "26°F",
+          "Note 3: “about 26°F at full bloom for the valley’s main variety.”", true),
        o("LF362-32", "32°F",
           "32°F is the freezing point of water. The bulletin gives its own figure."),
-       o("LF362-25", "25°F",
-          "No figure of 25°F appears in the bulletin.")],
+       o("LF362-28", "28°F",
+          "28°F is a figure often given for blossoms elsewhere. This bulletin gives its own: 26°F.")],
       "Footnotes often carry the definitions a reader needs. Note 3 defines the damage line and gives its value."),
 
     item("LF363", "language", "Frost fans — what the figure compares", ["research"], ["informational-texts", "evidence-credibility"], "fans",
       "The 2.5°F figure in sentence 3 compares—",
-      [o("LF363-blocks", "blocks with a fan and blocks without one, on frost nights",
-          "“Blocks with a fan stayed 2.5°F warmer at blossom height on frost nights than blocks without one.”", true),
-       o("LF363-windy", "the same blocks on frost nights and on windy nights",
-          "Windy nights appear in sentence 4, where the fans made no difference. They are not part of the 2.5°F comparison."),
+      [o("LF363-onoff", "the same block on frost nights with its fan on and with it off",
+          "Each fan “was run on some frost nights and left off on others”; the 2.5°F is the difference for its own block.", true),
+       o("LF363-neighbors", "blocks with a fan and nearby blocks with no fan",
+          "This is the usual design for such a trial, but this one compared each block with itself, fan on and fan off."),
        o("LF363-height", "the air at blossom height and the air 40 feet up",
           "Sentence 1 says the upper layer is warmer but gives no figure for the difference."),
        o("LF363-midnight", "farms that ran fans all night and farms that waited until midnight",
@@ -728,14 +728,14 @@ MAYA: Let’s hold that for next week. The vote on Sam’s plan is four in favor
 
     item("LF381", "reading", "Study app ad — 2 million", ["persuasive", "rhetoric"], ["persuasive-texts", "rhetorical-appeals"], "studyloop",
       "The figure of 2 million learners counts—",
-      [o("LF381-monthly", "students who use the app each month",
-          "The fine print counts accounts, not monthly users."),
+      [o("LF381-year", "accounts opened in the past year, used or not",
+          "The count runs from 2019, not from the past year."),
        o("LF381-accounts", "accounts opened from 2019 on, used or not",
           "“Accounts created since 2019, including accounts no longer in use.”", true),
-       o("LF381-finished", "learners who finished all 40 lessons",
-          "That group is the one behind the 18-point figure, not the 2 million."),
-       o("LF381-everyone", "students and teachers together",
-          "The fine print does not mention teachers in this count.")],
+       o("LF381-downloads", "downloads of the app, repeat downloads included",
+          "The fine print counts accounts, not downloads."),
+       o("LF381-lesson", "students who finished at least one lesson",
+          "The fine print counts accounts “including accounts no longer in use,” with no lesson required.")],
       "A bandwagon number is only as large as what it counts. Here it includes accounts no one uses."),
 
     item("LF382", "reading", "Study app ad — the teachers", ["persuasive", "rhetoric"], ["persuasive-texts", "evidence-credibility"], "studyloop",
@@ -751,16 +751,16 @@ MAYA: Let’s hold that for next week. The vote on Sam’s plan is four in favor
       "Ask who was asked and what they had received. A free license is a reason to discount the recommendation."),
 
     item("LF383", "reading", "Study app ad — the trial", ["persuasive"], ["persuasive-texts", "technical-texts"], "studyloop",
-      "A user starts the free trial on June 1 and never cancels. She is charged—",
-      [o("LF383-june30", "$59.99 on June 30",
-          "June 30 is day 30, the last day of the trial."),
-       o("LF383-july1", "$59.99 on July 1",
-          "June 1 is day 1, so day 31 is July 1, when the yearly plan is charged.", true),
-       o("LF383-monthly", "$5.00 a month starting July 1",
-          "The ad names only a yearly plan."),
-       o("LF383-nothing", "no charge until she chooses a plan",
-          "The plan is charged “unless the trial is cancelled,” so not choosing means paying.")],
-      "Count the trial’s first day as day 1. An automatic charge is the default here, not an opt-in."),
+      "A user starts the free trial on June 1 and never cancels. When is she first charged $59.99?",
+      [o("LF383-june15", "on June 15",
+          "The fine print charges the yearly plan “on day 15 of the trial.” June 1 is day 1.", true),
+       o("LF383-july1", "on July 1",
+          "This assumes the charge comes after a 30-day trial ends. Here it comes on day 15; day 30 is only the refund deadline."),
+       o("LF383-june30", "on June 30",
+          "Day 30 is the last day to cancel for a refund, not the day of the charge."),
+       o("LF383-june1", "on June 1",
+          "A card is taken at signup, but the charge comes on day 15, not on day 1.")],
+      "A free trial can still charge during the trial. Read when the charge falls, not only when the trial ends."),
 
     /* ---- Discussion: a meeting transcript ---- */
     item("LF384", "oral", "Council transcript — checking a consequence", ["discussion"], ["group-discussion"], "council",
