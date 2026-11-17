@@ -356,20 +356,20 @@ window.EXAMS = [
     minutes: 80,
     description: "Third original long-passage form: dust-event briefing with a table, Sunday hours editorial, pool rules, Blake/Keats/Chopin/Dunbar/Emerson/Frankenstein, a revision draft, paired water-rate sources, a board transcript, a misleading poster, and an analytical paragraph. Same tight-distractor style as A/B. After two sittings, switch to the randomized cluster exam — do not grind these letters.",
     problemIds: [
-      "LF125","LF126","LF127","LF128","LF129",
-      "LF130","LF131","LF132","LF133",
-      "LF134","LF135","LF136","LF137",
+      "LF425","LF426","LF427","LF428","LF429",
+      "LF430","LF431","LF432","LF433",
+      "LF434","LF435","LF436","LF437",
       "LF138","LF139","LF140","LF141",
       "LF142","LF143","LF144","LF145",
       "LF146","LF147","LF148","LF149",
       "LF150","LF151","LF152","LF153",
       "LF154","LF155","LF156","LF157",
       "LF158","LF159","LF160","LF161",
-      "LF162","LF163","LF164","LF165","LF166",
-      "LF167","LF168","LF169","LF170",
-      "LF171","LF172","LF173","LF174",
-      "LF175","LF176","LF177","LF178",
-      "LF179","LF180","LF181","LF182"
+      "LF438","LF439","LF440","LF441",
+      "LF442","LF443","LF444","LF445",
+      "LF446","LF447","LF448","LF449",
+      "LF450","LF451","LF452","LF453",
+      "LF454","LF455","LF456","LF457"
     ]
   },
   {
@@ -934,9 +934,6 @@ function longformClusters(bank) {
    family, and recency is tracked by family so a template does not return the
    next day under a new name. Sets not listed are their own family. */
 const CLUSTER_FAMILIES = {
-  "rules-document": ["buspass", "pool"],
-  "error-draft": ["plantsale", "revise"],
-  "pictograph": ["poster", "ebooks"],
   "paine": ["paine", "pair-liberty"]
 };
 window.CLUSTER_FAMILIES = CLUSTER_FAMILIES;

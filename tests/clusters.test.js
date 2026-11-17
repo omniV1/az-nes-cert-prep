@@ -42,10 +42,10 @@ test("templates from the last sitting are skipped while fresh ones remain", () =
   }
 });
 
-test("yesterday's bus-pass rules keep the other rules documents out of today's sitting", () => {
+test("yesterday's Paine excerpt keeps the paired Paine sources out of today's sitting", () => {
   for (let i = 0; i < 50; i++) {
-    const next = sitWith([{ id: "ela-clusters", clusterIds: ["buspass", "plantsale", "poster"] }]);
-    for (const id of ["buspass", "pool", "plantsale", "revise", "poster", "ebooks"]) {
+    const next = sitWith([{ id: "ela-clusters", clusterIds: ["paine", "garden", "fans"] }]);
+    for (const id of ["paine", "pair-liberty"]) {
       assert.ok(!next.includes(id), `${id} in ${next.join(", ")}`);
     }
   }
