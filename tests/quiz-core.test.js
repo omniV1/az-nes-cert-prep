@@ -152,11 +152,11 @@ test("flashcard-style items regenerated each sitting still review from the saved
   assert.equal(r.keyText, "right def");
 });
 
-test("reported examples: LF055, LF036, LF054 explanations follow the shuffled key", () => {
+test("reported examples: LF040, LF041, LF015 explanations follow the shuffled key", () => {
   const cases = {
-    LF055: { keyId: "LF055-1", phrase: id => `${id} recasts the idea in new syntax` },
-    LF036: { wrongId: "LF036-3", phrase: id => `${id} mismatches person/were` },
-    LF054: { wrongId: "LF054-2", phrase: id => `${id} keeps the vagueness the stem asks to fix` }
+    LF040: { keyId: "LF040-1", phrase: id => `${id} names the devices` },
+    LF041: { wrongId: "LF041-0", phrase: id => `${id} is a generation image` },
+    LF015: { wrongId: "LF015-2", phrase: id => `${id} contradicts` }
   };
   for (const [pid, c] of Object.entries(cases)) {
     const p = byId(pid);

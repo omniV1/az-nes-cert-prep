@@ -38,14 +38,14 @@ The hard, passage-based ELA questions live in six files. All use IDs `LF###`.
 
 | Form | File | IDs | Authoring format |
 |---|---|---|---|
-| A | `js/data/problems-ela-longform.js` | LF001–LF056 | legacy |
+| A | `js/data/problems-ela-longform.js` | LF014–LF034, LF040–LF045 (legacy); LF359–LF387 (option objects) | both |
 | B | `js/data/problems-ela-longform-b.js` | LF057–LF124 | legacy |
 | C | `js/data/problems-ela-longform-c.js` | LF125–LF182 | legacy |
 | D | `js/data/problems-ela-longform-d.js` | LF283–LF312 | option objects |
 | E | `js/data/problems-ela-longform-e.js` | LF313–LF358 | option objects |
 | F | `js/data/problems-ela-longform-f.js` | LF268–LF282 | option objects |
 
-The next free ID is LF359. LF183–LF212 (the first Form D), LF213–LF252 (the first Form E), and LF253–LF267 (the first Form F) are retired; never reuse a retired ID, because saved attempts and mastery records still point at it. Forms D, E, and F have been rebuilt to the anti-testwiseness rules below. Form A has been repaired in place: same IDs and keys, with its wrong answers rewritten to those rules. Forms B and C have not been touched yet. Use Form D, E, or F as the model for new work.
+The next free ID is LF388. LF001–LF013, LF035–LF039, and LF046–LF056 (Form A’s first original passages), LF183–LF212 (the first Form D), LF213–LF252 (the first Form E), and LF253–LF267 (the first Form F) are retired; never reuse a retired ID, because saved attempts and mastery records still point at it. Forms D, E, and F have been rebuilt to the anti-testwiseness rules below. In Form A, the six original passages were rebuilt with new IDs, and the literature and speech clusters were repaired in place: same IDs and keys, with their wrong answers rewritten to those rules. Forms B and C have not been touched yet. Use Form D, E, or F as the model for new work.
 
 ### The five pages that load question data
 
@@ -115,7 +115,7 @@ Required fields:
 
 Option IDs are `<problemId>-<slug>` (for example `LF268-all`). They are saved in users' attempt history, so never rename or reuse one after it ships. When a question changes so much that it is a different question, give it a new ID and retire the old one.
 
-### Existing questions: legacy format (Forms A–C and most other banks)
+### Existing questions: legacy format (Form A’s literature questions, Forms B–C, and most other banks)
 
 ```js
 { id: "LF001", domain: "reading", title: "...", difficulty: "hard",
@@ -205,6 +205,7 @@ A passage question must not be answerable from the stem and options alone. The f
    - Do not let the stem's wording match the correct option's wording ("is it allowed?" → "Do not use").
    - "Which revision is best?" and "which thesis is strongest?" are answerable blind, because the good sentence looks good. Ask instead what the draft itself does: which numbered sentence is off-purpose, repeats a step, or gets a fact wrong; where a given sentence belongs.
    - Literature cannot be changed to depart from the textbook case. Ask about what specific lines say (who, what, how much, in what order), with wrong answers drawn from other lines of the same excerpt, and avoid questions that knowledge of the author or period would settle. A language-model reader may know a famous text by heart, so its blind score on a literature cluster overstates what a human could guess.
+   - Repairing wrong answers in place does not fix an original passage. After Form A’s original-passage questions were rewritten with parallel, fact-based wrong answers, a blind reader still scored 29 of 30 on them, because each key was still the conclusion a sensible document would reach. Rebuild those passages so the facts depart from the usual case, and ask about numbered sentences, notes, sections, and figures.
    - Keep interpretation questions (theme, tone, purpose, period, context). NES 301 tests them, and removing them from a form removes that practice. Make their wrong answers misread specific details of the passage, keep the options parallel, and judge them by the open-book run, because a blind reader can often guess them.
 
 **The check.** Before opening a PR for new or rewritten passage questions, print the stems and options with no passages, keys, or explanations, and have a reader who has not seen the passages predict the answers with a confidence level for each. Chance is 25%. Treat any answer predicted with high confidence as a defect and fix the question, even if the prediction happens to be wrong. The author of the questions cannot run this check on their own work. Neither can a reader who has seen an earlier version of the same passages or the notes describing the revision: the second Form F audit was run by the reader who had audited the first, who then knew the passages' facts from the old options and scored 9 of 10 on the two unchanged passages against 2 of 5 on the new one. Use a fresh reader each time a passage is reused.
@@ -310,7 +311,7 @@ For page or layout changes, also take screenshots at 1200px and 390px wide and c
 
 ## Known gaps
 
-- Forms A–C have no per-option explanations.
+- Forms B and C, and Form A’s legacy questions, have no per-option explanations.
 - The validator does not check `skillIds`, `domain`, or `difficulty` values.
 - Progress lives in one browser's `localStorage`; there are no accounts or sync.
 - Before selling: review the stored Pearson study-guide items and keys in `js/data/study-guides.js`, the use of the NES and Pearson names, and any pass-rate claims.
