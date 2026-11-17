@@ -1,7 +1,7 @@
 /* Crude guards against answers that can be picked without the passage. They catch only the
    mechanical tells; the real check is a passage-blind read by someone who has not seen the
    passages (see "Anti-testwiseness rules" in CLAUDE.md). Applies to the forms rebuilt to those
-   rules: D, E, and F. Add a form to REBUILT when it is rebuilt. Forms repaired in place (A, B) keep
+   rules: D, E, and F. Add a form to REBUILT when it is rebuilt. Forms repaired in place (A, B, C) keep
    their interpretation questions and get the two option checks below, applied to wrong answers. */
 const test = require("node:test");
 const assert = require("node:assert/strict");
@@ -11,7 +11,7 @@ const data = loadQuestionData();
 const REBUILT = ["js/data/problems-ela-longform-d.js", "js/data/problems-ela-longform-e.js", "js/data/problems-ela-longform-f.js"];
 const items = data.problems.filter(p => REBUILT.some(file => data.problemsByFile[file].has(p.id)));
 
-const REPAIRED = ["js/data/problems-ela-longform.js", "js/data/problems-ela-longform-b.js"];
+const REPAIRED = ["js/data/problems-ela-longform.js", "js/data/problems-ela-longform-b.js", "js/data/problems-ela-longform-c.js"];
 const repaired = data.problems.filter(p => REPAIRED.some(file => data.problemsByFile[file].has(p.id)));
 const REASON = /\b(because|since|so that)\b|, so\b/i;
 
